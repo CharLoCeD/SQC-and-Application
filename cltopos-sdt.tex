@@ -1,0 +1,928 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage[numbers]{natbib}
+\usepackage[english]{babel}
+\usepackage[X2,T1]{fontenc}
+\usepackage{leftindex}
+\usepackage{libertine}%new font
+\usepackage{libertinust1math}
+\usepackage[utf8]{inputenc} %'utf8' instead of 'latin1'
+\usepackage{enumitem} %modified eunumerate environment
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage{stmaryrd}
+\allowdisplaybreaks
+\usepackage{quiver}
+\usepackage{appendix}
+\usepackage{mathtools}
+
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{observation}[theorem]{Observation}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Open Question}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{qquestion}[theorem]{Question}
+\newtheorem{axiom}{Axiom}
+
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\mbb}[1]{\mathbb{#1}}
+\newcommand{\T}{\mbb T}
+\newcommand{\I}{\mbb I}
+\newcommand{\gn}[1]{\ulcorner\! #1 \!\urcorner}
+\newcommand{\mr}[1]{\mathrm{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\ms}[1]{\mathsf{#1}}
+\newcommand{\Ind}{\mathbf{Ind}}
+\newcommand{\Pro}{\mathbf{Pro}}
+\newcommand{\Set}{\mb{Set}}
+\newcommand{\Prop}{\mb{Prop}}
+\newcommand{\sSet}{\mb{sSet}}
+\newcommand{\sSeto}{\mb{sSet}_{\le 1}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Fin}{\mb{Fin}}
+\newcommand{\Cnt}{\mb{Cnt}}
+\newcommand{\Enm}{\mb{Enm}}
+\newcommand{\Grp}{\mb{Grp}}
+\newcommand{\sub}{\mr{Sub}}
+\newcommand{\Lex}{\mb{Lex}}
+\newcommand{\Pos}{\mb{Pos}}
+\newcommand{\alg}{\text{-}\mb{Alg}}
+\newcommand{\Var}{\mb{Var}}
+\newcommand{\Aff}{\mb{Aff}}
+\newcommand{\Vect}{\mb{Vect}}
+\newcommand{\CRing}{\mb{CRing}}
+\newcommand{\DL}{\mb{DL}}
+\newcommand{\BA}{\mb{BA}}
+\newcommand{\HA}{\mb{HA}}
+\newcommand{\JL}{\mb{JL}}
+\newcommand{\ML}{\mb{ML}}
+\newcommand{\ProMon}{\mb{ProMod}}
+\newcommand{\CTopoi}{\mb{CTopoi}}
+\newcommand{\PTc}{\mb{PT}_c}
+\newcommand{\Topoi}{\mb{Topoi}}
+\newcommand{\sh}{\mb{Sh}}
+\newcommand{\psh}{\mb{Psh}}
+\newcommand{\Cont}{\mb{Cont}}
+\newcommand{\Cart}[1]{#1^\to_{\text{cart}}}
+\newcommand{\Str}{\mb{Str}}
+\newcommand{\op}{^{\mathrm{op}}}
+\newcommand{\inv}{^{\mathrm{-1}}}
+\newcommand{\pf}[1]{\widehat{#1}}
+\newcommand{\qsi}[1]{\tilde{#1}}
+\newcommand{\cob}{\vartriangleleft}
+\newcommand{\other}{\mathrm{otherwise}}
+\newcommand{\geo}[1]{\left|#1\right|}
+\newcommand{\ov}[1]{\overline{#1}}
+\newcommand{\set}[1]{\{\,#1\,\}}
+\newcommand{\eff}{\Leftrightarrow}
+\newcommand{\conjt}{\;\&\;}
+\newcommand{\pair}[1]{\left\langle#1\right\rangle}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\ev}{\mathrm{ev}}
+\newcommand{\elem}{\int\!\!}
+\newcommand{\nt}{\Rightarrow}
+\newcommand{\scomp}[2]{\{\,#1\mid#2\,\}}
+\newcommand{\yon}{\mathtt{y}}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\inj}{\rightarrowtail}
+\newcommand{\hook}{\hookrightarrow}
+\newcommand{\cg}{\operatorname{\sim}}
+\newcommand{\im}{\operatorname{img}}
+\newcommand{\cgf}[2]{\leftindex_{#1}{\cg}_{#2}}
+\newcommand{\coten}{\pitchfork}
+\newcommand{\ppr}{\operatorname{\hat\times}}
+\newcommand{\rl}{^{\perp}}
+\newcommand{\llo}[1]{\leftindex_{}^{\perp} {#1}}
+\newcommand{\dl}{^{\circ}}
+\newcommand{\prth}[1]{\left(#1\right)}
+\newcommand{\fn}{_{\mr{f.}}}
+\newcommand{\fp}{_{\mr{f.p.}}}
+\newcommand{\fpp}{_{\mr{f.p.,+}}}
+\newcommand{\cp}{_{\mr{c.p.}}}
+\newcommand{\cpp}{_{\mr{c.p.,+}}}
+\newcommand{\pls}{^+}
+\newcommand{\mns}{^-}
+\newcommand{\dv}{\operatorname{\uparrow}}
+\newcommand{\cv}{\operatorname{\downarrow}}
+\newcommand{\et}{_{\text{\'et}}}
+\newcommand{\N}{\mbb N}
+\newcommand{\Q}{\mbb Q}
+\newcommand{\Z}{\mbb Z}
+\newcommand{\Deltao}{\Delta_{\le 1}}
+\newcommand{\Deltaw}{\Delta_{\omega}}
+\newcommand{\sk}{\ms{sk}}
+\newcommand{\csk}{\ms{csk}}
+\newcommand{\sInt}{\mb{sInt}}
+\newcommand{\jcan}{J_{\mr{can}}}
+\newcommand{\wCPO}{\omega\mb{CPO}}
+\newcommand{\shape}{\operatorname{\smallint}}
+\newcommand{\dneg}{\neg\neg}
+\newcommand{\prt}{_{\bot}}
+\newcommand{\fa}[2]{\forall #1\!\colon\!\!#2.\ }
+\newcommand{\ex}[2]{\exists #1\!\colon\!\!#2.\ }
+\newcommand{\exu}[2]{\exists_! #1\!\colon\!\!#2.\ }
+\newcommand{\ld}[2]{\lambda #1\!\colon\!\!#2.\ }
+\newcommand{\subopen}{\subseteq_{\mbb I}}
+\newcommand{\emp}{\emptyset}
+\newcommand{\eq}{\leftrightarrow}
+\newcommand{\ass}[1]{\llbracket#1\rrbracket} %\usepackage{stmaryrd}
+\newcommand{\pss}[1]{||#1||} %\usepackage{stmaryrd}
+\newcommand{\tp}{\ms{Type}}
+\newcommand{\pp}{\ms{Prop}}
+\newcommand{\st}{\ms{Set}}
+\newcommand{\cnt}{\ms{Cnt}}
+\newcommand{\gp}{\ms{Grpd}}
+\newcommand{\pcat}{\ms{PCat}}
+\newcommand{\cat}{\ms{Cat}}
+\newcommand{\pcatt}{\ms{PCAT}}
+\newcommand{\catt}{\ms{CAT}}
+\newcommand{\PCat}{\mb{PCat}}
+\newcommand{\Cat}{\mb{Cat}}
+\newcommand{\PCAT}{\mb{PCAT}}
+\newcommand{\CAT}{\mb{CAT}}
+\newcommand{\Catt}{\mf{Cat}}
+\newcommand{\CATT}{\mf{CAT}}
+\newcommand{\Top}{\mf{Top}}
+\newcommand{\Tp}{\ms{TYPE}}
+\newcommand{\Pp}{\ms{PROP}}
+\newcommand{\St}{\ms{SET}}
+\newcommand{\Gp}{\ms{GRPD}}
+\newcommand{\fst}{\ms{Fin}}
+\newcommand{\quot}[1]{/_{\pair{#1}}}
+\newcommand{\List}{\ms{List}}
+\newcommand{\hp}{\text{-}}
+\newcommand{\PG}{\ms{PG}}
+\newcommand{\uv}[1]{\underline{#1}}
+\newcommand{\mmod}[1]{#1\text{-}\mathbf{Mod}}
+\newcommand{\func}{\mb{Func}}
+\newcommand{\tm}[1]{#1\text{-}\mathrm{Term}}
+\newcommand{\eqn}[1]{#1\text{-}\mathrm{Eqn}}
+\newcommand{\horn}[1]{#1\text{-}\mathrm{Horn}}
+\newcommand{\gr}[2]{[#1|#2]}
+\newcommand{\VT}{\mbb V_\T}
+\newcommand{\spec}{\operatorname{Spec}}
+\newcommand{\El}{\mr{El}}
+\newcommand{\lan}{\ms{lan}}
+\newcommand{\ran}{\ms{ran}}
+\newcommand{\upp}{_{\ms U}}
+\newcommand{\dsg}[1]{\!\pair{#1}}
+\DeclareFontFamily{U}{dmjhira}{}
+\DeclareFontShape{U}{dmjhira}{m}{n}{ <-> dmjhira }{}
+\DeclareRobustCommand{\yon}{\text{\usefont{U}{dmjhira}{m}{n}\symbol{"48}}}
+\DeclareRobustCommand{\noy}{\text{\reflectbox{\yon}}\!}
+
+\makeatletter
+\newcommand{\ct@}[2]{%
+  \vtop{\m@th\ialign{##\cr
+    \hfil$#1\operator@font lim$\hfil\cr
+    \noalign{\nointerlineskip\kern1.5\ex@}#2\cr
+    \noalign{\nointerlineskip\kern-\ex@}\cr}}%
+}
+\newcommand{\ct}{%
+  \mathop{\mathpalette\ct@{\rightarrowfill@\textstyle}}\nmlimits@
+}
+\makeatother
+\makeatletter
+\newcommand{\lt@}[2]{%
+  \vtop{\m@th\ialign{##\cr
+    \hfil$#1\operator@font lim$\hfil\cr
+    \noalign{\nointerlineskip\kern1.5\ex@}#2\cr
+    \noalign{\nointerlineskip\kern-\ex@}\cr}}%
+}
+\newcommand{\lt}{%
+  \mathop{\mathpalette\lt@{\leftarrowfill@\textstyle}}\nmlimits@
+}
+\makeatother
+
+
+\title{Synthetic Categories and Synthetic Domains with Classifying Topoi}
+% \author{Lingyuan Ye}
+\date{\today}
+
+
+
+\begin{document}
+%
+
+%
+%\titlerunning{Abbreviated paper title}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+
+%
+% \Endhorrunning{L. Ye}
+% First names are abbreviated in the running head.
+% If there are more than two authors, 'et al.' is used.
+%
+% \institute{New College\\
+
+%
+\maketitle              % typeset the header of the contribution
+%
+
+
+\section{Axioms for the presheaf geometry}
+
+We work in a type theory where we can develop a synthetic theory for duality of finitely presented lattice-like algebras. We work with the theory of distributive lattices. Thus, we will assume we have a generic model in our type theory
+\[ (\I\in\st,1,\wedge,\cdots) \]
+which satisfies finite version of quasi-coherence:
+
+\begin{axiom}[QC]\label{ax:null}
+  For any f.p. $\I$-algebra $A$, the canonical map is an equivalence of $\I$-algebras,
+  \[ A \to \I^{\spec A}, \]
+  where $\spec A$ is internally defined again as follows,
+  \[ \spec A := \I\alg(A,\I). \]
+\end{axiom}
+
+Notice that $\spec$ is a contravariant functor. (QC) in fact implies the following more general duality result:
+
+\begin{proposition}[QC]\label{prop:duality}
+  For any f.p. $\I$-algebras $A,B$, we have
+  \[ \I\alg(B,A) = \spec B^{\spec A}. \]
+\end{proposition}
+\begin{proof}
+  We have the following equivalences,
+  \[ \I\alg(A,B) = \I\alg(A,\I^{\spec B}) = \I\alg(A,\I)^{\spec B} = \spec A^{\spec B}. \qedhere \]
+\end{proof}
+
+\begin{definition}
+  For any type $X$, we define
+  \[ \ms{isAff}(X) := \sum_{A:\I\alg\fp} X = \spec A. \]
+  If $\ms{isAff}(X)$ holds, we say $X$ is an \emph{affine space}.
+\end{definition}
+
+By (QC), if $X$ is affine, then the f.p. $\I$-algebra $A$ such that $X = \spec A$ is unique, with $A = \I^X$. Hence, being affine is a proposition.
+
+\begin{lemma}
+  Any affine space $X$ is a set.
+\end{lemma}
+\begin{proof}
+  Let $X = \spec A$. By function extensionality, given $x,y : X$,
+  \[ (x = y) = \prod_{a:A}xa = ya. \]
+  Since $\I$ is a set, this is a proposition, thus $X$ is again a set.
+\end{proof}
+
+We give some examples of affine spaces. First, all the cubes are affine:
+
+\begin{example}
+  For any $n:\N$, $\I^n$ is affine,
+  \[ \spec\I[n] = \I\alg(\I[n],\I) = \I^n. \]
+  In particular, this means that $1 = \I^0$ and $\I = \I^1$ are affine.
+\end{example}
+
+As another example, we can also construct the simplices as affine spaces:
+
+\begin{example}\label{exm:simplicesaffine}
+  Let $\Delta^n \subseteq \I^n$ be the following subtype,
+  \[ \Delta^n := \scomp{x_1,\cdots,x_n :\I}{x_1 \ge \cdots \ge x_n}. \]
+  This type is indeed affine, since it by definition we have
+  \[ \Delta^n = \spec\I[x_1,\cdots,x_n]/x_1\ge\cdots\ge x_n. \]
+\end{example}
+
+One important consequence of (QC) is that the spectrum of a f.p. $\I$-algebra always ``have enough points'' to detect equalities between elements in the algebra:
+
+\begin{proposition}[QC]\label{prop:completeness}
+  For $A : \I\alg\fp$ and $a,b: n \to A$,
+  \[ a = b \eff \fa x{\spec A} xa = xb. \]
+\end{proposition}
+\begin{proof}
+  The $\nt$ direction is trivial. For $\Leftarrow$, by the universal property of the quotient $A/a = b$, we have
+  \[ \spec(A/a = b) = \scomp{x : \spec A}{xa = xb} \subseteq \spec A. \]
+  If $\fa x{\spec A}xa = xb$ holds, then $\spec(A/a = b) = \spec A$, which by (QC) we have $(A/a = b) = A$, which means $a = b$ holds in $A$.
+\end{proof}
+
+To account for the fact that in the presheaf topos $\Set[\T]$ the generic model is representable, we also assume the following choice principle, which we denote as \emph{presheaf-choice}:
+
+\begin{axiom}[PC]\label{ax:pchoice}
+  Let $X$ be affine and let $B : X \to \tp$ be a family of types. Then we have an element of the following type,
+  \[ \ms{pc} : \prod_{x:X}\pss{B(x)} \to \pss{\prod_{x:X}B(x)}. \]
+\end{axiom}
+
+\begin{remark}
+  In fact, the above axiom is quite strong, which highlights the fact that representables preserves \emph{all} colimits, thus the spectrums for f.p. $\I$-algebras will be supercompact. Later for other applications in mind, we might weaken the choice principle to account for working in a subtopos of $\Set[\T]$ (cf. Section~\ref{sec:nullstellensatz_and_local_geometry}).
+\end{remark}
+
+The aim of this chapter is to show that, starting from the above two simple axioms, we can derive a lot of structures for the classifying topos $\Set[\T]$ synthetically.
+
+\section{Elementary Properties for the Interval}
+
+The constant $1 : \I$ induces a predicate
+\[ \ms t : \I \to \pp, \]
+which takes $i : \I$ to $i = 1$. The first observation is that this map is always an embedding since we have assumed that $\T$ is meet-distributive:
+
+\begin{proposition}[QC]\label{prop:intconserve}
+  $\I$ is conservative,
+  \[ \fa{x,y}{\I} (\ms tx \eq \ms ty) \eq x = y. \]
+\end{proposition}
+\begin{proof}
+  It suffices to show
+  \[ \fa{x,y}{\I}(\ms tx \to \ms ty) \to x \le y. \]
+  Take $x,y$ with $\ms tx \to \ms ty$. Consider the f.p. $\I$-algebra $\I/x=1$. By construction, we have
+  \[ \spec(\I/x=1) = \I\alg(\I/x=1,\I) = \ms tx, \]
+  Hence, by (QC), if $\ms tx \to \ms ty$, we get a restriction map
+  \[ (\I/y=1) = \I^{\ms ty} \to \I^{\ms tx} = (\I/x=1). \]
+  Now by the universal property of the quotient, this map exists iff $x \le y$, which is the desired result.
+\end{proof}
+
+Equipped with (PC), we may show that $\I$ is internally \emph{supercompact}. For any type $X$ and a family of subtypes $U_i : X \to \pp$ indexed by another type $I$, we say $\set{U_i}_{i\in I}$ is a \emph{cover} of $X$ if
+\[ \fa xX \ex i{I} U_i(x). \]
+
+\begin{proposition}[PC]\label{prop:supercompactspec}
+  For any affine $X$, and a cover $\set{U_i}_{i}$ of a type $Y$. Then the canonical map
+  \[ \prth{\sum_{i:I}U_i}^{X} \to Y^X \]
+  is surjective.
+\end{proposition}
+\begin{proof}
+  Suppose we have a map $f : X \to Y$. The cover $\set{U_i}_{i:I}$ induces a cover on $X$, where $\prod_{x:X}\pss{\sum_{i:I}U_i(fx)}$. Hence by (PC), $\pss{\prod_{x:X}\sum_{i:I}U_i(fx)}$ holds.
+\end{proof}
+
+As a consequence, each spectrum is internally connected:
+
+\begin{corollary}[PC]\label{cor:internalconnectedspec}
+  For any affine $X$ and any $\varphi : X \to \pp$,
+  \[ \fa x{X} \varphi(x) \vee \neg\varphi(x) \to (\fa x{X}\varphi(x)) \vee (\fa x{X}\neg\varphi(x)). \]
+\end{corollary}
+\begin{proof}
+  This follows from the fact that by assumption, $\varphi$ and $\neg\varphi$ is a cover of $X$, which by Proposition~\ref{prop:supercompactspec} it merely holds that one of them already covers $X$.
+\end{proof}
+
+\section{Exactness Properties of the Category of Affine Spaces}\label{sec:exactness_properties_of_the_category_of_affine_spaces}
+
+The first easy consequence is that, since f.p. $\I$-algebras are closed under finite colimits, affine spaces would be closed under finite limits. Indeed, $1$ is affine, and we can show the following result:
+
+\begin{proposition}[QC]\label{prop:pullbackofaffine}
+  Let $X = \spec A$, $Y= \spec B$, $Z = \spec C$ be affine. Then the pullback of $f : X \to Y$ and $g : Z \to Y$ is also affine,
+  \[ X \times_Y Z = \spec (A \otimes_B C), \]
+  where $A \otimes_B C$ is the following pushout,
+  \[
+    \begin{tikzcd}
+      B \ar[r, "f^*"] \ar[d, "g^*"'] & A \ar[d] \\
+      C \ar[r] & A \otimes_B C
+      \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=2-2, to=1-1]
+    \end{tikzcd}
+  \]
+\end{proposition}
+\begin{proof}
+  Recall the pullback is defined as follows,
+  \[ X \times_Y Z = \scomp{x:X,z:Z}{fx = gz}. \]
+  This is indeed a subtype since $X,Y,Z$ are affine, hence in particular sets. In particular, an element in $X \times_Y Z$ are exactly two maps $x : A \to \I$, $z : C \to \I$, where $xf^* = zg^*$. By universal property of the pushout $A \otimes_B C$, this exactly corresponds to a map $(x,z) : A \otimes_B C \to \I$.
+\end{proof}
+
+The above result provides an extremely easy formula to compute the coproducts of f.p. $\I$-algebras internally:
+
+\begin{corollary}[QC]\label{cor:tensorasspace}
+  For any f.p. $\I$-algebra $A,B$, $A \otimes B = B^{\spec A}$.
+\end{corollary}
+\begin{proof}
+  By (QC) and Proposition~\ref{prop:pullbackofaffine},
+  \[ A \otimes B = \I^{\spec(A \otimes B)} = \I^{\spec A \times \spec B} = B^{\spec A}. \qedhere \]
+\end{proof}
+
+Concretely, the equivalence takes any element $c$ in $A \otimes B$ to the map
+\[ \ld{x}{\spec A} (x\otimes B)(c) : A \otimes B \to B^{\spec A}. \]
+Under this identification, for the left inclusion $A \to A \otimes B$, the induced map $A \to B^{\spec A}$ is give by
+\[ a \mapsto \ld x{\spec A}(x \otimes B)(a \otimes 1) = i_Bxa : B^{\spec A}, \]
+where $i_B : \I \to B$ is its structure map. For the right inclusion $B \to A \otimes B = B^{\spec A}$, it is simply given by 
+\[ b \mapsto \ld x{\spec A}(x \otimes B)(1 \otimes b) = b : B^{\spec A}, \]
+which is the constant function on $B$. 
+
+With the above calculation, we can prove an exactness property of the category $\I\alg\fp$. For any f.p. $\I$-algebra, we define the following notion:
+
+\begin{definition}
+  For $A : \I\alg\fp$, we say $A$ is \emph{faithful}, if $i_A : \I \to A$ is an embedding.
+\end{definition}
+
+Intuitively, $i_A$ being an embedding says that $A$ is non-trivial. Using the above fact, we can prove the following exactness property:
+
+\begin{theorem}[QC]\label{thm:faithfulpreserve}
+  For any $A:\I\alg\fp$, $A$ is faithful iff for all $B : \I\alg\fp$, $B \to A \otimes B$ is an embedding.
+\end{theorem}
+\begin{proof}
+  For the if direction, take $B$ to be $\I$. Then $i_A : \I \to A \otimes \I = A$ is an embedding. For the other direction, take any $B : \I\alg\fp$. By the previous calculation, the map $B \to A \otimes B = A^{\spec B}$ is given by
+  \[ b \mapsto \ld{x}{\spec B} i_Axb : B \to A^{\spec B}. \]
+  For this map to be an embedding, it suffices to show for all $a,b : B$,
+  \[ \fa{x}{\spec B} i_Axa = i_Axb \to a = b, \]
+  But this follows from $i_A$ being an embedding, and Proposition~\ref{prop:completeness}.
+\end{proof}
+
+\begin{remark}
+  Now if we look at $A \otimes B$ as $B^{\spec A}$, Theorem~\ref{thm:faithfulpreserve} says that for any f.p. $\I$-algebra $B$, if $A$ is faithful, then the constant map
+  \[ c : B \to B^{\spec A} \]
+  is an embedding. This is saying that $\spec A$ is in some sense weakly inhabited, though it is \emph{not} in general true that in this case we have $\pss{\spec A}$.
+\end{remark}
+
+\begin{remark}
+  Externalising the above result, it in particular gives a constructive proof that for such a theory $\T$, the pushouts in $\mmod\T\fp$ preserves monomorphisms.
+\end{remark}
+
+\section{Open Subtypes and Dominance}
+
+\begin{definition}
+  Given a proposition $p$, we say it is \emph{open} if $p$ is merely of the form $\ms tx$ for some $x$ in $\I$.
+\end{definition}
+
+Since by Proposition~\ref{prop:intconserve} $\I$ is conservative, which implies if a proposition $p$ is open, then the $x$ in $\I$ that $p = \ms tx$ is unique. Hence, we can identify $\I$ itself as the subset of open propositions via the embedding
+\[ \ms t : \I \inj \pp. \]
+More generally, we may define an open subtype:
+
+\begin{definition}
+  A subtype $U$ on $X$ is open, if for all $x:X$ the proposition $U(x)$ is open.
+\end{definition}
+
+For any f.p. $\I$-algebra $A$ and $a : A$, we may introduce \emph{standard opens} $D_a$ of $\spec A$ as the following subset,
+\[ D_a := \ld{x}{\spec A} \ms t(xa) : \spec A \to \pp. \]
+More generally, we say a subset $U$ of $\spec A$ is a standard open, if there merely exists an element $a$ that $U = D_a$ as subsets,
+\[ \ms{isStOpen}(U) := \ex aA \fa x{\spec A} U(x) = D_a(x) = \ms t(xa). \]
+Standard opens are themselves affine open subspaces:
+
+\begin{proposition}\label{prop:standardaffine}
+  Any standard open $U$ of an affine space $\spec A$ is itself affine, and an open subspace of $\spec A$.
+\end{proposition}
+\begin{proof}
+  Since being affine is a proposition, we can assume an $a : A$ that $U = D_a$. Now $D_a$ is affine,
+  \[ D_a = \sum_{x:\spec A}\ms t(xa) = \I\alg(A/a=1,\I) = \spec(A/a=1). \]
+  The second equivalence holds by the universal property of $A/a=1$.
+\end{proof}
+
+Using (PC), we can first show that for affine spaces, an open subset coincide with a standard open:
+
+\begin{lemma}[PC]\label{lem:openareaffineopen}
+  Let $X = \spec A$ be an affine space. Let $U$ be an open subset of $X$, then $U$ is a standard open of $X$.
+\end{lemma}
+\begin{proof}
+  Let $L : \spec A \to \tp$ be the following type family,
+  \[ L(x) = \sum_{a : A} U(x) = \ms ta. \]
+  By assumption that $U$ is open, we have an element of $\prod_{x:\spec A}\pss{L(x)}$, which by (PC), it means $\prod_{x:\spec A}L(x)$ is inhabited. Since $U$ being a standard open is a proposition, we can assume a section $s : \prod_{x:\spec A}L(x)$. Equivalently, we can view $s$ as a function
+  \[ s : \spec A \to A, \]
+  with $U(x) = \ms ts(x)$ for all $x : X$. This way, it follows that $D_s = U$, hence $U$ is standard open.
+\end{proof}
+
+\begin{proposition}[PC]\label{prop:transopen}
+  Open subsets are transitive on affine spaces, i.e. if $X$ is affine with $U \subseteq X$ open and $V \subseteq U$ open, then $V \subseteq X$ is also open.
+\end{proposition}
+\begin{proof}
+  According to Lemma~\ref{lem:openareaffineopen} it suffices to prove it for affine opens of $X$. Given Proposition~\ref{prop:standardaffine}, if $U = D_a \subseteq X = \spec A$ and furthermore $V = D_b \subseteq U = \spec(A/a=1)$, then we can view $b$ as an element in $A$ with $b \le a$ by meet-distributivity. Thus, $V = D_b \subseteq X$ is open.
+\end{proof}
+
+\begin{corollary}[QC, PC]\label{cor:Idominance}
+  The type of opens $\I$ forms a \emph{dominance}.
+\end{corollary}
+\begin{proof}
+  Apply Proposition~\ref{prop:transopen} to the unit type $1 = \spec\I$.
+\end{proof}
+
+Notice that with the dominance structure on $\I$ established, the conclusion of Proposition~\ref{prop:transopen} now will in fact apply to \emph{any} type $X$ whatsoever, not just affine ones, since we can show that the transitivity on $1$ is a \emph{generic} composition of open subtypes. In fact, open partial maps will be classified, as shown in the following section.
+
+
+
+\section{Lifting}
+
+Given then dominance $\I$, we can construct internally the lifting functor. For any type $X$, its lift is given by
+\[ X\prt := \sum_{i:\I}X^{\ms ti}. \]
+The functoriality is easy to express: For any $f : X \to Y$, we have
+\[ f\prt(i,x) := (i,\ld{w}{\ms ti}fxw). \]
+There is an evident unit $\eta : X \to X\prt$, where
+\[ \eta := \ld x X(\top,\ld\hp 1 x). \]
+Notice that even without the dominance structure on $\I$ we can still perform the above construction. However, $\I$ being a dominance implies that the lifting also has a multiplication structure $\mu : (X\prt)\prt \to X\prt$, where $\mu$ takes any $(i,u)$ with $i : \I$ and $u : \ms ti \to X\prt$ first to the dependent sum
+\[ j := \sum_{w:\ms ti} (uw)_0 : \I, \]
+and a partial element $x : \ms tj \to X$, such that for $w : \ms ti$ and $v : (uw)_0$
+\[ x(w,v) := (uw)_1(v). \]
+
+\begin{example}
+  By definition, it is easy to see that
+  \[ 1\prt = \sum_{i:\I}\ms ti = \I. \]
+\end{example}
+
+For the synthetic theory of domains, the object of particular importance is the lift $\I\prt$. In fact, we can compute the lift for any affine space $X = \spec A$ using (QC):
+\[ X\prt = \sum_{i:\I}X^{\ms ti} = \sum_{i:\I}\spec A^{\spec I/i=\top} = \sum_{i:\I}\I\alg(A,\I/i=\top). \]
+For instance, for the affine space $\I = \spec\I[x]$ we have
+\[ \I\prt = \sum_{i:\I}\I/i=\top = \sum_{i:\I}\sum_{j:\I}i \ge j = \Delta^2, \]
+which implies that $\I\prt$ also classifies the order on $\I$, i.e. $\I\prt = \I^\I = \I[x]$. More generally, we have:
+
+\begin{lemma}[QC]
+  For any $n : \N$, we have
+  \[ \Delta^n\prt = \Delta^{n+1}. \]
+\end{lemma}
+\begin{proof}
+  Recall from Example~\ref{exm:simplicesaffine} that $\Delta^n$ is affine,
+  \[ \Delta^n = \spec\I[x_1,\cdots,x_n]/x_1\ge\cdots\ge x_n. \]
+  This way, we have
+  \begin{align*}
+    \Delta^n\prt 
+    &= \sum_{i:\I}\I\alg(\I[x_1,\cdots,x_n]/x_1\ge\cdots\ge x_n,\I/i=\top) \\
+    &= \scomp{i,x_1,\cdots,x_n:\I}{i \ge x_1 \ge \cdots \ge x_n} \\
+    &= \Delta^{n+1} \qedhere
+  \end{align*}
+\end{proof}
+
+In particular, from a geometric perspective, the inclusion
+\[ \Delta^n \inj \Delta^n\prt = \Delta^{n+1} \]
+takes $i_1 \ge \cdots \ge i_n$ in $\Delta^n$ to $1 \ge i_1 \ge \cdots \ge i_n$ in $\Delta^{n+1}$. 
+
+
+\section{Nullstellensatz and Local Geometry}\label{sec:nullstellensatz_and_local_geometry}
+
+At the end of this chapter, let us briefly discuss the situation when the theory $\T$ has slightly more structure. For this, we assume $\T$ extends $\mbb D$, the theory of distributive lattices. In particular, it has a further constant $0$ and a binary join $\vee$, which distributes over $\wedge$. For instance, the theory of distributive lattices $\mbb D$, of de Morgan algebra $\mbb{dM}$, of Heyting algebra $\mbb H$, and of Boolean algebra $\mbb B$ are all of this type.
+
+In this case, we may further assume that the generic interval is non-trivial:
+
+\begin{axiom}[NT]\label{ax:nt}
+  For $\I$, $0 \neq 1$.
+\end{axiom}
+
+In this case, we are working in a non-trivial subtopos of $\Set[\T]$. Note that the choice principle (PC) as stated Axiom~\ref{ax:pchoice} will no longer be adequate due to the non-trivial topology. However, it is not far from being true. We will replace it with the following choice principle for \emph{merely inhabited} affine spaces:
+
+\begin{axiom}[NPC]\label{ax:npchoice}
+  Let $X$ be a merely inhabited affine space. Let $B : X \to \tp$ be a family of types. Then we have an element of the following type,
+  \[ \ms{npc} : \prod_{x:X}\pss{B(x)} \to \pss{\prod_{x:X}B(x)}. \]
+\end{axiom}
+
+Note that if we restrict previous results obtained by applying (PC) to merely inhabited affine spaces, the same would still holds by (NPC). In particular, recall the proof of Corollary~\ref{cor:Idominance} that $\I$ is a dominance. We only need to apply the choice principle to the affine space $\I$, which is inhabited. Hence, the same result still holds. Similar comments apply to other places where we have applied (PC), e.g. Proposition~\ref{prop:supercompactspec} or Corollary~\ref{cor:internalconnectedspec}.
+
+In particular, now $\emp$ is affine,
+\[ \emp = \spec \I/0=1. \]
+For any $\I$-algebra $A$, we say $A$ is \emph{trivial} if $0 = 1$ in $A$. In the case of (NT), we have the following Nullstellensatz result:
+
+\begin{proposition}[QC, NT]\label{prop:nulls}
+  For any affine $\spec A$, $\spec A = \emp$ iff $A$ is trivial.
+\end{proposition}
+\begin{proof}
+  This follows from $\emp$ is affine, thus if $\spec A = \emp$, then
+  \[ A = \I^{\spec A} = \I^\emp = 0. \qedhere \]
+\end{proof}
+
+In fact, much more is true when (NT) and (QC) are combined together. Since the meet and join structure on $\I$ are dual to each other, Proposition~\ref{prop:intconserve} still applies to 
+
+For instance, $\I$ satisfies the following field axiom as a consequence of Nullstellensatz:
+
+\begin{corollary}\label{cor:field}
+  $\I$ is a field in the sense that
+  \[ \fa x{\I} \neg \ms tx \eq \ms fx, \]
+  and vice versa by exchanging $\ms t$ and $\ms f$. In particular, $\I$ is not not $2$,
+  \[ \fa x\I \dneg(\ms tx \vee \ms fx). \]
+\end{corollary}
+\begin{proof}
+  By conservativity in Proposition~\ref{prop:intconserve} and (NT), if $x \neq \top$ then $x = \bot$ since $\bot \neq \top$. Now suppose $\neg(\ms tx \vee \ms fx)$, then $\neg\ms tx \wedge \neg \ms fx$, which equals $\ms fx \wedge \ms tx$, contradictory. Thus, $\dneg(\ms tx\vee\ms fx)$ always holds.
+\end{proof}
+
+This also implies that open propositions are $\dneg$-closed:
+
+\begin{lemma}\label{lem:opendnegclose}
+  For any $p : \pp$, $p$ is open iff $\neg p$ is closed and vice versa. Furthermore, open and closed propositions are $\dneg$-closed.
+\end{lemma}
+\begin{proof}
+  This follows from Corollary~\ref{cor:field}.
+\end{proof}
+
+\section{Intrinsic Order and Phoa's Principle}
+
+For synthetic domain theory, we work with the meet-distributive theory $\mbb D$ of distributive lattices. In particular, now we will assume the generic interval $\I$ has furthermore $0$ and $\vee$, which distributes over $1$ and $\wedge$. 
+
+We will see in the next section that the algebraic properties of distributive lattices has important consequences for the internal logic.
+
+\begin{definition}
+  The \emph{intrinsic order} on a type $X$ is defined as follows:
+  \[ x \preceq y := \fa{U}{X\to\I} U(x) \le U(y). \]
+\end{definition}
+
+One important property of intrinsic order is that every map is monotone w.r.t. this order:
+
+\begin{proposition}
+  For $f : X \to Y$, $x \preceq y$ in $X$ implies $fx \preceq fy$ in $Y$.
+\end{proposition}
+\begin{proof}
+  This simply follows from compositionality of functions.
+\end{proof}
+
+As a first example, we will show that the intrinsic order on $\I$ coincide with its canonical order. In fact this holds for all f.p. $\I$-algebras due to the following Phoa's principle:
+
+\begin{proposition}[Phoa's Principle]\label{prop:phoa}
+  For any f.p. $\I$-algebra $A$, the boundary $\partial : A^{\I} \to A \times A$ is equivalent to $\pair{\ev_0,\ev_1} : A[x] \to A \times A$, which classifies the order on $A$.
+\end{proposition}
+\begin{proof}
+  By Corollary~\ref{cor:tensorasspace} we have
+  \[ A^\I = A \otimes \I[x] = A[x]. \]
+  Hence, it suffices to show that the two projection
+  \[ \pair{\ev_0,\ev_1} : A[x] \to A \times A \]
+  is equivalent to the order $\le$. It factors through it, since $\ev_0(p) \le \ev_1(p)$ for any polynomial $p\in A[x]$. On the other hand, recall for distributive lattices we have a normal form for its polynomials given by Proposition~\ref{prop:normalform},
+  \[ p = \ev_1(p) \wedge x \vee \ev_0(p). \]
+  This proves the factorisation will be an equivalence.
+\end{proof}
+
+\begin{remark}
+  In some sense, the above result really highlights the special property of distributive lattices. This is a perfect example of how algebraic facts affects the internal logic of its classifying topos.
+\end{remark}
+
+For instance, we have $\I^\I = \I[x] = \Delta^2$. Also, following the above proof, the evaluation $\I \times A^\I \to A$, under the equivalence $A^\I = \scomp{a,b:A}{a \le b}$, is given as follows,
+\[ (i,a \ge b) \mapsto a \wedge i \vee b. \]
+Notice we have seen in Example~\ref{exm:simplicesaffine} that $\Delta^2$ is \emph{affine}, but here it also has an algebraic structure $\I[x]$. This dual identity generalises to all simplices:
+
+\begin{proposition}\label{prop:simplicesasalgebra}
+  For any $n : \N$, the evaluation map
+  \[ \I[x_1,\cdots,x_n]/x_1\le\cdots\le x_n \to \Delta^{n+1} \]
+  which takes $p:\I[x_1,\cdots,x_n]/x_1\le\cdots\le x_n$ to 
+  \[ (p(1,\cdots,1),p(0,1,\cdots,1),\cdots,p(0,\cdots,0)) : \Delta^{n+1} \]
+  is an equivalence.
+\end{proposition}
+\begin{proof}
+  This again follows from the normal form for $A[x,y]/x\le y$ given in Proposition~\ref{prop:lenormalform}.
+\end{proof}
+
+From this algebraic perspective, the inclusion $\Delta^n \inj \Delta^n\prt = \Delta^{n+1}$ corresponds to the map
+\[ \I[x_1,\cdots,x_n]/x_1\le\cdots\le x_n \to \I[x_0,\cdots,x_n]/x_0\le\cdots\le x_n \]
+which takes $x_i$ to $x_0 \vee x_i$.
+
+As a corollary of Phoa's principle, the intrinsic order coincide with the point-wise order for a wide range of types:
+
+\begin{corollary}
+  For any type $X$, the intrinsic order on $\I^X$ coincides with the point-wise induced order on $\I$.
+\end{corollary}
+\begin{proof}
+  Given $f,g : \I^X$, suppose $f \preceq g$. For $x:X$ there is an evaluation function
+  \[ \ev_x : \I^X \to \I, \]
+  and by assumption $f(x) = \ev_x(f) \le \ev_x(g) = g(x)$, which implies $f \le g$ for the point-wise order.
+
+  Now suppose $\fa xX fx \le gx$. Consider any $U : \I^X \to \I$. By Phoa's principle, we get a map
+  \[ [f,g] : \I \to \I^X, \]
+  where its transpose $X \to \I^\I$ takes any $x:X$ to $(fx,gx)$ in $\I^\I = \Delta^2$. In particular, by definition
+  \[ f = [f,g](0), \quad g = [f,g](1). \]
+  Then it follows that the composite $U[f,g] : \I \to \I$ satisfies
+  \[ Uf = U[f,g](0) \le U[f,g](1) = Ug, \]
+  which implies $f \preceq g$.
+\end{proof}
+
+This can be particularly applied to any f.p. $\I$-algebra $A$, since $A = \I^{\spec A}$ as an $\I$-algebra, it follows that the intrinsic order on $A$ also coincides with its canonical order. On the other hand, we can also generalise the Phoa's principle to affine space: 
+
+\begin{corollary}
+  For affine $X = \spec A$, the intrinsic order on $X$ is represented by $X^\I$, which coincide with the point-wise order on $X = \I\alg(A,\I)$.
+\end{corollary}
+\begin{proof}
+  By (QC), recall $\I^X = A$, thus for any $x,y:X$,
+  \[ x \preceq y \eff \fa aA x(a) \le y(a), \]
+  which is exactly the point-wise order on $X$.
+\end{proof}
+
+\section{Markov's Principle}
+
+
+
+Equipped with (CQC), we also have the Markov principle:
+
+\begin{lemma}[Markov Principle]\label{lem:markov}
+  \[ \fa{x}{\ov\omega} \prth{\neg\fa{n}{\N}\ms tx_n \to \sum_{n:\N}\ms fx_n}. \]
+\end{lemma}
+\begin{proof}
+  Let $x : \ov\omega$. If $\neg\fa n\N \ms tx_n$, then
+  \[ \spec_\infty \I/\bigwedge_{n:\N}x_n=\top = \emp, \]
+  which implies $\I/\bigwedge_{n:\N}x_n = \top$ is trivial by Proposition~\ref{prop:nulls}. This way, there exists $n$ that $\ms fx_n$, and we can take $n$ to be the least one.
+\end{proof}
+
+Now let $\omega$ be the initial algebra for the lifting functor $L$. As a consequence, we always have $\omega$ as the internal colimit of $\Delta^n$:
+
+\begin{corollary}\label{cor:omegacolimit}
+  $\omega$ can be viewed internally as a subtype of $\ov\omega$ as follows,
+  \[ \omega = \scomp{x:\ov\omega}{\ex n{\N} \ms fx_n}. \]
+\end{corollary}
+\begin{proof}
+  Following~\cite{VANOOSTEN2000233}, we need to show that for any $x : \ov\omega$,
+  \[ \prth{\fa\phi{\pp} (\fa n{\N} (\ms tx_n \to \phi) \to \phi) \to \phi} \to \ex{n}\N \ms fx_n. \]
+  But this follows from Lemma~\ref{lem:opendnegclose} and~\ref{lem:markov} by taking $\phi$ to be $\emp$.
+\end{proof}
+
+\begin{theorem}
+  $\I$ is complete, i.e. the canonical map $\I^{\ov\omega} \to \I^\omega$ is an equivalence.
+\end{theorem}
+\begin{proof}
+  Since $\ov\omega$ is affine, we now have
+  \[ \I^{\ov\omega} = \I[\N]/\bigwedge_{n:\N}x_n\ge x_{n+1}. \]
+  On the other hand, since $\omega$ is internally the colimit of $\Delta^n$, we have
+  \[ \I^\omega = \lt_{n:\N}\I^{\Delta^n} = \lt_{n:\N} \I[x_1,\cdots,x_n]/x_1 \ge \cdots \ge x_n \]
+  Note that the transition map is given by the canonical inclusion
+  \[ \I[x_1,\cdots,x_n]/x_1\ge\cdots\ge x_n \to \I[x_1,\cdots,x_{n+1}]/x_1\ge\cdots\ge x_{n+1}, \]
+  which implies that we indeed have
+  \[ \I^\omega = \I[\N]/\bigwedge_{n:\N}x_n \ge x_{n+1} = \I^{\ov\omega}. \qedhere \]
+\end{proof}
+
+\section{Synthetic Posets}
+
+In type theory we can also define general shapes of boundaries $\partial\Delta^n$ and horns $\Lambda^n_k$ are definable. For instance, the horn $\Lambda^2_1$ will be constructed as the following pushout,
+\[
+  \begin{tikzcd}
+    1 \ar[d, "\bot"'] \ar[r, "\top"] & \I \ar[d] \\
+    \I \ar[r] & \Lambda^2_1
+    \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=2-2, to=1-1]
+  \end{tikzcd}
+\]
+This gives us an embedding $\Lambda^2_1 \to \Delta^2$, which we can identify with
+\[ \Lambda^2_1 = \scomp{j \ge i : \I}{\ms tj \vee \ms fi}. \]
+A more complex construction is the walking equivalence, which we will denote as $E$. 
+
+The notion of synthetic posets is formulated internally as certain orthogonality conditions:
+
+\begin{definition}
+  For any type $X$, we say it is 
+  \begin{itemize}
+    \item \emph{$\I$-separated}, if $X^\I \to X^2$ is an embedding;
+    \item \emph{Segal}, if $X^{\Delta^2} \to X^{\Lambda^2_1}$ is an equivalence.
+    \item \emph{Rezk}, if $X \to X^E$ is an equivalence.
+  \end{itemize}
+  $X$ is a (synthetic) category, if $X$ Segal and Rezk. $X$ is a (synthetic) poset, if it is furthermore $\I$-separated. These are propositions.
+\end{definition}
+
+For $\I$-separatedness, it is in fact equivalently to being separated for the double negation topology, at least for sets:
+
+\begin{proposition}\label{prop:isepiffdnegclosed}
+  A set $X$ is $\I$-separated iff it is separated, i.e. for any $x,y$, $x = y$ is $\dneg$-closed.
+\end{proposition}
+\begin{proof}
+  By Corollary~\ref{cor:field} the inclusion $\mb 2 \inj \I$ is $\dneg$-dense, thus being separated implies being $\I$-separated. On the other hand, 
+\end{proof}
+
+Furthermore, from the above definition, it immediately follows that posets are closed under limits and retracts, and in fact forms an exponential ideal. For a non-trivial example, let us first show that $\I$ is a poset:
+
+\begin{lemma}\label{lem:intervalposet}
+  $\I$ is a poset.
+\end{lemma}
+\begin{proof}
+  By Phoa's principle, $\I$ is $\I$-separated. To show it is segal, consider a map $[f,g] : \Lambda^2_1 \to \I$, which is equivalently two maps $f : \I \to \I$ and $g : \I \to \I$ with $f(\bot) = g(\top)$. By Phoa's principle again, this is equivalently a sequence $g(\bot) \le g(\top) = f(\bot) \le f(\top)$. Now the pair $g(\bot) \le f(\top)$ defines a map $\Delta^2 \to \I$, which is easily seen to be unique.
+\end{proof}
+
+\begin{corollary}
+  All the simplices $\Delta^n$ are posets.
+\end{corollary}
+\begin{proof}
+  They are retracts of cubes $\I^n$, and since posets form an exponential ideal, $\I^n$ are posets due to Lemma~\ref{lem:intervalposet}.
+\end{proof}
+
+
+For another type of objects, all the algebraic objects we care about will be posets, and in fact they also satisfies the Phoa's principle:
+
+\begin{corollary}
+  Any f.p. $\I$-algebra $A$ is a poset, and in fact the canonical order on $A$ coincide with $A^\I$.
+\end{corollary}
+\begin{proof}
+  By (QC), for any f.p. $\I$-algebra $A$ we have $A = \I^{\spec A}$, which is a poset since they are closed under exponentials. 
+\end{proof}
+
+However, perhaps the more interesting examples of posets are affine spaces. For instance, $\I$ is the canonical example of an affine space being a poset. In fact, again by (QC), we can show \emph{all} affine spaces are posets:
+
+\begin{proposition}
+  Any affine space $\spec A$ is a poset.
+\end{proposition}
+\begin{proof}
+  By the duality given in Proposition~\ref{prop:duality}, we have
+  \[ \spec A^\I = \spec A^{\spec \I[x]} = \I\alg(A,\I[x]), \]
+  and under this equivalence, it is easy to see that the boundary map is now given by
+  \[ \pair{\ev_\bot,\ev_\top} : \I\alg(A,\I[x]) = \spec A^\I \to \spec A^2 = \I\alg(A,\I)^2. \]
+  But then $\spec A$ being a poset trivially follows from the Phoa's principle of $\I$, since $\I\alg(A,\I[x])$ now exactly classifies maps $f,g : A \to \I$ such that $f \le g$, because as the order $\I[x] \inj \I \times \I$, $\I[x]$ is in fact a \emph{subalgebra}.
+\end{proof}
+
+For all the above examples, they are indeed special cases of \emph{schemes}, which arise as glueing of affine spaces along open subsets. Intuitively, since $\I$ is tiny enough to make being a poset a local property, schemes would themselves again be posets. 
+
+\section{Zariski Geometry and Disjunction}
+
+
+
+
+
+
+
+
+\bibliographystyle{apalike} 
+\bibliography{mybib}
+
+\appendix
+
+
+\section{Distributive Lattice}
+
+Let $\mbb D$ be the theory of distributive lattices. We use $\DL$ to denote the category of distributive lattices. 
+
+\subsection{Finitely Presented Distributive Lattices}
+
+The theory $\mbb D$ is constructively well-behaved. The first indicator is that free distributive lattices have a normal form theorem:
+
+\begin{proposition}\label{prop:normalform}
+  For a distributive lattice $A$, every polynomial $p : A[x]$ has a normal form,
+  \[ p = \ev_\bot(p) \vee x \wedge \ev_\top(p). \]
+  In particular, for any $p,q : A[x]$,
+  \[ p \le q \eff \ev_\bot(p) \le \ev_\bot(q) \conjt \ev_\top(p) \le \ev_\top(q). \]
+\end{proposition}
+\begin{proof}
+  See~\cite[Thm. 10.11]{lausch2000algebra}.
+\end{proof}
+
+\begin{proposition}
+  Finitely presentable $\mbb D$-models are finite.
+\end{proposition}
+\begin{proof}
+  We already know all finitely generated free distributive lattices are finite. Since a general finitely presentable model is a finite quotient of a finite algebra, it will still be finite.
+\end{proof}
+
+In fact, to show the above result, we can provide more explicit computation of how to do quotient:
+
+\begin{proposition}\label{prop:lenormalform}
+  For a distributive lattice $A$, $p : A[x,y]/x\le y$ also has a normal form
+  \[ p = \ev_{\bot,\bot}(p) \vee x \wedge \ev_{\bot,\top}(p) \vee y \wedge \ev_{\top,\top}(p). \]
+\end{proposition}
+\begin{proof}
+  This can be directly proved from Proposition~\ref{prop:normalform}.
+\end{proof}
+
+\begin{theorem}\label{thm:finitedualityfordl}
+  The category $\DL\fp$ is dually equivalent to $\Pos\fp$.
+\end{theorem}
+\begin{proof}
+  Since all finitely presentable distributive lattice is finite, proving the duality theorem is constructive.
+\end{proof}
+
+
+
+\subsection{Quotients}
+
+Another fundamental operation is to form quotients of a distributive lattice $A$. One general way of generating a quotient is by considering two family of terms $s,t : X \to A$, such that the quotient algebra, which we denote as $A\quot{s,t}$, satisfies the following universal property
+\[ \DL(A\quot{s,t},B) = \scomp{f : \DL(A,B)}{fs = ft}. \]
+Notice that by univalence, the equality between functions is characterised by the $\Pi$-type,
+\[ (fs = ft) = \fa xX fs(x) = ft(x), \]
+which is a proposition. Thus, maps out of the quotient $A\quot{s,t}$ can be viewed as a subset of maps out of $A$.
+
+For distributive lattices, we have some special types of quotients. By a \emph{filter} $F$ on $A$, we mean a subset $F \subseteq A$ which is closed under finite meets. We say a filter $F$ is \emph{principle}, if there exists $a : A$ with $F = \dv a$, where $\dv a$ is the subset $\scomp{b:A}{a \le b}$. It is easy to see that such $a$ is necessarily unique, thus being principle is a proposition.
+
+Any filter $F$ generates a quotient by taking the two family of maps to be $\iota,\top : F \to A$, where $\iota$ is the canonical inclusion and $\top$ is the constant map on $\top$. In other words, we are collapsing elements in the filter $F$ to the top. We will denote this quotient by $A/_F$. The importance about quotients over a filter is that there is a canonical way of representing the generated congruence of the quotient:
+
+\begin{lemma}\label{lem:filtercong}
+  The relation $R_F$ on $A$ defined by
+  \[ R_F(a,b) := \ex xF a \wedge x = b \wedge x \]
+  is a congruence on $A$ which respects the two maps $\iota,\top : F \to A$.
+\end{lemma}
+\begin{proof}
+  By construction $R_F$ is an equivalence relation. It is also easy to see that the distributive lattice axioms makes it into a congruence. Furthermore, given any $x:F$, evidently $R_F(x,\top)$, since $x \wedge x = x = \top \wedge x$.
+\end{proof}
+
+\begin{proposition}\label
+  The quotient $A/_F$ is the quotient of $A$ w.r.t. the congruence $R_F$. In other words, for the quotient map $q : A \surj A/_F$ and $a,b : A$,
+  \[ q(a) = q(b) \eff \ex xF a \wedge x = b \wedge x. \]
+\end{proposition}
+\begin{proof}
+  Right to left is evident. For left to right, since by Lemma~\ref{lem:filtercong} the congruence $R_F$ respects the two maps $\iota,\top : F \to A$, by universal property of the quotient, it must validates this congruence. 
+\end{proof}
+
+\begin{corollary}
+  For a principle filter $F = \dv x$ on $A$, the quotient $A/_{\dv x}$ can be identified as the map
+  \[ x \wedge - : A \surj \cv x. \]
+\end{corollary}
+\begin{proof}
+  In the special case of the principle filter $\dv x$, it is easy to see that that congruence $R_{\dv x}$ specialises to an equality, 
+  \[ R_{\dv x}(a,b) \eff x \wedge a = x \wedge b. \]
+  Thus, the congruence $R_{\dv x}$ is represented by the idempotent operator $x \wedge -$ on $A$, which allows us to conclude~\cite[Lem. 6.10.8]{hottbook}. 
+\end{proof}
+
+Hence, the nice thing about the quotient $A/_{\dv x}$ is that, it can be naturally identified as a \emph{subset} of $A$, making it into a retract.
+
+\section{Heyting Algebra}
+
+Note that a Heyting algebra $A$ is a distributive lattice such that $a \wedge -$ has a right adjoint for any $a : A$. In this section we will use $A[X]$ to denote the Heyting algebra freely generated by $X$ over $A$, while use $A\dsg X$ to denote the free distributive lattice generated by $A$.
+
+\begin{lemma}
+  For any Heyting algebra $A$, $A\dsg{n}$ is also a Heyting algebra for any $n:\N$.
+\end{lemma}
+\begin{proof}
+  By induction, it suffices to show that $A\dsg x$ is a Heyting algebra. By the normal form given in Proposition~\ref{prop:normalform}, it suffices to compute the evaluation of $p \to q$ at $0,1$ for $p,q : A\dsg x$. We claim that
+  \begin{align*}
+    (p \to q)(0) &= (p(0) \to q(0)) \wedge (p(1) \to q(1)) \\
+    (p \to q)(1) &= p(1) \to q(1)
+  \end{align*}
+  It is easy to verify that for any $r : A\dsg x$,
+  \[ r \wedge p \le q \eff r(0) \wedge p(0) \le q(0) \conjt r(1) \wedge p(1) \le q(1), \]
+  which by the above definition translates to
+  \[ r(0) \le (p \to q)(0) \conjt r(1) \le (p \to q)(1). \]
+  Hence $A\dsg x$ is also a Heyting algebra.
+\end{proof}
+
+\begin{lemma}
+  For any Heyting algebra $A$ and $n:\N$, $A\dsg n$ is a finitely presented Heyting algebra over $A$.
+\end{lemma}
+\begin{proof}
+  Again by induction, it suffices for $A\dsg x$ to be finitely presented as a Heyting algebra over $A$.
+\end{proof}
+
+
+\end{document}
+
+
