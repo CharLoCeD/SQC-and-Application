@@ -1168,17 +1168,6 @@ The most important consequence of (L) is that it allows us to show intrinsic pos
   All the finitary examples of affine spaces considered so far, including the cubes $\I^n$, the simplices $\Delta^n$ and $\Delta_n$, and the outer horn $\Lambda^2_2$, are all topped.
 \end{example}
 
-\begin{lemma}
-  The following are equivalent for a finitary affine space $X$:
-  \begin{enumerate}
-    \item $X$ is topped.
-    \item $X$ is an algebra for $(-)\cprt$.
-  \end{enumerate}
-\end{lemma}
-\begin{proof}
-  For (1) $\nt$ (2), let us construct a map 
-\end{proof}
-
 One interesting fact is that, since $\I$ is a dominance, it will always be orthogonal to the following family of maps:
 
 \begin{lemma}[SQCF]\label{lem:toppedfamilyortho}
@@ -1234,71 +1223,121 @@ We then similarly have the following result:
 
 Of course, it is perfectly fine to assume both (L) and (cL), and we may refer to the combination of them as (bL). Working in the context of (bL), we again recover the full duality between the meet and join structure as the presheaf geometry.
 
-% \section{Synthetic category theory}
+\section{Synthetic category theory}
 
-% Following~\cite{gratzer2024directed}, we develop some amount of synthetic category theory in our framework. To formulate the Segal condition, we observe that the horn $\Lambda^2_1$ can be constructed as the following pushout,
-% \[
-%   \begin{tikzcd}
-%     1 \ar[d, "0"'] \ar[r, "1"] & \I \ar[d] \\
-%     \I \ar[r] & \Lambda^2_1
-%     \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=2-2, to=1-1]
-%   \end{tikzcd}
-% \]
-% It is essentially observed in~\cite{riehl2017type} that the inclusion $\Lambda^2_1 \hook \Delta_2$ can be defined in type theory as follows,
-% \[ \Lambda^2_1 = \scomp{(i,j) : \Delta_2}{\ms fi \vee \ms tj}. \]
+Following~\cite{gratzer2024directed}, we develop some amount of synthetic category theory in our framework. In this section, we will more generally work in the following axiomatic framework:
 
-% \begin{definition}
-%   We say $X$ is \emph{Segal} if it is orthogonal to $\Lambda^2_1 \hook \Delta^2$.
-% \end{definition}
+\begin{axiom}[PF]
+  The affine spaces $\I^n$ and $\Delta^n$ are $\infty$-projective for all $n:\N$.
+\end{axiom}
 
-% Following~\cite{buchholtz2021synthetic}, we can also define the type of free equivalence $\mbb E$ as the following colimit,
-% \[
-% \begin{tikzcd}
-% 	& \I && \I && \I \\
-% 	1 && {\Delta_2} && {\Delta_2} && 1
-% 	\arrow[from=1-2, to=2-1]
-% 	\arrow["{i \mapsto (i,i) }"{description}, from=1-2, to=2-3]
-% 	\arrow["{i \mapsto (0,i)}"{description}, from=1-4, to=2-3]
-% 	\arrow["{i \mapsto (i,1)}"{description}, from=1-4, to=2-5]
-% 	\arrow["{i \mapsto (i,i)}"{description}, from=1-6, to=2-5]
-% 	\arrow[from=1-6, to=2-7]
-% \end{tikzcd}
-% \]
 
-% \begin{definition}
-%   We say $X$ is \emph{Rezk}, if it is orthogonal to $\mbb E \to 1$.
-% \end{definition}
+To formulate the Segal condition, we observe that the horn $\Lambda^2_1$ can be constructed as the following pushout,
+\[
+  \begin{tikzcd}
+    1 \ar[d, "0"'] \ar[r, "1"] & \I \ar[d] \\
+    \I \ar[r] & \Lambda^2_1
+    \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=2-2, to=1-1]
+  \end{tikzcd}
+\]
+It is essentially observed in~\cite{riehl2017type} that the inclusion $\Lambda^2_1 \hook \Delta_2$ can be defined in type theory as follows,
+\[ \Lambda^2_1 = \scomp{(i,j) : \Delta_2}{\ms fi \vee \ms tj}. \]
 
-% Finally, we can also construct $\I_{\rightrightarrows}$ as the following pushout,
-% \[
-% \begin{tikzcd}
-%   2 \ar[r] \ar[d] & \I \ar[d] \\ 
-%   \I \ar[r] & \I_{\rightrightarrows}
-%   \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=2-2, to=1-1]
-% \end{tikzcd}
-% \]
+\begin{definition}
+  We say $X$ is \emph{Segal} if it is orthogonal to $\Lambda^2_1 \hook \Delta^2$.
+\end{definition}
 
-% \begin{definition}
-%   We say $X$ is \emph{$\I$-separated}, if $X^{\I} \to X^{\I_\rightrightarrows}$ is an equivalence.
-% \end{definition}
+Following~\cite{buchholtz2021synthetic}, we can also define the type of free equivalence $\mbb E$ as the following colimit,
+\[
+\begin{tikzcd}
+	& \I && \I && \I \\
+	1 && {\Delta_2} && {\Delta_2} && 1
+	\arrow[from=1-2, to=2-1]
+	\arrow["{i \mapsto (i,i) }"{description}, from=1-2, to=2-3]
+	\arrow["{i \mapsto (0,i)}"{description}, from=1-4, to=2-3]
+	\arrow["{i \mapsto (i,1)}"{description}, from=1-4, to=2-5]
+	\arrow["{i \mapsto (i,i)}"{description}, from=1-6, to=2-5]
+	\arrow[from=1-6, to=2-7]
+\end{tikzcd}
+\]
 
-% Equivalently, $X$ is $\I$-separated iff $X^\I \to X \times X$ is an embedding. The notion of synthetic categories and synthetic posets are formulated internally as these orthogonality classes:
+\begin{definition}
+  We say $X$ is \emph{Rezk}, if it is orthogonal to $\mbb E \to 1$.
+\end{definition}
 
-% \begin{definition}
-%   For any type $X$, we say it is a \emph{synthetic category}, if it is Segal and Rezk. We say it is a \emph{synthetic poset}, if it is also $\I$-separated.
-% \end{definition}
+Finally, we can also construct $\I_{\rightrightarrows}$ as the following pushout,
+\[
+\begin{tikzcd}
+  2 \ar[r] \ar[d] & \I \ar[d] \\ 
+  \I \ar[r] & \I_{\rightrightarrows}
+  \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=2-2, to=1-1]
+\end{tikzcd}
+\]
 
-% \begin{lemma}[SQCF]
-%   Any intrinsic poset is a synthetic poset.
-% \end{lemma}
-% \begin{proof}
-%   This holds simply because for any intrinsic poset $X$, by Phoa's principle $X^\I$ classifies the intrinsic order, which is a reflexive, transitive, and anti-symmetric relation.
-% \end{proof}
+\begin{definition}
+  We say $X$ is \emph{$\I$-separated}, if $X^{\I} \to X^{\I_\rightrightarrows}$ is an equivalence.
+\end{definition}
 
-% Hence, by Lemma~\ref{lem:affspintrinsicposet} and Lemma~\ref{lem:qcalgebraintposet}, both quasi-coherent $\I$-algebras and affine spaces are synthetic posets as well.
+Equivalently, $X$ is $\I$-separated iff $X^\I \to X \times X$ is an embedding. The notion of synthetic categories and synthetic posets are formulated internally as these orthogonality classes:
 
-% Furthermore, there is a strengthening of the Segal condition, which is obtained by displaying the inner horn inclusion $\Lambda^2_1 \hook \Delta_2$ over $\I$,
+\begin{definition}
+  For any type $X$, we say it is a \emph{synthetic category}, if it is Segal and Rezk. We say it is a \emph{synthetic poset}, if it is also $\I$-separated.
+\end{definition}
 
+\begin{lemma}[SQCF]
+  Any intrinsic poset is a synthetic poset.
+\end{lemma}
+\begin{proof}
+  This holds simply because for any intrinsic poset $X$, by Phoa's principle $X^\I$ classifies the intrinsic order, which is a reflexive, transitive, and anti-symmetric relation.
+\end{proof}
+
+\begin{theorem}[NT, SQCF, PF]
+  Synthetic categories and synthetic posets form exponential ideals, which are closed under dependent sums over discrete sets and sequential colimit.
+\end{theorem}
+\begin{proof}
+  This follows from the fact that they are described by orthogonality classes, and the codomains of the generating maps are in particular strongly connected and $\infty$-projective.
+\end{proof}
+
+\begin{remark}
+  It is shown in~\cite{} that, by additionally assuming (L), synthetic categories and synthetic posets are closed under lifting. 
+\end{remark}
+
+Furthermore, there is a strengthening of the Segal condition, which is obtained by displaying the inner horn inclusion $\Lambda^2_1 \hook \Delta_2$ over $\I$,
+\[
+\begin{tikzcd}
+  1 \star \ms tj \ar[r] \ar[d] & \Lambda^2_1 \ar[d] \\ 
+  \I/j \ar[r] \ar[d] & \Delta_2 \ar[d] \\ 
+  1 \ar[r, "j"'] & \I 
+  \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+  \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=2-1, to=3-2]
+\end{tikzcd}
+\]
+where $1 \star \ms tj$ type-theoretically can be realised as the subtype
+\[ 1 \star \ms tj = \scomp{i : \I}{\ms fi \vee \ms tj}. \]
+
+\begin{definition}
+  A type $X$ is \emph{based Segal}, if it is orthogonal to $1 \star \ms tj \inj \I/j$ for all $j : \I$.
+\end{definition}
+
+\begin{proposition}[L, SQCF]
+  Let $X$ be an affine subspace of a cube $\I^n$ which is closed under bottom and dependent sums. Then $X$ is based Segal.
+\end{proposition}
+\begin{proof}
+  We follow the proof strategy in~\cite{}. To extend a map $f : 1 \star \ms tj \to X$ with $X$ a closed subspace of $\I^n$,
+  \[
+  \begin{tikzcd}
+    1 \star \ms tj \ar[d, hook] \ar[r, "f"] & X \\ 
+    \I/j \ar[ur, dashed, "\qsi f"']
+  \end{tikzcd}
+  \]
+  we define $\qsi f$ as follows:
+  \[ \qsi f(i) := f(0) \vee \sum_{*:\ms ti}f(j). \]
+  By assumption this is well-defined, and the proof that $\qsi f$ is a unique extension follows the same as in~\cite{}.
+\end{proof}
+
+\begin{example}
+  By the above result, any closed subspace of $\I^n$ will be based Segal. For instance, this include closed propositions $\ms fi$ and $i/\I$ for all $i$. More generally, the simplices $\Delta^n$ will also be based Segal. In fact, if we assume (SQCC), the affine space $\ov\omega$ will also be based Segal.
+\end{example}
 
 \bibliographystyle{apalike} 
 \bibliography{mybib}
