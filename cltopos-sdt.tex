@@ -698,9 +698,11 @@ As a more or less trivial example, let us first consider discrete sets:
   Now suppose $f : \I \to M$. For any $i:\I$, by monotonicity in Lemma~\ref{lem:anymapmonotoneintriscorder}, $f(i) \preceq f(1)$, which implies $f(i) = f(1)$. Hence, $f$ is the constant function on $1$, which implies $M \to M^\I$ is an equivalence.
 \end{proof}
 
-\begin{remark}
-  The above result implies that $2^\I = 2$ and $\N^\I = \N$, which in some sense says that $\I$ is \emph{connected} and \emph{compact}. In fact, the above proof applies to any type $X$ whose intrinsic order has a maximal or minimal element. Thus by Corollary~\ref{cor:syntheticorderinterval}, the same result applies to the affine spaces $\I^n$ and $\Delta^n$ under (NT) and (SQCF).
-\end{remark}
+\begin{corollary}[NT, SQCF]\label{cor:connectedpreservediscrete}
+  For any type $X$ whose intrinsic order is connected, the map $M \to M^X$ is an equivalence for a discrete set $M$.
+\end{corollary}
+
+For instance, the above result applies to the affine spaces $\I^n$ and $\Delta^n$, since by Corollary~\ref{cor:syntheticorderinterval} they have both a top and bottom element in the intrinsic order, thus in particular are connected.
 
 For types that are not necessarily discrete, one might expect that quasi-coherence will imply all affine spaces would be Phoa. As a minimal requirement, one crucial axiom of synthetic domain theory is that the interval $\I$ itself should be Phoa; cf.~\cite{hyland2006first}. However, under the current assumption, this is not necessarily the case. Given an affine space $X = \spec A$, it is easy to compute $X^\I$ by duality,
 \[ X^\I = \I\alg(A,\I[x]). \]
@@ -810,7 +812,7 @@ Now we can identify the simplices $\Delta^n$ as a finitely presented $\I$-algebr
   \end{tikzcd}
 \]
 
-\section{Infinitay domain theory}
+\section{Infinitay domain theory}\label{sec:infdomain}
 
 Untill this point, we have seen that all the finitary axioms for synthetic domain theory is a consequence of (SQCF) for a theory of distributive algebra, with potentially the assumption of (NT).
 
@@ -838,7 +840,9 @@ However, the corresponding algebra is no longer finitely presented, but countabl
   The quasi-coherence principle for countably presented algebras is investigated in~\cite{cherubini2024foundation}. Just like the finitary version (SQCF), which is true in the classifying topos $\Set[\T] = [\mmod\T\fp,\Set]$, the countable version (SQCC) will be valid in a larger presheaf topos $[\mmod\T\cp,\Set]$, or any subtopos induced by a subcanonical topology. For instance, the semantics of~\cite{cherubini2024foundation} is based on the topos of light condensed sets introduced by Clausen and Scholze, which is a subtopos of $[\mmod{\mbb B}\cp,\Set]$.
 \end{remark}
 
-As a first example of the usefulness of (SQCC), let us observe that it implies the following form of Markov principle:
+There are many immediate consequences of (SQCC). For instance, the description of the intrinsic order for affine spaces in Lemma~\ref{lem:affspintrinsicposet} now applies to $\ov\omega$ as well, which implies it has both a top and bottom element. Then Corollary~\ref{cor:connectedpreservediscrete} now also applies to $\ov\omega$, and $M \to M^{\ov\omega}$ is an equivalence for any discrete set $M$. 
+
+There are more logical consequences of (SQCC). Let us observe that it implies the following form of Markov principle:
 
 \begin{lemma}[NT, SQCC]\label{lem:markov}
   For any $i : \ov\omega$, we have
@@ -894,10 +898,10 @@ Using this, we can now show the most important infinitary axiom for synthetic do
 
 Finally, at the end of this section, we observe that the algebraic description of the simplices given at the end of Section~\ref{sec:distphoa} can be extended to the above infinitary case:
 
-\begin{lemma}
-  $\I^{\ov\omega} = \I[\N]/\forall n.\, i_n \ge i_{n+1}$ is equivalent to the type of increasing sequences in $\I$,
+\begin{corollary}
+  $\I^{\ov\omega} = \I[\N]/\forall n.\, i_n \ge i_{n+1}$ is equivalent to $\Delta_\infty$, 
   \[ \Delta_\infty := \scomp{i : \N \to \I}{\fa n\N i_n \le i_{n+1}}. \]
-\end{lemma}
+\end{corollary}
 \begin{proof}
   Following the discussion at the end of Section~\ref{sec:distphoa}, we have the following equivalences,
   \[
@@ -1033,7 +1037,7 @@ Finally, at the end of this section, we observe that the algebraic description o
 % \end{proof}
 
 
-\section{Locality, generalised lifting, and intrinsic posets}\label{sec:synposet}
+\section{Intrinsic posets}\label{sec:synposet}
 
 \begin{definition}
   We say $X$ is an \emph{intrinsic poset}, if the intrinsic order on $X$ is anti-symmetric, and it satisfies the Phoa's principle.
@@ -1048,14 +1052,14 @@ Finally, at the end of this section, we observe that the algebraic description o
   thus is a proposition.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lem:affspintrinsicposet}
   All affine spaces are intrinsic posets.
 \end{lemma}
 \begin{proof}
   As shown in Theorem~\ref{thm:phoaaffine}, any affine space $X = \spec A$ is Phoa, and the intrinsic order on $X$ is induced by the point-wise order on $\I\alg(A,\I)$, which is anti-symmetric.
 \end{proof}
 
-\begin{lemma}[SQCF]
+\begin{lemma}[SQCF]\label{lem:qcalgebraintposet}
   All quasi-coherent $\I$-algebras are intrinsic posets.
 \end{lemma}
 \begin{proof}
@@ -1070,6 +1074,55 @@ Intrinsic posets satisfy the closure properties of an orthogonality class:
 \begin{proof}
   Suppose we have a limit $\lt_{r:I}X_r$ of intrinsic posets. Given $(x_r)_{r:I}$ and $(y_r)_{r:I}$ in the limit, by monotonicity in Lemma~\ref{lem:anymapmonotoneintriscorder}, if $(x_r)_{r:I} \preceq (y_r)_{r:I}$, then the projection maps imply that $x_r \preceq y_r$ for all $r:I$. On the other hand, if $x_r \preceq y_r$ for all $r:I$, then since each $X_r$ is Phoa, we get a unique map $f_r : \I \to X_r$. We then need to show that this gives us $(f_r)_{r:I} : \I \to X_r$. This indeed follows from the Phoa's principle on each $X_r$. Hence, the order on the limit is again point-wise, and the limit is Phoa. Being an exponential ideal follows from~\ref{lem:phoaexponential}.
 \end{proof}
+
+Perhaps more surprisingly, intrinsic posets will also be closed under various colimit constructions. To show this, we observe the following result:
+
+\begin{lemma}[NT, SQCF]
+  Let $X$ be a type with connected intrinsic order. $(-)^X$ preserves dependent sums over discrete sets.
+\end{lemma}
+\begin{proof}
+  Suppose we have a discrete set $M$ and a family $P$ of types over $M$. Consider the canonical map
+  \[ \sum_{m:M} P_m^X \to \prth{\sum_{m:M}P_m}^X. \]
+  Since $X$ is connected, there merely is $x : X$. For any $f : X \to \sum_{m:M}P_m$, by Corollary~\ref{cor:connectedpreservediscrete}, $\pi_Mf(y) = \pi_Mf(x)$ for all $y : X$, thus $f$ factors through $P_m^X$, which then implies the fibres of the above map is contractible since $M$ is a discrete set.
+\end{proof}
+
+\begin{corollary}[NT, SQCF]
+  Intrinsic posets are closed under dependent sums over discrete sets.
+\end{corollary}
+
+\begin{definition}\label{def:projective}
+  A type $X$ is \emph{projective}, if for any family $P$ of sets over $X$,
+  \[ \prod_{x:X}\pss{P_x} \to \pss{\prod_{x:X}P_x}. \]
+\end{definition}
+
+\begin{lemma}[NT, SQCF]
+  Let $X$ be a projective type with connected intrinsic order. $(-)^X$ preserves sequential colimits.
+\end{lemma}
+\begin{proof}
+  For a family of sets $Y_n$ indexed by $\N$ with maps $f_n : Y_n \to Y_{n+1}$, recall from~\cite{10.1145/3373718.3394801} the colimit $\ct_{n:\N}Y_n$ is again a set, which is constructed as in usual set theory. Consider the canonical map
+  \[ \ct_{n:\N}Y_n^X \to \prth{\ct_{n:\N}Y_n}^X. \]
+  To show this is injective, it suffices to assume we have two elements $[(n,y)]$ and $[(m,z)]$. If they agree in the target, which means
+  \[ \fa xX \ex l\N f_{ln}(yx) = f_{lm}(zx). \]
+  By projectivity of $X$, we merely have a section $l : X \to \N$. By Corollary~\ref{cor:connectedpreservediscrete}, this section is indeed constant at $l = l(x)$ for the mere element $x:X$. It then follows that $[(n,y)] = [(m,z)]$.
+
+  On the other hand, by projectivitity the above map is also surjective, since if we have $f : X \to \ct_{n:\N}Y_n$, then we have
+  \[ \fa xX \ex n\N\ex{y}{Y_n} fx = [(i,y)]. \]
+  By projectivity again, we merely have a section $X \to \N$, which is again constant by Corollary~\ref{cor:connectedpreservediscrete}. Thus we merely get a preimage.
+\end{proof}
+
+\begin{corollary}[NT, SQCF]\label{cor:intposetseqcolimit}
+  Assuming $\I$ is projective, intrinsic posets are closed under sequential colimits.
+\end{corollary}
+
+\begin{remark}
+  This is the first place in this work where we require a form of projectivity of $\I$. $\I$ will indeed be projective, in fact \emph{$\infty$-projective} in the sense that Definition~\ref{def:projective} not only applies to sets but arbitrary types, in all the models we care about.
+\end{remark}
+
+\begin{example}
+  Notice that as we have shown in Section~\ref{sec:infdomain} that, under (NT) and (SQCC), $\omega$ is the colimit of simplices $\Delta_n$. By Corollary~\ref{cor:intposetseqcolimit}, assuming $\I$ is projective, $\omega$ will also be an intrinsic poset.
+\end{example}
+
+\section{Lifting continued}
 
 We would like to furthermore show that intrinsic posets are closed under lifting. To this end, we introduce a stronger locality axiom:
 
@@ -1115,6 +1168,17 @@ The most important consequence of (L) is that it allows us to show intrinsic pos
   All the finitary examples of affine spaces considered so far, including the cubes $\I^n$, the simplices $\Delta^n$ and $\Delta_n$, and the outer horn $\Lambda^2_2$, are all topped.
 \end{example}
 
+\begin{lemma}
+  The following are equivalent for a finitary affine space $X$:
+  \begin{enumerate}
+    \item $X$ is topped.
+    \item $X$ is an algebra for $(-)\cprt$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  For (1) $\nt$ (2), let us construct a map 
+\end{proof}
+
 One interesting fact is that, since $\I$ is a dominance, it will always be orthogonal to the following family of maps:
 
 \begin{lemma}[SQCF]\label{lem:toppedfamilyortho}
@@ -1132,11 +1196,11 @@ One interesting fact is that, since $\I$ is a dominance, it will always be ortho
   This is well-defined, and evidently extends $f$.
 \end{proof}
 
-For any finitary topped $X$, by viewing it  we may define the generalised lifting functor over $X$ as follows:
+For any finitary topped $X$, by viewing it as a subspace of $\I^n$, we may define the generalised lifting functor over $X$ as follows:
 \[ L_XY := \sum_{i:X}Y^{\ms ti}. \]
 Of course, $L_\I$ is the usual lifting functor $(-)\prt$. The most crucial observation of this section is that intrinsic posets are closed under generalised liftings:
 
-\begin{theorem}[L, SQCF]
+\begin{theorem}[L, SQCF]\label{thm:intrinsicordergenlifting}
   Let $X$ be a finitary topped affine space and $Y$ an intrinsic poset. Then the intrinsic order on $L_XY$ is given by
   \[ (i,x) \preceq (j,y) \eq \ms ti \to (\ms tj \wedge x \preceq_{Y} y). \]
   In particular, $L_XY$ is again an intrinsic order.
@@ -1152,6 +1216,88 @@ Of course, $L_\I$ is the usual lifting functor $(-)\prt$. The most crucial obser
   This is evidently well-defined, thus we get a map $f : \I \to L_XY$.
 \end{proof}
 
+Of course, we can also consider the dual notion of \emph{bottomed} finitary affine spaces, which are affine subspaces of $\I^n$ containing $0$. However, to develop the same arguments, we would have to assume furthermore the \emph{colocality} axiom as follows,
+
+\begin{axiom}[cL]
+  $\I$ is colocal, i.e. $0 \neq 1$ and $\ms f(i \wedge j) \eq \ms fi \vee \ms fj$.
+\end{axiom}
+
+And in this case, for any bottomed finitary affine space $X$ we can construct the generalised colifting of a type $Y$ as
+\[ T_XY := \sum_{i:X}Y^{\ms fi}. \]
+We then similarly have the following result:
+
+\begin{theorem}[cL, SQCF]\label{thm:intrinsicordergencolifting}
+  Let $X$ be a finitary bottomed affine space and $Y$ an intrinsic poset. Then the intrinsic order on $T_XY$ is given by
+  \[ (i,x) \preceq (j,y) \eq \ms fj \to (\ms fi \wedge x \preceq_{Y} y). \]
+  In particular, $T_XY$ is again an intrinsic order.
+\end{theorem}
+
+Of course, it is perfectly fine to assume both (L) and (cL), and we may refer to the combination of them as (bL). Working in the context of (bL), we again recover the full duality between the meet and join structure as the presheaf geometry.
+
+% \section{Synthetic category theory}
+
+% Following~\cite{gratzer2024directed}, we develop some amount of synthetic category theory in our framework. To formulate the Segal condition, we observe that the horn $\Lambda^2_1$ can be constructed as the following pushout,
+% \[
+%   \begin{tikzcd}
+%     1 \ar[d, "0"'] \ar[r, "1"] & \I \ar[d] \\
+%     \I \ar[r] & \Lambda^2_1
+%     \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=2-2, to=1-1]
+%   \end{tikzcd}
+% \]
+% It is essentially observed in~\cite{riehl2017type} that the inclusion $\Lambda^2_1 \hook \Delta_2$ can be defined in type theory as follows,
+% \[ \Lambda^2_1 = \scomp{(i,j) : \Delta_2}{\ms fi \vee \ms tj}. \]
+
+% \begin{definition}
+%   We say $X$ is \emph{Segal} if it is orthogonal to $\Lambda^2_1 \hook \Delta^2$.
+% \end{definition}
+
+% Following~\cite{buchholtz2021synthetic}, we can also define the type of free equivalence $\mbb E$ as the following colimit,
+% \[
+% \begin{tikzcd}
+% 	& \I && \I && \I \\
+% 	1 && {\Delta_2} && {\Delta_2} && 1
+% 	\arrow[from=1-2, to=2-1]
+% 	\arrow["{i \mapsto (i,i) }"{description}, from=1-2, to=2-3]
+% 	\arrow["{i \mapsto (0,i)}"{description}, from=1-4, to=2-3]
+% 	\arrow["{i \mapsto (i,1)}"{description}, from=1-4, to=2-5]
+% 	\arrow["{i \mapsto (i,i)}"{description}, from=1-6, to=2-5]
+% 	\arrow[from=1-6, to=2-7]
+% \end{tikzcd}
+% \]
+
+% \begin{definition}
+%   We say $X$ is \emph{Rezk}, if it is orthogonal to $\mbb E \to 1$.
+% \end{definition}
+
+% Finally, we can also construct $\I_{\rightrightarrows}$ as the following pushout,
+% \[
+% \begin{tikzcd}
+%   2 \ar[r] \ar[d] & \I \ar[d] \\ 
+%   \I \ar[r] & \I_{\rightrightarrows}
+%   \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=2-2, to=1-1]
+% \end{tikzcd}
+% \]
+
+% \begin{definition}
+%   We say $X$ is \emph{$\I$-separated}, if $X^{\I} \to X^{\I_\rightrightarrows}$ is an equivalence.
+% \end{definition}
+
+% Equivalently, $X$ is $\I$-separated iff $X^\I \to X \times X$ is an embedding. The notion of synthetic categories and synthetic posets are formulated internally as these orthogonality classes:
+
+% \begin{definition}
+%   For any type $X$, we say it is a \emph{synthetic category}, if it is Segal and Rezk. We say it is a \emph{synthetic poset}, if it is also $\I$-separated.
+% \end{definition}
+
+% \begin{lemma}[SQCF]
+%   Any intrinsic poset is a synthetic poset.
+% \end{lemma}
+% \begin{proof}
+%   This holds simply because for any intrinsic poset $X$, by Phoa's principle $X^\I$ classifies the intrinsic order, which is a reflexive, transitive, and anti-symmetric relation.
+% \end{proof}
+
+% Hence, by Lemma~\ref{lem:affspintrinsicposet} and Lemma~\ref{lem:qcalgebraintposet}, both quasi-coherent $\I$-algebras and affine spaces are synthetic posets as well.
+
+% Furthermore, there is a strengthening of the Segal condition, which is obtained by displaying the inner horn inclusion $\Lambda^2_1 \hook \Delta_2$ over $\I$,
 
 
 \bibliographystyle{apalike} 
