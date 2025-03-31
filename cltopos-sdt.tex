@@ -815,32 +815,32 @@ An even stronger locality axiom states that the simplicial structure is truncate
 
 The above exactly says that the 2-simplice $\Delta_2$ is covered by its three edges, which means that $\partial\Delta_2 = \Delta_2$.
 
-\section{specialisation order continued}\label{sec:intposet}
+\section{Phoa's principle}\label{sec:intposet}
 
 Given the specialisation order on $X$, one natural question is its relation with the function space $X^\I$: 
 
-\begin{definition}
-  We say a type $X$ is an \emph{specialisation preorder}, if 
+\begin{definition}\label{def:phoa}
+  We say a type $X$ is \emph{Phoa}, if 
   \[ \pair{\ev_0,\ev_1} : X^\I \to \operatorname{\preceq} \]
-  is an equivalence over $X \times X$. We say $X$ is an \emph{specialisation poset}, if $\preceq_X$ on $X$ is anti-symmetric, i.e. for all $x,y : X$, the canonical map
+  is an equivalence over $X \times X$, and $\preceq$ is anti-symmetric on $X$, in the sense that for $x,y :X$,
   \[ x = y \to x \preceq y \wedge y \preceq x \]
-  is an equivalence.
+  is an equivalence. In particular, $X$ will be a set.
 \end{definition}
 
 \begin{remark}
-  In~\cite{PhoaWesleyKym-Son1991DtiR}, a specialisation poset is called a \emph{linked $\Sigma$-space}, where $\Sigma$ denotes the dominance, which in our case is $\I$. 
+  In~\cite{PhoaWesleyKym-Son1991DtiR}, a type $X$ is called \emph{linked} if $X^\I \to \operatorname{\preceq}$ is a surjection.
 \end{remark}
 
-Notice that assuming (SQCF), the specialisation order on $\I$ coincides with its usual order, thus by monotonicity for any $f : \I \to X$ we indeed have $f(0) \preceq f(1)$, which means the above notion is well-defined. If $X$ is a specialisation poset, then for any $x,y : X$ the equality type $x = y$ by definition is a proposition, thus $X$ must be a set. 
+Notice that assuming (SQCF), the specialisation order on $\I$ coincides with its usual order, thus by monotonicity for any $f : \I \to X$ we indeed have $f(0) \preceq f(1)$, which means the above notion is well-defined.
 
 \begin{example}
-  For instance, assuming (NT) and (SQCF), Lemma~\ref{lem:discretephoa} and Corollary~\ref{cor:connectedpreservediscrete} implies all discrete sets will be specialisation posets.
+  For instance, assuming (NT) and (SQCF), Lemma~\ref{lem:discretephoa} and Corollary~\ref{cor:connectedpreservediscrete} implies all discrete sets will be Phoa.
 \end{example}
 
 The true strength of working with distributive lattices, besides the symmetry between $1,\wedge$ and $0,\vee$, is the following fact:
 
 \begin{theorem}\label{thm:phoaaffine}
-  Any affine space $X$ is a specialisation poset.
+  Any affine space $X$ will be Phoa.
 \end{theorem}
 \begin{proof}
   For any affine space $X$ we have 
@@ -852,23 +852,23 @@ The true strength of working with distributive lattices, besides the symmetry be
   See e.g.~\cite[Thm. 10.11]{lausch2000algebra}. This way, a map $\I \to X$ is exactly described as two points $x,y : X$ such that $\fa aA xa \le ya$, which coincides with $x \preceq y$. Furthermore, this order is anti-symmetric by definition.
 \end{proof}
 
-The above result applied to $\I$ itself is usually denoted as the \emph{Phoa principle}. Theorem~\ref{thm:phoaaffine} in particular implies that the Phoa's principle can be generalised to \emph{all} affine spaces.
+In the literature, the above statement restricted to $\I$ is usually denoted as the \emph{Phoa's principle}. From Theorem~\ref{thm:phoaaffine}, this property can be generalised to all affine spaces.
 
 \begin{remark}
   Crucially, we emphasis that the above proof does \emph{not} in fact rely on the affineness of the interval $\I$ itself. Rather, it is purely the consequence of the fact that for any distributive lattice $A$, the free algebra $A[i]$ is equivalent to the order on $A$. This is a perfect example of how an algebraic property of a theory has a non-trivial effect on the internal logic of its classifying topos.
 \end{remark}
 
-The class of specialisation poset is indeed \emph{reflective}:
+The class of Phoa types is indeed \emph{reflective}:
 
 \begin{proposition}[SQCF]\label{prop:phoaexponential}
-  The specialisation order on a limit of specialisation poset is point-wise. Furthermore, specialisation posets are reflective, with the reflector of $X$ being the largest sub specialisation poset of $\I^{\I^X}$ containing $X$.
+  The specialisation order on a limit of Phoa types is point-wise. Furthermore, Phoa types are reflective, with the reflector of $X$ being the largest sub Phoa type of $\I^{\I^X}$ containing $X$.
 \end{proposition}
 \begin{proof}
   See~\cite[Sec. 5.4]{PhoaWesleyKym-Son1991DtiR}.
 \end{proof}
 
 \begin{corollary}[SQCF]
-  For a quasi-coherent $\I$-algebra $A$, the specialisation order is its usual order, and it is a specialisation poset.
+  For a quasi-coherent $\I$-algebra $A$, the specialisation order is its usual order, and it is Phoa.
 \end{corollary}
 
 At the end of this section, we describe another interesting perspective arising from the proof of Theorem~\ref{thm:phoaaffine}. We have seen that the dualising object $\I$ has a double role: It is both an algebra and a spectrum. The proof of Phoa's principle gives us many more such examples. For instance, $\I[i]$ classifies the order on $\I$, which by definition is the spectrum $\Delta_2$. In fact, \emph{all} the simplices in this case have an algebraic description:
@@ -957,7 +957,7 @@ By~\cite[Cor. 1.10]{VANOOSTEN2000233}, the above result exactly means that $\ome
 \]
 Using this, we can now show the most important infinitary axiom for synthetic domain theory:
 
-\begin{theorem}[NT, SQCC]
+\begin{theorem}[NT, SQCC]\label{thm:complete}
   The canonical map $\I^{\ov\omega} \to \I^\omega$ is an equivalence.
 \end{theorem}
 \begin{proof}
@@ -1300,24 +1300,24 @@ Equivalently, $X$ is $\I$-separated iff $X^\I \to X \times X$ is an embedding. T
 \end{proof}
 
 \begin{remark}
-  Unless we assume the very strong locality principle (1T), specialisation posets will in general \emph{not} be Segal or Rezk, since there is in general no control of maps $\Delta_2 \to X$ for a specialisation poset $X$.
+  Unless we assume the very strong locality principle (1T), Phoa types will in general \emph{not} be Segal, since there is in general no control of maps $\Delta_2 \to X$ for a specialisation poset $X$.
 \end{remark}
 
-The notion of synthetic categories and synthetic posets are formulated internally as these orthogonality classes:
+The notion of categories and posets are formulated internally as these orthogonality classes:
 
 \begin{definition}
-  A type $X$ is a \emph{synthetic category}, if it is simplitial, Segal, and Rezk. We say it is a \emph{synthetic poset}, if it is also $\I$-separated.
+  A type $X$ is a \emph{category}, if it is simplitial, Segal, and Rezk. We say it is a \emph{poset}, if it is also $\I$-separated.
 \end{definition}
 
-\begin{theorem}
-  Any affine space $X$ is a synthetic poset.
+\begin{theorem}\label{thm:affineposet}
+  Any affine space $X$ is a poset.
 \end{theorem}
 
 \begin{corollary}[SQCF]
-  Quasi-coherent $\I$-algebras will be synthetic posets.
+  Quasi-coherent $\I$-algebras will be posets.
 \end{corollary}
 \begin{proof}
-  This follows from the fact that $\I$ is affine, hence a synthetic poset, and that if $A$ is quasi-coherent then $A = \I^{\spec A}$.
+  This follows from the fact that $\I$ is affine, hence a poset, and that if $A$ is quasi-coherent then $A = \I^{\spec A}$.
 \end{proof}
 
 At the end of this section, we would like to show that the previous orthogonality classes have various closure properties. In particular, we would like to show they are closed under \emph{dependent sums over discrete sets}, and \emph{sequential colimits}. 
@@ -1377,12 +1377,16 @@ Completely similarly, we consider the case for sequential colimits. To show this
   is an embedding, for $P$ a $k$-truncated family.
 \end{remark}
 
-\begin{proposition}[NT, SQCF, PF]
+\begin{proposition}[NT, PF, SQCF]
   For $f : X \to Y$, if both $X,Y$ are finite colimits of cubes or simplices, then $k$-truncated $f$-local objects are closed under sequential colimits for all $k$.
 \end{proposition}
 \begin{proof}
   The proof is similar to Proposition~\ref{prop:closuresum}, by using Lemma~\ref{lem:sequentialcolimit} and realising that finite limits commutes with sequential colimits.
 \end{proof}
+
+\begin{example}
+  As mentioned in Section~\ref{sec:infdomain}, $\omega = \ct_{n:\N}\Delta^n$ is the sequential colimit of the simplices. Hence, assuming (NT), (PF), and (SQCF), $\omega$ is also a poset. In fact, by Theorem~\ref{thm:complete}, $\omega$ will also be Phoa.
+\end{example}
 
 
 \bibliographystyle{apalike} 
