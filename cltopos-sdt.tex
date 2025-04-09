@@ -113,6 +113,7 @@
 \newcommand{\fpp}{_{\mr{f.p.,+}}}
 \newcommand{\cp}{_{\mr{c.p.}}}
 \newcommand{\cpp}{_{\mr{c.p.,+}}}
+\newcommand{\can}{_{\mr{can}}}
 \newcommand{\pls}{^+}
 \newcommand{\mns}{^-}
 \newcommand{\dv}{\operatorname{\uparrow}}
@@ -141,6 +142,7 @@
 \newcommand{\eq}{\leftrightarrow}
 \newcommand{\ass}[1]{\llbracket#1\rrbracket} %\usepackage{stmaryrd}
 \newcommand{\pss}[1]{||#1||} %\usepackage{stmaryrd}
+\newcommand{\pt}{\ms{pt}}
 \newcommand{\tp}{\ms{Type}}
 \newcommand{\pp}{\ms{Prop}}
 \newcommand{\st}{\ms{Set}}
@@ -152,16 +154,23 @@
 \newcommand{\catt}{\ms{CAT}}
 \newcommand{\PCat}{\mb{PCat}}
 \newcommand{\Cat}{\mb{Cat}}
+\newcommand{\sFrm}{\sigma\mb{Frm}}
+\newcommand{\Frm}{\mb{Frm}}
+\newcommand{\Loc}{\mb{Loc}}
 \newcommand{\PCAT}{\mb{PCAT}}
 \newcommand{\CAT}{\mb{CAT}}
 \newcommand{\Catt}{\mf{Cat}}
 \newcommand{\CATT}{\mf{CAT}}
+\newcommand{\Topp}{\mb{Top}}
 \newcommand{\Top}{\mf{Top}}
 \newcommand{\Tp}{\ms{TYPE}}
 \newcommand{\Pp}{\ms{PROP}}
 \newcommand{\St}{\ms{SET}}
 \newcommand{\Gp}{\ms{GRPD}}
 \newcommand{\fst}{\ms{Fin}}
+\newcommand{\Mod}{\mb{Mod}}
+\newcommand{\Spec}{\mb{Spec}}
+\newcommand{\wSpec}{\omega\mb{Spec}}
 \newcommand{\quot}[1]{/_{\pair{#1}}}
 \newcommand{\List}{\ms{List}}
 \newcommand{\hp}{\text{-}}
@@ -180,6 +189,7 @@
 \newcommand{\ran}{\ms{ran}}
 \newcommand{\upp}{_{\ms U}}
 \newcommand{\dsg}[1]{\!\pair{#1}}
+\newcommand{\co}{\mr{Co}}
 \DeclareFontFamily{U}{dmjhira}{}
 \DeclareFontShape{U}{dmjhira}{m}{n}{ <-> dmjhira }{}
 \DeclareRobustCommand{\yon}{\text{\usefont{U}{dmjhira}{m}{n}\symbol{"48}}}
@@ -209,7 +219,7 @@
 \makeatother
 
 
-\title{A Geometric Approach to Domains}
+\title{A logical and geometric approach to domains}
 \author{Lingyuan Ye}
 \date{\today}
 
@@ -238,7 +248,7 @@
 
 \section{Introduction}
 
-Let $\T$ be a Horn theory. The type system we work with in this document is based on the quasi-coherence principle available in the classifying topoi of $\T$. This principle originated from the observation made in~\cite{RN879} The  ~\cite{blechschmidt2021using,blechschmidt2020general}. (The envelopping $\infty$-topoi of) such topoi provide models for the type theory we work with in this paper.
+Let $\T$ be a Horn theory.  $\T$. This principle originated from the observation made in~\cite{RN879}, that the function space of the generic model $U_\T$ in the classifying topos $\Set[\T]$ is calculated by polynomials $U_\T[x]$. This then  The  ~\cite{blechschmidt2021using,blechschmidt2020general}. (The envelopping $\infty$-topoi of) such topoi provide models for the type theory we work with in this paper.
 
 In this paper we will be working in a dependent type theory with a univalent universe $\tp$. Recall the notion of $h$-levels~\cite{hottbook}. For us the most important h-levels are -1 and 0, which are \emph{propositions} and \emph{sets}. In particular, we can define subuniverses $\pp$, $\st$.
 
@@ -770,7 +780,7 @@ However, not all affine spaces will be internally connected:
   The two variables $x,y$ are complemented to each other in the above algebra, hence under (L) and (SQCF) by Lemma~\ref{lem:decompcomplement} we know $\spec A$ can be decomposed into a non-trivial coproduct,
   \[ \spec A = D_x + D_y, \]
   Furthermore, we observe that 
-  \[ D_x = \spec \I[x,y]/x \vee y = 1,x \wedge y = 0,x =1 = \spec \I = 1, \]
+  \[ D_x = \spec(\I[x,y]/x \vee y = 1,x \wedge y = 0,x =1) = \spec \I = 1, \]
   and similarly for $D_y$. Hence, now we have $\spec A = 2$, and now $2$ is \emph{affine}.
 \end{example}
 
@@ -979,7 +989,7 @@ Using this, we can now show the most important infinitary axiom for synthetic do
 
 Finally, at the end of this section, we observe that the algebraic description of the simplices given at the end of Section~\ref{sec:intposet} can be extended to the above infinitary case:
 
-\begin{corollary}
+\begin{corollary}[NT, SQCC]
   $\I^{\ov\omega} = \I[\N]/\forall n.\, i_n \ge i_{n+1}$ is equivalent to $\Delta_\infty$, 
   \[ \Delta_\infty := \scomp{i : \N \to \I}{\fa n\N i_n \le i_{n+1}}. \]
 \end{corollary}
@@ -995,6 +1005,12 @@ Finally, at the end of this section, we observe that the algebraic description o
   \[ \Delta_{\infty} = \I[\N]/\forall n.\, i_n \ge i_{n+1}. \qedhere \]
 \end{proof}
 
+\begin{corollary}[NT, SQCC]
+  $\omega$ is Phoa.
+\end{corollary}
+\begin{proof}
+  Since $\ov\omega$ is affine, by Theorem~\ref{thm:phoaaffine} it is Phoa. Now by Theorem~\ref{thm:complete}, the specialisation order on $\omega$ will be induced from the one on $\ov\omega$, hence it will be Phoa.
+\end{proof}
 
 % \section{specialisation posets continued}\label{sec:synposet}
 
@@ -1293,14 +1309,14 @@ Finally, we can also construct $\I_{\rightrightarrows}$ as the following pushout
 Equivalently, $X$ is $\I$-separated iff $X^\I \to X \times X$ is an embedding. The following is evident:
 
 \begin{lemma}
-  Any affine space, or any specialisation preorder, is $\I$-separated.
+  Any affine space, or any Phoa type, is $\I$-separated.
 \end{lemma}
 \begin{proof}
   Evident from definition.
 \end{proof}
 
 \begin{remark}
-  Unless we assume the very strong locality principle (1T), Phoa types will in general \emph{not} be Segal, since there is in general no control of maps $\Delta_2 \to X$ for a specialisation poset $X$.
+  Unless we assume the very strong locality principle (1T), Phoa types will in general \emph{not} be Segal or Rezk, since there is in general no control of maps $\Delta_2 \to X$ for a specialisation poset $X$.
 \end{remark}
 
 The notion of categories and posets are formulated internally as these orthogonality classes:
@@ -1346,14 +1362,22 @@ At the end of this section, we would like to show that the previous orthogonalit
 
 Completely similarly, we consider the case for sequential colimits. To show this closure property, we need to assume a choice principle:
 
-\begin{axiom}[PF]
-  $\I$ satisfies choice: For any type family $P$ over $\I$,
-  \[ \prod_{i:\I}\pss{P(i)} \to \pss{\prod_{i:\I}P(i)}. \]
-  Similarly for cubes $\I^n$ and simplices $\Delta^n$.
+\begin{definition}
+  For any type $X$, we say it is $k$-projective if for all $k$-truncated type families $P$ over $X$,
+  \[ \prod_{x:X} \pss{P(x)} \to \pss{\prod_{x:X}P(x)}. \]
+  We say $X$ is $\omega$-projective if this holds for any $k$, and $\infty$-projective if this holds for any $P$.
+\end{definition}
+
+\begin{axiom}[PF$_\infty$]
+  $\I$ is $\infty$-projective.
 \end{axiom}
 
-\begin{lemma}[NT, PF, SQCF]\label{lem:sequentialcolimit}
-  $\prod_{i:\N}$ commutes with sequential colimit $\ct_{n:\N}$ for all $k$-truncated type families: If $P_{i,n}$ is a $k$-truncated type family with transition maps $\tau_{i,n} : P_{i,n} \to P_{i,n+1}$ for all $i:\I,n : \N$, then the canonical map
+\begin{remark}
+  The $\infty$-projective objects will be closed under finite products and retracts, thus under (PF$_\infty$), the cubes $\I^n$ and the simplices $\Delta^n$ will also be $\infty$-projective.
+\end{remark}
+
+\begin{lemma}[NT, PF$_\infty$, SQCF]\label{lem:sequentialcolimit}
+  $\prod_{i:\N}$ commutes with sequential colimit for all $k$-truncated type families: If $P_{i,n}$ is a $k$-truncated type family with transition maps $\tau_{i,n} : P_{i,n} \to P_{i,n+1}$ for all $i:\I,n : \N$, then the canonical map
   \[ \ct_{n:\N}\prod_{i:\I} P_{i,n} \to \prod_{i:\I}\ct_{n:\N}P_{i,n} \]
   is an equivalence, and similarly for $\I^n,\Delta^n$.
 \end{lemma}
@@ -1368,7 +1392,7 @@ Completely similarly, we consider the case for sequential colimits. To show this
 
   To show surjectivity, suppose we have $f : \prod_{i:\I}\ct_{n:\N}P_{i,n}$. Now by construction, 
   \[ \fa i\I \ex n\N \ex y{P_{i,n}} f(i) = [(n,y)]. \]
-  By (PF), and Corollary~\ref{cor:connectedpreservediscrete}, we merely get a section $f : \prod_{i:\N} P_{i,n}$ for some $n$, which shows surjectivity.
+  By (PF$_\infty$), and Corollary~\ref{cor:connectedpreservediscrete}, we merely get a section $f : \prod_{i:\N} P_{i,n}$ for some $n$, which shows surjectivity.
 \end{proof}
 
 \begin{remark}
@@ -1377,7 +1401,7 @@ Completely similarly, we consider the case for sequential colimits. To show this
   is an embedding, for $P$ a $k$-truncated family.
 \end{remark}
 
-\begin{proposition}[NT, PF, SQCF]
+\begin{proposition}[NT, PF$_\infty$, SQCF]
   For $f : X \to Y$, if both $X,Y$ are finite colimits of cubes or simplices, then $k$-truncated $f$-local objects are closed under sequential colimits for all $k$.
 \end{proposition}
 \begin{proof}
@@ -1385,8 +1409,239 @@ Completely similarly, we consider the case for sequential colimits. To show this
 \end{proof}
 
 \begin{example}
-  As mentioned in Section~\ref{sec:infdomain}, $\omega = \ct_{n:\N}\Delta^n$ is the sequential colimit of the simplices. Hence, assuming (NT), (PF), and (SQCF), $\omega$ is also a poset. In fact, by Theorem~\ref{thm:complete}, $\omega$ will also be Phoa.
+  As mentioned in Section~\ref{sec:infdomain}, $\omega = \ct_{n:\N}\Delta^n$ is the sequential colimit of the simplices. Hence, assuming (NT), (PF$_\infty$), and (SQCC), $\omega$ will also be a poset.
 \end{example}
+
+\section{A discussion on the models}
+
+It is now instructive to discuss models for the quasi-coherence principle for countably presented algebras. We observe that the proof of the quasi-coherence principle in the classifying topos $\Set[\T] = [\mmod\T\fp,\Set]$ for finitely presented algebras given in~\cite{blechschmidt2020general,blechschmidt2021using} can be completely adapted to the countably presented case, provided we work with a larger site,
+\[ \Set[\T]_\infty := [\mmod\T\cp,\Set], \]
+where $\mmod\T\cp$ is the category of \emph{countably presented} $\T$-models. These two topoi are intimately related. In particular, we have an inclusion
+\[ \mmod\T\fp \hook \mmod\T\cp, \]
+which preserves finite colimits. Hence, by e.g.~\cite[Thm. 7.20]{caramello2019denseness}, it induces an adjoint triple,
+\[\begin{tikzcd}
+  {\Set[\T]_\infty} & {\Set[\T]}
+  \arrow[""{name=0, anchor=center, inner sep=0}, "\Gamma"{description}, from=1-1, to=1-2]
+  \arrow[""{name=1, anchor=center, inner sep=0}, "\Delta"', curve={height=18pt}, from=1-2, to=1-1]
+  \arrow[""{name=2, anchor=center, inner sep=0}, "\nabla", curve={height=-18pt}, from=1-2, to=1-1]
+  \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=2]
+  \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=1, to=0]
+\end{tikzcd}\]
+which makes $\Set[\T]_\infty \surj \Set[\T]$ a \emph{local geometric morphism.}
+
+In the topos $\Set[\T]_\infty$, the generic $\T$-model $U_\T$ is again given by
+\[ U_\T(A) = \geo{A}, \]
+which takes $A$ to its underlying set. The quasi-coherence principle for countably presented $U_\T$-algebras will hold for any subtopos of $\Set[\T]_\infty$ where $U_\T$ is a sheaf; cf.~\cite[Thm. 4.11.]{blechschmidt2020general}. For instance, this is the theoretical basis of the quasi-coherence principle for countably presented Boolean algebras in the topos of light condensed sets introduced by Clausen and Scholze, as shown in~\cite{cherubini2024foundation}. Furthermore, if we restrict the topology $J$ on $\mmod\T\cp$ to one on $\mmod\T\cp$, the adjoint triple mentioned above will restrict to one to the sheaf subtopoi,
+\[\begin{tikzcd}
+  {\sh(\mmod\T\cp\op,J)} & {\sh(\mmod\T\fp\op,J)}
+  \arrow[""{name=0, anchor=center, inner sep=0}, "\Gamma"{description}, from=1-1, to=1-2]
+  \arrow[""{name=1, anchor=center, inner sep=0}, "\Delta"', curve={height=18pt}, from=1-2, to=1-1]
+  \arrow[""{name=2, anchor=center, inner sep=0}, "\nabla", curve={height=-18pt}, from=1-2, to=1-1]
+  \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=2]
+  \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=1, to=0]
+\end{tikzcd}\]
+which identifies $\sh(\mmod\T\cp\op,J)$ a local topos over $\sh(\mmod\T\fp\op,J)$.
+
+For $\mbb D$ the theory of distributive lattices, we have a more detailed description of the dual category $\DL\cp\op$. Recall that there is a duality between distributive lattices and \emph{spectral spaces},
+\[ \spec : \DL\op \simeq \Spec : \Sigma. \]
+Here $\Spec$ is the category of spectral topological spaces and spectral maps. A spectral space $X$ is a sober topological space, such that its compact open subsets form a basis, i.e. they are closed under finite intersections and every open subset is a union of compact ones. A continuous map between spectral spaces $f : X \to Y$ is called \emph{spectral}, if $f\inv$ furthermore preserves compact opens. For more information on this duality result, see e.g. Stone's original paper~\cite{stone1938topological} or the detailed exposition~\cite{bezhanishvili2010bitopological}.
+
+On one hand, $\spec$ takes a distributive lattice $A$ to its \emph{space of models}:
+\begin{itemize}
+  \item A point is a morphism $x : A \to 2$ in $\DL$;
+  \item Subsets of the form $D_a$ with $a\in A$ form a basis, with 
+  \[ D_a := \scomp{x \in \spec A}{x(a) = 1}. \]
+\end{itemize}
+It is easy to verify that the basis of the form $D_a$ are in fact compact, and hence $\spec A$ is a spectral space. Furthermore, given a morphism $f : A \to B$, there is an induced map
+\[ f^* : \spec B \to \spec A, \]
+given by precomposition with $f$. In this case it is easy to verify $(f^*)\inv(D_a) = D_{fa}$, thus $f^*$ is spectral.
+
+\begin{remark}
+  Though $\Spec$ is not a full subcategory of $\Topp$, it is still closed under limits in $\Topp$. One way to see this is via $\spec : \DL\op \simeq \Spec$, where we may explicitly compute the limit of spectral spaces as colimits of distributive lattices.
+\end{remark}
+
+As an example, let us look at the space of models of the countably generated free distributive lattice $2[\N]$, where we have 
+\[ \spec 2[\N] \cong \Sigma^\N. \] 
+Here $\Sigma$ is the Sierpinski space. This is due to the fact that
+\[ \spec 2[\N] \cong \spec\coprod_{\N} 2[x] \cong \prod_{\N} \spec 2[x] \cong \Sigma^\N, \]
+where it is easy to verify that $\spec 2[x] \cong \Sigma$. 
+
+On the other hand, the functor $\Sigma : \Spec \to \DL\op$ simply takes a spectral space $X$ to the distributive lattice 
+\[ \Sigma(X) := \Spec(X,\Sigma), \]
+In other words, $\Sigma(X)$ is the distributive lattice of compact opens of $X$.
+
+Let us now consider the essential image of $\spec : \DL\cp\op \to \Spec$, which we denote as $\wSpec$. Notice that since a distributive lattice is countably presented iff it is a quotient of $2[\N]$. The fact that every quotient of $2[\N]$ is countably presented follows from the fact that $2[\N]$ is itself countable. This way, by duality objects in $\wSpec$ are simply spectral subspaces of $\Sigma^\N$, i.e. those subspaces $X \subseteq \Sigma^\N$, where for any compact open $U$ of $\Sigma^\N$, $X \cap U$ is again compact in $X$. 
+
+\begin{remark}
+  In particular, not all subspaces of $\Sigma^\N$ will lie in $\wSpec$, since in particular objects in $\wSpec$ are themselves \emph{compact}. For instance, the discrete space $\N$ is a subspace of $\Sigma^\N$, but not an object in $\wSpec$.
+\end{remark}
+
+This way, we have the following situation,
+\[
+\begin{tikzcd}
+  \DL\fp\op \ar[r, "\simeq"] \ar[d, hook] & \Pos\fp \ar[d, hook] \\ 
+  \DL\cp\op \ar[r, "\simeq"] & \wSpec 
+\end{tikzcd}
+\]
+where the equivalence $\DL\cp\op \simeq \wSpec$ restricts to one between finite distributive lattices and finite posets, where we view each finite poset as a spectral space via its Scott topology.
+
+Working with $\wSpec$, the generic distributive lattice $\I$ as a presheaf on $\wSpec$ is now the representable functor on the Sierpinski space $\Sigma$. This way, all the examples of models we get for (SQCC) are based on a topology $J$ on $\wSpec$ making $\yon_\Sigma$ a sheaf. Below are the corresponding examples for the locality principles we have considered in Section~\ref{sec:locality}.
+
+\begin{example}[NT]
+  To model (NT), we would want the empty sieve on $\spec(2/0=1) = \emp$ to be a covering. Since $\emp$ is a strict initial object in $\wSpec$, this is a subcanonical topology. Thus, this gives us a least topology $J_{\ms{NT}}$ that models (NT), and we have
+  \[ \sh(\wSpec,J_{\ms{NT}}) \simeq \psh(\wSpec_+), \]
+  where $\wSpec_+$ is the full subcategory of $\wSpec$ excluding $\emp$. The induced local geometric morphism now is given by 
+  \[ \Gamma : \psh(\wSpec_+) \surj \psh(\Pos_{\mr{f.p.,+}}), \]
+  where, again $\Pos_{\mr{f.p.,+}}$ is the full subcategory of $\Pos_{\mr{f.p.,+}}$ consisting of non-empty posets, and $\psh(\Pos_{\mr{f.,+}})$ is the classifying topos for non-trivial distributive lattices.
+\end{example}
+
+\begin{example}[L]
+  The additional axiom for (L) besides (NT) is that 
+  \[ x \vee y = 1 \vdash x = 1 \vee y = 1, \] 
+  This means the dual embeddings of the following quotients needs to be a covering family,
+  \[ 2[y] \cong 2[x,y]/x = 1 \twoheadleftarrow 2[x,y]/x\vee y \surj 2[x,y]/y=1 \cong 2[x]. \]
+  It is easy to see that $\spec 2[x,y]/x \vee y$ is the space $\Lambda^2_1$ obtained by glueing the open points of two copies of Sierpinski spaces together, i.e. it is the following pushout,
+  \[
+  \begin{tikzcd}
+    1 \ar[d, "1"'] \ar[r, "1"] & \Sigma \ar[d, "l"] \\ 
+    \Sigma \ar[r, "r"'] & \Lambda^2_1
+    \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=2-2, to=1-1]    
+  \end{tikzcd}
+  \]
+  The least topology $J_{\ms L}$ is thus generated by the empty covering on $\emp$, and the covering $\set{l,r : \Sigma \to \Lambda^2_1}$. Since we have the pushout above, this topology is again subcanonical. 
+  
+  In this case, we can also have an explicit description of a covering family in $\wSpec$: A family of maps is a $\ms J_{\ms L}$ covering on $X \in \wSpec$ iff it contains a (finite) subfamily of \emph{compact opens} $\set{X_i\subseteq X}_{i\in I}$, where $X = \bigcup_{i\in I}X_i$. This is thus the \emph{Zariski topology} on $\wSpec$, and the local geometric morphism
+  \[ \sh(\wSpec,J_{\ms L}) \surj \sh(\Pos\fp,J_{\ms L}) \simeq \mb{Zar}(\mbb D), \]
+  is over the \emph{Zariski topos} $\mb{Zar}(\mbb D)$ for distributive lattices.
+\end{example}
+
+\begin{example}[SL]
+  An even stronger axiom is the linearity axiom, 
+  \[ \top \vdash x \le y \vee y \le x, \]
+  which requires the dual embeddings of the following quotients to form a covering family,
+  \[ 2[x,y]/x \le y \twoheadleftarrow 2[x,y] \surj 2[x,y]/y \le x. \]
+  We can compute that $\spec 2[x,y] \cong \Sigma^2$, and 
+  \[ \spec(2[x,y]/x \le y) \cong \Sigma_2 = \set{0 < 1 < 2}. \]
+  Again we have a pushout diagram,
+  \[
+  \begin{tikzcd}
+    \Sigma \ar[r, "\partial"] \ar[d, "\partial"'] & \Sigma_2 \ar[d, "l"] \\ 
+    \Sigma_2 \ar[r, "r"'] & \Sigma^2
+    \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=2-2, to=1-1]
+  \end{tikzcd}
+  \]
+  where $\partial : \Sigma \to \Sigma_2$ maps $\Sigma$ to the end points of $\Sigma_2$, and $l,r : \Sigma_2 \hook \Sigma^2$ is the two $\Sigma_2$-chains in $\Sigma^2$. The least topology $\ms J_{\ms{SL}}$ for the linearity axiom is thus generated by the empty covering on $\emp$, and $\set{l,r : \Sigma_2 \hook \Sigma^2}$. Similarly, given this pushout, $J_{\ms{SL}}$ will be subcanonical.
+
+  The topos $\sh(\wSpec,J_{\ms{SL}})$ is closely related to simplicial sets. This is due to the fact that simplicial sets is the classifying topos of non-empty linear orders (cf. e.g.~\cite{maclane2012sheaves}), and thus we have an equivalence 
+  \[ \sh(\Pos\fp,J_{\ms{SL}}) \simeq \psh(\Delta). \]
+  This makes $\sh(\wSpec,J_{\ms{SL}}) \surj \psh(\Delta)$ a local topos over simplicial sets.
+\end{example}
+
+\begin{example}[1T]
+  Similarly to the case of (SL), the 1-truncation axiom requires dual embeddings of the following quotient maps
+  \[\begin{tikzcd}
+    & {2[x,y]/x\le y} \\
+    {2[x,y]/x=0} & {2[x,y]/x=y} & {2[x,y]/y=1}
+    \arrow[two heads, from=1-2, to=2-1]
+    \arrow[two heads, from=1-2, to=2-2]
+    \arrow[two heads, from=1-2, to=2-3]
+  \end{tikzcd}\]
+  to be a covering, which translates to the fact that the three inclusions
+  \[ d_0,d_1,d_2 : \Sigma \hook \Sigma_2 \]
+  covers $\Sigma_2$. Again we have a colimit diagram as follows, 
+  \[\begin{tikzcd}
+    1 & 1 & 1 \\
+    \Sigma & \Sigma & \Sigma \\
+    & {\Sigma_2}
+    \arrow["0"', from=1-1, to=2-1]
+    \arrow["1"{description, pos=0.25}, from=1-1, to=2-2]
+    \arrow["0"{description, pos=0.25}, from=1-2, to=2-1]
+    \arrow["1"{description, pos=0.25}, from=1-2, to=2-3]
+    \arrow["0"{description, pos=0.25}, from=1-3, to=2-2]
+    \arrow["0", from=1-3, to=2-3]
+    \arrow["{d_0}"', from=2-1, to=3-2]
+    \arrow["{d_1}"{description}, from=2-2, to=3-2]
+    \arrow["{d_2}", from=2-3, to=3-2]
+  \end{tikzcd}\]
+  which implies $J_{\ms{1T}}$ is subcanonical.
+  
+  Similar to the case of (SL), $\sh(\wSpec,J_{\ms{1T}})$ is closely related to the topos of \emph{truncated simplicial sets} $\psh(\Delta_{\le 1})$. This is again induced by the fact that the classifying topos for 1-truncated distributive lattices is given by 
+  \[ \sh(\Pos\fp,J_{\ms{1T}}) \simeq \psh(\Delta_{\le 1}). \]
+  Hence, this again gives us a local geometric morphism
+  \[ \sh(\wSpec,J_{\ms{1T}}) \surj \psh(\Delta_{\le 1}). \]
+\end{example}
+
+% In this section we work with $\ms{ZFC}$. Let $\sFrm$ be the category of $\sigma$-frames, i.e. whose objects are posets with finite meets and countable joins, where they distribute through each other. We will also use $\sFrm\cp$ to denote the full subcategory of countably presented $\sigma$-frames.
+
+% The first observation is that any c.p. $\sigma$-frame $A$ is indeed a \emph{frame}. This is clear for all finitely presented $\sigma$-frames, since they are simply finite distributive lattices. To see this for the countable case, consider the countably generated free $\sigma$-frame $2[\N]$:
+
+% \begin{lemma}\label{lem:cgfreesframe}
+%   We have an isomorphism
+%   \[ 2[\N] \cong [P_f(\N),2], \]
+%   where $P_f(\N)$ is the poset of finite subsets of $\N$.
+% \end{lemma}
+% \begin{proof}
+%   The free $\sigma$-frame can be generated by first freely adding finite meets to the discrete poset $\N$, and then freely adding all countable joins. The first step results in the poset $P_f(\N)\op$. Now since $P_f(\N)\op$ is countable, freely adding all countable joins is equivalently freely adding \emph{all} joins, which is achieved by the presheaf construction. This way,
+%   \[ 2[\N] = [(P_f(\N)\op)\op,2] \cong [P_f(\N),2]. \qedhere \]
+% \end{proof}
+
+% \begin{corollary}\label{cor:dualsframe}
+%   There is a fully faithful embedding
+%   \[ \sFrm\cp \hook \Frm, \]
+%   preserving all countable colimits. This is again fully faithful when composed with $\ms{pt} : \Frm\op \to \Topp$. 
+% \end{corollary}
+% \begin{proof}
+%   By definition, a c.p. $\sigma$-frame is isomorphic to one of the form $2[\N]/R$ for some countably generated equivalence relation $R$. Since by Lemma~\ref{lem:cgfreesframe} $2[\N]$ is a frame, so is any of its quotient. By a result in~\cite[Thm. 6.2.4]{makkai2006first}, such frames are indeed \emph{spatial}, hence they fully faithfully embed into the category of topological spaces via the functor $\pt$.
+% \end{proof}
+
+% This way, we get a duality between c.p. $\sigma$-frames and certain class of topological spaces. Notice that since all c.p. $\sigma$-frame will be a quotient of $2[\N]$, their dual spaces will be a subspace of $\pt(2[\N])$, which we can compute quite easily:
+
+% \begin{lemma}
+%   The space of points of $2[\N]$ is the Scott's graph model $G$, which is the countable product of the Sierpinski space $G \cong S^\N$.
+% \end{lemma}
+% \begin{proof}
+%   Note $\pt$ takes colimits in $\Frm$ to limits in $\Topp$, since $\pt : \Loc \to \Topp$ is a right adjoint. Since $2[\N]$ is the countable coproduct of the free frame on one generator, we have
+%   \[ \pt(2[\N]) \cong \pt(2[x])^\N \cong S^\N, \]
+%   where $\pt(2[x])$ is the Sierpinski space $S$ by an easy computation.
+% \end{proof}
+
+% However, to connect to models in~\cite{FIORE1997151}, we need to connect $\sFrm\cp$ with $\wCPO$. To do this, we first observe the following fact:
+
+% \begin{proposition}
+%   Let $\mb P$ be the full subcategory of $\wCPO$ consisting of retracts of Scott's graph model $G$. Then we have a fully faithful embedding 
+%   \[ i : \mb P \hook \sFrm\cp\op. \]
+% \end{proposition}
+% \begin{proof}
+%   Since both $\wCPO$ and $\Topp$ are Cauchy complete, it suffices to notice that for the graph model $G$, by viewing it as an $\omega$CPO or a topological space, they give the same endomorphisms,
+%   \[ \wCPO(G,G) \cong \Topp(G,G). \]
+%   Hence, this follows from Corollary~\ref{cor:dualsframe}.
+% \end{proof}
+
+% \begin{theorem}
+%   The inclusion $i : \mb P \hook \sFrm\cp\op$ induces an embedding,
+%   \[ i : \psh(\mb P) \hook [\sFrm\cp,\Set], \]
+%   where the generic model in $[\sFrm\cp,\Set]$ is an $i$-sheaf.
+% \end{theorem}
+% \begin{proof}
+%   Note that the direct image $i_*$ is computed by right Kan extension, thus $i$ is an embedding because $i$ is fully faithful, and $i^*i_* \cong 1$. The generic model is the corepresentable $\yon^{2[\N]}$, which when restricting along $i^*$ becomes the representable $\yon_G$. Hence, it suffices to show $i_*\yon_G \cong \yon^{2[\N]}$. 
+  
+%   For any $A\in\sFrm\cp$, we compute
+%   \[ i_*\yon_G(A) \cong \lt_{X\in A/\mb P}\mb P(X,P) \cong \lt_{D\in A/\mb P}\sFrm(2[\N],D). \]
+%   Now we show the canonical map is an isomorphism:
+%   \[ \sFrm(2[\N],A) \to \lt_{D\in A/\mb P}\sFrm(2[\N],D). \]
+  
+%   \emph{Injectivity}: Suppose we have two maps $f,g : 2[\N] \to A$. Notice that the singleton $1\in\mb P$, which corresponds to the initial frame $2$. Since $A \in \sFrm$ is spatial, if for all $x : A \to 2$ we have $xf = xg$, then $f = g$.
+
+%   \emph{Surjectivity}: Suppose we are given a compatible family $\set{f_D}_{D\in A/\mb P}$ where $f_D : 2[\N] \to D$. By the duality in Corollary~\ref{cor:dualsframe}, equivalently we have a compatible family
+%   \[ \scomp{f_X : X \to G}{X \in \mb P/\pt(A)}. \]
+%   Now there is essentially one way to define a map $f : \pt(A) \to G$, by letting $f(x)$ for $x\in\pt(A)$ to be $f_x$,
+%   \[
+%   \begin{tikzcd}
+%     1 \ar[d, "f_x"'] \ar[r, "x"] & \pt(A) \ar[dl, dashed, "f"] \\ 
+%     G
+%   \end{tikzcd}
+%   \]
+% \end{proof}
 
 
 \bibliographystyle{apalike} 
