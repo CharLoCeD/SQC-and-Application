@@ -1096,7 +1096,7 @@ Finally, at the end of this section, we observe that the algebraic description o
 % \end{corollary}
 
 % \begin{remark}
-%   This is the first place in this work where we require a form of projectivity of $\I$. $\I$ will indeed be projective, in fact \emph{$\infty$-projective} in the sense that Definition~\ref{def:projective} not only applies to sets but arbitrary types, in all the models we care about.
+%   This is the first place in this work where we require a form of projectivity of $\I$. $\I$ will indeed be projective, in fact \emph{projective} in the sense that Definition~\ref{def:projective} not only applies to sets but arbitrary types, in all the models we care about.
 % \end{remark}
 
 % \begin{example}
@@ -1363,20 +1363,19 @@ At the end of this section, we would like to show that the previous orthogonalit
 Completely similarly, we consider the case for sequential colimits. To show this closure property, we need to assume a choice principle:
 
 \begin{definition}
-  For any type $X$, we say it is $k$-projective if for all $k$-truncated type families $P$ over $X$,
+  For any type $X$, we say it is projective if for any type family $P$ over $X$,
   \[ \prod_{x:X} \pss{P(x)} \to \pss{\prod_{x:X}P(x)}. \]
-  We say $X$ is $\omega$-projective if this holds for any $k$, and $\infty$-projective if this holds for any $P$.
 \end{definition}
 
-\begin{axiom}[PF$_\infty$]
-  $\I$ is $\infty$-projective.
+\begin{axiom}[PF]
+  $\I$ is projective.
 \end{axiom}
 
 \begin{remark}
-  The $\infty$-projective objects will be closed under finite products and retracts, thus under (PF$_\infty$), the cubes $\I^n$ and the simplices $\Delta^n$ will also be $\infty$-projective.
+  The projective objects will be closed under finite products and retracts. Thus under (PF), the cubes $\I^n$ and the simplices $\Delta^n$ will also be projective.
 \end{remark}
 
-\begin{lemma}[NT, PF$_\infty$, SQCF]\label{lem:sequentialcolimit}
+\begin{lemma}[NT, PF, SQCF]\label{lem:sequentialcolimit}
   $\prod_{i:\N}$ commutes with sequential colimit for all $k$-truncated type families: If $P_{i,n}$ is a $k$-truncated type family with transition maps $\tau_{i,n} : P_{i,n} \to P_{i,n+1}$ for all $i:\I,n : \N$, then the canonical map
   \[ \ct_{n:\N}\prod_{i:\I} P_{i,n} \to \prod_{i:\I}\ct_{n:\N}P_{i,n} \]
   is an equivalence, and similarly for $\I^n,\Delta^n$.
@@ -1392,7 +1391,7 @@ Completely similarly, we consider the case for sequential colimits. To show this
 
   To show surjectivity, suppose we have $f : \prod_{i:\I}\ct_{n:\N}P_{i,n}$. Now by construction, 
   \[ \fa i\I \ex n\N \ex y{P_{i,n}} f(i) = [(n,y)]. \]
-  By (PF$_\infty$), and Corollary~\ref{cor:connectedpreservediscrete}, we merely get a section $f : \prod_{i:\N} P_{i,n}$ for some $n$, which shows surjectivity.
+  By (PF), and Corollary~\ref{cor:connectedpreservediscrete}, we merely get a section $f : \prod_{i:\N} P_{i,n}$ for some $n$, which shows surjectivity.
 \end{proof}
 
 \begin{remark}
@@ -1401,7 +1400,7 @@ Completely similarly, we consider the case for sequential colimits. To show this
   is an embedding, for $P$ a $k$-truncated family.
 \end{remark}
 
-\begin{proposition}[NT, PF$_\infty$, SQCF]
+\begin{proposition}[NT, PF, SQCF]
   For $f : X \to Y$, if both $X,Y$ are finite colimits of cubes or simplices, then $k$-truncated $f$-local objects are closed under sequential colimits for all $k$.
 \end{proposition}
 \begin{proof}
@@ -1409,16 +1408,28 @@ Completely similarly, we consider the case for sequential colimits. To show this
 \end{proof}
 
 \begin{example}
-  As mentioned in Section~\ref{sec:infdomain}, $\omega = \ct_{n:\N}\Delta^n$ is the sequential colimit of the simplices. Hence, assuming (NT), (PF$_\infty$), and (SQCC), $\omega$ will also be a poset.
+  As mentioned in Section~\ref{sec:infdomain}, $\omega = \ct_{n:\N}\Delta^n$ is the sequential colimit of the simplices. Hence, assuming (NT), (PF), and (SQCC), $\omega$ will also be a poset.
 \end{example}
 
 \section{A discussion on the models}
 
-It is now instructive to discuss models for the quasi-coherence principle for countably presented algebras. We observe that the proof of the quasi-coherence principle in the classifying topos $\Set[\T] = [\mmod\T\fp,\Set]$ for finitely presented algebras given in~\cite{blechschmidt2020general,blechschmidt2021using} can be completely adapted to the countably presented case, provided we work with a larger site,
+It is now instructive to discuss models for the axioms we have used in the previous sections. These axioms can be organised into three classes:
+
+\begin{enumerate}
+  \item The quasi-coherence principle (SQCF) or (SQCC);
+  \item The projectivity axiom (PF);
+  \item Various locality axioms discussed in Section~\ref{sec:locality}.
+\end{enumerate}
+
+For any Horn theory $\T$, through the work in~\cite{blechschmidt2020general,blechschmidt2021using} we know that the classifying topos $\Set[\T] = [\mmod\T\fp,\Set]$, with the generic $\T$-model $U_\T$, models quasi-coherence for finitely presented $U_\T$-algebras, viz. (SQCF).
+
+The observation is that, the proof for quasi-coherence for finitely presented $U_\T$-algebras can be completely adapted to the countably presented case, provided we work with a larger site,
 \[ \Set[\T]_\infty := [\mmod\T\cp,\Set], \]
-where $\mmod\T\cp$ is the category of \emph{countably presented} $\T$-models. These two topoi are intimately related. In particular, we have an inclusion
-\[ \mmod\T\fp \hook \mmod\T\cp, \]
-which preserves finite colimits. Hence, by e.g.~\cite[Thm. 7.20]{caramello2019denseness}, it induces an adjoint triple,
+where $\mmod\T\cp$ is the category of \emph{countably presented} $\T$-models. In other words, (SQCC) holds in the larger topos $\Set[\T]_\infty$.
+
+These two topoi are intimately related. There is an inclusion of site
+\[ \mmod\T\fp\op \hook \mmod\T\cp\op, \]
+which preserves finite limits. Hence, by e.g.~\cite[Thm. 7.20]{caramello2019denseness}, it induces an adjoint triple,
 \[\begin{tikzcd}
   {\Set[\T]_\infty} & {\Set[\T]}
   \arrow[""{name=0, anchor=center, inner sep=0}, "\Gamma"{description}, from=1-1, to=1-2]
@@ -1427,11 +1438,11 @@ which preserves finite colimits. Hence, by e.g.~\cite[Thm. 7.20]{caramello2019de
   \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=2]
   \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=1, to=0]
 \end{tikzcd}\]
-which makes $\Set[\T]_\infty \surj \Set[\T]$ a \emph{local geometric morphism.}
+which induces a \emph{local geometric morphism} $\Set[\T]_\infty \surj \Set[\T]$.
 
-In the topos $\Set[\T]_\infty$, the generic $\T$-model $U_\T$ is again given by
-\[ U_\T(A) = \geo{A}, \]
-which takes $A$ to its underlying set. The quasi-coherence principle for countably presented $U_\T$-algebras will hold for any subtopos of $\Set[\T]_\infty$ where $U_\T$ is a sheaf; cf.~\cite[Thm. 4.11.]{blechschmidt2020general}. For instance, this is the theoretical basis of the quasi-coherence principle for countably presented Boolean algebras in the topos of light condensed sets introduced by Clausen and Scholze, as shown in~\cite{cherubini2024foundation}. Furthermore, if we restrict the topology $J$ on $\mmod\T\cp$ to one on $\mmod\T\cp$, the adjoint triple mentioned above will restrict to one to the sheaf subtopoi,
+More generally, it is already observed in~\cite[Thm. 4.11.]{blechschmidt2020general} that if we have a topology $J$ on $\mmod\T\fp\op$ where $U_\T$ is a $J$-sheaf, then (SQCF) again holds in the sheaf subtopos $\sh(\mmod\T\fp\op,J)$. We call such a topology $J$ \emph{admissible}. For instance, since $U_\T$ is representable, any subcanonical topology will in particular be admissible. Completely similarly, for any admissible topology $J$ on $\mmod\T\cp\op$, the sheaf subtopos $\sh(\mmod\T\cp\op,J)$ also models (SQCC). As an example, this is the theoretical basis of the quasi-coherence principle for countably presented Boolean algebras in the topos of light condensed sets introduced by Clausen and Scholze, as shown in~\cite{cherubini2024foundation}.
+
+Furthermore, an admissible topology $J$ on $\mmod\T\cp\op$ restricts to an admissible one on $\mmod\T\fp\op$. In this case, the adjoint triple mentioned above between the two presheaf categories will restrict to one to the sheaf subtopoi,
 \[\begin{tikzcd}
   {\sh(\mmod\T\cp\op,J)} & {\sh(\mmod\T\fp\op,J)}
   \arrow[""{name=0, anchor=center, inner sep=0}, "\Gamma"{description}, from=1-1, to=1-2]
@@ -1440,11 +1451,38 @@ which takes $A$ to its underlying set. The quasi-coherence principle for countab
   \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=2]
   \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=1, to=0]
 \end{tikzcd}\]
-which identifies $\sh(\mmod\T\cp\op,J)$ a local topos over $\sh(\mmod\T\fp\op,J)$.
+which again identifies $\sh(\mmod\T\cp\op,J)$ a local topos over $\sh(\mmod\T\fp\op,J)$.
 
-For $\mbb D$ the theory of distributive lattices, we have a more detailed description of the dual category $\DL\cp\op$. Recall that there is a duality between distributive lattices and \emph{spectral spaces},
+Admissible topologies also justifies our use of the projectivity axiom (PF). To see this, we show a general fact:
+
+\begin{proposition}
+  Let $\mc C$ be a small category with finite products, and let $x\in\mc C$. If $J$ is a topology on $\mc C$ which makes $\yon_c$ a $J$-sheaf, then $\yon_c$ is internally projective in the sheaf topos $\sh(\mc C,J)$.
+\end{proposition}
+\begin{proof}
+  Let us first consider the situation in the presheaf topos $\psh(\mc C)$. For any presheaf $F$ on $\mc C$ and $x\in\mc C$, we have
+  \[ F^{\yon_c}(x) \cong \psh(\mc C)(\yon_{x} \times \yon_{c},F) \cong \psh(\mc C)(\yon_{x\times c},F) \cong F(x \times c). \]
+  In particular, if $F \surj G$ is an epimorphism of presheaves, which is a point-wise surjection, then $F^\I \surj G^\I$ must again be epic. This shows that any representable is internally projective in the presheaf topos $\psh(\mc C)$.
+
+  Now consider a topology $J$ on $\mc C$ making $\yon_c$ a sheaf. Suppose we have an epimorphism $F \to G$ in $\sh(\mc C,J)$. Equivalently, it can be factored in $\psh(\mc C)$ as an epimorphism of presheaves followed by a $J$-dense mono,
+  \[
+  \begin{tikzcd}
+    F \ar[r, two heads, "q"] & E \ar[r, tail, "i"] & G
+  \end{tikzcd}
+  \]
+  To show $F^{\yon_c} \to G^{\yon_c}$ is epic in $\sh(\mc C,J)$, it suffices to show $E^{\yon_c} \inj G^{\yon_c}$ is again $J$-dense, since we have shown $F^{\yon_c} \surj E^{\yon_c}$ must be an epi. Let $a$ be the sheafification monad on $\psh(\mc C)$. $E \inj G$ being $J$-dense simply means that $aE \cong aG \cong G$ is an isomorphism. This way, since $\yon_c$ is a sheaf,
+  \[ a(E^{\yon_c}) \cong (aE)^{\yon_c} \cong G^{\yon_c}, \]
+  Hence, $i^{\yon_c}$ is again $J$-dense, which implies $F^{\yon_c} \to G^{\yon_c}$ is epic in $\sh(\mc C,J)$. In particular, $\yon_c$ is again internally projective in $\sh(\mc C,J)$.
+\end{proof}
+
+Combining the above results, the following is clear:
+
+\begin{theorem}
+  For any admissible topology $J$ on $\mmod\T\cp\op$, the sheaf topos $\sh(\mmod\T\cp\op,J)$ models (SQCC) and (PF), i.e. it is internally true that countably presented $U_\T$-algebras satisfies quasi-coherence, and $U_\T$ is projective.
+\end{theorem}
+
+Now the various locality axioms will be modelled by choosing suitable admissible topologies. For this let us focus on the case for $\mbb D$ the theory of distributive lattices. Let us first observe that we have a more detailed description of the dual category $\DL\cp\op$. Recall that there is a duality between distributive lattices and \emph{spectral spaces},
 \[ \spec : \DL\op \simeq \Spec : \Sigma. \]
-Here $\Spec$ is the category of spectral topological spaces and spectral maps. A spectral space $X$ is a sober topological space, such that its compact open subsets form a basis, i.e. they are closed under finite intersections and every open subset is a union of compact ones. A continuous map between spectral spaces $f : X \to Y$ is called \emph{spectral}, if $f\inv$ furthermore preserves compact opens. For more information on this duality result, see e.g. Stone's original paper~\cite{stone1938topological} or the detailed exposition~\cite{bezhanishvili2010bitopological}.
+Here $\Spec$ is the category of spectral topological spaces and spectral maps. A spectral space $X$ is a sober topological space, such that its compact open subsets form a basis, i.e. they are closed under finite intersections and every open subset is a union of compact ones. A continuous map between spectral spaces $f : X \to Y$ is called \emph{spectral}, if $f\inv$ also preserves compact opens. For more information on this duality result, see e.g. Stone's original paper~\cite{stone1938topological} or the detailed exposition~\cite{bezhanishvili2010bitopological}.
 
 On one hand, $\spec$ takes a distributive lattice $A$ to its \emph{space of models}:
 \begin{itemize}
@@ -1470,10 +1508,10 @@ On the other hand, the functor $\Sigma : \Spec \to \DL\op$ simply takes a spectr
 \[ \Sigma(X) := \Spec(X,\Sigma), \]
 In other words, $\Sigma(X)$ is the distributive lattice of compact opens of $X$.
 
-Let us now consider the essential image of $\spec : \DL\cp\op \to \Spec$, which we denote as $\wSpec$. Notice that since a distributive lattice is countably presented iff it is a quotient of $2[\N]$. The fact that every quotient of $2[\N]$ is countably presented follows from the fact that $2[\N]$ is itself countable. This way, by duality objects in $\wSpec$ are simply spectral subspaces of $\Sigma^\N$, i.e. those subspaces $X \subseteq \Sigma^\N$, where for any compact open $U$ of $\Sigma^\N$, $X \cap U$ is again compact in $X$. 
+Let us now consider the essential image of $\spec : \DL\cp\op \to \Spec$, which we denote as $\wSpec$. Notice that since $2[\N]$ is itself countable, a distributive lattice is countably presented iff it is a quotient of $2[\N]$. This way, by duality objects in $\wSpec$ are simply spectral subspaces of $\Sigma^\N$, i.e. those subspaces $X \subseteq \Sigma^\N$, where for any compact open $U$ of $\Sigma^\N$, $X \cap U$ is again compact in $X$. 
 
 \begin{remark}
-  In particular, not all subspaces of $\Sigma^\N$ will lie in $\wSpec$, since in particular objects in $\wSpec$ are themselves \emph{compact}. For instance, the discrete space $\N$ is a subspace of $\Sigma^\N$, but not an object in $\wSpec$.
+  In particular, not all subspaces of $\Sigma^\N$ will lie in $\wSpec$. For instance, the discrete space $\N$ as a subspace of $\Sigma^\N$ is \emph{not} an object in $\wSpec$, since $\N$ is not even compact, let alone spectral.
 \end{remark}
 
 This way, we have the following situation,
@@ -1483,9 +1521,10 @@ This way, we have the following situation,
   \DL\cp\op \ar[r, "\simeq"] & \wSpec 
 \end{tikzcd}
 \]
-where the equivalence $\DL\cp\op \simeq \wSpec$ restricts to one between finite distributive lattices and finite posets, where we view each finite poset as a spectral space via its Scott topology.
+where the equivalence $\DL\cp\op \simeq \wSpec$ restricts to one between finite distributive lattices and finite posets, where we view each finite poset as a spectral space via its Scott topology. Hence, at the presheaf level, we have a local geometric morphism
+\[ \psh(\wSpec) \surj \psh(\Pos\fp). \]
 
-Working with $\wSpec$, the generic distributive lattice $\I$ as a presheaf on $\wSpec$ is now the representable functor on the Sierpinski space $\Sigma$. This way, all the examples of models we get for (SQCC) are based on a topology $J$ on $\wSpec$ making $\yon_\Sigma$ a sheaf. Below are the corresponding examples for the locality principles we have considered in Section~\ref{sec:locality}.
+Working with $\wSpec$, the generic distributive lattice $\I$ as a presheaf on $\wSpec$ is now the representable functor on the Sierpinski space $\Sigma$. Below are the corresponding admissible topologies on $\wSpec$ which model the various locality principles we have considered in Section~\ref{sec:locality}.
 
 \begin{example}[NT]
   To model (NT), we would want the empty sieve on $\spec(2/0=1) = \emp$ to be a covering. Since $\emp$ is a strict initial object in $\wSpec$, this is a subcanonical topology. Thus, this gives us a least topology $J_{\ms{NT}}$ that models (NT), and we have
@@ -1570,6 +1609,8 @@ Working with $\wSpec$, the generic distributive lattice $\I$ as a presheaf on $\
   Hence, this again gives us a local geometric morphism
   \[ \sh(\wSpec,J_{\ms{1T}}) \surj \psh(\Delta_{\le 1}). \]
 \end{example}
+
+
 
 % In this section we work with $\ms{ZFC}$. Let $\sFrm$ be the category of $\sigma$-frames, i.e. whose objects are posets with finite meets and countable joins, where they distribute through each other. We will also use $\sFrm\cp$ to denote the full subcategory of countably presented $\sigma$-frames.
 
