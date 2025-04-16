@@ -15,8 +15,6 @@
 \usepackage{appendix}
 \usepackage{mathtools}
 
-
-
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{fact}[theorem]{Fact}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -219,7 +217,7 @@
 \makeatother
 
 
-\title{A logical and geometric approach to domains}
+\title{An algebraic approach to domains}
 \author{Lingyuan Ye}
 \date{\today}
 
@@ -240,46 +238,82 @@
 % If there are more than two authors, 'et al.' is used.
 %
 % \institute{New College\\
-
+\begin{abstract}
+  This paper establishes a strong connection between synthetic domain theory and the theory of classifying topoi. We show the internal logic of classifying topoi of various first-order theories based on distributive lattices validates the axioms of synthetic domain theory. This provides a new set of techniques reasoning about the behaviour of domains in a synthetic context, and establishes a new family of models for synthetic domain theory.
+\end{abstract}
 %
 \maketitle              % typeset the header of the contribution
 %
-\tableofcontents
 
 \section{Introduction}
 
-Let $\T$ be a Horn theory.  $\T$. This principle originated from the observation made in~\cite{RN879}, that the function space of the generic model $U_\T$ in the classifying topos $\Set[\T]$ is calculated by polynomials $U_\T[x]$. This then  The  ~\cite{blechschmidt2021using,blechschmidt2020general}. (The envelopping $\infty$-topoi of) such topoi provide models for the type theory we work with in this paper.
+\subsection{Synthetic domain theory}
 
-In this paper we will be working in a dependent type theory with a univalent universe $\tp$. Recall the notion of $h$-levels~\cite{hottbook}. For us the most important h-levels are -1 and 0, which are \emph{propositions} and \emph{sets}. In particular, we can define subuniverses $\pp$, $\st$.
+The proposal to develop a synthetic theory of domains arised from the suggestion of Dana Scott in the 1980s. The thesis is that domains should be viewed simply as some special sets in a suitable universe, and any function between them should automatically respect the computational data associated to domains. Later Hyland~\cite{hyland2006first} provided a full axiomatisation of the properties of such a universe.
 
-We will also assume the existence of propositional truncation. This allows us to define existential quantifier of a family $P : X \to \pp$, 
-\[ \ex x{X} P(x) := \pss{\sum_{x:X}P(x)} \] 
-and disjunction of propositions,
-\[ P \vee Q := \pss{P + Q}. \]
-Note that by univalence, $\pp$ is already closed under dependent product. But to emphasis that the result is again a proposition, we may also write dependent products of propositions as $\fa xX P(x)$. 
+Firstly, a theory of SDT should contain an interval $\I$ which induces an information order (or specialisation order from a topological perspective) on domains, and every function will automatically be monotone. An internal axiom that characterises the synthetic nature of this fact is the socalled \emph{Phoa's principle}: The function space $\I^\I$ should classify the order on $\I$. In other words, the functions from $\I$ to itself are completely determined by the order structure on $\I$. Additionally, $\I$ should also form a subuniverse of propositions closed under dependent sums, so as to form a dominance in the sense of~\cite{rosolini1986continuity}. The dominance structure is used to parametrise partial functions through a lifting operator $(-)\prt$ constructed from $\I$. 
 
-The universe $\pp$ is used to define subtypes, i.e. we identify a subtype of $X$ as a family of propositions $A : X \to \pp$ indexed over $X$, where the projection $\sum_{x:X}A(x) \inj X$ is the inclusion of this subtype. We often write the sum as a collection,
-\[ \scomp{x:X}{A(x)} := \sum_{x:X}A(x). \]
-When $X$ in fact is a set, then any of its subtype is also a set, and we will emphasis by calling them \emph{subsets}.
+Besides these elementary axioms, the main infinitary axiom of SDT is the \emph{completeness} of the interval: Let $\omega,\ov\omega$ be the internal initial algebra and final coalgebra of the lifting functor $(-)\prt$, respectively. There is a canonical inclusion $\omega \hook \ov\omega$, and the completeness axiom states that $\I$ is \emph{orthogonal} to this inclusion: The canonically induced map $\I^{\ov\omega} \to \I^{\omega}$ should be equivalence. This can be viewed as the synthetic version of the $\omega$-completeness of the interval $\I$.
 
-Sets are used to define \emph{algebras} for a Horn theory. Given any Horn theory $\T$, by a \emph{$\T$-model} we will always mean a \emph{set} $A$ equipped with operations according to the signature of $\T$, such that it satisfies the axioms of $\T$. Since $A$ is a set, being a $\T$-model is again a proposition for a given family of operations.
+\subsection{Classifying topoi and Phoa's principle}
 
-At the end, we remark that $\N$ is the usual inductive type of natural numbers. For any $n:\N$, we will also use $n$ to denote the finite type with $n$ elements, which is viewed as an initial segment of $\N$. We stress that this is only syntactic sugar, and can be made more precise if need be.
+The connection of a particular axiom of SDT, the Phoa's principle, with classifying topoi is first observed in a recent work on synthetic category theory~\cite{gratzer2024directed}, and this work is inspired by this observation. \emph{A posteriori}, the crucial step for this observation is already contained in the work of Blass~\cite{RN879}. 
 
-\section{Quasi-coherence and affine spaces}
+To recap, let $\T$ be an algebraic theory. Recall that the classifying topos of $\T$ is given by the following presheaf category (cf.~\cite[D3.1]{johnstone2002sketches}),
+\[ \Set[\T] := [\mmod\T\fp,\Set], \]
+where $\mmod\T\fp$ is the category of finitely presented $\T$-algebras. In particular, there is a generic $\T$-model $U_\T$, such that any $\T$-model in a topos $\mc E$ is realised as the image of $U_\T$ under the inverse image of a geometric morphism $\mc E \to \Set[\T]$. The observation of~\cite{RN879} is that, internally in $\Set[\T]$, the function space of $U_\T$ is completely characterised by polynomials,
+\[ U_\T^{U_\T} \cong U_\T[x], \]
+where $U_\T[x]$ denotes the free $\T$-model with an additional element generated from $U_\T$, which is the polynomial algebra on $U_\T$.
 
-In this section we discuss the notion of quasi-coherent algebra and affine spaces. The technical results presented in this section is essentially contained in~\cite{Cherubini_Coquand_Hutzler_2024}, based on the work in~\cite{blechschmidt2021using}. 
+The observation from~\cite{gratzer2024directed} is then that, when $\T$ is taken to be the theory $\mbb D$ of distributive lattices and $\I$ is the generic $\mbb D$-model, the equivalence $\I^\I \cong \I[x]$ implies the Phoa's principle, because for distributive lattices, $\I[x]$ classifies the order on $\I$ (cf.~).
 
-As a starting point, we assume there is a generic $\T$-model in our type system:
+\subsection{Quasi-coherence}
 
-\begin{axiom}
-  There is a set $\I$ equipped with a $\T$-model structure.
-\end{axiom}
+Recently, the work of Blass has been greatly generalised by Blechschmidt in his PhD thesis~\cite{blechschmidt2021using} (also see the unpublished note~\cite{blechschmidt2020general} by the same author), which identifies a stronger property satisfied by the generic model $U_\T$ in $\Set[\T]$, termed \emph{quasi-coherence}. The terminology is motivated by its application in algebraic geometry.
+
+Let $A$ be a $U_\T$-algebra in $\Set[\T]$, i.e. it is an internal $\T$-model, equipped with a homomorphism $U_\T \to A$. The quasi-coherence principle states that for any \emph{finitely presented}, or in short \emph{f.p.}, $U_\T$-algebra $A$, if we define its \emph{spectrum} to be the following internal type of $U_\T$-algebra homomorphisms
+\[ \spec A := U_\T\alg(A,U_\T), \]
+then the canonical evaluation map in $\Set[\T]$ is an equivalence,
+\[ A \cong U_\T^{\spec A}. \]
+Types of the form $\spec A$ are also called \emph{affine}. This in fact induces an internal duality between f.p. $U_\T$-algebras and affine types. In particular, it implies Blass's result mentioned earlier. When $\T$ is taken to be the theory $\mbb R$ of commutative rings, the above quasi-coherence principle features an essential role in a synthetic approach to algebraic geometry already initiated in~\cite{blechschmidt2021using} and further developed in~\cite{Cherubini_Coquand_Hutzler_2024}.
+
+In fact, the appearance of finite presentation in the above formulation of quasi-coherence is not an essential limitation. Following the development in~\cite{blechschmidt2021using,blechschmidt2020general}, it is clear that the quasi-coherence principle for algebraic theories is simply a twisted way of stating the Yoneda lemma. Hence, if we enlarge the site of the classifying topos $\Set[\T]$ to, say, the following presheaf topos 
+\[ \Set[\T]_\omega := [\mmod\T\cp,\Set], \]
+where $\mmod\T\cp$ denotes the category of \emph{countably presented} $\T$-models, then the collection of countably presented $U_\T$-algebras will enjoying quasi-coherence in $\Set[\T]_\omega$. For instance, this is the theoretical basis in a recent approach towards synthetic topology~\cite{cherubini2024foundation}, which exploits the quansi-coherence principle for countably presented Boolean algebras.
+
+Another generalisation of the above mentioned work by Blechschmidt is that, quasi-coherence not only holds in the presheaf topos, but also in the large class of subtopoi which makes $U_\T$ a sheaf (cf.~\cite[Cor. 7.7]{blechschmidt2020general}). Logically, this corresponds to working in a geometric quotient of the algebraic theory $\T$. Hence, in such a subtopos the generic model $U_\T$ will validates more geometric sequents as specified by the topology, which should be viewed as certain \emph{local properties}. For instance, the generic ring in~\cite{Cherubini_Coquand_Hutzler_2024} is assumed to be a \emph{local ring}, which is true in the Zariski topology. In~\cite{cherubini2024foundation} they assume the generic Boolean algebra is given by the discrete set 2, which is again only true in a suitably chosen topology.
+
+
+\subsection{Main contribution}
+
+We outline the main contribution of this paper, and indicates its relation with other works.
+
+\emph{1) Quasi-coherence implies SDT}: The first contribution of this paper is the observation that the quasi-coherence principle for distributive lattices \emph{alone} (almost) suffices to account for \emph{all} essential axioms for synthetic domain theory. Specifically:
+
+\emph{\ \ 1.1)} Quasi-coherence for finitely presented algebras (in fact an even weaker assumption) implies that the generic interval $\I$ forms a dominance (Proposition~\ref{prop:Idominance}). It also leads to an explicit computation of the lifting of affine spaces (Lemma~\ref{lem:liftofaffine}). A similar construction of a dominance is also provided in~\cite{Cherubini_Coquand_Hutzler_2024}, though the proof there uses a form of choice, while we have shown in our case this is a consequence of quasi-coherence alone.
+
+\emph{\ \ 1.2)} As mentioned, quasi-coherence for finitely presented algebras implies the generic interval $\I$ satisfies the Phoa's principle. In fact, we can show more generally that \emph{any affine space} will also satisfy the Phoa's principle (Theorem~\ref{thm:phoaaffine}). For instance, combined with the observation that the final coalgebra $\ov\omega$ is affine if we assume quasi-coherence for countably presented algebras (Example~\ref{exm:ovomegaaffine}), $\ov\omega$ will also satisfy the Phoa's principle.
+
+\emph{\ \ 1.3)} Most importantly, quasi-coherence for countably presented algebras (together with the minor assumption that $\I$ is non-trivial) implies completeness of $\I$ (Theorem~\ref{thm:complete}). In this case, the initial algebra $\omega$ can also be characterised by a sequential colimit (Corollary~\ref{cor:omegacolimit}), which as shown by~\cite{VANOOSTEN2000233} is not always true in an arbitrary model of SDT.
+
+\emph{2) Local properties of affine spaces}: Though in general we do not assume the generic interval $\I$ to satisfy any local property unless needed, we do discuss the various consequences of them in Section~\ref{sec:locality}. More importantly, even without assuming them globally, one can in fact show that $\I$, or more generally any affine space, will be \emph{orthogonal} to the maps that classifies various important local properties, including non-triviality, localness, linearity, and a form of 1-truncatedness, which will be the content of Section~\ref{sec:local}. Thus, though we do not have these local properties globally, when establishing properties of affine spaces we might as well assume them. We believe this will be useful in reasoning about domains in this synthetic world, and there will be subsequent works on this topic.
+
+\emph{3) New models for SDT}: As a consequence of these results obtained via internal logic, a large new family of models of SDT based on classifying topoi for distributive lattices emerges. In fact, as will be clear from our development, these models not only include the presheaf topos $\Set[\mbb D]_\omega$ and its various subtopoi based on distributive lattices, but also those based on the theory of $D$-algebras for any distributive lattice $D$ (cf. Section~\ref{sec:model}). Investigating the relationship between these models and the existing sheaf models of SDT constructed e.g. in~\cite{FIORE1997151} is left for future work. 
+
+\subsection{Style of the paper}
+
+Our motivation for domain theory encourages us to work in a context as general as possible, so as to allow future developments that connect more specific flavours of domain theory existing in the literature. This means that besides Section~\ref{sec:model} where we discuss models, throughout the paper we will work constructively in a type theory enriched with a generic model $\I$. To be more specific, the base type system we work with is intensional type theory with a universe satisfying function extensionality, which will be valid in any ($\infty$-)topos. We do not assume any additional assumption globally, and the development in this paper is completely modular, in the sense that additional assumptions will be explicitly mentioned in each result we show.
+
+In fact, we even take a step further. For the first half of this paper we will not work with distributive lattices specifically. Instead, we assume to work with a \emph{propositional} theory, which we define in Definition~\ref{defn:propositional}. In particular, the construction of the dominance and computation of lifting mentioned in 1.1) earlier works in this generality. Only starting from Section~\ref{sec:locality} will we then work more specifically with theories based on distributive lattices.
+
+\section{Quasi-coherence and affine spaces}\label{sec:basics}
+
+As mentioned, we will work with a type system enriched with a generic model $\I$ of some algebraic theory. In this section we briefly recap some elementary consequences of quasi-coherence. The results in this section applies to any algebraic theory $\T$.
 
 \emph{Quasi-coherence} is a condition on \emph{$\I$-algebras}: An $\I$-algebra is a $\T$-model $A$ equipped with a homomorphism $\I \to A$. The type of $\I$-algebras will be denoted as $\I\alg$. More generally, for any $\T$-algebras $A,B$, we will use $\I\alg(A,B)$ to denote the set of homomorphisms of $\I$-algebras from $A$ to $B$. For instance, this can be used to define the \emph{spectrum} $A$,
 \[ \spec A := \I\alg(A,\I). \]
 
-A lot of sets can be naturally viewed as the spectrum of some $\I$-algebra. For the simplest example, since $\I$ is the initial $\I$-algebra,
+Many sets can be naturally viewed as the spectrum of some $\I$-algebra. For the simplest example, since $\I$ is the initial $\I$-algebra,
 \[ \spec \I = \I\alg(\I,\I) = 1. \]
 Now if we use $\I[x]$ to denote the free $\I$ algebra on one generator, we can identify $\I$ itself as a spectrum,
 \[ \spec \I[x] = \I\alg(\I[x],\I) = \I. \]
@@ -403,7 +437,7 @@ which implies the image of $b$ is simply the constant function on $b$.
 
 Notice that up till this piont we have not used any spectial property of $\T$ rather than the fact that it is a Horn theory. However, to move closer to the intended application in domain theory, we start by assuming our theory $\T$ is \emph{propositional}: 
 
-\begin{definition}
+\begin{definition}\label{defn:propositional}
   We say a Horn theory $\T$ is \emph{propositional}, if it extends the theory of meet-semi-lattices, and truth of an element is computed by slicing: For any $\T$-model $A$ and $a:A$, the quotient $A/a=1$ is given by
   \[ a \wedge - : A \surj A/a, \]
   where $A/a$ by definition is $\cv a := \scomp{b:A}{b\le a}$.
@@ -898,7 +932,7 @@ At the end of this section, we describe another interesting perspective arising 
 Now we can identify the simplices $\Delta^n$ as a finitely presented $\I$-algebra as shown above. Under such equivalences, the inclusion $\eta\prt$ simply corresponds to the canonical inclusion as shown below,
 \[
   \begin{tikzcd}
-    \Delta^{n+1} \ar[r, tail, "\eta\prt"] \ar[d, "\simeq"'] & \Delta^{n+2}  \ar[d, "\simeq"] \\ 
+    \Delta^{n+1} \ar[r, tail, "\eta\prt"] \ar[d, "\cong"'] & \Delta^{n+2}  \ar[d, "\cong"] \\ 
     \I[n]/i_1 \le \cdots \le i_n \ar[r, tail] & \I[n\!+\!1]/i_0 \le \cdots \le i_{n} 
   \end{tikzcd}
 \]
@@ -906,6 +940,12 @@ Now we can identify the simplices $\Delta^n$ as a finitely presented $\I$-algebr
 \section{Infinitary domain theory}\label{sec:infdomain}
 
 Until this point, we have seen that all the finitary axioms for synthetic domain theory is a consequence of (SQCF) for a theory of distributive algebra, with potentially the assumption of (NT).
+
+By a countably presented, or c.p. in short, $\I$-algebra, we mean an $\I$-algebra of the form $\I[I]/s=t$ for some \emph{decidable} subsets $I,J$ of $\N$ with $s,t : J \to \I[I]$. In particular, all finitely presented $\I$-algebra will also be countably presented. Motivated by the above characterisation of $\ov\omega$, we naturally consider the following stronger quasi-coherence principle:
+
+\begin{axiom}[SQCC]
+  All c.p. $\I$-algebras are (stably) quasi-coherent.
+\end{axiom}
 
 There is one final crucial infinitary axiom of synthetic domain theory. From the observation in~\cite{hyland2006first,JIBLADZE1997185}, we can define internally in type theory the initial algebra and final coalgebra for the lifting functor $(-)\prt$, which we denote as $\omega$ and $\ov\omega$, respectively. There is a canonical inclusion $\omega \inj \ov\omega$, and the final axiom for synthetic domain theory states that the interval $\I$ is \emph{complete}, in the sense that the induced map $\I^{\ov\omega} \to \I^\omega$ is an \emph{equivalence}. The goal of this section is to explain that, this completeness axiom can also be realised as a consequence of quasi-coherence.
 
@@ -919,13 +959,10 @@ which can be viewed as the following sequential limit,
 \]
 where the transition map $\Delta^{n+1} \to \Delta^n$ takes the sequence $i_0 \ge \cdots \ge i_n$ to the final segment $i_1 \ge \cdots \ge i_n$. 
 
-According to the above description, $\ov\omega$ is in fact a \emph{spectrum},
-\[ \ov\omega = \spec(\I[\N]/\forall n.\, i_n \ge i_{n+1}). \]
-However, the corresponding algebra is no longer finitely presented, but countably presented. By a countably presented, or c.p. in short, $\I$-algebra, we mean an $\I$-algebra of the form $\I[I]/s=t$ for some \emph{decidable} subsets $I,J$ of $\N$ with $s,t : J \to \I[I]$. In particular, all finitely presented $\I$-algebra will also be countably presented. Motivated by the above characterisation of $\ov\omega$, we naturally consider the following stronger quasi-coherence principle:
-
-\begin{axiom}[SQCC]
-  All c.p. $\I$-algebras are (stably) quasi-coherent.
-\end{axiom}
+\begin{example}[SQCC]\label{exm:ovomegaaffine}
+  According to the above description, $\ov\omega$ is \emph{affine},
+  \[ \ov\omega = \spec(\I[\N]/\forall n.\, i_n \ge i_{n+1}). \]
+\end{example}
 
 \begin{remark}
   The quasi-coherence principle for countably presented algebras is investigated in~\cite{cherubini2024foundation}. Just like the finitary version (SQCF), which is true in the classifying topos $\Set[\T] = [\mmod\T\fp,\Set]$, the countable version (SQCC) will be valid in a larger presheaf topos $[\mmod\T\cp,\Set]$, or any subtopos induced by a subcanonical topology. For instance, the semantics of~\cite{cherubini2024foundation} is based on the topos of light condensed sets introduced by Clausen and Scholze, which is a subtopos of $[\mmod{\mbb B}\cp,\Set]$.
@@ -959,12 +996,18 @@ For another proof, see e.g.~\cite{VANOOSTEN2000233}. In the presence of the Mark
   We can take $\phi$ to be $\emp$. By assumption we have $\neg\fa n\N \neg\neg\ms ti_n$, which by Corollary~\ref{cor:opendnegclose} is equivalent to $\neg\fa n\N \ms ti_n$. Then Lemma~\ref{lem:markov} implies this is $\ex n\N \ms fi_n$.
 \end{proof}
 
-By~\cite[Cor. 1.10]{VANOOSTEN2000233}, the above result exactly means that $\omega$ is indeed the internal colimit of the following sequence,
-\[ 
-\begin{tikzcd}
-  \emp \ar[r, "?"] & 1 \ar[r, "?\prt = \eta\cprt"] & \I \ar[r, "\eta\cprt"] & \Delta^2 \ar[r] & \cdots
-\end{tikzcd}
-\]
+\begin{corollary}[NT, SQCC]\label{cor:omegacolimit}
+  $\omega$ is the internal colimit of the following sequence,
+  \[ 
+  \begin{tikzcd}
+    \emp \ar[r, "?"] & 1 \ar[r, "?\prt = \eta\cprt"] & \I \ar[r, "\eta\cprt"] & \Delta^2 \ar[r] & \cdots
+  \end{tikzcd}
+  \]
+\end{corollary}
+\begin{proof}
+  This follows from the previous lemma with~\cite[Cor. 1.10]{VANOOSTEN2000233}.
+\end{proof}
+
 Using this, we can now show the most important infinitary axiom for synthetic domain theory:
 
 \begin{theorem}[NT, SQCC]\label{thm:complete}
@@ -979,7 +1022,7 @@ Using this, we can now show the most important infinitary axiom for synthetic do
   \[
   \begin{tikzcd}
     \I^{\Delta^{n+1}} \ar[r, "\I^{\eta\cprt}"] & \I^{\Delta^n} \\ 
-    \I[n\!+\!1]/i_1 \ge \cdots \ge i_{n+1} \ar[u, "\simeq"] \ar[r, "i_{n+1} \mapsto 0"'] & \I[n]/i_1 \ge \cdots \ge i_n \ar[u, "\simeq"']
+    \I[n\!+\!1]/i_1 \ge \cdots \ge i_{n+1} \ar[u, "\cong"] \ar[r, "i_{n+1} \mapsto 0"'] & \I[n]/i_1 \ge \cdots \ge i_n \ar[u, "\cong"']
   \end{tikzcd}
   \]
   Now taking the limit of the above sequence of algebras gives us
@@ -997,7 +1040,7 @@ Finally, at the end of this section, we observe that the algebraic description o
   Following the discussion at the end of Section~\ref{sec:intposet}, we have the following equivalences,
   \[
     \begin{tikzcd}
-      \Delta_{n+1} \ar[r, tail, "\eta\cprt"] \ar[d, "\simeq"'] & \Delta_{n+2}  \ar[d, "\simeq"] \\ 
+      \Delta_{n+1} \ar[r, tail, "\eta\cprt"] \ar[d, "\cong"'] & \Delta_{n+2}  \ar[d, "\cong"] \\ 
       \I[n]/i_1 \ge \cdots \ge i_n \ar[r, tail] & \I[n\!+\!1]/i_1 \ge \cdots \ge i_{n+1} 
     \end{tikzcd}
   \]
@@ -1204,7 +1247,7 @@ Finally, at the end of this section, we observe that the algebraic description o
 
 % Of course, it is perfectly fine to assume both (L) and (cL), and we may refer to the combination of them as (bL). Working in the context of (bL), we again recover the full duality between the meet and join structure as the presheaf geometry.
 
-\section{Local properties for affine spaces}
+\section{Local properties for affine spaces}\label{sec:local}
 
 In this section we review some of the locality axioms we have introduced in Section~\ref{sec:locality}. The observation is that, even if we do not assume them to be true globally for the internval $\I$, we can still show the maps representing the locality axiom to be \emph{orthogonal} to $\I$, or more generally for all affine spaces. Again, these orthogonality conditions are completely due to the algebraic properties of distributive lattices. 
 
@@ -1260,7 +1303,7 @@ Furthermore, we verify that affine spaces are 1-truncated in the following sense
 \end{definition}
 
 \begin{corollary}
-  Any affin space are simplicial.
+  Any affine space are simplicial.
 \end{corollary}
 \begin{proof}
   This is a consequence of being Segal and 1-truncated.
@@ -1384,7 +1427,7 @@ Given this, we can directly compute the space $\omega^\I$:
 % \end{proposition}
 % \begin{proof}
 %   Let $Y = \ct_{r}Y_r$ be a connected colimit of cubes or simplices,
-%   \[ \prth{\sum_{m:M}P_m}^Y \simeq \lt_r\prth{\sum_{m:M}\lt_{r}P_m}^{Y_r} \simeq \sum_{m : M}\lt_r P_m^{Y_r} \simeq \sum_{m:M} P_m^Y. \]
+%   \[ \prth{\sum_{m:M}P_m}^Y \cong \lt_r\prth{\sum_{m:M}\lt_{r}P_m}^{Y_r} \cong \sum_{m : M}\lt_r P_m^{Y_r} \cong \sum_{m:M} P_m^Y. \]
 %   The second equivalence uses the fact that finite connected limits commutes with dependent sums, and by Lemma~\ref{lem:disccoprod} $Y_r$ also commutes with dependent sums indexed by $M$. Similarly for $X$. Hence, if each $P_m$ is $f$-local, then so is $\sum_{m:M}P_m$.
 % \end{proof}
 
@@ -1416,7 +1459,7 @@ Given this, we can directly compute the space $\omega^\I$:
 %   We prove this by induction on the truncation level. For $P_{i,n}$ contractible, by~\citep[Lem. 7.2]{10.1145/3373718.3394801} both $\ct_{n:\N}\prod_{i:\I} P_{i,n}$ and $\prod_{i:\I}\ct_{n:\N}P_{i,n}$ are contractible, hence an equivalence.
 
 %   Now suppose $P$ is a family of $k+1$-types. Given two canonical elements $[(0,f)],[(0,g)]$ in the colimit $\ct_{n:\N}\prod_{i:\I}P_{i,n}$, recall from~\cite{10.1145/3373718.3394801}, we have
-%   \[ [(0,f)] = [(0,g)] \simeq \ct_{n:\N} \tau_nf = \tau_ng \simeq \ct_{n:\N} \prod_{i:\I} \tau_nfi = \tau_ngi. \]
+%   \[ [(0,f)] = [(0,g)] \cong \ct_{n:\N} \tau_nf = \tau_ng \cong \ct_{n:\N} \prod_{i:\I} \tau_nfi = \tau_ngi. \]
 %   On the other hand, we have
 %   \[ \prod_{i:\I}[(0,fi)] = [(0,gi)] = \prod_{i:\I}\ct_{n:\N}\tau_nfi = \tau_ngi. \]
 %   The two types are equivalent by induction hypothesis, since the identity types are $k$-truncated. This means the map is an embedding.
@@ -1443,7 +1486,7 @@ Given this, we can directly compute the space $\omega^\I$:
 %   As mentioned in Section~\ref{sec:infdomain}, $\omega = \ct_{n:\N}\Delta^n$ is the sequential colimit of the simplices. Hence, assuming (NT), (PF), and (SQCC), $\omega$ will also be a poset.
 % \end{example}
 
-\section{A discussion on the models}
+\section{A discussion on the models}\label{sec:model}
 
 It is now instructive to discuss models for the axioms we have used in the previous sections. These axioms can be organised into two classes:
 
@@ -1485,7 +1528,7 @@ An admissible topology $J$ on $\mmod\T\cp\op$ restricts to an admissible one on 
 which again identifies $\sh(\mmod\T\cp\op,J)$ a local topos over $\sh(\mmod\T\fp\op,J)$. These admissible topologies on $\mmod\T\fp$ or $\mmod\T\cp$ are exactly the required data to validate various local properties of the generic model $U_\T$. 
 
 More specifically for us, let us focus on the case for $\mbb D$ the theory of distributive lattices. Let us first observe that we have a more detailed description of the dual category $\DL\cp\op$. Recall that there is a duality between distributive lattices and \emph{spectral spaces},
-\[ \spec : \DL\op \simeq \Spec : \Sigma. \]
+\[ \spec : \DL\op \cong \Spec : \Sigma. \]
 Here $\Spec$ is the category of spectral topological spaces and spectral maps. A spectral space $X$ is a sober topological space, such that its compact open subsets form a basis, i.e. they are closed under finite intersections and every open subset is a union of compact ones. A continuous map between spectral spaces $f : X \to Y$ is called \emph{spectral}, if $f\inv$ also preserves compact opens. For more information on this duality result, see e.g. Stone's original paper~\cite{stone1938topological} or the detailed exposition~\cite{bezhanishvili2010bitopological}.
 
 On one hand, $\spec$ takes a distributive lattice $A$ to its \emph{space of models}:
@@ -1499,7 +1542,7 @@ It is easy to verify that the basis of the form $D_a$ are in fact compact, and h
 given by precomposition with $f$. One can verify $(f^*)\inv(D_a) = D_{fa}$, thus $f^*$ is spectral.
 
 \begin{remark}
-  Though $\Spec$ is not a full subcategory of $\Topp$, it is still closed under limits in $\Topp$. One way to see this is via $\spec : \DL\op \simeq \Spec$, where we may explicitly compute the limit of spectral spaces as colimits of distributive lattices.
+  Though $\Spec$ is not a full subcategory of $\Topp$, it is still closed under limits in $\Topp$. One way to see this is via $\spec : \DL\op \cong \Spec$, where we may explicitly compute the limit of spectral spaces as colimits of distributive lattices.
 \end{remark}
 
 As an example, let us look at the space of models of the countably generated free distributive lattice $2[\N]$, where we have 
@@ -1521,18 +1564,18 @@ Let us now consider the essential image of $\spec : \DL\cp\op \to \Spec$, which 
 This way, we have the following situation,
 \[
 \begin{tikzcd}
-  \DL\fp\op \ar[r, "\simeq"] \ar[d, hook] & \Pos\fp \ar[d, hook] \\ 
-  \DL\cp\op \ar[r, "\simeq"] & \wSpec 
+  \DL\fp\op \ar[r, "\cong"] \ar[d, hook] & \Pos\fp \ar[d, hook] \\ 
+  \DL\cp\op \ar[r, "\cong"] & \wSpec 
 \end{tikzcd}
 \]
-where the equivalence $\DL\cp\op \simeq \wSpec$ restricts to one between finite distributive lattices and finite posets, where we view each finite poset as a spectral space via its Scott topology. Hence, at the presheaf level, we have a local geometric morphism
+where the equivalence $\DL\cp\op \cong \wSpec$ restricts to one between finite distributive lattices and finite posets, where we view each finite poset as a spectral space via its Scott topology. Hence, at the presheaf level, we have a local geometric morphism
 \[ \psh(\wSpec) \surj \psh(\Pos\fp). \]
 
 Working with $\wSpec$, the generic distributive lattice $\I$ as a presheaf on $\wSpec$ is now the representable functor on the Sierpinski space $\Sigma$. Below are the corresponding admissible topologies on $\wSpec$ which model the various locality principles we have considered in Section~\ref{sec:locality}.
 
 \begin{example}[NT]
   To model (NT), we would want the empty sieve on $\spec(2/0=1) = \emp$ to be a covering. Since $\emp$ is a strict initial object in $\wSpec$, this is a subcanonical topology. Thus, this gives us a least topology $J_{\ms{NT}}$ that models (NT), and we have
-  \[ \sh(\wSpec,J_{\ms{NT}}) \simeq \psh(\wSpec_+), \]
+  \[ \sh(\wSpec,J_{\ms{NT}}) \cong \psh(\wSpec_+), \]
   where $\wSpec_+$ is the full subcategory of $\wSpec$ excluding $\emp$. The induced local geometric morphism now is given by 
   \[ \Gamma : \psh(\wSpec_+) \surj \psh(\Pos_{\mr{f.p.,+}}), \]
   where, again $\Pos_{\mr{f.p.,+}}$ is the full subcategory of $\Pos_{\mr{f.p.,+}}$ consisting of non-empty posets, and $\psh(\Pos_{\mr{f.,+}})$ is the classifying topos for non-trivial distributive lattices.
@@ -1554,7 +1597,7 @@ Working with $\wSpec$, the generic distributive lattice $\I$ as a presheaf on $\
   The least topology $J_{\ms L}$ is thus generated by the empty covering on $\emp$, and the covering $\set{l,r : \Sigma \to \Lambda^2_1}$. Since we have the pushout above, this topology is again subcanonical. 
   
   In this case, we can also have an explicit description of a covering family in $\wSpec$: A family of maps is a $\ms J_{\ms L}$ covering on $X \in \wSpec$ iff it contains a (finite) subfamily of \emph{compact opens} $\set{X_i\subseteq X}_{i\in I}$, where $X = \bigcup_{i\in I}X_i$. This is thus the \emph{Zariski topology} on $\wSpec$, and the local geometric morphism
-  \[ \sh(\wSpec,J_{\ms L}) \surj \sh(\Pos\fp,J_{\ms L}) \simeq \mb{Zar}(\mbb D), \]
+  \[ \sh(\wSpec,J_{\ms L}) \surj \sh(\Pos\fp,J_{\ms L}) \cong \mb{Zar}(\mbb D), \]
   is over the \emph{Zariski topos} $\mb{Zar}(\mbb D)$ for distributive lattices.
 \end{example}
 
@@ -1576,7 +1619,7 @@ Working with $\wSpec$, the generic distributive lattice $\I$ as a presheaf on $\
   where $\partial : \Sigma \to \Sigma_2$ maps $\Sigma$ to the end points of $\Sigma_2$, and $l,r : \Sigma_2 \hook \Sigma^2$ is the two $\Sigma_2$-chains in $\Sigma^2$. The least topology $\ms J_{\ms{SL}}$ for the linearity axiom is thus generated by the empty covering on $\emp$, and $\set{l,r : \Sigma_2 \hook \Sigma^2}$. Similarly, given this pushout, $J_{\ms{SL}}$ will be subcanonical.
 
   The topos $\sh(\wSpec,J_{\ms{SL}})$ is closely related to simplicial sets. This is due to the fact that simplicial sets is the classifying topos of non-empty linear orders (cf. e.g.~\cite{maclane2012sheaves}), and thus we have an equivalence 
-  \[ \sh(\Pos\fp,J_{\ms{SL}}) \simeq \psh(\Delta). \]
+  \[ \sh(\Pos\fp,J_{\ms{SL}}) \cong \psh(\Delta). \]
   This makes $\sh(\wSpec,J_{\ms{SL}}) \surj \psh(\Delta)$ a local topos over simplicial sets.
 \end{example}
 
@@ -1609,7 +1652,7 @@ Working with $\wSpec$, the generic distributive lattice $\I$ as a presheaf on $\
   which implies $J_{\ms{1T}}$ is subcanonical.
   
   Similar to the case of (SL), $\sh(\wSpec,J_{\ms{1T}})$ is closely related to the topos of \emph{truncated simplicial sets} $\psh(\Delta_{\le 1})$. This is again induced by the fact that the classifying topos for 1-truncated distributive lattices is given by 
-  \[ \sh(\Pos\fp,J_{\ms{1T}}) \simeq \psh(\Delta_{\le 1}). \]
+  \[ \sh(\Pos\fp,J_{\ms{1T}}) \cong \psh(\Delta_{\le 1}). \]
   Hence, this again gives us a local geometric morphism
   \[ \sh(\wSpec,J_{\ms{1T}}) \surj \psh(\Delta_{\le 1}). \]
 \end{example}
