@@ -242,7 +242,7 @@ Cambridge, UK\newline
 %
 % \institute{New College\\
 \begin{abstract}
-  This paper establishes a strong connection between synthetic domain theory and the theory of classifying topoi. We show the internal logic of a large family of classifying topoi of first-order theories based on distributive lattices validates the axioms of synthetic domain theory. This provides a new set of techniques reasoning about the behaviour of domains in a synthetic context, and establishes a new family of models for synthetic domain theory.
+  This paper produces models of synthetic domain theory from the perspective of classifying topoi of algebraic theories. Using the internal logic of a large family of classifying topoi of theories based on $\sigma$-frames, especially the \emph{quasi-coherence principle}, we prove the axioms of synthetic domain theory hold in such topoi. This provides a new set of techniques reasoning about the behaviour of domains in a synthetic context, which allows us to establish a family of important orthogonality conditions for some special type of predomains.
 \end{abstract}
 %
 \maketitle              % typeset the header of the contribution
@@ -264,13 +264,13 @@ Besides these elementary axioms, the main infinitary axiom of synthetic domain t
 
 The connection of a particular axiom of synthetic domain theory, the Phoa's principle, with classifying topoi is first observed in a recent work on synthetic category theory~\cite{gratzer2024directed}, and this work is inspired by this observation. \emph{A posteriori}, the crucial step for this observation is already contained in the work of Blass~\cite{RN879}. 
 
-To recap, let $\T$ be a Horn theory. Recall that the classifying topos of $\T$ is given by the following presheaf category (cf.~\cite[D3.1]{johnstone2002sketches}),
+To recap, let $\T$ be a (finitary) Horn theory. Recall that the classifying topos of $\T$ is given by the following presheaf category (cf.~\cite[D3.1]{johnstone2002sketches}),
 \[ \Set[\T] := [\mmod\T\fp,\Set], \]
 where $\mmod\T\fp$ is the category of finitely presented $\T$-algebras. In particular, there is a generic $\T$-model $U_\T$, such that any $\T$-model in a topos $\mc E$ is realised as the image of $U_\T$ under the inverse image of a geometric morphism $\mc E \to \Set[\T]$. The observation of~\cite{RN879} is that, internally in $\Set[\T]$, the function space of $U_\T$ is completely characterised by polynomials,
 \[ U_\T^{U_\T} \cong U_\T[x], \]
 where $U_\T[x]$ denotes the free $\T$-model with an additional element generated from $U_\T$, which is the polynomial algebra on $U_\T$.
 
-The observation from~\cite{gratzer2024directed} is then that, when $\T$ is taken to be the theory $\mbb D$ of distributive lattices and $\I$ is the generic $\mbb D$-model, the equivalence $\I^\I \cong \I[x]$ implies the Phoa's principle, because for distributive lattices, $\I[x]$ classifies the order on $\I$. This is a perfect example of how the properties of a theory affects the internal logic of its classifying topos. We will see many more examples of this form in this paper.
+The observation from~\cite{gratzer2024directed} is then that, when $\T$ is taken to be the theory $\mbb D$ of \emph{distributive lattices} and $\I$ is the generic $\mbb D$-model, the equivalence $\I^\I \cong \I[x]$ implies the Phoa's principle. This is because for distributive lattices, $\I[x]$ classifies the order on $\I$. This is a perfect example of how the properties of a theory affects the internal logic of its classifying topos. We will see many more examples of this form in this paper.
 
 \subsection{Quasi-coherence}\label{subsec:qc}
 
@@ -282,26 +282,24 @@ then the canonical evaluation map in $\Set[\T]$ is an equivalence,
 \[ A \cong U_\T^{\spec A}. \]
 Types of the form $\spec A$ are also called \emph{affine}. This in fact induces an internal duality between f.p. $U_\T$-algebras and affine types. In particular, it implies Blass's result mentioned earlier. 
 
-In fact, the appearance of finite presentation in the above formulation of quasi-coherence is not an essential limitation. Following the development in~\cite{blechschmidt2021using,blechschmidt2020general}, it is clear that the quasi-coherence principle for algebraic theories is simply a twisted way of stating the Yoneda lemma. Hence, if we enlarge the site of the classifying topos $\Set[\T]$ to, say, the following presheaf topos 
+In fact, the appearance of finite presentation in the above formulation of quasi-coherence is not an essential limitation. Following the development in~\cite{blechschmidt2021using,blechschmidt2020general}, it is clear that the quasi-coherence principle for finitary Horn theories can be generalised to larger cardinality, if we enlarge the site of the classifying topos $\Set[\T]$. For instance, one can consider
 \[ \Set[\T]_\omega := [\mmod\T\cp,\Set], \]
-where $\mmod\T\cp$ denotes the category of \emph{countably presented}, or in short \emph{c.p.}, $\T$-models, then the collection of countably presented $U_\T$-algebras will enjoying quasi-coherence in $\Set[\T]_\omega$. For instance, this is the theoretical basis in a recent approach towards synthetic topology~\cite{cherubini2024foundation}, which exploits the quansi-coherence principle for countably presented Boolean algebras.
+where $\mmod\T\cp$ denotes the category of \emph{countably presented}, or in short \emph{c.p.}, $\T$-models. In this case, countably presented $U_\T$-algebras will enjoying quasi-coherence in $\Set[\T]_\omega$. For instance, this is the theoretical basis in a recent approach towards synthetic topology~\cite{cherubini2024foundation}, which exploits the quansi-coherence principle for countably presented Boolean algebras. Furthermore, in this case one can also allow Horn theories $\T$ whose operations have \emph{countable} arity.
 
-Besides Phoa's principle, a further connection between quasi-coherence and synthetic domain theory is that, many important types for domain theory will be affine. This include the cubes $\I^n$ (\Cref{exm:cubeaffine}), the simplices $\Delta^n$ (\Cref{exm:simplicesaffine}), and the generic chain with a supremum $\ov\omega$ (\Cref{exm:ovomegaaffine}). This observation displays a huge potential for investigating the geometrical aspect of domains via algebraic computation.
-
-Another generalisation of the above mentioned work by Blechschmidt is that, quasi-coherence not only holds in the presheaf topos, but also in the large class of subtopoi which makes $U_\T$ a sheaf (cf.~\cite[Cor. 7.7]{blechschmidt2020general}). Logically, this corresponds to working in a geometric quotient of the Horn theory $\T$. Hence, in such a subtopos the generic model $U_\T$ will validates more geometric sequents as specified by the topology, which should be viewed as certain \emph{local properties}. For instance, the generic ring in~\cite{Cherubini_Coquand_Hutzler_2024} is assumed to be a \emph{local ring}, which is true in the Zariski topology. In~\cite{cherubini2024foundation} they assume the generic Boolean algebra is given by the discrete set 2, which is again only true in a suitably chosen topology.
+Another generalisation of the above mentioned work by Blechschmidt is that, quasi-coherence not only holds in the presheaf topos, but also in the large class of subtopoi of $\Set[\T]$ ($\Set[\T]_\omega$), which makes $U_\T$ a sheaf (cf.~\cite[Cor. 7.7]{blechschmidt2020general}). Logically, this corresponds to working in a geometric quotient of the Horn theory $\T$. Hence, in such a subtopos the generic model $U_\T$ will validates more geometric sequents as specified by the topology, which should be viewed as certain \emph{local properties}. For instance, the generic ring in~\cite{Cherubini_Coquand_Hutzler_2024} is assumed to be a \emph{local ring}, which is true in the Zariski topology. In~\cite{cherubini2024foundation} they assume the generic Boolean algebra is given by the discrete set 2, which is again only true in a suitably chosen topology.
 
 
-\subsection{Main contribution and outlook}
+\subsection{Main contribution}
 
-We outline the main contributions of this paper, and discuss some of their potential applications.
+The aim of this paper is to explain the connection between quasi-coherence for \emph{distributive lattices} and \emph{$\sigma$-frames} with synthetic domain theory. As a first indication of why quasi-coherence for these theories might be useful for domain theory, we have observed that by taking the interval $\I$ to be the generic distributive lattice ($\sigma$-frame), many important objects for domain theory can be written as \emph{spectrums}. This include the cubes $\I^n$ (\Cref{exm:cubeaffine}), the simplices $\Delta^n$ (\Cref{exm:simplicesaffine}), and the final coalgebra $\ov\omega$ (\Cref{exm:ovomegaaffine}). The initial algebra $\omega$ will also be realised as a sequential colimit of spectrums (\Cref{prop:omegacolimit}). Here we outline the main results of this paper, and discuss some of their potential applications.
 
-\emph{1) Quasi-coherence produces synthetic domain theory}: We show the principle of quasi-coherence for distributive lattices suffices to account for \emph{all} essential axioms for synthetic domain theory. Specifically:
+\emph{1) Quasi-coherence produces synthetic domain theory}: We show the principle of quasi-coherence suffices to account for \emph{all} essential axioms for synthetic domain theory. Specifically:
 
-\emph{\ \ 1.1)} Quasi-coherence for f.p. algebras (in fact a weaker assumption; cf. \Cref{ax:sqci}) implies that the generic interval $\I$ forms a dominance (\Cref{prop:Idominance}). It also leads to an explicit computation of the lifting of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectrums (\Cref{prop:liftofaffine}).
+\emph{\ \ 1.1)} Work with distributive lattices or $\sigma$-frames, the quasi-coherence for f.p. algebras (in fact a weaker assumption; cf. \Cref{ax:sqci}) implies that the generic interval $\I$ forms a dominance (\Cref{prop:Idominance}). It also leads to an explicit computation of the lifting of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectrums (\Cref{prop:liftofaffine}).
 
 \emph{\ \ 1.2)} As mentioned, quasi-coherence for f.p. algebras implies the generic interval $\I$ satisfies the Phoa's principle. In fact, we can show more generally that any affine space will also satisfy the Phoa's principle (\Cref{thm:phoaaffine}), and similarly for quasi-coherent algebras (\Cref{thm:algebraphoa}).
 
-\emph{\ \ 1.3)} Most importantly, quasi-coherence for c.p. algebras (plus the minor assumption that $\I$ is non-trivial) implies completeness of $\I$ (\Cref{thm:complete}). This gives a full account of the axioms for synthetic domain theory as specified in~\cite{hyland2006first}. Additionally, we can show the initial algebra $\omega$ is characterised by a sequential colimit (\Cref{prop:omegacolimit}).
+\emph{\ \ 1.3)} Most importantly, working with $\sigma$-frames, the quasi-coherence for c.p. algebras (plus the minor assumption that $\I$ is non-trivial) implies completeness of $\I$ (\Cref{thm:complete}). This is the only place where we have to work with $\sigma$-frames and not distributive lattices (cf.~\Cref{rem:whynotdis}) This gives a full account of the axioms for synthetic domain theory as specified in~\cite{hyland2006first}. Additionally, we can show the initial algebra $\omega$ is characterised by a sequential colimit (\Cref{prop:omegacolimit}).
 
 \emph{2) Local properties of spectrums}: Though in general we do not assume the generic interval $\I$ to satisfy any local property such as linearity, we do discuss many instances of them and investigate their consequences.
 
@@ -1029,48 +1027,82 @@ For another proof, see e.g.~\cite{VANOOSTEN2000233}. In the presence of the Mark
   Assume the premise. We can instantiate $\phi$ to $\emp$. By assumption, we have $\neg\fa n\N \neg\neg\ms ti_n$, which by \Cref{cor:opendnegclose} is equivalent to $\neg\fa n\N \ms ti_n$. Then \Cref{lem:markov} implies this is $\ex n\N \ms fi_n$. The fact that this makes $\omega$ into the above sequential colimit follows from~\cite[Cor. 1.10]{VANOOSTEN2000233}.
 \end{proof}
 
-Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affine, we can now finally show the completeness of $\I$:
+Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affine, we can now finally show the completeness of $\I$, or in fact \emph{any spectrum}:
 
 \begin{theorem}[NT, SQCC]\label{thm:complete}
-  The canonical map $\I^{\ov\omega} \to \I^\omega$ induced by the inclusion $\omega\hook\ov\omega$ is an equivalence.
+  Any spectrum $\spec A$ will be orthogonal to the inclusion $\omega\hook\ov\omega$.
 \end{theorem}
 \begin{proof}
-  Since $\ov\omega$ is now affine, we have
-  \[ \I^{\ov\omega} \cong \I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}. \]
+  Since $\ov\omega$ is now affine, by \Cref{prop:duality} we have
+  \[ \spec A^{\ov\omega} \cong \I\alg(A,\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}). \]
   On the other hand, since $\omega$ is the colimit of $\Delta^n$ and they are affine, we have
-  \[ \I^\omega \cong \lt_{n:\N}\I^{\Delta^n} \cong \lt_{n:\N} \I[n]/i_1 \ge \cdots \ge i_n. \]
+  \begin{align*}
+    \spec A^\omega 
+    &\cong \lt_{n:\N}\spec A^{\Delta^n} \\
+    &\cong \lt_{n:\N} \I\alg(A,\I[n]/i_0 \ge \cdots \ge i_{n-1}) \\
+    &\cong \I\alg(A,\lt_{n:\N}\I[n]/i_0\ge\cdots\ge i_{n-1}).
+  \end{align*}
   Note that the transition maps induced by $\eta\cprt : \Delta^n \to \Delta^{n+1}$ under quasi-coherence gives us the following maps on algebras:
   \[
   \begin{tikzcd}
     \I^{\Delta^{n+1}} \ar[r, "\I^{\eta\cprt}"] & \I^{\Delta^n} \\ 
-    \I[n\!+\!1]/i_1 \ge \cdots \ge i_{n+1} \ar[u, "\cong"] \ar[r, "i_{n+1} \mapsto 0"'] & \I[n]/i_1 \ge \cdots \ge i_n \ar[u, "\cong"']
+    \I[n\!+\!1]/i_0 \ge \cdots \ge i_{n} \ar[u, "\cong"] \ar[r, "i_{n} \mapsto 0"'] & \I[n]/i_1 \ge \cdots \ge i_{n-1} \ar[u, "\cong"']
   \end{tikzcd}
   \]
-  We observe that $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ is indeed the sequential limit of the above $\I$-algebras,
+  Hence, it suffices to show that $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ is indeed the sequential limit of the above $\I$-algebras,
   \[\begin{tikzcd}
-    \cdots & {\I[n\!+\!1]/i_1 \ge \cdots \ge i_{n+1}} & {\I[n]/i_1 \ge \cdots \ge i_n} & \cdots \\
+    \cdots & {\I[n\!+\!1]/i_0 \ge \cdots \ge i_{n}} & {\I[n]/i_0 \ge \cdots \ge i_{n-1}} & \cdots \\
     & {\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}}
     \arrow[from=1-1, to=1-2]
-    \arrow["{i_{n+1} \mapsto 0}", from=1-2, to=1-3]
+    \arrow["{i_{n} \mapsto 0}", from=1-2, to=1-3]
     \arrow[from=1-3, to=1-4]
     \arrow[dashed, from=2-2, to=1-1]
     \arrow["{f_{n+1}}"{description}, from=2-2, to=1-2]
     \arrow["{f_n}"{description}, from=2-2, to=1-3]
     \arrow[curve={height=15pt}, dashed, from=2-2, to=1-4]
   \end{tikzcd}\]
-  where the map $f_n$ takes $i_k$ to itself for $k\le n$, and takes $i_k$ to $0$ for $k > 0$. This way,
-  \[ \I^\omega \cong \lt_{n:\N}\I[n]/i_1 \ge \cdots \ge i_n \cong \I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N} \cong \I^{\ov\omega}, \]
-  which implies $\I$ is complete.
+  where the map $f_n$ takes $i_k$ to itself for $k\le n$, and takes $i_k$ to $0$ for $k \ge n$. We can more directly compute the above sequential limit as simplices using \Cref{prop:simplicesasalgebra} as follows,
+  \[\begin{tikzcd}
+    \cdots & {\I[n\!+\!1]/i_0 \ge \cdots \ge i_{n}} & {\I[n]/i_0 \ge \cdots \ge i_{n-1}} & \cdots \\
+    \cdots & {\Delta_{n+2}} & {\Delta_{n+1}} & \cdots
+    \arrow[from=1-1, to=1-2]
+    \arrow["{{i_{n} \mapsto 0}}", from=1-2, to=1-3]
+    \arrow["\cong", from=1-2, to=2-2]
+    \arrow[from=1-3, to=1-4]
+    \arrow["\cong", from=1-3, to=2-3]
+    \arrow[from=2-1, to=2-2]
+    \arrow["\pi_{n}", from=2-2, to=2-3]
+    \arrow[from=2-3, to=2-4]
+  \end{tikzcd}\]
+  where the map $\pi_{n} : \Delta_{n+1} \to \Delta_{n+1}$ forgets the last entry, i.e. it takes $i_0 \le \cdots \le i_{n+1}$ to $i_0 \le \cdots i_{n}$. Hence, the sequential limit is given by
+  \[ \lt_{n:\N} \Delta_{n} \cong \Delta_\infty := \scomp{i : \N \to \I}{\fa n\N i_n \le i_{n+1}}. \]
+  Now it suffices to show that $\Delta_\infty$ gives a normal form for $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$. To this end, we note that as a generalisation of the normal form given in \Cref{prop:simplicesasalgebra}, an element $p$ in $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ can be uniquely written as follows,
+  \[ p = \bigvee_{n:\N}p_n \wedge i_n, \]
+  with $p_n \le p_{n+1}$ for all $n:\N$. This identifies $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ with $\Delta_\infty$, hence completes the proof.
 \end{proof}
 
-The above result also implies that $\omega$ is \emph{not} affine, since $\omega \hook \ov\omega$ is not an equivalence. However, it indeed shares many properties with affine spaces. At the end of this section, we observe $\omega$ also satisfies Phoa's principle; there will be more results in \Cref{sec:local}:
-
-\begin{corollary}[NT, SQCC]\label{cor:omegaphoa}
-  The inclusion $\omega \hook \ov\omega$ is also an order embedding for $\preceq$, i.e. the specialisation order on $\omega$ again coincides with its canonical pointwise order. In particular, $\omega$ also satisfies the Phoa's principle.
+\begin{corollary}[NT, SQCC]
+  $\I^{\ov\omega} \cong \I^\omega \cong \Delta_\infty$. In particular, $\omega$ is not affine.
 \end{corollary}
 \begin{proof}
-  Since $\I^\omega \cong \I^{\ov\omega}$, the inclusion $\omega\hook\ov\omega$ is indeed an order embedding for $\preceq$. By \Cref{lem:orderonaffine}, the specialisation order on $\ov\omega$ is pointwise, hence so is $\omega$. Now suppose $i \le j$ in $\omega$. By viewing them as elements in $\ov\omega$, since $\ov\omega$ is affine, by \Cref{thm:phoaaffine} we get a unique map $f : \I \to \ov\omega$ with $f(0) = i$ and $f(1) = j$. By \Cref{prop:omegacolimit} $\omega\hook\ov\omega$ is \emph{downward closed}. It follows that $f(i) \le f(1)$ belongs to $\omega$ for all $i:\I$, hence $f$ factors through $\omega$.
+  By the above proof, we have $\I^{\ov\omega} \cong \I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N} \cong \Delta_\infty$.
 \end{proof}
+
+\begin{remark}[$\sigma$-frames v.s. distributive lattices]\label{rem:whynotdis}
+  The completeness result shown in \Cref{thm:complete} is the only place in this paper where it works for $\sigma$-frames while not for distributive lattices. The reason is exactly because the c.p. distributive lattice $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ will \emph{not} be isomorphic to $\Delta_\infty$, thus the cone $\set{f_n}_{n:\N}$ displayed in the proof of \Cref{thm:complete} will \emph{not} be a limiting diagram of distributive lattices. The fact that we have \emph{all} infinite increasing sequences is clearly due to the fact that we have countable disjunctions in $\sigma$-frames, as when identifying $p$ in $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ with $p = \bigvee_{n:\N}p_n\wedge i_n$. More specifically, for the c.p. distributive lattice $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$, since it is a sequential colimit of the following f.p. distributive lattices
+  \[ 
+  \begin{tikzcd}
+    \cdots \ar[r] & \I[n]/i_{0} \ge \cdots \ge i_{n-1} \ar[r, hook] & \I[n\!+\!1]/i_0 \ge \cdots \ge i_n \ar[r, hook] & \cdots
+  \end{tikzcd}
+  \]
+  and, due to the fact that the theory of distributive lattices is \emph{finitary}, this sequential colimit of \emph{algebras} is computed the same as their \emph{underlying sets}. Via \Cref{prop:simplicesasalgebra}, the result can be identified as the subtype of $\Delta_\infty$,
+  \[ \Delta_\omega := \scomp{i : \Delta_\infty}{\ex n\N \ms ti_n}, \]
+  where $\Delta_\omega \hook \Delta_\infty$ in some sense is the order-dual to the inclusion $\omega\hook\ov\omega$.
+\end{remark}
+
+\begin{remark}[Limits of algebras induce locality for spectrums]\label{rem:limofalgloc}
+  By inspecting the proof of \Cref{thm:complete}, it is clear that the reason spectrums are complete is because there is a specific \emph{limiting diagram} of quasi-coherent $\I$-algebras. In general, any such limit diagram will induce an orthogonality property satisfied by the all spectrums, and we will see many more examples in \Cref{sec:local}. From \Cref{rem:whynotdis} it is clear whether a diagram of $\I$-algebras is limiting heavily relies on the underlying theory $\T$. This is thus a perfect example of how the algebraic properties of a theory has significant consequence on the internal logic of its classifying topos.
+\end{remark}
 
 % \section{specialisation posets continued}\label{sec:synposet}
 
@@ -1304,19 +1336,18 @@ Again, (SL) holds globally iff the above embedding is an equivalence, thus every
     {\I[i,j]/i \le j} \ar[r, "{i,j\mapsto k}"'] & {\I[k]}
   \end{tikzcd}\]
   Recall from \Cref{prop:simplicesasalgebra} the normal form of elements in $\I[i,j]/i\ge j$. An element $p$ there can be viewed as the polynomial 
-  \[ p = p_{0,0} \vee i \wedge p_{1,0} \vee j \wedge p_{1,1}. \]
-  And similarly for $q$ in $\I[i,j]/i \le j$, 
+  \[ p = p_{0,0} \vee i \wedge p_{1,0} \vee j \wedge p_{1,1}, \]
+  with $p_{0,0} \le p_{1,0} \le p_{1,1}$. And similarly for $q$ in $\I[i,j]/i \le j$, 
   \[ q = q_{0,0} \vee j \wedge q_{0,1} \vee i \wedge q_{1,1}. \]
   They agree in $\I[k]$ iff 
   \[ p_{0,0} = q_{0,0}, \quad p_{1,1} = q_{1,1}. \]
   This then gives us a polynomial in $\I[i,j]$, which we write it as follows,
   \[ (p_{0,0} \vee i \wedge p_{1,0}) \vee j \wedge (q_{0,1} \vee i \wedge q_{1,1}) \]
+  where $p_{0,0} = q_{0,0} \le q_{0,1}$ and $p_{1,0} \le p_{1,1} = q_{1,1}$. 
   By the general normal form for $A[i]$ for any $\I$-algebra $A$, if we view $\I[i,j]$ as $\I[i][j]$, the above exactly corresponds to the normal form of polynomials in $\I[i,j]$; also see~\cite[Thm. 10.21]{lausch2000algebra}. This means the above is a pullback of $\I$-algebras, hence $\spec A$ is simplicial.
 \end{proof}
 
-\begin{remark}[Limits of algebras induce locality of spectrums]\label{rem:limofalgloc}
-  The above proof makes it more clear that spectrums satisfy these local properties due to the fact that the dual of them are \emph{limiting diagrams} of $\I$-algebras. In general, any such limit diagram between quasi-coherent algebras will induce a local property satisfied by the all spectrums. This is again a perfect example of how the algebraic properties of a theory has significant consequence on the internal logic of its classifying topos.
-\end{remark}
+
 
 Finally, we discuss the even stronger locality condition (1T). As mentioned in \Cref{ax:1T}, the additional property of (1T) is characterised by the embedding $\partial\Delta_2 \hook \Delta_2$.
 
@@ -1345,12 +1376,12 @@ Finally, we discuss the even stronger locality condition (1T). As mentioned in \
   \end{tikzcd}\]
   Now by normal form $\I[i]$, an element in the limit consists of $p$ in $\I[i]$, $q$ in $\I[j]$ and $r$ in $\I[k]$, such that
   \[ p_1 = r_1, \quad p_0 = q_1, \quad r_0 = q_0. \]
-  This exactly corresponds to a normal form in the algebra $\I[i,j]/i\le j$ as follows (cf. \Cref{prop:simplicesasalgebra})
+  This exactly corresponds to a normal form in the algebra $\I[i,j]/i\le j$ with $q_0 \le q_1 = p_0 \le p_1$ as follows (cf. \Cref{prop:simplicesasalgebra})
   \[ q_0 \vee j \wedge q_1 \vee i \wedge p_1. \]
   Hence, the above is a limit diagram of $\I$-algebras, which implies $\spec A$ will be 1-truncated.
 \end{proof}
 
-At the end of this section, besides the locality principles discussed in \Cref{sec:locality}, we consider the localisation class emerging from \emph{synthetic category theory}, as first introduced in~\cite{riehl2017type}. A synthetic category will be a type that satisfies the internal orthogonality condition of being \emph{simplicial}, \emph{Segal}, and \emph{Rezk}.
+Besides the locality principles discussed in \Cref{sec:locality}, we also consider the orthogonality classes emerging from \emph{synthetic category theory}, as first introduced in~\cite{riehl2017type}. A synthetic category will be a type that satisfies the internal orthogonality condition of being \emph{simplicial}, \emph{Segal}, and \emph{Rezk}.
 
 We start with the Segal condition. Besides the outer horn discussed in \Cref{exm:hornaffine}, we can also define the inner horn $\Lambda^2_1$ as the following pushout,
 \[
@@ -1377,7 +1408,7 @@ It can be identified type-theoretically as $\scomp{(i,j) : \Delta_2}{\ms fi \vee
     \I[j] \ar[r, "j \mapsto 1"'] & \I
   \end{tikzcd}
   \]
-  Again by the normal form theorem, an element in the pullback is given by $p$ in $\I[i]$ and $q$ in $\I[j]$ with $p_0 = q_1$. This way, it corresponds to the following normal form in $\I[i,j]/i \le j$ by \Cref{prop:simplicesasalgebra},
+  Again by the normal form theorem, an element in the pullback is given by $p$ in $\I[i]$ and $q$ in $\I[j]$ with $p_0 = q_1$. This way, it again corresponds to the following normal form in $\I[i,j]/i \le j$ by \Cref{prop:simplicesasalgebra},
   \[ q_0 \vee j \wedge q_1 \vee i \wedge p_1. \]
   Hence, the above is again a pullback, and thus spectrums will be Segal.
 \end{proof}
@@ -1794,6 +1825,37 @@ Working with $\wSpec$, the generic distributive lattice $\I$ as a presheaf on $\
 \bibliographystyle{apalike} 
 \bibliography{mybib}
 
+% \appendix
+
+% \section{Normal form results}
+
+% \begin{lemma}
+%   For a distributive lattice $A$, a polynomial $p$ in $A[i]$ is uniquely determined by two parameters $p_0 \le p_1$, with
+%   \[ p = p_0 \vee i \wedge p_1. \]
+% \end{lemma}
+
+% \begin{lemma}
+%   For a distributive lattice $A$, a polynomial $p$ in $A[n]/i_1 \ge \cdots \ge i_n$ is uniquely determined by $p_0 \le \cdots \le p_n$, with
+%   \[ p = p_0 \vee i_1 \wedge \cdots \wedge i_n \vee p_n, \]
+% \end{lemma}
+% \begin{proof}
+%   We directly show that $\Delta[A]_{n+1}$ with the pointwise distributive lattice structure satisfies the universal property of $A[n]/i_1 \ge \cdots \ge i_n$, where generators are given by 
+%   \[ (0,1,\cdots,1), (0,0,1,\cdots,1), \cdots, (0,0,\cdots,1). \]
+%   Notice that any element $p = (p_0,\cdots,p_n)$ in $\Delta[A]_{n+1}$ can be written as
+%   \[ p = p_0 \vee (0,1,\cdots,1) \wedge (0,0,1,\cdots,1) \vee \cdots \vee (0,\cdots,1) \wedge p_n. \]
+%   For any distributive lattice $B$ and a homomorphism $f : A \to B$, given $a \ge b$ in $B$ we construct a map
+%   \[ f_{a,b} : \Delta[A]_3 \to B, \]
+%   such that for $p_0 \le p_1 \le p_2$ in $\Delta[A]_3$, we define
+%   \[ f_{a,b}(p_0,p_1,p_2) := f(p_0) \vee a \wedge f(p_1) \vee b \wedge f(p_2). \]
+%   This is well-defined. Furthermore,
+%   \begin{align*}
+%     &f_{a,b}(0,1,1) = 0 \vee a \wedge 1 \vee b \wedge 1 = a, \\
+%     &f_{a,b}(0,0,1) = 0 \vee a \wedge 0 \vee b \wedge 1 = b.
+%   \end{align*}
+%   Hence, it indeed maps the generators to $a,b$, respectively. Finally, to show it is unique, we observe that for any $p_0 \le p_1 \le p_2$, we have
+%   \[ (p_0,p_1,p_2) = p_0 \vee (0,1,1) \wedge p_1 \vee (0,0,1) \wedge p_2. \]
+%   Hence, $f_{a,b}$ is uniquely determined as above.
+% \end{proof}
 
 \end{document}
 
