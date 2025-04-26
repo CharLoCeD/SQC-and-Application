@@ -7,7 +7,7 @@
 \usepackage{libertine}
 \usepackage{libertinust1math}
 \usepackage[utf8]{inputenc} %'utf8' instead of 'latin1'
-\usepackage{enumitem} %modified eunumerate environment
+\usepackage{enumitem} 
 \usepackage{tikz-cd}
 \usepackage{hyperref}
 \usepackage{stmaryrd}
@@ -161,6 +161,7 @@
 \newcommand{\CATT}{\mf{CAT}}
 \newcommand{\Topp}{\mb{Top}}
 \newcommand{\Top}{\mf{Top}}
+\newcommand{\wTop}{\omega\mb{Top}}
 \newcommand{\Tp}{\ms{TYPE}}
 \newcommand{\Pp}{\ms{PROP}}
 \newcommand{\St}{\ms{SET}}
@@ -168,7 +169,7 @@
 \newcommand{\fst}{\ms{Fin}}
 \newcommand{\Mod}{\mb{Mod}}
 \newcommand{\Spec}{\mb{Spec}}
-\newcommand{\wSpec}{\omega\mb{Spec}}
+% \newcommand{\wTop}{\omega\mb{Spec}}
 \newcommand{\quot}[1]{/_{\pair{#1}}}
 \newcommand{\List}{\ms{List}}
 \newcommand{\hp}{\text{-}}
@@ -252,9 +253,9 @@ Cambridge, UK\newline
 
 \subsection{Synthetic domain theory}\label{subsec:sdt}
 
-The proposal to develop a synthetic theory of domains arised from the suggestion of Dana Scott in the 1980s. The thesis is that domains should be viewed simply as some special sets in a suitable universe, and any function between them should automatically respect the computational data associated to domains. Later Hyland~\cite{hyland2006first} gives a full list of the properties such a universe should satisfy.
+The proposal to develop a synthetic theory of domains was raised by Dana Scott in the 1980s. The thesis is that domains should be viewed simply as some special sets in a suitable universe, and any function between them should automatically respect the computational data associated to domains. Later Hyland~\cite{hyland2006first} gives a full list of the properties such a universe should satisfy.
 
-Firstly, a universe for synthetic domains should contain an interval object $\I$ which induces an information order (or specialisation order from a topological perspective) on domains, and every function will automatically be monotone. An internal axiom that characterises the synthetic nature of this fact is the socalled \emph{Phoa's principle}: The function space $\I^\I$ should classify the order on $\I$. In other words, the functions from $\I$ to itself are completely determined by the order structure on $\I$. 
+Firstly, a universe for synthetic domains should contain an interval object $\I$ which induces an information order (or specialisation order from a topological perspective) on domains, and every function will automatically be monotone. An internal axiom that characterises the synthetic nature of this fact is the so-called \emph{Phoa's principle}: The function space $\I^\I$ should classify the order on $\I$. In other words, the functions from $\I$ to itself are completely determined by the order structure on $\I$. 
 
 Additionally, $\I$ should also form a subuniverse of propositions closed under dependent sums, so as to form a dominance in the sense of~\cite{rosolini1986continuity}. The dominance structure is used to parametrise partial functions through a lifting operator $(-)\prt$ constructed from $\I$. 
 
@@ -284,14 +285,14 @@ Types of the form $\spec A$ are also called \emph{affine}. This in fact induces 
 
 In fact, the appearance of finite presentation in the above formulation of quasi-coherence is not an essential limitation. Following the development in~\cite{blechschmidt2021using,blechschmidt2020general}, it is clear that the quasi-coherence principle for finitary Horn theories can be generalised to larger cardinality, if we enlarge the site of the classifying topos $\Set[\T]$. For instance, one can consider
 \[ \Set[\T]_\omega := [\mmod\T\cp,\Set], \]
-where $\mmod\T\cp$ denotes the category of \emph{countably presented}, or in short \emph{c.p.}, $\T$-models. In this case, countably presented $U_\T$-algebras will enjoying quasi-coherence in $\Set[\T]_\omega$. For instance, this is the theoretical basis in a recent approach towards synthetic topology~\cite{cherubini2024foundation}, which exploits the quansi-coherence principle for countably presented Boolean algebras. Furthermore, in this case one can also allow Horn theories $\T$ whose operations have \emph{countable} arity.
+where $\mmod\T\cp$ denotes the category of \emph{countably presented}, or in short \emph{c.p.}, $\T$-models. In this case, countably presented $U_\T$-algebras will enjoying quasi-coherence in $\Set[\T]_\omega$. For instance, this is the theoretical basis in a recent approach for synthetic topology~\cite{cherubini2024foundation}, which exploits the quasi-coherence principle for countably presented Boolean algebras. Moreover, in this case Horn theories $\T$ whose operations have \emph{countable} arity are also allowed, at least when we assume countable choice in the meta-theory.
 
 Another generalisation of the above mentioned work by Blechschmidt is that, quasi-coherence not only holds in the presheaf topos, but also in the large class of subtopoi of $\Set[\T]$ ($\Set[\T]_\omega$), which makes $U_\T$ a sheaf (cf.~\cite[Cor. 7.7]{blechschmidt2020general}). Logically, this corresponds to working in a geometric quotient of the Horn theory $\T$. Hence, in such a subtopos the generic model $U_\T$ will validates more geometric sequents as specified by the topology, which should be viewed as certain \emph{local properties}. For instance, the generic ring in~\cite{Cherubini_Coquand_Hutzler_2024} is assumed to be a \emph{local ring}, which is true in the Zariski topology. In~\cite{cherubini2024foundation} they assume the generic Boolean algebra is given by the discrete set 2, which is again only true in a suitably chosen topology.
 
 
 \subsection{Main contribution}
 
-The aim of this paper is to explain the connection between quasi-coherence for \emph{distributive lattices} and \emph{$\sigma$-frames} with synthetic domain theory. As a first indication of why quasi-coherence for these theories might be useful for domain theory, we have observed that by taking the interval $\I$ to be the generic distributive lattice ($\sigma$-frame), many important objects for domain theory can be written as \emph{spectrums}. This include the cubes $\I^n$ (\Cref{exm:cubeaffine}), the simplices $\Delta^n$ (\Cref{exm:simplicesaffine}), and the final coalgebra $\ov\omega$ (\Cref{exm:ovomegaaffine}). The initial algebra $\omega$ will also be realised as a sequential colimit of spectrums (\Cref{prop:omegacolimit}). Here we outline the main results of this paper, and discuss some of their potential applications.
+The aim of this paper is to explain the connection between quasi-coherence for \emph{distributive lattices} and \emph{$\sigma$-frames} with synthetic domain theory. The theory of distributive lattices is  As a first indication of why quasi-coherence for these theories might be useful for domain theory, we have observed that by taking the interval $\I$ to be the generic distributive lattice ($\sigma$-frame), many important objects for domain theory can be written as \emph{spectrums}. This include the cubes $\I^n$ (\Cref{exm:cubeaffine}), the simplices $\Delta^n$ (\Cref{exm:simplicesaffine}), and the final coalgebra $\ov\omega$ (\Cref{exm:ovomegaaffine}). The initial algebra $\omega$ will also be realised as a sequential colimit of spectrums (\Cref{prop:omegacolimit}). Here we outline the main results of this paper, and discuss some of their potential applications.
 
 \emph{1) Quasi-coherence produces synthetic domain theory}: We show the principle of quasi-coherence suffices to account for \emph{all} essential axioms for synthetic domain theory. Specifically:
 
@@ -303,13 +304,13 @@ The aim of this paper is to explain the connection between quasi-coherence for \
 
 \emph{2) Local properties of spectrums}: Though in general we do not assume the generic interval $\I$ to satisfy any local property such as linearity, we do discuss many instances of them and investigate their consequences.
 
-\emph{\ \ 2.1)} \Cref{sec:locality} introduces various local conditions for $\I$, all of which will be compatible with quasi-coherence. This showcases the flexibility of this framework to encompase different flavours of domain theory.
+\emph{\ \ 2.1)} \Cref{sec:locality} introduces various local conditions for $\I$, all of which will be compatible with quasi-coherence. This showcases the flexibility of this framework to encompass different flavours of domain theory.
 
 \emph{\ \ 2.2)} More interestingly, without assuming the local properties globally, one can still show that $\I$, or \emph{any spectrum}, will be \emph{orthogonal} to the maps that classifies these local properties (\Cref{specisnontrivial,specissimplicial,specis1t}). In general, any limiting diagram of quasi-coherent algebras induces a localisation class containing all spectrums of algebras; cf. \Cref{rem:limofalgloc}. This exhibits a new type of techniques in reasoning about domains in this framework.
 
-\emph{\ \ 2.3)} As a special case of locality, we also connect to the recent approach of synthetic (higher) category theory~\cite{riehl2017type,buchholtz2021synthetic,gratzer2024directed}. In particular, we show spectrums will be synthetic categories (\Cref{thm:affineposet}). As another example, we also show $\omega$ is a synthetic category, in fact it satisfies \emph{all} the orthgonality conditions discussed in this paper (\Cref{thm:omegaortho}). 
+\emph{\ \ 2.3)} As a special case of locality, we also connect to the recent approach of synthetic (higher) category theory~\cite{riehl2017type,buchholtz2021synthetic,gratzer2024directed}. In particular, we show spectrums will be synthetic categories (\Cref{thm:affineposet}). As another example, we also show $\omega$ is a synthetic category, in fact it satisfies \emph{all} the orthogonality conditions discussed in this paper (\Cref{thm:omegaortho}). 
 
-\emph{3) New models for synthetic domain theory}: As a consequence, a large family of new models for synthetic domain theory based on classifying topoi emerges. In fact, we can work with the theory of $D$-algebras for any distributive lattice $D$. We will discuss these models in \Cref{sec:model}.
+\emph{3) New models for synthetic domain theory}: As a consequence, a large family of new models for synthetic domain theory based on classifying topoi for $\sigma$-frames emerges. We will discuss these models in \Cref{sec:model}, and compare them to the existing sheaf models for synthetic domain theory~\cite{FIORE1997151} in \Cref{subsec:compare}.
 
 \subsection{Style and notation of the paper}
 
@@ -342,7 +343,7 @@ Before discussing quasi-coherence, we observe that many sets can be naturally vi
   An $\I$-algebra $A$ is \emph{quasi-coherent}, if the canonical evaluation map $A \to \I^{\spec A}$ is an equivalence of $\I$-algebras, where $\I^{\spec A}$ has the pointwise $\I$-algebra structure.
 \end{definition}
 
-We emphasis that the equivalence $A \cong \I^{\spec A}$ is not only an equivalence of types, but an equivalence of $\I$-algebras. This implies that the algebraic structure on $A$ can be viewed as pointwisely induced by that on $\I$. 
+We emphasis that the equivalence $A \cong \I^{\spec A}$ is not only an equivalence of types, but an equivalence of $\I$-algebras. This implies that the algebraic structure on $A$ can be viewed as pointwise induced by that on $\I$. 
 
 % As a first consequence, the spectrum of a quasi-coherent algebra $A$ always \emph{has enough points}, in the sense that it distinguishes elements in $A$:
 
@@ -437,7 +438,7 @@ Under the above identification, if $B$ is quasi-coherent, then the evaluation ma
 
 \section{Open propositions and dominance}\label{sec:dominance}
 
-Notice that up till this piont we have not used any spectial property of $\T$ rather than the fact that it is a Horn theory. However, to move closer to the intended application in domain theory, we start by assuming our theory $\T$ is \emph{propositional}: 
+Notice that up till this point we have not used any special property of $\T$ rather than the fact that it is a Horn theory. However, to move closer to the intended application in domain theory, we start by assuming our theory $\T$ is \emph{propositional}: 
 
 \begin{definition}[Propositional theory]\label{defn:propositional}
   We say a Horn theory $\T$ is \emph{propositional}, if it extends the theory of meet-semi-lattices (1, $\wedge$), and truth of an element is computed by slicing: For any $\T$-model $A$ and $a:A$, the quotient $A/a=1$ is given by
@@ -447,6 +448,14 @@ Notice that up till this piont we have not used any spectial property of $\T$ ra
 
 \begin{remark}[Examples of propositional theories]
   The theory $\mbb M$ of meet-semi-lattices, $\mbb D$ of distributive lattices, $\mbb H$ of Heyting algebras, and $\mbb B$ of Boolean algebras are all examples of propositional theories in the above sense. In fact, all finitary quotients of $\mbb H$ or $\mbb B$ will again be propositional. More generally, for any propositional theory $\T$ and any $\T$-model $D$, the theory of $D$-algebras will again be propositional, because quotients of $D$-algebras are computed the same as quotients of models of $\T$.
+\end{remark}
+
+\begin{remark}[The theory of $\sigma$-frames]\label{rem:sigmaframe}
+  We also consider theory of $\sigma$-frames. A $\sigma$-frame $A$ is a lattice with finite meets and countable joins, such that they satisfy the distributivity axiom 
+  \[ a \wedge \bigvee_{n:\N} b_n = \bigvee_{n:\N} a \wedge b_n, \]
+  for any $a$ in $A$ and $b : \N \to A$. We can axiomatise $\sigma$-frames as an \emph{infinitary} algebraic theory $\mbb S$, extending the theory of meet-semi-lattices with a constant $0$ and a function symbol $\bigvee$ with \emph{countable} arity. Such an axiomatisation can be found e.g. in~\cite[Exa. 3.26]{adamek1994locally}. It is easy to see $\mbb S$ is propositional. 
+
+  A notable fact about $\sigma$-frames is that, their finitary behaviours are exactly the same as distributive lattices, in the sense that for any $\sigma$-frame $A$, a f.p. $\sigma$-frame $A[n]/R$ generated from $A$ coincides with the f.p. \emph{distributive lattice} $A[n]/R$. Thus, there will be no difference between working with $\sigma$-frames or distributive lattice when we work with f.p. $\I$-algebras. The distinguished feature of $\sigma$-frames allowing countably joins will only shine in \Cref{sec:infdomain} when we prove completeness of $\I$.
 \end{remark}
 
 For a propositional theory $\T$, we think of the generic model $\I$ as certain interval object, since it is equipped with a partial order. In this case, more types can be realised as spectrums. The important examples are \emph{simplices}:
@@ -607,7 +616,7 @@ In other words, an element $(i,a) : A\prt$ is simply a pair $i : \I$ and $a : A$
   One interesting fact to note here is that, though $\I\prt$ by computation is a dependent sum of algebras, it is naturally equivalent to a \emph{spectrum}. In some sense the source is the assumption that $\T$ is propositional, which allows us to identify the algebraic object $\I/i$ as a subset $\scomp{j : \I}{j \le i}$. There will be more examples of such nature once we work more specifically with distributive lattices; cf. \Cref{prop:simplicesasalgebra}.
 \end{remark}
 
-More generally, for domain theoretic applications we would want to compute the liftings of $\Delta^2$, or $\Delta^n$ for any $n:\N$. For this purpose, we observe that we can more generally compute the lifting of any spectrum (not only affine spaces):
+More generally, for domain theoretic applications we would want to compute the lifting of $\Delta^2$, or $\Delta^n$ for any $n:\N$. For this purpose, we observe that we can more generally compute the lifting of any spectrum (not only affine spaces):
 
 \begin{proposition}[SQCI]\label{prop:liftofaffine}
   For an $\I$-algebra $A$, the lifting of $\spec A$ is
@@ -647,11 +656,11 @@ More generally, for domain theoretic applications we would want to compute the l
 
 \section{Distributive lattice and locality}\label{sec:locality}
 
-One important finitary axiom for synthetic domain theory is the \emph{Phoa's principle}, which as an observation of~\cite{gratzer2024directed} is a consequence of the quasi-coherence principle for distributive lattices. Thus, we now work in the theory $\T$ of distributive lattices, or more generally the theory of $D$-algebra for some distributive lattice $D$.
+One important finitary axiom for synthetic domain theory is the \emph{Phoa's principle}, which as an observation of~\cite{gratzer2024directed} is a consequence of the quasi-coherence principle for distributive lattices. Thus, we now work with the theory $\mbb D$ of distributive lattices, or more generally the theory of $D$-algebra for some distributive lattice $D$. As indicated in \Cref{rem:sigmaframe}, computation will not change if we replace distributive lattices by $\sigma$-frames. Hence, the results here and in \Cref{sec:intposet} will be applicable to $\sigma$-frames as well, where only the properties of f.p. $\I$-algebras matter.
 
 In this case, $\I$ has a minimal element $0$. Notice that the constant $0$ also induces a predicate on $\I$,
 \[ \ms f : \I \to \pp, \]
-which takes any $i : \I$ to $i = 0$. The theory of distributive lattices, or the theory of $D$-algebras for any distributive lattice $D$, also satisfies the \emph{dual} property of being propositional: It extends the theory of join-semi-lattices ($0$, $\vee$), and the principle congruence $A/a = 0$ for any $a:A$ is computed by \emph{coslicing} $a \vee - : A \to a/A$ with $a/A := \scomp{b:A}{a \le b}$. Hence, dual version of the previous results will also hold by symmetry, when we exchange $1$ for $0$ and $\wedge$ for $\vee$. For instance, the same proof as in \Cref{lem:intconserve} also implies the following:
+which takes any $i : \I$ to $i = 0$. The theory of distributive lattices, or the theory of $D$-algebras for any distributive lattice $D$, also satisfies the \emph{dual} property of being propositional: It extends the theory of join-semi-lattices ($0$, $\vee$), and the principle congruence $A/a = 0$ for any $a:A$ is computed by \emph{coslicing} $a \vee - : A \to a/A$ with $a/A := \scomp{b:A}{a \le b}$; similarly for $\sigma$-frames. Hence, dual versions of the previous results will also hold by symmetry, when we exchange $1$ for $0$ and $\wedge$ for $\vee$. For instance, the same proof as in \Cref{lem:intconserve} also implies the following:
 
 \begin{corollary}[SQCI]
   $\ms f : \I \to \pp$ is an embedding.
@@ -698,7 +707,7 @@ This way, $\emp \eq \ms t0$ now will be affine, and it is both an open and close
   If $\ms fi$ then $\neg\ms ti$ by (NT). On the other hand, by the conservativity result in \Cref{lem:intconserve} and (NT), if $i \neq 1$ then $i = 0$ since $0 \neq 1$. The dual case also follows by symmetry. Now given $i :\I$, if $\neg(\ms ti \vee \ms fi)$, which implies $\neg\ms ti \vee \neg\ms fi$, equivalently $\ms fi \wedge \ms ti$, contradictory to (NT). Hence, $\neg\neg(\ms ti \wedge \ms fi)$.
 \end{proof}
 
-This allows us to observe that the open and closed propositions have a bijective correspondence bewteen them:
+This allows us to observe that the open and closed propositions have a bijective correspondence between them:
 
 \begin{corollary}[NT, SQCI]\label{cor:opendnegclose}
   For any proposition $p$, $p$ is open iff $\neg p$ is closed and vice versa. Furthermore, open and closed propositions are $\dneg$-stable.
@@ -840,7 +849,7 @@ Axiom (L) clearly has a dual counterpart:
   $\I$ is colocal, i.e. $0 \neq 1$ and $\ms f(i \wedge j) \eq \ms fi \vee \ms fj$ for all $i,j : \I$.
 \end{axiom}
 
-Similalry to \Cref{exm:hornaffine}, this allows one to identify the left ourter horn $\Lambda^2_0$ as a spectrum. Of course we can combine the axioms (L) and (cL). 
+Similarly to \Cref{exm:hornaffine}, this allows one to identify the left outer horn $\Lambda^2_0$ as a spectrum. Of course we can combine the axioms (L) and (cL). 
 
 An axiom even stronger than both (L) and (cL) is the simplicial axiom:
 
@@ -960,12 +969,12 @@ Of course $\Delta[\I]^n$ is simply $\Delta^n$. We have the following general alg
 
 \section{Infinitary domain theory}\label{sec:infdomain}
 
-Until this point, we have seen that elementary axioms for synthetic domain theory follow from (SQCF) for distributive lattices. In this section we show that the infinitary axiom of synthetic domain theory, viz. completeness of the interval $\I$, is also a consequence of quasi-coherence.
+Until this point, we have seen that elementary axioms for synthetic domain theory follow from (SQCF) for distributive lattices ($\sigma$-frames). In this section we show that the infinitary axiom of synthetic domain theory, viz. completeness of the interval $\I$, is also a consequence of quasi-coherence for $\sigma$-frames. In fact, the only place we have used the essentially the properties of $\sigma$-frames is in the proof of \Cref{thm:complete}, and we will also indicate why that fails for distributive lattices in \Cref{rem:whynotdis}.
 
-The above fact starts from the observation that the final coalgebra $\ov\omega$ for the lifting functor $(-)\prt$ can be described as a \emph{spectrum}:
+The connection between the infinitary aspect of synthetic domain theory and quasi-coherence starts from the observation that the final coalgebra $\ov\omega$ for the lifting functor $(-)\prt$ can be described as a \emph{spectrum}:
 
 \begin{example}[$\ov\omega$ is a spectrum]\label{exm:ovomegaaffine}
-  Since $(-)\prt$ by construction is a polynomial functor, it preserves all connected limits. Hence, the final coalgebra $\ov\omega$ can be easily characterised as the following limit, 
+  Since $(-)\prt$ by construction is a polynomial functor, it preserves all connected limits. Hence, the final coalgebra $\ov\omega$ can be easily characterised as the following sequential limit, 
   \[
   \begin{tikzcd}
     \ov\omega \cong \lt_{n:\N}\Delta^n \ar[r] & \cdots \ar[r] & \Delta^2 \ar[r, "!\prt"] & \I \ar[r, "!"] & 1
@@ -984,7 +993,9 @@ In general, by a c.p. $\I$-algebra we mean one of the form $\I[\N]/\pair{s_n = t
   All c.p. $\I$-algebras are quasi-coherent.
 \end{axiom}
 
-Our modular development in the previous sections can be now immediately applied to $\ov\omega$ if we assume (SQCC). For instance, the description of the specialisation order for affine spaces in \Cref{lem:orderonaffine} now applies to $\ov\omega$, which shows this again coincides with its pointwise order as a subspace of $\I^\N$. In particular, it also has both a top and bottom element, then \Cref{cor:connectedpreservediscrete} now implies $\ov\omega$ is also internally connected, i.e. $M \to M^{\ov\omega}$ will be an equivalence for any discrete set $M$. 
+\begin{remark}
+  Our modular development in the previous sections can be now immediately applied to $\ov\omega$ if we assume (SQCC). For instance, the description of the specialisation order for affine spaces in \Cref{lem:orderonaffine} now applies to $\ov\omega$, which shows this again coincides with its pointwise order as a subspace of $\I^\N$. In particular, it also has both a top and bottom element, thus \Cref{cor:connectedpreservediscrete} now implies $\ov\omega$ is also internally connected, i.e. $M \to M^{\ov\omega}$ will be an equivalence for any discrete set $M$. 
+\end{remark}
 
 (SQCC) combined with the non-triviality axiom (NT) has many logical consequences. The crucial observation is that (NT) implies a weak form of \emph{nullstellensatz} result, as already noted in~\cite{blechschmidt2021using,blechschmidt2020general,Cherubini_Coquand_Hutzler_2024}:
 
@@ -995,7 +1006,7 @@ Our modular development in the previous sections can be now immediately applied 
   The if direction holds since by (NT) $\I$ is non-trivial, thus there is no homomorphism from a trivial algebra to $\I$. For the only if direction, by assumption $A \cong \I^{\spec A} \cong \I^\emp$, which implies $A$ is trivial. 
 \end{proof}
 
-Together with (SQCC), this implies the following form of Markov princple; a similar result is shown in~\cite{cherubini2024foundation}:
+Together with (SQCC), this implies the following form of Markov principle; a similar result is shown in~\cite{cherubini2024foundation}:
 
 \begin{lemma}[NT, SQCC]\label{lem:markov}
   For any $i : \ov\omega$, we have
@@ -1027,10 +1038,14 @@ For another proof, see e.g.~\cite{VANOOSTEN2000233}. In the presence of the Mark
   Assume the premise. We can instantiate $\phi$ to $\emp$. By assumption, we have $\neg\fa n\N \neg\neg\ms ti_n$, which by \Cref{cor:opendnegclose} is equivalent to $\neg\fa n\N \ms ti_n$. Then \Cref{lem:markov} implies this is $\ex n\N \ms fi_n$. The fact that this makes $\omega$ into the above sequential colimit follows from~\cite[Cor. 1.10]{VANOOSTEN2000233}.
 \end{proof}
 
-Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affine, we can now finally show the completeness of $\I$, or in fact \emph{any spectrum}:
+\begin{remark}\label{rem:omegaalwayscolim}
+  The above characterisation of $\omega$ as a sequential colimit is still true if we work with distributive lattices, rather than $\sigma$-frames.
+\end{remark}
+
+Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affine, by working with $\sigma$-frames, we can show $\I$, or in fact \emph{any spectrum}, is complete:
 
 \begin{theorem}[NT, SQCC]\label{thm:complete}
-  Any spectrum $\spec A$ will be orthogonal to the inclusion $\omega\hook\ov\omega$.
+  Working with $\sigma$-frames, any spectrum $\spec A$ will be orthogonal to the inclusion $\omega\hook\ov\omega$.
 \end{theorem}
 \begin{proof}
   Since $\ov\omega$ is now affine, by \Cref{prop:duality} we have
@@ -1061,7 +1076,9 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
     \arrow["{f_n}"{description}, from=2-2, to=1-3]
     \arrow[curve={height=15pt}, dashed, from=2-2, to=1-4]
   \end{tikzcd}\]
-  where the map $f_n$ takes $i_k$ to itself for $k\le n$, and takes $i_k$ to $0$ for $k \ge n$. We can more directly compute the above sequential limit as simplices using \Cref{prop:simplicesasalgebra} as follows,
+  where the map $f_n$ takes $i_k$ to itself for $k\le n$, and takes $i_k$ to $0$ for $k \ge n$.
+  
+  This is where it is crucial to work with $\sigma$-frames. We can more directly compute the above sequential limit using \Cref{prop:simplicesasalgebra} as follows,
   \[\begin{tikzcd}
     \cdots & {\I[n\!+\!1]/i_0 \ge \cdots \ge i_{n}} & {\I[n]/i_0 \ge \cdots \ge i_{n-1}} & \cdots \\
     \cdots & {\Delta_{n+2}} & {\Delta_{n+1}} & \cdots
@@ -1074,11 +1091,11 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
     \arrow["\pi_{n}", from=2-2, to=2-3]
     \arrow[from=2-3, to=2-4]
   \end{tikzcd}\]
-  where the map $\pi_{n} : \Delta_{n+1} \to \Delta_{n+1}$ forgets the last entry, i.e. it takes $i_0 \le \cdots \le i_{n+1}$ to $i_0 \le \cdots i_{n}$. Hence, the sequential limit is given by
+  where $\pi_{n} : \Delta_{n+1} \to \Delta_{n+1}$ forgets the last entry, i.e. it takes $i_0 \le \cdots \le i_{n+1}$ to $i_0 \le \cdots \le i_{n}$. Hence, the sequential limit is given by
   \[ \lt_{n:\N} \Delta_{n} \cong \Delta_\infty := \scomp{i : \N \to \I}{\fa n\N i_n \le i_{n+1}}. \]
-  Now it suffices to show that $\Delta_\infty$ gives a normal form for $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$. To this end, we note that as a generalisation of the normal form given in \Cref{prop:simplicesasalgebra}, an element $p$ in $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ can be uniquely written as follows,
+  Now it suffices to show that $\Delta_\infty$ gives a normal form for $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$. This is indeed true for $\sigma$-frames: By a generalisation or the results in \Cref{prop:simplicesasalgebra}, an element $p$ in $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ can be uniquely written as the \emph{countable join},
   \[ p = \bigvee_{n:\N}p_n \wedge i_n, \]
-  with $p_n \le p_{n+1}$ for all $n:\N$. This identifies $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ with $\Delta_\infty$, hence completes the proof.
+  with $p_n \le p_{n+1}$ for all $n:\N$. A more detailed proof is given in \Cref{app:normalsigma}. This identifies $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ with $\Delta_\infty$, and completes the proof.
 \end{proof}
 
 \begin{corollary}[NT, SQCC]
@@ -1101,7 +1118,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 \end{remark}
 
 \begin{remark}[Limits of algebras induce locality for spectrums]\label{rem:limofalgloc}
-  By inspecting the proof of \Cref{thm:complete}, it is clear that the reason spectrums are complete is because there is a specific \emph{limiting diagram} of quasi-coherent $\I$-algebras. In general, any such limit diagram will induce an orthogonality property satisfied by the all spectrums, and we will see many more examples in \Cref{sec:local}. From \Cref{rem:whynotdis} it is clear whether a diagram of $\I$-algebras is limiting heavily relies on the underlying theory $\T$. This is thus a perfect example of how the algebraic properties of a theory has significant consequence on the internal logic of its classifying topos.
+  By inspecting the proof of \Cref{thm:complete}, it is clear that the reason spectrums are complete is because there is a specific \emph{limiting diagram} of quasi-coherent $\I$-algebras. In general, any such limit diagram will induce an orthogonality property satisfied by the all spectrums, and we will see many more examples in \Cref{sec:local}. From \Cref{rem:whynotdis} it is clear whether a diagram of $\I$-algebras is a limit heavily relies on the underlying algebraic theory. This is thus a perfect example of how the algebraic properties of a theory has significant consequence on the internal logic of its classifying topos.
 \end{remark}
 
 % \section{specialisation posets continued}\label{sec:synposet}
@@ -1178,7 +1195,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 %   \[ \fa xX \ex l\N f_{ln}(yx) \cong f_{lm}(zx). \]
 %   By projectivity of $X$, we merely have a section $l : X \to \N$. By \Cref{cor:connectedpreservediscrete}, this section is indeed constant at $l \cong l(x)$ for the mere element $x:X$. It then follows that $[(n,y)] \cong [(m,z)]$.
 
-%   On the other hand, by projectivitity the above map is also surjective, since if we have $f : X \to \ct_{n:\N}Y_n$, then we have
+%   On the other hand, by projectivity the above map is also surjective, since if we have $f : X \to \ct_{n:\N}Y_n$, then we have
 %   \[ \fa xX \ex n\N\ex{y}{Y_n} fx \cong [(i,y)]. \]
 %   By projectivity again, we merely have a section $X \to \N$, which is again constant by \Cref{cor:connectedpreservediscrete}. Thus we merely get a preimage.
 % \end{proof}
@@ -1260,7 +1277,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 
 % For any finitary topped $X$, by viewing it as a subspace of $\I^n$, we may define the generalised lifting functor over $X$ as follows:
 % \[ L_XY := \sum_{i:X}Y^{\ms ti}. \]
-% Of course, $L_\I$ is the usual lifting functor $(-)\prt$. The most crucial observation of this section is that specialisation posets are closed under generalised liftings:
+% Of course, $L_\I$ is the usual lifting functor $(-)\prt$. The most crucial observation of this section is that specialisation posets are closed under generalised lifting:
 
 % \begin{theorem}[L, SQCF]\label{thm:specialisationordergenlifting}
 %   Let $X$ be a finitary topped affine space and $Y$ a specialisation poset. Then the specialisation order on $L_XY$ is given by
@@ -1296,21 +1313,21 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 
 % Of course, it is perfectly fine to assume both (L) and (cL), and we may refer to the combination of them as (bL). Working in the context of (bL), we again recover the full duality between the meet and join structure as the presheaf geometry.
 
-\section{Local properties for affine spaces}\label{sec:local}
+\section{Local properties for spectrums}\label{sec:local}
 
-In this section we review some of the locality axioms we have introduced in \Cref{sec:locality}. As mentioned in the introduction, the observation is that even if we do not assume them to be true globally for the internval $\I$, we can still show the maps representing the locality axiom to be \emph{orthogonal} to $\I$, or more generally for all affine spaces. Again, these orthogonality conditions are completely due to the algebraic properties of distributive lattices. 
+In this section we review some of the locality axioms we have introduced in \Cref{sec:locality}. As mentioned in the introduction, the observation is that even if we do not assume them to be true globally for the interval $\I$, we can still show the maps representing the locality axiom to be \emph{orthogonal} to $\I$, or more generally for all affine spaces. As explained in \Cref{rem:limofalgloc}, the reason we have these orthogonality conditions is due to the fact that we have various \emph{limits} of $\I$-algebras. Unlike completeness in \Cref{thm:complete}, the local conditions in \Cref{sec:locality} are all induced by limits of \emph{f.p.} $\I$-algebras. Thus, working with distributive lattices or $\sigma$-frames does not matter.
 
 Starting from the simplest example, let us recall the local property (NT). In general, the proposition $0 = 1$ as the spectrum $\spec(\I/0=1)$ is \emph{not} $\emp$, if we do not assume (NT). However, we can look at the localisation class which thinks this map is invertible. The following fact shows that, from the perspective of spectrums, (NT) indeed holds:
 
 \begin{proposition}[SQCI]\label{specisnontrivial}
-  $\spec A$ is orthogonal to $\emp \hook \spec(\I/0=1)$ for any $\I$-algebra $A$.
+  Any spectrum is orthogonal to $\emp \hook \spec(\I/0=1)$.
 \end{proposition}
 \begin{proof}
-  By assumption $\spec(\I/0=1)$ is affine, hence by \Cref{prop:duality},
+  For any $\spec A$, by \Cref{prop:duality} we have
   \[ \spec A^{\spec(\I/0=1)} \cong \I\alg(A,\I/0=1) \cong 1 \cong A^\emp. \qedhere \]
 \end{proof}
 
-By inspecting the proof above, one can see that the reason it works is due to quasi-coherence, and the fact that $\I/0=1$ is the \emph{terminal} $\I$-algebra. This pattern will repeat itself for other more complicated locality conditions.
+By inspecting the proof above, one can see that the reason it works is due to quasi-coherence, and the fact that $\I/0=1$ is the \emph{terminal} $\I$-algebra, which is the simplest example of a limit.
 
 Next we directly discuss the locality condition corresponds to the simplicial axiom (SL), since it is stronger than (L) and (cL), and have has a more significant geometric meaning. Recall from \Cref{ax:SL} that (SL) can be represented geometrically as an embedding $\Delta^2\cup\Delta_2 \hook \I^2$. We thus give the following definition:
 
@@ -1437,7 +1454,7 @@ Next we consider the Rezk condition. Following~\cite{buchholtz2021synthetic}, we
 \begin{proof}
   Notice that for any spectrum $\spec A$, by \Cref{prop:duality} we have
   \[ \spec A^\I \cong \I\alg(A,\I[i]), \]
-  which as shown in \Cref{thm:phoaaffine} classifies the canonical order on $\spec A$. By construction, the canonical order on $\spec A$ is pointwisely induced from $\I$, hence is antisymmetric. Thus they will be Rezk.
+  which as shown in \Cref{thm:phoaaffine} classifies the canonical order on $\spec A$. By construction, the canonical order on $\spec A$ is pointwise induced from $\I$, hence is antisymmetric. Thus they will be Rezk.
 \end{proof}
 
 In fact, spectrums are slightly stronger than being a synthetic category, in the sense that they will be synthetic \emph{poset}. We construct $\I_{\rightrightarrows}$ as the following pushout,
@@ -1479,13 +1496,13 @@ The notion of synthetic categories and synthetic posets are formulated as these 
   This follows from the fact that a quasi-coherent algebra $A$ is \emph{replete} (cf. \Cref{rem:qcreplete}), hence belongs to any localisation class containing $\I$.
 \end{proof}
 
-At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We will show $\omega$ also satisfies all the locality conditions discussed above. Recall from \Cref{sec:infdomain} that, under (NT) and (SQCC), $\omega$ can be realised as a colimit,
-\[ \omega \cong \ct_{n:\N}\Delta^n. \]
-Type-theoretically, we have also shown that $\omega$ can be realised as the following subspace of $\ov\omega$,
+At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We show $\omega$ satisfies the Phoa's principle, and satisfies all the locality conditions discussed above. 
+
+Recall from \Cref{prop:omegacolimit} that, under (NT) and (SQCC), $\omega$ is a colimit $\omega \cong \ct_{n:\N}\Delta^n$. As indicated in \Cref{rem:omegaalwayscolim}, this does not depend on working with distributive lattices or $\sigma$-frames. Type-theoretically, we have also shown that $\omega$ can be realised as the following subspace of $\ov\omega$,
 \[ \omega \cong \scomp{i : \ov\omega}{\ex n\N \ms fi_n}. \]
 This way, the inclusion $\Delta^n \hook \omega$ can be viewed as follows, 
 \[ \Delta^n \cong \scomp{i : \omega}{\ms fi_{n}}, \]
-which implies $\Delta^n \hook \omega$ is \emph{downward closed}. This way, we can directly compute the function space $\omega^\I$:
+which implies $\Delta^n \hook \omega$ is \emph{downward closed}. This allows us to directly compute the function space $\omega^\I$:
 
 \begin{lemma}[NT, SQCC]\label{lem:intervalcommuteomega}
   We have a family of equivalences
@@ -1497,6 +1514,17 @@ which implies $\Delta^n \hook \omega$ is \emph{downward closed}. This way, we ca
   \[ \ct_{n:\N}(\Delta^n)^\I \to \prth{\ct_{n:\N}\Delta^n}^\I. \]
   It is evident this map is an embedding, hence it suffices to show it is surjective. Given $f : \I \to \ct_{n:\N}\Delta^n$. By assumption, there merely exists $n:\N$ that $f(1)$ factors through $\Delta^n \hook \omega$. Now the claim is that the entire map $f$ factors through $\Delta^n$. This indeed holds, since we have shown in \Cref{cor:omegaphoa} that the specialisation order on $\omega$ is pointwise. By monotonicity, for any $i:\I$ we have $fi \preceq f1$, which implies $fi$ belongs to $\Delta^n$ as well, since $\Delta^n \hook \omega$ is a downward closed. The same holds for cubes or simplices since they all have a top element.
 \end{proof}
+
+As a first consequence, we show $\omega$ satisfies Phoa's principle:
+
+\begin{proposition}[NT, SQCC]\label{cor:omegaphoa}
+  The specialisation order on $\omega$ again coincides with its canonical pointwise order. In particular, $\omega$ also satisfies the Phoa's principle.
+\end{proposition}
+\begin{proof}
+  For $i \le j$ in $\omega$, since $j$ merely belongs to $\Delta^n$ for some $n$. By downward closeness of $\Delta^n$ in $\omega$, $i,j$ both belongs to $\Delta^n$. Thus by \Cref{thm:phoaaffine} and \Cref{lem:intervalcommuteomega}, we get a map $f : \I \to \omega$ with $f(0) = i$ and $f(1) = j$. Hence, $i \preceq j$. Now if $i \preceq j$ in $\omega$, by \Cref{lem:anymapmonotoneintriscorder} we also have $i \preceq j$ in $\ov\omega$. Since $\ov\omega$ is affine, $i \le j$ in $\ov\omega$ by \Cref{thm:phoaaffine} again. This implies $i \le j$ in $\omega$. The uniqueness of $f : \I \to \omega$ follows from $\ov\omega$ satisfying the Phoa's principle and the fact that $\omega\hook\ov\omega$ is an embedding.
+\end{proof}
+
+As another consequence, we can also show the following general result establishing a large family of orthogonality conditions satisfied by $\omega$:
 
 \begin{theorem}[NT, SQCC]\label{thm:omegaortho}
   Let $f : X \to Y$ be a map where $X,Y$ are finite colimits of cubes or simplices. If each $\Delta^n$ is $f$-local, then so is $\omega$.
@@ -1593,13 +1621,13 @@ which implies $\Delta^n \hook \omega$ is \emph{downward closed}. This way, we ca
 It is now instructive to discuss models for the axioms we have used in the previous sections. These axioms can be organised into two classes:
 
 \begin{enumerate}
-  \item The quasi-coherence principle (SQCF) or (SQCC);
+  \item The quasi-coherence principle (SQCF), (SQCC);
   \item Various locality axioms discussed in \Cref{sec:locality}.
 \end{enumerate}
 
 For any Horn theory $\T$, through the work in~\cite{blechschmidt2020general,blechschmidt2021using} we know that the classifying topos $\Set[\T] \cong [\mmod\T\fp,\Set]$, with the generic $\T$-model $U_\T$, models quasi-coherence for finitely presented $U_\T$-algebras, viz. (SQCF). As mentioned in \Cref{subsec:qc}, the proof for quasi-coherence for finitely presented $U_\T$-algebras can be completely adapted to the countably presented case, provided we work with a larger site,
 \[ \Set[\T]_\omega := [\mmod\T\cp,\Set], \]
-where $\mmod\T\cp$ is the category of c.p. $\T$-models. In other words, (SQCC) holds in the larger topos $\Set[\T]_\omega$. 
+where $\mmod\T\cp$ is the category of c.p. $\T$-models. In other words, (SQCC) holds in the larger topos $\Set[\T]_\omega$. And in this case, we also allow $\T$ to contain algebraic operations of countable arity.
 
 These two topoi are intimately related. There is a fully faithful and left exact inclusion of site
 \[ \mmod\T\fp\op \hook \mmod\T\cp\op, \]
@@ -1612,7 +1640,7 @@ Hence, it induces an adjoint triple (cf.~\cite[Thm. 7.20]{caramello2019denseness
   \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=2]
   \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=1, to=0]
 \end{tikzcd}\]
-which produces a \emph{local geometric morphism} $\Set[\T]_\omega \surj \Set[\T]$ in the sense of~\cite[C3.6]{johnstone2002sketches}.
+equivalently, a \emph{local geometric morphism} $\Set[\T]_\omega \surj \Set[\T]$ as in~\cite[C3.6]{johnstone2002sketches}.
 
 More generally, it is already observed in~\cite[Thm. 4.11.]{blechschmidt2020general} that if we have a topology $J$ on $\mmod\T\fp\op$ where $U_\T$ is a $J$-sheaf, then (SQCF) again holds in the sheaf subtopos $\sh(\mmod\T\fp\op,J)$. We call such a topology $J$ \emph{admissible}. For instance, since $U_\T$ is representable, any subcanonical topology will in particular be admissible. Completely similarly, for any admissible topology $J$ on $\mmod\T\cp\op$, the sheaf subtopos $\sh(\mmod\T\cp\op,J)$ also models (SQCC). As an example, this is the theoretical basis of the quasi-coherence principle for countably presented Boolean algebras in the topos of light condensed sets introduced by Clausen and Scholze, as shown in~\cite{cherubini2024foundation}.
 
@@ -1627,49 +1655,58 @@ An admissible topology $J$ on $\mmod\T\cp\op$ restricts to an admissible one on 
 \end{tikzcd}\]
 which again identifies $\sh(\mmod\T\cp\op,J)$ a local topos over $\sh(\mmod\T\fp\op,J)$. These admissible topologies on $\mmod\T\fp$ or $\mmod\T\cp$ are exactly the required data to validate various local properties of the generic model $U_\T$. 
 
-More specifically for us, let us focus on the case for $\mbb D$ the theory of distributive lattices. The same discussion more generally applies to the theory of $D$-algebras for any distributive lattice $D$. Let us first observe that we have a more detailed description of the dual category $\DL\cp\op$. Recall that there is a duality between distributive lattices and \emph{spectral spaces},\footnote{If one want a fully constructive development, it suffices to replace spectral spaces with coherent locales (cf.~\cite{johnstone1982stone}).}
-\[ \spec : \DL\op \cong \Spec : \Sigma. \]
-Here $\Spec$ is the category of spectral topological spaces and spectral maps. A spectral space $X$ is a sober topological space, such that its compact open subsets form a basis, i.e. they are closed under finite intersections and every open subset is a union of compact ones. A continuous map between spectral spaces $f : X \to Y$ is called \emph{spectral}, if $f\inv$ also preserves compact opens. For more information on this duality result, see e.g. Stone's original paper~\cite{stone1938topological} or the detailed exposition~\cite{bezhanishvili2010bitopological}.
+More specifically for us, let $\sFrm$ be the category of $\sigma$-frames, i.e. whose objects are posets with finite meets and countable joins, where they distribute through each other. We will also use $\sFrm\cp$ to denote the full subcategory of countably presented $\sigma$-frames, and $\sFrm\fp$ to denote the finitely presented ones. Since f.p. $\sigma$-frames are simply f.p. distributive lattices, we have an isomorphism $\sFrm\fp \cong \DL\fp$.
 
-On one hand, $\spec$ takes a distributive lattice $A$ to its \emph{space of models}:
-\begin{itemize}
-  \item A point is a morphism $x : A \to 2$ in $\DL$;
-  \item Subsets of the form $D_a$ with $a\in A$ form a basis, with 
-  \[ D_a := \scomp{x \in \spec A}{x(a) \cong 1}. \]
-\end{itemize}
-It is easy to verify that the basis of the form $D_a$ are in fact compact, and hence $\spec A$ is a spectral space. Given a morphism $f : A \to B$, there is an induced map
-\[ f^* : \spec B \to \spec A, \]
-given by precomposition with $f$. One can verify $(f^*)\inv(D_a) \cong D_{fa}$, thus $f^*$ is spectral. We mention that though $\Spec$ is not a full subcategory of $\Topp$, it is still closed under limits in $\Topp$. 
+It is well-known the dual category of $\DL\fp \cong \sFrm\fp$ is $\Pos\fp$ of finite posets. In this case, we can also have a fairly explicit description of the larger dual category $\sFrm\cp$. The first observation is that any c.p. $\sigma$-frame $A$ is indeed a \emph{frame}, i.e. it has \emph{all} joins and finite meets, which distributes with each other. This is clear for all finitely presented $\sigma$-frames, since they are simply finite distributive lattices. To see this for the countable case, consider the countably generated free $\sigma$-frame $2[\N]$:
 
-As an example, let us look at the space of models of the countably generated free distributive lattice $2[\N]$, where we have 
-\[ \spec 2[\N] \cong \Sigma^\N. \] 
-Here $\Sigma$ is the \emph{Sierpinski space}. This is due to the fact that
-\[ \spec 2[\N] \cong \spec\coprod_{\N} 2[x] \cong \prod_{\N} \spec 2[x] \cong \Sigma^\N, \]
-where it is easy to verify that $\spec 2[x] \cong \Sigma$. 
+\begin{lemma}\label{lem:cgfreesframe}
+  We have an isomorphism
+  \[ 2[\N] \cong [P_f(\N),2], \]
+  where $P_f(\N)$ is the poset of finite subsets of $\N$.
+\end{lemma}
+\begin{proof}
+  The free $\sigma$-frame can be generated by first freely adding finite meets to the discrete poset $\N$, and then freely adding all countable joins. The first step results in the poset $P_f(\N)\op$. Now since $P_f(\N)\op$ is countable, freely adding all countable joins is equivalently freely adding \emph{all} joins, which is achieved by the presheaf construction. This way,
+  \[ 2[\N] \cong [(P_f(\N)\op)\op,2] \cong [P_f(\N),2]. \qedhere \]
+\end{proof}
 
-On the other hand, the functor $\Sigma : \Spec \to \DL\op$ simply takes a spectral space $X$ to the distributive lattice 
-\[ \Sigma(X) := \Spec(X,\Sigma), \]
-In other words, $\Sigma(X)$ is the distributive lattice of compact opens of $X$.
+\begin{corollary}\label{cor:dualsframe}
+  There is a fully faithful embedding
+  \[ \sFrm\cp \hook \Frm, \]
+  preserving all countable colimits. This is again fully faithful when composed with $\ms{pt} : \Frm\op \to \Topp$. 
+\end{corollary}
+\begin{proof}
+  Any c.p. $\sigma$-frame will be isomorphic to one of the form $2[\N]/R$ for some countably generated equivalence relation $R$. By \Cref{lem:cgfreesframe} $2[\N]$ is a frame, so is any of its quotient. By~\cite[Thm. 6.2.4]{makkai2006first}, such frames are indeed \emph{spatial}, hence they fully faithfully embed into the category of topological spaces via the functor $\pt$.
+\end{proof}
 
-Let us now consider the essential image of $\spec : \DL\cp\op \to \Spec$, which we denote as $\wSpec$. Notice that since $2[\N]$ is itself countable, a distributive lattice is countably presented iff it is a quotient of $2[\N]$. This way, by duality objects in $\wSpec$ are simply spectral subspaces of $\Sigma^\N$, i.e. those subspaces $X \subseteq \Sigma^\N$, where for any compact open $U$ of $\Sigma^\N$, $X \cap U$ is again compact in $X$. In particular, not all subspaces of $\Sigma^\N$ will lie in $\wSpec$. For instance, the discrete space $\N$ as a subspace of $\Sigma^\N$ is \emph{not} an object in $\wSpec$, since $\N$ is not even compact, let alone spectral.
+This way, we can view $\sFrm\cp\op$ as a certain class of topological spaces. Notice that since all c.p. $\sigma$-frame will be a quotient of $2[\N]$, their dual spaces will be a subspace of $\pt(2[\N])$, which we can compute quite easily:
 
-This way, we have the following situation,
+\begin{lemma}
+  The space of points of $2[\N]$ is the Scott's graph model $G$, which is the countable product of the Sierpi\'nski space $G \cong \Sigma^\N$.
+\end{lemma}
+\begin{proof}
+  Note $\pt$ takes colimits in $\Frm$ to limits in $\Topp$, since $\pt : \Loc \to \Topp$ is a right adjoint. Since $2[\N]$ is the countable coproduct of the free frame on one generator, we have
+  \[ \pt(2[\N]) \cong \pt(2[x])^\N \cong \Sigma^\N, \]
+  Here $\pt(2[x]) \cong \Sigma$ follows from a simple computation.
+\end{proof}
+
+This way, if we write $\wTop$ as the essential image of the fully faithful functor $\pt : \sFrm\cp\op \to \Topp$, its objects will all be subspaces of $G$. We would then have the following diagram,
 \[
 \begin{tikzcd}
-  \DL\fp\op \ar[r, "\cong"] \ar[d, hook] & \Pos\fp \ar[d, hook] \\ 
-  \DL\cp\op \ar[r, "\cong"] & \wSpec 
+  \sFrm\fp\op \ar[d, hook] \ar[r, "\simeq"] & \Pos\fp \ar[d, hook] \\
+  \sFrm\cp\op \ar[r, "\simeq"'] & \wTop
 \end{tikzcd}
 \]
-where the equivalence $\DL\cp\op \cong \wSpec$ restricts to one between finite distributive lattices and finite posets, where we view each finite poset as a spectral space via its Scott topology. Hence, at the presheaf level, we have a local geometric morphism
-\[ \psh(\wSpec) \surj \psh(\Pos\fp). \]
+where here the inclusion $\Pos\fp \hook \wTop$ simply take each finite poset to its Alexandroff topological space. Hence, at the presheaf level, we have a local geometric morphism
+\[ \psh(\wTop) \surj \psh(\Pos\fp). \]
+where in each case, the generic $\sigma$-frame $\I$ as a presheaf is now the representable functor on the Sierpinski space $\Sigma$. 
 
-Working with $\wSpec$, the generic distributive lattice $\I$ as a presheaf on $\wSpec$ is now the representable functor on the Sierpinski space $\Sigma$. Below are the corresponding admissible topologies on $\wSpec$ which model the various locality principles we have considered in \Cref{sec:locality}. We encourage the readers to notice the connection between the topologies we discuss below, and the developments in \Cref{sec:local}.
+Below we discuss the corresponding admissible topologies on $\wTop$, modelling the various locality principles we have considered in \Cref{sec:locality}. We encourage the readers to notice the connection between the topologies we discuss below, and the developments in \Cref{sec:local}.
 
 \begin{example}[NT]
-  To model (NT), we would want the empty sieve on $\spec(2/0=1) \cong \emp$ to be a covering. Since $\emp$ is a strict initial object in $\wSpec$, this is a subcanonical topology. Thus, this gives us a least topology $J_{\ms{NT}}$ that models (NT), and we have
-  \[ \sh(\wSpec,J_{\ms{NT}}) \cong \psh(\wSpec_+), \]
-  where $\wSpec_+$ is the full subcategory of $\wSpec$ excluding $\emp$. The induced local geometric morphism now is given by 
-  \[ \Gamma : \psh(\wSpec_+) \surj \psh(\Pos_{\mr{f.p.,+}}), \]
+  To model (NT), we would want the empty sieve on $\pt(2/0=1) \cong \emp$ to be a covering. Since $\emp$ is a strict initial object in $\wTop$, this is a subcanonical topology. Thus, this gives us a least topology $J_{\ms{NT}}$ that models (NT), and we have
+  \[ \sh(\wTop,J_{\ms{NT}}) \cong \psh(\wTop_+), \]
+  where $\wTop_+$ is the full subcategory of $\wTop$ excluding $\emp$. The induced local geometric morphism now is given by 
+  \[ \Gamma : \psh(\wTop_+) \surj \psh(\Pos_{\mr{f.p.,+}}), \]
   where, again $\Pos_{\mr{f.p.,+}}$ is the full subcategory of $\Pos_{\mr{f.p.,+}}$ consisting of non-empty posets, and $\psh(\Pos_{\mr{f.,+}})$ is the classifying topos for non-trivial distributive lattices.
 \end{example}
 
@@ -1678,7 +1715,7 @@ Working with $\wSpec$, the generic distributive lattice $\I$ as a presheaf on $\
   \[ x \vee y = 1 \vdash x = 1 \vee y = 1, \] 
   This means the dual embeddings of the following quotients needs to be a covering family,
   \[ 2[y] \cong 2[x,y]/x \twoheadleftarrow 2[x,y]/x\vee y \surj 2[x,y]/y \cong 2[x]. \]
-  It is easy to see that $\spec 2[x,y]/x \vee y$ is the space $\Lambda^2_1$ obtained by glueing the open points of two copies of Sierpinski spaces together, i.e. it is the following pushout,
+  It is easy to see that $\pt(2[x,y]/x \vee y)$ is the space $\Lambda^2_1$ obtained by glueing the open points of two copies of Sierpinski spaces together, i.e. it is the following pushout,
   \[
   \begin{tikzcd}
     1 \ar[d, "1"'] \ar[r, "1"] & \Sigma \ar[d, "l"] \\ 
@@ -1688,8 +1725,8 @@ Working with $\wSpec$, the generic distributive lattice $\I$ as a presheaf on $\
   \]
   The least topology $J_{\ms L}$ is thus generated by the empty covering on $\emp$, and the covering $\set{l,r : \Sigma \to \Lambda^2_1}$. Since we have the pushout above, this topology is again subcanonical. 
   
-  In this case, it is not hard to give an explicit description of a covering family in $\wSpec$: A family of maps is a $\ms J_{\ms L}$ covering on $X \in \wSpec$ iff it contains a (finite) subfamily of \emph{compact opens} $\set{X_i\subseteq X}_{i\in I}$, where $X \cong \bigcup_{i\in I}X_i$; see a similar calculation for commutative rings in~\cite[VIII. 6]{maclane2012sheaves}. This thus can be denoted as the \emph{Zariski topology} on $\wSpec$, and the local geometric morphism
-  \[ \sh(\wSpec,J_{\ms L}) \surj \sh(\Pos\fp,J_{\ms L}) \cong \mb{Zar}(\mbb D), \]
+  In this case, it is not hard to give an explicit description of a covering family in $\Pos\fp$: A family of maps is a $\ms J_{\ms L}$ covering on $P \in \Pos\fp$ iff it contains a (finite) subfamily of \emph{upward closed subsets} $\set{P_i\subseteq P}_{i\in I}$, where $P \cong \bigcup_{i\in I}P_i$; see a similar calculation for commutative rings in~\cite[VIII. 6]{maclane2012sheaves}. Following the terminology for algebraic geometry, this can be denoted as the \emph{Zariski topology}, and the local geometric morphism
+  \[ \sh(\wTop,J_{\ms L}) \surj \sh(\Pos\fp,J_{\ms L}) \simeq \mb{Zar}(\mbb D), \]
   is over the \emph{Zariski topos} $\mb{Zar}(\mbb D)$ for distributive lattices.
 \end{example}
 
@@ -1699,7 +1736,7 @@ Working with $\wSpec$, the generic distributive lattice $\I$ as a presheaf on $\
   which requires the dual embeddings of the following quotients to form a covering family,
   \[ 2[x,y]/x \le y \twoheadleftarrow 2[x,y] \surj 2[x,y]/y \le x. \]
   We can compute that $\spec 2[x,y] \cong \Sigma^2$, and 
-  \[ \spec(2[x,y]/x \le y) \cong \Sigma_2 \cong \set{0 < 1 < 2}. \]
+  \[ \pt(2[x,y]/x \le y) \cong \Sigma_2 \cong \set{0 < 1 < 2}. \]
   Again we have a pushout diagram,
   \[
   \begin{tikzcd}
@@ -1710,12 +1747,12 @@ Working with $\wSpec$, the generic distributive lattice $\I$ as a presheaf on $\
   \]
   where $\partial : \Sigma \to \Sigma_2$ maps $\Sigma$ to the end points of $\Sigma_2$, and $l,r : \Sigma_2 \hook \Sigma^2$ is the two $\Sigma_2$-chains in $\Sigma^2$. The least topology $\ms J_{\ms{SL}}$ for the linearity axiom is thus generated by the empty covering on $\emp$, and $\set{l,r : \Sigma_2 \hook \Sigma^2}$. Similarly, given this pushout, $J_{\ms{SL}}$ will be subcanonical.
 
-  The topos $\sh(\wSpec,J_{\ms{SL}})$ is closely related to simplicial sets. This is due to the fact that simplicial sets is the classifying topos of non-empty linear orders (cf. e.g.~\cite[VIII. 8]{maclane2012sheaves}), and thus we have an equivalence 
+  The topos $\sh(\wTop,J_{\ms{SL}})$ is closely related to simplicial sets. This is due to the fact that simplicial sets is the classifying topos of non-empty linear orders (cf. e.g.~\cite[VIII. 8]{maclane2012sheaves}), and thus we have an equivalence 
   \[ \sh(\Pos\fp,J_{\ms{SL}}) \cong \psh(\Delta). \]
-  This makes $\sh(\wSpec,J_{\ms{SL}}) \surj \psh(\Delta)$ a local topos over simplicial sets.
+  This makes $\sh(\wTop,J_{\ms{SL}}) \surj \psh(\Delta)$ a local topos over simplicial sets.
 \end{example}
 
-\begin{example}[1T]
+\begin{example}[1T]\label{exm:model1T}
   Similarly to the case of (SL), the 1-truncation axiom requires dual embeddings of the following quotient maps
   \[\begin{tikzcd}
     & {2[x,y]/x\le y} \\
@@ -1743,45 +1780,130 @@ Working with $\wSpec$, the generic distributive lattice $\I$ as a presheaf on $\
   \end{tikzcd}\]
   which implies $J_{\ms{1T}}$ is subcanonical.
   
-  Similar to the case of (SL), $\sh(\wSpec,J_{\ms{1T}})$ is closely related to the topos of \emph{truncated simplicial sets} $\psh(\Delta_{\le 1})$. This is again induced by the fact that the classifying topos for 1-truncated distributive lattices is given by 
+  Similar to the case of (SL), $\sh(\wTop,J_{\ms{1T}})$ is closely related to the topos of \emph{truncated simplicial sets} $\psh(\Delta_{\le 1})$. This is again induced by the fact that the classifying topos for 1-truncated distributive lattices is given by 
   \[ \sh(\Pos\fp,J_{\ms{1T}}) \cong \psh(\Delta_{\le 1}). \]
   Hence, this again gives us a local geometric morphism
-  \[ \sh(\wSpec,J_{\ms{1T}}) \surj \psh(\Delta_{\le 1}). \]
+  \[ \sh(\wTop,J_{\ms{1T}}) \surj \psh(\Delta_{\le 1}). \]
 \end{example}
 
-% In this section we work with $\ms{ZFC}$. Let $\sFrm$ be the category of $\sigma$-frames, i.e. whose objects are posets with finite meets and countable joins, where they distribute through each other. We will also use $\sFrm\cp$ to denote the full subcategory of countably presented $\sigma$-frames.
 
-% The first observation is that any c.p. $\sigma$-frame $A$ is indeed a \emph{frame}. This is clear for all finitely presented $\sigma$-frames, since they are simply finite distributive lattices. To see this for the countable case, consider the countably generated free $\sigma$-frame $2[\N]$:
+\section{Future directions}
 
-% \begin{lemma}\label{lem:cgfreesframe}
-%   We have an isomorphism
-%   \[ 2[\N] \cong [P_f(\N),2], \]
-%   where $P_f(\N)$ is the poset of finite subsets of $\N$.
-% \end{lemma}
+\subsection{Domain theory with quasi-coherence}
+
+In this paper we have explained the axioms of synthetic domain theory using the quasi-coherence principle for distributive lattices and $\sigma$-frames. As we have seen from various examples (\Cref{prop:liftingofalgebra,prop:liftofaffine,prop:complementinalgebra}, etc.) the quasi-coherence principle moreover helps with the actual \emph{computation} for operations on domains. Thus, the natural step next is to further develop domain theory within this framework.
+
+In particular, it will be extremely useful to investigate the orthogonality conditions satisfied by all spectrums (affine spaces), some of which have been observed in \Cref{sec:infdomain,sec:local}. In particular, in this paper we haven't found any orthogonality condition satisfied by $\I$ but not by general affine spaces. This allows us to conjecture that all (or at least some classes of) affine spaces will be \emph{replete}. This will be a non-trivial way of constructing new replete objects other than retracts of $\I^X$ for some type $X$.
+
+\subsection{Quasi-coherence for related synthetic mathematics}
+
+Both synthetic topology~\cite{bauer2009dedekind} and synthetic computability theory~\cite{RN552} involve similar structures as synthetic domain theory. In particular, an interval object $\I$ consisting of a dominance seems to be crucial in all three cases. We have showcased in \Cref{sec:dominance} that quasi-coherence for a wide variety of theories will produce such a structure, and it will be interesting to see connections with quasi-coherence to these two types of synthetic mathematics as well.
+
+\subsection{Connection with existing models}\label{subsec:compare}
+
+Finally, it will be instructive to compare the sheaf models for synthetic domain theory constructed in~\cite{FIORE1997151} with the models discussed in \Cref{sec:model}. Recall the topos $\mc H$ constructed in \emph{loc. cit.} is the following sheaf topos,
+\[ \mc H := \sh(\mb P,J_{\ms{can}}), \]
+where $\mb P$ be the full subcategory of the category $\wCPO$ of $\omega$-cpos consisting of retracts of the Scott's graph model $G$, and $J_{\ms{can}}$ is the canonical topology on $\mb P$. An $\omega$-cpo is simply a poset having countable joins, and a morphism between them are monotone maps preserving the countable joins.
+
+Here we observe that the inclusion $\mb P \hook \wTop$ is \emph{fully faithful}, because
+\begin{align*}
+  \wCPO(G,G)
+  &\cong \Pos(P_f(\N)\op,[P_f(\N),2]) \\
+  &\cong \sFrm\cp([P_f(\N),2],[P_f(\N),2]) \\ 
+  &\cong \wTop(G,G) \qedhere
+\end{align*}
+This leads us to conjecture that $\mc H$ will be equivalent to the sheaf topos $\sh(\wTop,J_{\mr{can}})$. However, a detailed proof of this requires us to better understand the categorical properties of $\wTop$.
+
+% \begin{theorem}\label{thm:comparemodel}
+%   The embedding $\mb P \hook \wTop$ induces an equivalence
+%   \[ \mc H \simeq \sh(\mb P,J_{\mr{can}}) \simeq \sh(\wTop,J_{\mr{can}}), \]
+% \end{theorem}
 % \begin{proof}
-%   The free $\sigma$-frame can be generated by first freely adding finite meets to the discrete poset $\N$, and then freely adding all countable joins. The first step results in the poset $P_f(\N)\op$. Now since $P_f(\N)\op$ is countable, freely adding all countable joins is equivalently freely adding \emph{all} joins, which is achieved by the presheaf construction. This way,
-%   \[ 2[\N] \cong [(P_f(\N)\op)\op,2] \cong [P_f(\N),2]. \qedhere \]
+%   It suffices to show the inclusion induces a dense morphism of site 
+%   \[ (\mb P,J_{\mr{can}}) \hook (\wTop,J_{\mr{can}}). \]
+%   Following~\cite{caramello2019denseness},
+%   Note that the direct image $i_*$ is computed by right Kan extension, thus $i$ is an embedding because $i$ is fully faithful, and $i^*i_* \cong 1$. The generic model is the corepresentable $\yon^{2[\N]}$, which when restricting along $i^*$ becomes the representable $\yon_G$. Hence, it suffices to show $i_*\yon_G \cong \yon^{2[\N]}$. 
+  
+%   For any $A\in\sFrm\cp$, we compute
+%   \[ i_*\yon_G(A) \cong \lt_{X\in A/\mb P}\mb P(X,P) \cong \lt_{D\in A/\mb P}\sFrm(2[\N],D). \]
+%   Now we show the canonical map is an isomorphism:
+%   \[ \sFrm(2[\N],A) \to \lt_{D\in A/\mb P}\sFrm(2[\N],D). \]
+  
+%   \emph{Injectivity}: Suppose we have two maps $f,g : 2[\N] \to A$. Notice that the singleton $1\in\mb P$, which corresponds to the initial frame $2$. Since $A \in \sFrm$ is spatial, if for all $x : A \to 2$ we have $xf \cong xg$, then $f \cong g$.
+
+%   \emph{Surjectivity}: Suppose we are given a compatible family $\set{f_D}_{D\in A/\mb P}$ where $f_D : 2[\N] \to D$. By the duality in \Cref{cor:dualsframe}, equivalently we have a compatible family
+%   \[ \scomp{f_X : X \to G}{X \in \mb P/\pt(A)}. \]
+%   Now there is essentially one way to define a map $f : \pt(A) \to G$, by letting $f(x)$ for $x\in\pt(A)$ to be $f_x$,
+%   \[
+%   \begin{tikzcd}
+%     1 \ar[d, "f_x"'] \ar[r, "x"] & \pt(A) \ar[dl, dashed, "f"] \\ 
+%     G
+%   \end{tikzcd}
+%   \]
 % \end{proof}
 
-% \begin{corollary}\label{cor:dualsframe}
-%   There is a fully faithful embedding
-%   \[ \sFrm\cp \hook \Frm, \]
-%   preserving all countable colimits. This is again fully faithful when composed with $\ms{pt} : \Frm\op \to \Topp$. 
-% \end{corollary}
-% \begin{proof}
-%   By definition, a c.p. $\sigma$-frame is isomorphic to one of the form $2[\N]/R$ for some countably generated equivalence relation $R$. Since by \Cref{lem:cgfreesframe} $2[\N]$ is a frame, so is any of its quotient. By a result in~\cite[Thm. 6.2.4]{makkai2006first}, such frames are indeed \emph{spatial}, hence they fully faithfully embed into the category of topological spaces via the functor $\pt$.
-% \end{proof}
+% To simplify the comparison, following~\cite[Thm. 3]{FIORE1997151} we use the simpler presentation of $\mc H$ as $\sh(\mb L,J_{\mr{can}})$, where $\mb L$ is the full subcategory of $\wCPO$ consisting of retracts of $\ov\omega$. As a full subcategory $\mb L \hook \mb P$, we again 
 
-% This way, we get a duality between c.p. $\sigma$-frames and certain class of topological spaces. Notice that since all c.p. $\sigma$-frame will be a quotient of $2[\N]$, their dual spaces will be a subspace of $\pt(2[\N])$, which we can compute quite easily:
+\bibliographystyle{apalike} 
+\bibliography{mybib}
+
+\appendix
+
+\section{A normal form result}
+
+\begin{lemma}\label{app:normalsigma}
+  For the countably presented $\sigma$-frame $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$, an element $p$ can be uniquely written as 
+  \[ p = \bigvee_{n:\N} p_n \wedge i_n, \]
+  with $p_n \le p_{n+1}$ for all $n$. In particular, $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ is isomorphic to the $\sigma$-frame $\Delta_\infty$ with the pointwise order.
+\end{lemma}
+\begin{proof}
+  We directly prove that $\Delta_\infty$ satisfies the universal property of the c.p. $\sigma$-frame $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$. We pick the generators in $\Delta_\infty$ as follows,
+  \[ i_n := (\underbrace{0,\cdots,0}_{n+1 \text{ times}},1,1,\cdots). \]
+  For any $\sigma$-frame $A$ with $a_0 \ge a_1 \ge \cdots$, we define a map $f_a : \Delta_\infty \to A$ sending $j = (j^0,j^1,\cdots) : \Delta_\infty$ to
+  \[ f_a(i) := j_0 \vee \bigvee_{n:\N} j^{n+1} \wedge a_{n}. \]
+  By construction it is easy to see $f_a$ is a $\sigma$-frame morphism. Evidently for any $n : \N$, 
+  \[ f_a(i_n) = \bigvee_{m:\N} i_n^{m+1} \wedge a_m = a_n. \]
+  Furthermore, for any $\sigma$-frame map $f : \Delta_\infty \to A$ with $f(i_n) = a_n$, we must have $f = f_a$ because any $j$ in $\Delta_\infty$ can be written as
+  \[ j = j^0 \vee \bigvee_{n:\N} j^{n+1} \wedge i_n, \]
+  which implies that
+  \[ f(j) = j^0 \vee \bigvee_{n:\N}j^{n+1} \wedge a_n = f_a(j). \]
+  This completes the proof.
+\end{proof}
+
+
+
+% \section{Normal form results}
 
 % \begin{lemma}
-%   The space of points of $2[\N]$ is the Scott's graph model $G$, which is the countable product of the Sierpinski space $G \cong S^\N$.
+%   For a distributive lattice $A$, a polynomial $p$ in $A[i]$ is uniquely determined by two parameters $p_0 \le p_1$, with
+%   \[ p = p_0 \vee i \wedge p_1. \]
+% \end{lemma}
+
+% \begin{lemma}
+%   For a distributive lattice $A$, a polynomial $p$ in $A[n]/i_1 \ge \cdots \ge i_n$ is uniquely determined by $p_0 \le \cdots \le p_n$, with
+%   \[ p = p_0 \vee i_1 \wedge \cdots \wedge i_n \vee p_n, \]
 % \end{lemma}
 % \begin{proof}
-%   Note $\pt$ takes colimits in $\Frm$ to limits in $\Topp$, since $\pt : \Loc \to \Topp$ is a right adjoint. Since $2[\N]$ is the countable coproduct of the free frame on one generator, we have
-%   \[ \pt(2[\N]) \cong \pt(2[x])^\N \cong S^\N, \]
-%   where $\pt(2[x])$ is the Sierpinski space $S$ by an easy computation.
+%   We directly show that $\Delta[A]_{n+1}$ with the pointwise distributive lattice structure satisfies the universal property of $A[n]/i_1 \ge \cdots \ge i_n$, where generators are given by 
+%   \[ (0,1,\cdots,1), (0,0,1,\cdots,1), \cdots, (0,0,\cdots,1). \]
+%   Notice that any element $p = (p_0,\cdots,p_n)$ in $\Delta[A]_{n+1}$ can be written as
+%   \[ p = p_0 \vee (0,1,\cdots,1) \wedge (0,0,1,\cdots,1) \vee \cdots \vee (0,\cdots,1) \wedge p_n. \]
+%   For any distributive lattice $B$ and a homomorphism $f : A \to B$, given $a \ge b$ in $B$ we construct a map
+%   \[ f_{a,b} : \Delta[A]_3 \to B, \]
+%   such that for $p_0 \le p_1 \le p_2$ in $\Delta[A]_3$, we define
+%   \[ f_{a,b}(p_0,p_1,p_2) := f(p_0) \vee a \wedge f(p_1) \vee b \wedge f(p_2). \]
+%   This is well-defined. Furthermore,
+%   \begin{align*}
+%     &f_{a,b}(0,1,1) = 0 \vee a \wedge 1 \vee b \wedge 1 = a, \\
+%     &f_{a,b}(0,0,1) = 0 \vee a \wedge 0 \vee b \wedge 1 = b.
+%   \end{align*}
+%   Hence, it indeed maps the generators to $a,b$, respectively. Finally, to show it is unique, we observe that for any $p_0 \le p_1 \le p_2$, we have
+%   \[ (p_0,p_1,p_2) = p_0 \vee (0,1,1) \wedge p_1 \vee (0,0,1) \wedge p_2. \]
+%   Hence, $f_{a,b}$ is uniquely determined as above.
 % \end{proof}
+
+\end{document}
+
 
 % However, to connect to models in~\cite{FIORE1997151}, we need to connect $\sFrm\cp$ with $\wCPO$. To do this, we first observe the following fact:
 
@@ -1821,42 +1943,40 @@ Working with $\wSpec$, the generic distributive lattice $\I$ as a presheaf on $\
 %   \]
 % \end{proof}
 
+% More specifically for us, let us focus on the case for $\mbb D$ the theory of distributive lattices. The same discussion more generally applies to the theory of $D$-algebras for any distributive lattice $D$. Let us first observe that we have a more detailed description of the dual category $\DL\cp\op$. Recall that there is a duality between distributive lattices and \emph{spectral spaces},\footnote{If one want a fully constructive development, it suffices to replace spectral spaces with coherent locales (cf.~\cite{johnstone1982stone}).}
+% \[ \spec : \DL\op \cong \Spec : \Sigma. \]
+% Here $\Spec$ is the category of spectral topological spaces and spectral maps. A spectral space $X$ is a sober topological space, such that its compact open subsets form a basis, i.e. they are closed under finite intersections and every open subset is a union of compact ones. A continuous map between spectral spaces $f : X \to Y$ is called \emph{spectral}, if $f\inv$ also preserves compact opens. For more information on this duality result, see e.g. Stone's original paper~\cite{stone1938topological} or the detailed exposition~\cite{bezhanishvili2010bitopological}.
 
-\bibliographystyle{apalike} 
-\bibliography{mybib}
+% On one hand, $\spec$ takes a distributive lattice $A$ to its \emph{space of models}:
+% \begin{itemize}
+%   \item A point is a morphism $x : A \to 2$ in $\DL$;
+%   \item Subsets of the form $D_a$ with $a\in A$ form a basis, with 
+%   \[ D_a := \scomp{x \in \spec A}{x(a) \cong 1}. \]
+% \end{itemize}
+% It is easy to verify that the basis of the form $D_a$ are in fact compact, and hence $\spec A$ is a spectral space. Given a morphism $f : A \to B$, there is an induced map
+% \[ f^* : \spec B \to \spec A, \]
+% given by precomposition with $f$. One can verify $(f^*)\inv(D_a) \cong D_{fa}$, thus $f^*$ is spectral. We mention that though $\Spec$ is not a full subcategory of $\Topp$, it is still closed under limits in $\Topp$. 
 
-% \appendix
+% As an example, let us look at the space of models of the countably generated free distributive lattice $2[\N]$, where we have 
+% \[ \spec 2[\N] \cong \Sigma^\N. \] 
+% Here $\Sigma$ is the \emph{Sierpinski space}. This is due to the fact that
+% \[ \spec 2[\N] \cong \spec\coprod_{\N} 2[x] \cong \prod_{\N} \spec 2[x] \cong \Sigma^\N, \]
+% where it is easy to verify that $\spec 2[x] \cong \Sigma$. 
 
-% \section{Normal form results}
+% On the other hand, the functor $\Sigma : \Spec \to \DL\op$ simply takes a spectral space $X$ to the distributive lattice 
+% \[ \Sigma(X) := \Spec(X,\Sigma), \]
+% In other words, $\Sigma(X)$ is the distributive lattice of compact opens of $X$.
 
-% \begin{lemma}
-%   For a distributive lattice $A$, a polynomial $p$ in $A[i]$ is uniquely determined by two parameters $p_0 \le p_1$, with
-%   \[ p = p_0 \vee i \wedge p_1. \]
-% \end{lemma}
+% Let us now consider the essential image of $\spec : \DL\cp\op \to \Spec$, which we denote as $\wTop$. Notice that since $2[\N]$ is itself countable, a distributive lattice is countably presented iff it is a quotient of $2[\N]$. This way, by duality objects in $\wTop$ are simply spectral subspaces of $\Sigma^\N$, i.e. those subspaces $X \subseteq \Sigma^\N$, where for any compact open $U$ of $\Sigma^\N$, $X \cap U$ is again compact in $X$. In particular, not all subspaces of $\Sigma^\N$ will lie in $\wTop$. For instance, the discrete space $\N$ as a subspace of $\Sigma^\N$ is \emph{not} an object in $\wTop$, since $\N$ is not even compact, let alone spectral.
 
-% \begin{lemma}
-%   For a distributive lattice $A$, a polynomial $p$ in $A[n]/i_1 \ge \cdots \ge i_n$ is uniquely determined by $p_0 \le \cdots \le p_n$, with
-%   \[ p = p_0 \vee i_1 \wedge \cdots \wedge i_n \vee p_n, \]
-% \end{lemma}
-% \begin{proof}
-%   We directly show that $\Delta[A]_{n+1}$ with the pointwise distributive lattice structure satisfies the universal property of $A[n]/i_1 \ge \cdots \ge i_n$, where generators are given by 
-%   \[ (0,1,\cdots,1), (0,0,1,\cdots,1), \cdots, (0,0,\cdots,1). \]
-%   Notice that any element $p = (p_0,\cdots,p_n)$ in $\Delta[A]_{n+1}$ can be written as
-%   \[ p = p_0 \vee (0,1,\cdots,1) \wedge (0,0,1,\cdots,1) \vee \cdots \vee (0,\cdots,1) \wedge p_n. \]
-%   For any distributive lattice $B$ and a homomorphism $f : A \to B$, given $a \ge b$ in $B$ we construct a map
-%   \[ f_{a,b} : \Delta[A]_3 \to B, \]
-%   such that for $p_0 \le p_1 \le p_2$ in $\Delta[A]_3$, we define
-%   \[ f_{a,b}(p_0,p_1,p_2) := f(p_0) \vee a \wedge f(p_1) \vee b \wedge f(p_2). \]
-%   This is well-defined. Furthermore,
-%   \begin{align*}
-%     &f_{a,b}(0,1,1) = 0 \vee a \wedge 1 \vee b \wedge 1 = a, \\
-%     &f_{a,b}(0,0,1) = 0 \vee a \wedge 0 \vee b \wedge 1 = b.
-%   \end{align*}
-%   Hence, it indeed maps the generators to $a,b$, respectively. Finally, to show it is unique, we observe that for any $p_0 \le p_1 \le p_2$, we have
-%   \[ (p_0,p_1,p_2) = p_0 \vee (0,1,1) \wedge p_1 \vee (0,0,1) \wedge p_2. \]
-%   Hence, $f_{a,b}$ is uniquely determined as above.
-% \end{proof}
+% This way, we have the following situation,
+% \[
+% \begin{tikzcd}
+%   \DL\fp\op \ar[r, "\cong"] \ar[d, hook] & \Pos\fp \ar[d, hook] \\ 
+%   \DL\cp\op \ar[r, "\cong"] & \wTop 
+% \end{tikzcd}
+% \]
+% where the equivalence $\DL\cp\op \cong \wTop$ restricts to one between finite distributive lattices and finite posets, where we view each finite poset as a spectral space via its Scott topology. Hence, at the presheaf level, we have a local geometric morphism
+% \[ \psh(\wTop) \surj \psh(\Pos\fp). \]
 
-\end{document}
-
-
+% Working with $\wTop$, the generic distributive lattice $\I$ as a presheaf on $\wTop$ is now the representable functor on the Sierpinski space $\Sigma$. Below are the corresponding admissible topologies on $\wTop$ which model the various locality principles we have considered in \Cref{sec:locality}. We encourage the readers to notice the connection between the topologies we discuss below, and the developments in \Cref{sec:local}.
