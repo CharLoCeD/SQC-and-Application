@@ -16,6 +16,7 @@
 \usepackage{cleveref}
 \usepackage{quiver}
 
+
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{fact}[theorem]{Fact}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -243,7 +244,7 @@ Cambridge, UK\newline
 %
 % \institute{New College\\
 \begin{abstract}
-  This paper produces models of synthetic domain theory from the perspective of classifying topoi of algebraic theories. Using the internal logic of a large family of classifying topoi of theories based on $\sigma$-frames, especially the \emph{quasi-coherence principle}, we prove the axioms of synthetic domain theory hold in such topoi. This provides a new set of techniques reasoning about the behaviour of domains in a synthetic context, which allows us to establish a family of important orthogonality conditions for some special type of predomains.
+  This paper produces models of synthetic domain theory via classifying topoi of algebraic theories. Using the internal logic of a large family of classifying topoi of theories based on $\sigma$-frames, especially the \emph{quasi-coherence principle}, we prove the axioms of synthetic domain theory hold in such topoi. This provides a new set of techniques reasoning about the behaviour of domains in a synthetic context, which allows us to establish a family of important orthogonality conditions for some special types of domains.
 \end{abstract}
 %
 \maketitle              % typeset the header of the contribution
@@ -292,7 +293,7 @@ Another generalisation of the above mentioned work by Blechschmidt is that, quas
 
 \subsection{Main contribution}
 
-The aim of this paper is to explain the connection between quasi-coherence for \emph{distributive lattices} and \emph{$\sigma$-frames} with synthetic domain theory. The theory of distributive lattices is  As a first indication of why quasi-coherence for these theories might be useful for domain theory, we have observed that by taking the interval $\I$ to be the generic distributive lattice ($\sigma$-frame), many important objects for domain theory can be written as \emph{spectrums}. This include the cubes $\I^n$ (\Cref{exm:cubeaffine}), the simplices $\Delta^n$ (\Cref{exm:simplicesaffine}), and the final coalgebra $\ov\omega$ (\Cref{exm:ovomegaaffine}). The initial algebra $\omega$ will also be realised as a sequential colimit of spectrums (\Cref{prop:omegacolimit}). Here we outline the main results of this paper, and discuss some of their potential applications.
+The aim of this paper is to explain the connection between quasi-coherence for \emph{distributive lattices} and \emph{$\sigma$-frames} with synthetic domain theory. The theory of distributive lattices is  As a first indication of why quasi-coherence for these theories might be useful for domain theory, we have observed that by taking the interval $\I$ to be the generic distributive lattice or $\sigma$-frame, many important objects for domain theory can be written as \emph{spectrums}. This include the cubes $\I^n$ (\Cref{exm:cubeaffine}), the simplices $\Delta^n$ (\Cref{exm:simplicesaffine}), and the final coalgebra $\ov\omega$ (\Cref{exm:ovomegaaffine}). The initial algebra $\omega$ will also be realised as a sequential colimit of spectrums (\Cref{prop:omegacolimit}). Here we outline the main results of this paper, and discuss some of their potential applications.
 
 \emph{1) Quasi-coherence produces synthetic domain theory}: We show the principle of quasi-coherence suffices to account for \emph{all} essential axioms for synthetic domain theory. Specifically:
 
@@ -306,7 +307,7 @@ The aim of this paper is to explain the connection between quasi-coherence for \
 
 \emph{\ \ 2.1)} \Cref{sec:locality} introduces various local conditions for $\I$, all of which will be compatible with quasi-coherence. This showcases the flexibility of this framework to encompass different flavours of domain theory.
 
-\emph{\ \ 2.2)} More interestingly, without assuming the local properties globally, one can still show that $\I$, or \emph{any spectrum}, will be \emph{orthogonal} to the maps that classifies these local properties (\Cref{specisnontrivial,specissimplicial,specis1t}). In general, any limiting diagram of quasi-coherent algebras induces a localisation class containing all spectrums of algebras; cf. \Cref{rem:limofalgloc}. This exhibits a new type of techniques in reasoning about domains in this framework.
+\emph{\ \ 2.2)} More interestingly, without assuming the local properties globally, one can still show that $\I$ will be \emph{orthogonal} to the maps that classifies these local properties (\Cref{specisnontrivial,specissimplicial,specis1t}). In general, any limiting diagram of quasi-coherent algebras will induce a localisation class containing $\I$; cf. \Cref{rem:limofalgloc}. This exhibits a new type of techniques in reasoning about domains in this framework.
 
 \emph{\ \ 2.3)} As a special case of locality, we also connect to the recent approach of synthetic (higher) category theory~\cite{riehl2017type,buchholtz2021synthetic,gratzer2024directed}. In particular, we show spectrums will be synthetic categories (\Cref{thm:affineposet}). As another example, we also show $\omega$ is a synthetic category, in fact it satisfies \emph{all} the orthogonality conditions discussed in this paper (\Cref{thm:omegaortho}). 
 
@@ -339,6 +340,37 @@ Before discussing quasi-coherence, we observe that many sets can be naturally vi
   \[ \spec \I[n] \cong \I\alg(\I[n],\I) \cong \I^n. \]
 \end{example}
 
+Evidently, the above construction not only applies to finite types, but arbitrary set $X$ where $\spec \I[X] \cong \I^X$. Notice $\I[X]$ is the $X$-indexed coproduct of $\I[i]$ for $\I$-algebras, and $\spec$ takes it to the $X$-indexed product of $\spec\I[i] \cong \I$. 
+
+More generally, notice that $\spec$ is in fact a contravariant functor from $\I$-algebras to sets: For any $f : A \to B$, we have a map $\spec f : \spec B \to \spec A$ by precomposing with $f$. It indeed turns many colimits to limits, and as a consequence:
+
+\begin{proposition}
+  Every spectrum is a equaliser of powers of $\I$. 
+\end{proposition}
+\begin{proof}
+  Let $A$ be \emph{any} $\I$-algebra. Notice that it can be written as a coequaliser of free $\I$-algebras, e.g. by taking $X$ as $A$ and $R$ as $\I[X] \times \I[X]$,
+  \[
+  \begin{tikzcd}
+    \I[R] \ar[r, shift left, "s"] \ar[r, shift right, "t"'] & \I[X] \ar[r, two heads] & A
+  \end{tikzcd}
+  \]
+  By the universal property, it follows that $\spec A$ can be identified as
+  \[ \spec A \cong \scomp{x : \spec\I[X]}{xs = xt}, \]
+  which implies it is the following equaliser,
+  \[
+  \begin{tikzcd}
+    \spec A \ar[r, hook] & \spec\I[X] \cong \I^X \ar[r, shift left, "\spec s"] \ar[r, shift right, "\spec t"'] & \spec\I[R]\cong\I^R
+  \end{tikzcd}
+  \]
+  This completes the proof.
+\end{proof}
+
+\begin{remark}[Spectrums are replete]\label{rem:specarereplete}
+  Recall the notion of \emph{replete} type given in~\cite{hyland2006first}: $X$ is replete if it is orthogonal to any map $f$ that $\I$ is orthogonal to. Through out the paper, by orthogonality we always mean the \emph{internal} notion: $X$ is orthogonal to a map $f$ iff $X^f$ is an equivalence. Thus, an object is replete iff it belongs to the smallest internal localisation class containing $\I$. In particular, replete objects form an exponential ideal, which by the previous result it follows that all spectrums will be replete.
+\end{remark}
+
+Among all $\I$-algebras, some will be special:
+
 \begin{definition}[Quasi-coherent algebra]
   An $\I$-algebra $A$ is \emph{quasi-coherent}, if the canonical evaluation map $A \to \I^{\spec A}$ is an equivalence of $\I$-algebras, where $\I^{\spec A}$ has the pointwise $\I$-algebra structure.
 \end{definition}
@@ -356,7 +388,7 @@ We emphasis that the equivalence $A \cong \I^{\spec A}$ is not only an equivalen
 % \end{proof}
 
 \begin{remark}[Quasi-coherent algebras are replete]\label{rem:qcreplete}
-  Recall the notion of \emph{replete} type given in~\cite{hyland2006first}: $X$ is replete if it is orthogonal to any map $f$ that $\I$ is orthogonal to. Through out the paper, by orthogonality we always mean the \emph{internal} notion: $X$ is orthogonal to a map $f$ iff $X^f$ is an equivalence. Thus, an object is replete iff it belongs to the least internal localisation class containing $\I$. If $A$ is quasi-coherent, then by definition it is in particular replete, because replete objects form an exponential ideal.
+  If $A$ is quasi-coherent, then since $A \cong \I^{\spec A}$ it is also replete.
 \end{remark}
 
 \begin{example}\label{exm:intervalqc}
@@ -379,7 +411,7 @@ Just like quasi-coherence is a property on $\I$-algebras, being affine will be a
   Our notion of affine space already indicates an important difference between our approach and the ones taken in the related works~\cite{Cherubini_Coquand_Hutzler_2024,cherubini2024foundation}. There, the notion is directly connected to a notion of size, i.e. they are the spectrum of f.p. or c.p. algebras. Since we aim for a completely modular development, our notion of affine is more general, which a priori does not favour a class of size-related algebras. Many of the results in this section are essentially developed in~\cite{Cherubini_Coquand_Hutzler_2024}. However, we include them here for the precise reason that we need a version of them that applies to our slightly more general set up.
 \end{remark}
 
-Note that by construction, $\spec$ is a contravariant functor on $\I$-algebras. For quasi-coherent algebras, we have a more general duality result:
+For quasi-coherent algebras, the contravariant functor $\spec$ now induces a duality between quasi-coherent algebras and affine spaces:
 
 \begin{proposition}\label{prop:duality}
   If $B$ is quasi-coherent, then for any $A$, the canonical map is an equivalence,
@@ -512,16 +544,7 @@ As a first consequence, we show the following important lemma:
   \[ (\ms ti \to \ms tj) \to i \le j. \]
   Take $i,j$ with $\ms ti \to \ms tj$. By \Cref{lem:openpropaffine} and (SQCI), each $\ms ti$ and $\ms tj$ will be affine. Then we get a restriction map between $\I$-algebras,
   \[ \I/j \cong \I^{\ms tj} \to \I^{\ms ti} \cong \I/i. \]
-  In particular, we have a commutative diagram
-  \[
-  \begin{tikzcd}
-    \I/j \ar[rr, "f"] & & \I/i \\
-    & \I \ar[ul, two heads, "j \wedge -"] \ar[ur, two heads, "i \wedge -"']
-  \end{tikzcd}
-  \]
-  This way, we have
-  \[ i \wedge j = f(j \wedge j) = f(j) = i, \]
-  where the final identity again follows from the fact that $f$ preserves the top element. Thus, $i \le j$. 
+  Similar to the proof of \Cref{lem:openpropaffine}, the existence of such an $\I$-algebra homomorphism implies $i \le j$. 
 \end{proof}
 
 Thus, under (SQCI), we may view the generic algebra $\I$ as a subuniverse of \emph{open} propositions via the embedding $\ms t$:
@@ -1042,21 +1065,16 @@ For another proof, see e.g.~\cite{VANOOSTEN2000233}. In the presence of the Mark
   The above characterisation of $\omega$ as a sequential colimit is still true if we work with distributive lattices, rather than $\sigma$-frames.
 \end{remark}
 
-Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affine, by working with $\sigma$-frames, we can show $\I$, or in fact \emph{any spectrum}, is complete:
+Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affine, by working with $\sigma$-frames, we can show $\I$ is complete:
 
 \begin{theorem}[NT, SQCC]\label{thm:complete}
-  Working with $\sigma$-frames, any spectrum $\spec A$ will be orthogonal to the inclusion $\omega\hook\ov\omega$.
+  $\I$ is orthogonal to the inclusion $\omega\hook\ov\omega$.
 \end{theorem}
 \begin{proof}
-  Since $\ov\omega$ is now affine, by \Cref{prop:duality} we have
-  \[ \spec A^{\ov\omega} \cong \I\alg(A,\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}). \]
+  Since $\ov\omega$ is now affine, we have
+  \[ \I^{\ov\omega} \cong \I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}. \]
   On the other hand, since $\omega$ is the colimit of $\Delta^n$ and they are affine, we have
-  \begin{align*}
-    \spec A^\omega 
-    &\cong \lt_{n:\N}\spec A^{\Delta^n} \\
-    &\cong \lt_{n:\N} \I\alg(A,\I[n]/i_0 \ge \cdots \ge i_{n-1}) \\
-    &\cong \I\alg(A,\lt_{n:\N}\I[n]/i_0\ge\cdots\ge i_{n-1}).
-  \end{align*}
+  \[ \I^\omega \cong \lt_{n:\N}\I^{\Delta^n} \cong \lt_{n:\N}\I[n]/i_0\ge\cdots\ge i_{n-1}. \]
   Note that the transition maps induced by $\eta\cprt : \Delta^n \to \Delta^{n+1}$ under quasi-coherence gives us the following maps on algebras:
   \[
   \begin{tikzcd}
@@ -1098,6 +1116,10 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
   with $p_n \le p_{n+1}$ for all $n:\N$. A more detailed proof is given in \Cref{app:normalsigma}. This identifies $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ with $\Delta_\infty$, and completes the proof.
 \end{proof}
 
+\begin{remark}
+  As indicated in \Cref{rem:qcreplete,rem:specarereplete}, both spectrums and quasi-coherent $\I$-algebras are replete. The above result then implies that they are also complete, i.e. orthogonal to $\omega\hook\ov\omega$.
+\end{remark}
+
 \begin{corollary}[NT, SQCC]
   $\I^{\ov\omega} \cong \I^\omega \cong \Delta_\infty$. In particular, $\omega$ is not affine.
 \end{corollary}
@@ -1117,8 +1139,8 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
   where $\Delta_\omega \hook \Delta_\infty$ in some sense is the order-dual to the inclusion $\omega\hook\ov\omega$.
 \end{remark}
 
-\begin{remark}[Limits of algebras induce locality for spectrums]\label{rem:limofalgloc}
-  By inspecting the proof of \Cref{thm:complete}, it is clear that the reason spectrums are complete is because there is a specific \emph{limiting diagram} of quasi-coherent $\I$-algebras. In general, any such limit diagram will induce an orthogonality property satisfied by the all spectrums, and we will see many more examples in \Cref{sec:local}. From \Cref{rem:whynotdis} it is clear whether a diagram of $\I$-algebras is a limit heavily relies on the underlying algebraic theory. This is thus a perfect example of how the algebraic properties of a theory has significant consequence on the internal logic of its classifying topos.
+\begin{remark}[Limits of algebras induce locality for $\I$]\label{rem:limofalgloc}
+  By inspecting the proof of \Cref{thm:complete}, it is clear that the reason $\I$ is complete is because there is a specific \emph{limiting diagram} of quasi-coherent $\I$-algebras. In general, any such limit diagram will induce an orthogonality property satisfied by the all spectrums, and we will see many more examples in \Cref{sec:local}. From \Cref{rem:whynotdis} it is clear whether a diagram of $\I$-algebras is a limit heavily relies on the underlying algebraic theory. This is thus a perfect example of how the algebraic properties of a theory has significant consequence on the internal logic of its classifying topos.
 \end{remark}
 
 % \section{specialisation posets continued}\label{sec:synposet}
@@ -1313,41 +1335,41 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 
 % Of course, it is perfectly fine to assume both (L) and (cL), and we may refer to the combination of them as (bL). Working in the context of (bL), we again recover the full duality between the meet and join structure as the presheaf geometry.
 
-\section{Local properties for spectrums}\label{sec:local}
+\section{Local properties for the interval}\label{sec:local}
 
-In this section we review some of the locality axioms we have introduced in \Cref{sec:locality}. As mentioned in the introduction, the observation is that even if we do not assume them to be true globally for the interval $\I$, we can still show the maps representing the locality axiom to be \emph{orthogonal} to $\I$, or more generally for all affine spaces. As explained in \Cref{rem:limofalgloc}, the reason we have these orthogonality conditions is due to the fact that we have various \emph{limits} of $\I$-algebras. Unlike completeness in \Cref{thm:complete}, the local conditions in \Cref{sec:locality} are all induced by limits of \emph{f.p.} $\I$-algebras. Thus, working with distributive lattices or $\sigma$-frames does not matter.
+In this section we review some of the locality axioms we have introduced in \Cref{sec:locality}. As mentioned in the introduction, the observation is that even if we do not assume them to be true globally for the interval $\I$, we can still show the maps representing the locality axiom to be \emph{orthogonal} to $\I$. As explained in \Cref{rem:limofalgloc}, the reason we have these orthogonality conditions is due to the fact that we have various \emph{limits} of $\I$-algebras. Unlike completeness in \Cref{thm:complete}, the local conditions in \Cref{sec:locality} are all induced by limits of \emph{f.p.} $\I$-algebras. Thus in this section, working with distributive lattices or $\sigma$-frames does not matter.
 
-Starting from the simplest example, let us recall the local property (NT). In general, the proposition $0 = 1$ as the spectrum $\spec(\I/0=1)$ is \emph{not} $\emp$, if we do not assume (NT). However, we can look at the localisation class which thinks this map is invertible. The following fact shows that, from the perspective of spectrums, (NT) indeed holds:
+Starting from the simplest example, let us recall the local property (NT). In general, the proposition $0 = 1$ as the spectrum $\spec(\I/0=1)$ is \emph{not} $\emp$, if we do not assume (NT). However, we can look at the localisation class which thinks this map is invertible. The following fact shows that, from the perspective of $\I$, (NT) indeed holds:
 
 \begin{proposition}[SQCI]\label{specisnontrivial}
-  Any spectrum is orthogonal to $\emp \hook \spec(\I/0=1)$.
+  $\I$ is orthogonal to $\emp \hook \spec(\I/0=1)$.
 \end{proposition}
 \begin{proof}
-  For any $\spec A$, by \Cref{prop:duality} we have
-  \[ \spec A^{\spec(\I/0=1)} \cong \I\alg(A,\I/0=1) \cong 1 \cong A^\emp. \qedhere \]
+  By assumption,
+  \[ \I^{\spec(\I/0=1)} \cong (\I/0=1) \cong \I^\emp. \qedhere \]
 \end{proof}
 
 By inspecting the proof above, one can see that the reason it works is due to quasi-coherence, and the fact that $\I/0=1$ is the \emph{terminal} $\I$-algebra, which is the simplest example of a limit.
 
-Next we directly discuss the locality condition corresponds to the simplicial axiom (SL), since it is stronger than (L) and (cL), and have has a more significant geometric meaning. Recall from \Cref{ax:SL} that (SL) can be represented geometrically as an embedding $\Delta^2\cup\Delta_2 \hook \I^2$. We thus give the following definition:
+As another example, consider the simplicial axiom (SL). We skip the discussion of (L) and (cL), because (SL) is strictly stronger, and it has a better-known geometric meaning. Recall from \Cref{ax:SL} that (SL) can be represented geometrically as an embedding $\Delta^2\cup\Delta_2 \hook \I^2$.
 
 \begin{definition}[Simplicial type]
   A type $X$ is \emph{simplicial}, if it is orthogonal to $\Delta^2 \cup \Delta_2 \hook \I^2$.
 \end{definition}
 
-Again, (SL) holds globally iff the above embedding is an equivalence, thus every type is simplicial. When it does not hold globally, we can still show all spectrums will be simplicial:
+Again, (SL) holds globally iff the above embedding is an equivalence, thus every type in this case will be simplicial. When it does not hold globally, we can still show:
 
 \begin{proposition}[SQCF]\label{specissimplicial}
-  Any spectrum $\spec A$ is simplicial.
+  $\I$ is simplicial.
 \end{proposition}
 \begin{proof}
-  To show $\spec A$ is orthogonal to the embedding, equivalently it means for any $f,g$ indicated below making the solid diagram commute, there exists a unique lift $h$ making the whole diagram commute,
+  To show $\I$ is orthogonal to the embedding, equivalently it means for any $f,g$ indicated below making the solid diagram commute, there exists a unique lift $h$ making the whole diagram commute,
   \[\begin{tikzcd}
-    \I \ar[r, "\delta"] \ar[d, "\delta"'] & \Delta^2 \ar[r, "f"] \ar[d] & \spec A \\
+    \I \ar[r, "\delta"] \ar[d, "\delta"'] & \Delta^2 \ar[r, "f"] \ar[d] & \I \\
     \Delta_2 \ar[urr, "g"{description, near start}] \ar[r] & \I^2 \ar[ur, dashed, "h"']
     \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
   \end{tikzcd}\]
-  Now by (SQCF) and \Cref{prop:duality}, since the vertices of the left square are all affine, equivalently it suffices to show we have a pullback of $\I$-algebras,
+  Now by (SQCF), since the vertices of the left square are all affine, equivalently it suffices to show we have a pullback of $\I$-algebras,
   \[\begin{tikzcd}
     {\I[i,j]} \ar[r] \ar[d] & {\I[i,j]/i \ge j} \ar[d, "{i,j \mapsto k}"] \\
     {\I[i,j]/i \le j} \ar[r, "{i,j\mapsto k}"'] & {\I[k]}
@@ -1361,7 +1383,7 @@ Again, (SL) holds globally iff the above embedding is an equivalence, thus every
   This then gives us a polynomial in $\I[i,j]$, which we write it as follows,
   \[ (p_{0,0} \vee i \wedge p_{1,0}) \vee j \wedge (q_{0,1} \vee i \wedge q_{1,1}) \]
   where $p_{0,0} = q_{0,0} \le q_{0,1}$ and $p_{1,0} \le p_{1,1} = q_{1,1}$. 
-  By the general normal form for $A[i]$ for any $\I$-algebra $A$, if we view $\I[i,j]$ as $\I[i][j]$, the above exactly corresponds to the normal form of polynomials in $\I[i,j]$; also see~\cite[Thm. 10.21]{lausch2000algebra}. This means the above is a pullback of $\I$-algebras, hence $\spec A$ is simplicial.
+  By the general normal form for $A[i]$ for any $\I$-algebra $A$, if we view $\I[i,j]$ as $\I[i][j]$, the above exactly corresponds to the normal form of polynomials in $\I[i,j]$; also see~\cite[Thm. 10.21]{lausch2000algebra}. This means the above is a pullback of $\I$-algebras.
 \end{proof}
 
 
@@ -1373,7 +1395,7 @@ Finally, we discuss the even stronger locality condition (1T). As mentioned in \
 \end{definition}
 
 \begin{proposition}[SQCF]\label{specis1t}
-  Any spectrum $\spec A$ is 1-truncated.
+  $\I$ is 1-truncated.
 \end{proposition}
 \begin{proof}
   Completely similar to the proof of \Cref{specissimplicial}, it suffices to show we have a limit diagram of $\I$-algebras as follows,
@@ -1395,12 +1417,12 @@ Finally, we discuss the even stronger locality condition (1T). As mentioned in \
   \[ p_1 = r_1, \quad p_0 = q_1, \quad r_0 = q_0. \]
   This exactly corresponds to a normal form in the algebra $\I[i,j]/i\le j$ with $q_0 \le q_1 = p_0 \le p_1$ as follows (cf. \Cref{prop:simplicesasalgebra})
   \[ q_0 \vee j \wedge q_1 \vee i \wedge p_1. \]
-  Hence, the above is a limit diagram of $\I$-algebras, which implies $\spec A$ will be 1-truncated.
+  Hence, the above is a limit diagram of $\I$-algebras.
 \end{proof}
 
 Besides the locality principles discussed in \Cref{sec:locality}, we also consider the orthogonality classes emerging from \emph{synthetic category theory}, as first introduced in~\cite{riehl2017type}. A synthetic category will be a type that satisfies the internal orthogonality condition of being \emph{simplicial}, \emph{Segal}, and \emph{Rezk}.
 
-We start with the Segal condition. Besides the outer horn discussed in \Cref{exm:hornaffine}, we can also define the inner horn $\Lambda^2_1$ as the following pushout,
+We start with the Segal condition. Besides the outer horn discussed in \Cref{exm:hornaffine}, we can also define the inner horn $\Lambda^2_1$ as a pushout,
 \[
   \begin{tikzcd}
     1 \ar[d, "0"'] \ar[r, "1"] & \I \ar[d] \\
@@ -1408,14 +1430,14 @@ We start with the Segal condition. Besides the outer horn discussed in \Cref{exm
     \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=2-2, to=1-1]
   \end{tikzcd}
 \]
-It can be identified type-theoretically as $\scomp{(i,j) : \Delta_2}{\ms fi \vee \ms tj}$ as a subtype of $\Delta_2$.
+As a subtype of $\Delta_2$, it can be identified as $\scomp{(i,j) : \Delta_2}{\ms fi \vee \ms tj}$.
 
 \begin{definition}[Segal types]
   $X$ is \emph{Segal} if it is orthogonal to $\Lambda^2_1 \hook \Delta_2$.
 \end{definition}
 
 \begin{proposition}[SQCF]
-  Any spectrum $\spec A$ will be Segal.
+  $\I$ will be Segal.
 \end{proposition}
 \begin{proof}
   In this case, we need to show the following diagram is a pullback of $\I$-algebras, 
@@ -1427,7 +1449,7 @@ It can be identified type-theoretically as $\scomp{(i,j) : \Delta_2}{\ms fi \vee
   \]
   Again by the normal form theorem, an element in the pullback is given by $p$ in $\I[i]$ and $q$ in $\I[j]$ with $p_0 = q_1$. This way, it again corresponds to the following normal form in $\I[i,j]/i \le j$ by \Cref{prop:simplicesasalgebra},
   \[ q_0 \vee j \wedge q_1 \vee i \wedge p_1. \]
-  Hence, the above is again a pullback, and thus spectrums will be Segal.
+  Hence, the above is again a pullback.
 \end{proof}
 
 Next we consider the Rezk condition. Following~\cite{buchholtz2021synthetic}, we can define the type $\mbb E$ classifying categorical equivalences as the following colimit,
@@ -1449,15 +1471,13 @@ Next we consider the Rezk condition. Following~\cite{buchholtz2021synthetic}, we
 \end{definition}
 
 \begin{proposition}[SQCF]
-  Any spectrum is Rezk.
+  $\I$ is Rezk.
 \end{proposition}
 \begin{proof}
-  Notice that for any spectrum $\spec A$, by \Cref{prop:duality} we have
-  \[ \spec A^\I \cong \I\alg(A,\I[i]), \]
-  which as shown in \Cref{thm:phoaaffine} classifies the canonical order on $\spec A$. By construction, the canonical order on $\spec A$ is pointwise induced from $\I$, hence is antisymmetric. Thus they will be Rezk.
+  Notice by \Cref{thm:phoaaffine} $\I^\I$ classifies the canonical order on $\I$. This order is antisymmetric, thus $\I$ will be Rezk.
 \end{proof}
 
-In fact, spectrums are slightly stronger than being a synthetic category, in the sense that they will be synthetic \emph{poset}. We construct $\I_{\rightrightarrows}$ as the following pushout,
+In fact, $\I$ is slightly stronger than being a synthetic category, in the sense that they will be synthetic \emph{poset}. We construct $\I_{\rightrightarrows}$ as the following pushout,
 \[
 \begin{tikzcd}
   2 \ar[r] \ar[d] & \I \ar[d] \\ 
@@ -1473,10 +1493,10 @@ In fact, spectrums are slightly stronger than being a synthetic category, in the
 Equivalently, $X$ is $\I$-separated iff $X^\I \to X \times X$ is an embedding. The following is evident:
 
 \begin{proposition}[SQCF]
-  A spectrum $\spec A$ is $\I$-separated. Any type $X$ satisfying Phoa's principle is also $\I$-separated.
+  $\I$ is $\I$-separated. Any type $X$ satisfying Phoa's principle is also $\I$-separated.
 \end{proposition}
 \begin{proof}
-  For spectrum $\spec A$, since $\spec A^\I$ classifies the canonical order on $\spec A$ which is a partial order, they will be $\I$-separated. For types $X$ satisfying the Phoa's principle, since $X^\I$ classifies the specialisation order on $X$, which is again a partial order, they will be $\I$-separated.
+  Since $\I^\I$ classifies the canonical order on $\I$ which is a partial order, it will be $\I$-separated. For types $X$ satisfying the Phoa's principle, since $X^\I$ classifies the specialisation order on $X$, which is again a partial order, they will be $\I$-separated.
 \end{proof}
 
 The notion of synthetic categories and synthetic posets are formulated as these orthogonality classes:
@@ -1486,14 +1506,10 @@ The notion of synthetic categories and synthetic posets are formulated as these 
 \end{definition}
 
 \begin{theorem}[SQCF]\label{thm:affineposet}
-  Any spectrum $\spec A$ is a synthetic poset.
+  Any spectrum or quasi-coherent $\I$-algebra will be a synthetic poset.
 \end{theorem}
-
-\begin{corollary}[SQCF]\label{thm:qcalgebraposet}
-  Any quasi-coherent $\I$-algebra is a synthetic poset.
-\end{corollary}
 \begin{proof}
-  This follows from the fact that a quasi-coherent algebra $A$ is \emph{replete} (cf. \Cref{rem:qcreplete}), hence belongs to any localisation class containing $\I$.
+  This follows from $\I$ being a synthetic poset, and spectrums and quasi-coherent algebras are \emph{replete} as indicated in \Cref{rem:qcreplete,rem:specarereplete}.
 \end{proof}
 
 At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We show $\omega$ satisfies the Phoa's principle, and satisfies all the locality conditions discussed above. 
@@ -1530,7 +1546,7 @@ As another consequence, we can also show the following general result establishi
   Let $f : X \to Y$ be a map where $X,Y$ are finite colimits of cubes or simplices. If each $\Delta^n$ is $f$-local, then so is $\omega$.
 \end{theorem}
 \begin{proof}
-  Let $Y \cong \ct_{r}Y_r$ be a finite colimit with each $Y_r$ a simplice or a cube. This way,
+  Let $Y \cong \ct_{r}Y_r$ be a finite colimit with each $Y_r$ a simplice or a cube.
   \[ \omega^Y \cong \lt_r\prth{\ct_{n:\N}\Delta^n}^{Y_r} \cong \lt_r\ct_{n:\N}(\Delta^n)^{Y_r} \cong \ct_{n:\N}\lt_r(\Delta^n)^{Y_r} \cong \ct_{n:\N}(\Delta^n)^Y \]
   The second equivalence holds by \Cref{lem:intervalcommuteomega}; the third holds since finite limits commutes with sequential colimits. Thus, if each $\Delta^n$ is $f$-local, i.e. $(\Delta^n)^Y \cong (\Delta^n)^X$, then so is $\omega$.
 \end{proof}
@@ -1793,7 +1809,7 @@ Below we discuss the corresponding admissible topologies on $\wTop$, modelling t
 
 In this paper we have explained the axioms of synthetic domain theory using the quasi-coherence principle for distributive lattices and $\sigma$-frames. As we have seen from various examples (\Cref{prop:liftingofalgebra,prop:liftofaffine,prop:complementinalgebra}, etc.) the quasi-coherence principle moreover helps with the actual \emph{computation} for operations on domains. Thus, the natural step next is to further develop domain theory within this framework.
 
-In particular, it will be extremely useful to investigate the orthogonality conditions satisfied by all spectrums (affine spaces), some of which have been observed in \Cref{sec:infdomain,sec:local}. In particular, in this paper we haven't found any orthogonality condition satisfied by $\I$ but not by general affine spaces. This allows us to conjecture that all (or at least some classes of) affine spaces will be \emph{replete}. This will be a non-trivial way of constructing new replete objects other than retracts of $\I^X$ for some type $X$.
+% In particular, it will be extremely useful to investigate the orthogonality conditions satisfied by all spectrums (affine spaces), some of which have been observed in \Cref{sec:infdomain,sec:local}. In particular, in this paper we haven't found any orthogonality condition satisfied by $\I$ but not by general affine spaces. This allows us to conjecture that all (or at least some classes of) affine spaces will be \emph{replete}. This will be a non-trivial way of constructing new replete objects other than retracts of $\I^X$ for some type $X$.
 
 \subsection{Quasi-coherence for related synthetic mathematics}
 
@@ -1807,10 +1823,10 @@ where $\mb P$ be the full subcategory of the category $\wCPO$ of $\omega$-cpos c
 
 Here we observe that the inclusion $\mb P \hook \wTop$ is \emph{fully faithful}, because
 \begin{align*}
-  \wCPO(G,G)
-  &\cong \Pos(P_f(\N)\op,[P_f(\N),2]) \\
-  &\cong \sFrm\cp([P_f(\N),2],[P_f(\N),2]) \\ 
-  &\cong \wTop(G,G) \qedhere
+  &\wCPO(G,G) \\
+  \cong& \Pos(P_f(\N)\op,[P_f(\N),2]) \\
+  \cong& \sFrm\cp([P_f(\N),2],[P_f(\N),2]) \\ 
+  \cong& \wTop(G,G) \qedhere
 \end{align*}
 This leads us to conjecture that $\mc H$ will be equivalent to the sheaf topos $\sh(\wTop,J_{\mr{can}})$. However, a detailed proof of this requires us to better understand the categorical properties of $\wTop$.
 
