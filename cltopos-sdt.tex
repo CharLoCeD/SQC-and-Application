@@ -943,18 +943,19 @@ In general we will at most work with the weakest locality axiom (NT). However, w
 
 
 \section{Phoa's principle}\label{sec:intposet}
+\Jon{I think this section would be improved if we clarify that what we are talking about here is relating \emph{path structure} to the specialisation order.}
 
-As mentioned in the introduction, Phoa's principle states that the order on $\I$ is classified by the function space $\I^\I$. The goal of this section is to show that this statement holds not only for $\I$, but also more generally for all affine spaces and quasi-coherent algebras.
+As mentioned in the introduction, Phoa's principle states that the order on $\I$ is classified by the function space $\I^\I$. The goal of this section is to investigate a more general version of this statement that holds not only $\I$, but also more generally for all affine spaces and quasi-coherent algebras.
 
-Before we proceed, we need to be precise what we are going to show, since there are two competing notions of order on an affine space or an $\I$-algebra. On one hand we have introduced a specialisation order in \Cref{defn:specialisation}. On the other hand, both affine spaces and $\I$-algebras have a canonical order on them: The former is induced pointwise by the order on $\I$, and the latter is induced from its distributive lattice structure. 
+Before we proceed, we need to be precise about what we are going to show, since there are two competing notions of order on an affine space or an $\I$-algebra. On one hand we have introduced a specialisation order in \Cref{defn:specialisation}. On the other hand, both affine spaces and $\I$-algebras have a canonical order on them, induced pointwise by the order on $\I$ that comes from the latter's distributive lattice structure.
 
-From \Cref{cor:pointwisecubeorder} we have seen that for cubes $\I^n$, there is no ambiguity between the two notions. The following result will show that in practice, this more generally holds for all affine spaces.
+From \Cref{cor:pointwisecubeorder} we have seen that for cubes $\I^n$, there is no ambiguity between the two notions. The following result will show that in practice, this holds more generally for all affine spaces.
 
 \begin{lemma}\label{lem:orderonaffine}
   Let $A,B$ be quasi-coherent and $A \surj B$ a surjection. The induced map $\spec B \hook \spec A$ is an order embedding for $\preceq$, i.e.\ for $x,y : \spec B$, $x \preceq y$ in $\spec B$ iff $x \preceq y$ in $\spec A$.
 \end{lemma}
 \begin{proof}
-  By monotonicity in \Cref{lem:anymapmonotoneintriscorder}, it suffices to show for $x,y : \spec B$, if $x \preceq y$ in $\spec A$, then $x \preceq y$ in $\spec B$. However, this follows from the fact that $\I$ is weakly orthogonal to the inclusion $\spec B \hook \spec A$,
+  By monotonicity in \Cref{lem:anymapmonotoneintriscorder}, it suffices to show for $x,y : \spec B$, if $x \preceq y$ in $\spec A$, then $x \preceq y$ in $\spec B$. However, this follows from the fact that $\I$ is weakly right orthogonal to the inclusion $\spec B \hook \spec A$,
   \[
   \begin{tikzcd}
     \spec B \ar[d, hook] \ar[r, "b"] & \I \\ 
@@ -966,9 +967,11 @@ From \Cref{cor:pointwisecubeorder} we have seen that for cubes $\I^n$, there is 
 
 For instance, under (SQCF), the above result applies to the quotient 
 \[ \I[n] \surj \I[n]/R \]
-for any finitely generated equivalence relation $R$. In particular, the specialisation order on simplices $\Delta^n$ coincides with its pointwise order as a subspace of $\I^n$.
+for any finitely generated equivalence relation $R$.\Jon{congruence?} In particular, the specialisation order on simplices $\Delta^n$ coincides with its pointwise order as a subspace of $\I^n$.
 
 This way, we can generalise Phoa's principle to the following definition that applies to an arbitrary type:
+
+\Jon{I wonder if we should call this the ``generalised Phoa principle''; then we can observe that the interval satisfies Phoa's principle if and only if it satisfies the generalised Phoa principle.}
 
 \begin{definition}[Phoa's principle]\label{def:phoa}
   A type $X$ satisfies \emph{Phoa's principle}, if 
@@ -979,10 +982,12 @@ This way, we can generalise Phoa's principle to the following definition that ap
 % \begin{remark}[Linked spaces]
 %   In~\cite{PhoaWesleyKym-Son1991DtiR}, a type $X$ is called \emph{linked} if $X^\I \to \operatorname{\preceq}$ is a surjection, and $X$ is called a \emph{space} if $\preceq$ is antisymmetric. The \emph{loc. cit.} establishes a large collection of properties for linked spaces to study general domains. From a current perspective, we believe our definition above is the better behaved notion.
 
+\Jon{The commented out remark on linked spaces was good, I think, and we should probably say something about that somewhere.}
+
 In other words, a type $X$ satisfies Phoa's principle iff its specialisation order is classified by maps from the interval $\I$.
 
 \begin{example}
-  For instance, under (NT) and (SQCF), \Cref{lem:discretephoa} together with \Cref{cor:connectedpreservediscrete,cor:pointwisecubeorder} imply all discrete sets satisfy Phoa's principle.
+  For instance, under (NT) and (SQCF), \Cref{lem:discretephoa} together with \Cref{cor:connectedpreservediscrete,cor:pointwisecubeorder} imply that all discrete sets satisfy Phoa's principle.
 \end{example}
 
 The first important implication of working with distributive lattices, besides the symmetry between meets and joins, is the following fact:
@@ -1024,8 +1029,9 @@ At this point, the situation for quasi-coherent algebras is easy to see:
   Since the specialisation order on $A$ coincides with its canonical order, and as mentioned $A[i]$ is equivalent to the canonical order on $A$, $A$ indeed satisfies Phoa's principle.
 \end{proof}
 
-At the end of this section, we describe another interesting perspective arising from the proof of \Cref{thm:phoaaffine}. We have seen that the dualising object $\I$ has a double role: It is both an algebra and a spectrum. The proof of Phoa's principle gives us many more such examples. For instance, $\I[i]$ classifies the order on $\I$, which by definition is the spectrum $\Delta_2$. In fact, \emph{all} the simplices is classified by some algebra.
+At the end of this section, we describe another interesting perspective arising from the proof of \Cref{thm:phoaaffine}. We have seen that the dualising object $\I$ has a double role: It is both an algebra and a spectrum. The proof of Phoa's principle gives us many more such examples. For instance, $\I[i]$ classifies the order on $\I$, which by definition is the spectrum $\Delta_2$. In fact, \emph{all} the simplices are classified by some algebra.
 
+\Jon{It is worth pointing out that what follows is a generalisation of Leoni Pugh's ``higher Phoa principle'', which appears in \cite{pugh2025partialmapclassifiersierpinski}.}
 For any $n : \N$ and $\I$-algebra $A$, we write $\Delta[A]^{n}$ as the lists of decreasing elements of length $n$ in $A$,
 \[ \Delta[A]^{n} := \scomp{a_1,\cdots,a_n : A}{a_1 \ge \cdots \ge a_n}. \]
 Of course $\Delta[\I]^n$ is simply $\Delta^n$. We have the following general algebraic description of $\Delta[A]^n$:
