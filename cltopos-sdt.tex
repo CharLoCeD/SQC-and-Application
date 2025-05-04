@@ -720,22 +720,22 @@ More generally, for domain theoretic applications we would want to compute the l
   Again the third steps holds since $\T$ is propositional.
 \end{proof}
 
-\section{Distributive lattice and locality}\label{sec:locality}
+\section{Distributive lattices and locality}\label{sec:locality}
 
-One important finitary axiom for synthetic domain theory is the \emph{Phoa's principle}, which as an observation of~\cite{gratzer2024directed} is a consequence of the quasi-coherence principle for distributive lattices. Thus, we now work with the theory $\mbb D$ of distributive lattices, or more generally the theory of $D$-algebra for some distributive lattice $D$. As indicated in \Cref{rem:sigmaframe}, computation will not change if we replace distributive lattices by $\sigma$-frames. Hence, the results here and in \Cref{sec:intposet} will be applicable to $\sigma$-frames as well, where only the properties of f.p.\ $\I$-algebras matter.
+One important finitary axiom for synthetic domain theory is \emph{Phoa's principle}, which can be see to be a consequence of the quasi-coherence principle for distributive lattices. \Jon{I think we haven't stated this principle just yet.} Thus, we now work with the theory $\mbb D$ of distributive lattices, or more generally the theory of $D$-algebra for some distributive lattice $D$. As indicated in \Cref{rem:sigmaframe}, computation \Jon{computation?} will not change if we replace distributive lattices by $\sigma$-frames. Hence, the results here and in \Cref{sec:intposet} will be applicable to $\sigma$-frames as well, where only the properties of f.p.\ $\I$-algebras matter.
 
 In this case, $\I$ has a minimal element $0$. Notice that the constant $0$ also induces a predicate on $\I$,
 \[ \ms f : \I \to \pp, \]
-which takes any $i : \I$ to $i = 0$. The theory of distributive lattices, or the theory of $D$-algebras for any distributive lattice $D$, also satisfies the \emph{dual} property of being propositional: It extends the theory of join-semi-lattices ($0$, $\vee$), and the principle congruence $A/a = 0$ for any $a:A$ is computed by \emph{coslicing} $a \vee - : A \to a/A$ with $a/A := \scomp{b:A}{a \le b}$; similarly for $\sigma$-frames. Hence, dual versions of the previous results will also hold by symmetry, when we exchange $1$ for $0$ and $\wedge$ for $\vee$. For instance, the same proof as in \Cref{lem:intconserve} also implies the following:
+which takes any $i : \I$ to $i = 0$. The theory of distributive lattices, or the theory of $D$-algebras for any distributive lattice $D$, also satisfies the \emph{dual} property of being propositional: it extends the theory of join-semi-lattices ($0$, $\vee$), and the principle congruence $A/a = 0$ for any $a:A$ is computed by \emph{coslicing} $a \vee - : A \to a/A$ with $a/A := \scomp{b:A}{a \le b}$; similarly for $\sigma$-frames. \Jon{If this will play a role, perhaps we should just define the dual thing early on?} Hence, dual versions of the previous results will also hold by symmetry, when we exchange $1$ for $0$ and $\wedge$ for $\vee$. For instance, the same proof as in \Cref{lem:intconserve} also implies the following:
 
 \begin{corollary}[SQCI]
   $\ms f : \I \to \pp$ is an embedding.
 \end{corollary}
 
-We will now call propositions in the image of $\ms f$ \emph{closed}, and a subtype classified by $\ms f$ a \emph{closed subtype}. Completely similar to the previous \Cref{lem:openofaffinegivesalgebra}, closed subtypes of affine spaces are again of the following form:
+We will now call propositions in the image of $\ms f$ \emph{closed}, and a subtype classified by $\ms f$ a \emph{closed subtype}. Analogously to the previous \Cref{lem:openofaffinegivesalgebra}, closed subtypes of affine spaces are again of the following form:
 
 \begin{corollary}[SQCI]\label{cor:closedaffinealgebra}
-  If $X \cong \spec A$ is affine, then closed subtypes of $X$ are all of the form for some $a:A$,
+  If $X \cong \spec A$ is affine, then closed subtypes of $X$ are all of form $C_a$ for some $a:A$ as specified below:
   \[ C_a := \scomp{x : X}{\ms f(xa)} \cong \spec a/A. \]
 \end{corollary}
 
@@ -745,7 +745,7 @@ We will now call propositions in the image of $\ms f$ \emph{closed}, and a subty
 
 There is an accompanying \emph{colifting} monad $(-)\cprt$, defined by
 \[ X\cprt := \sum_{i:\I} X^{\ms fi}. \]
-And completely similar as \Cref{prop:liftingofalgebra}, under (SQCI) we can explicitly compute the colifting of the simplices $\Delta^n$,
+And analogously to \Cref{prop:liftingofalgebra}, under (SQCI) we can explicitly compute the colifting of the simplices $\Delta^n$,
 \[ \Delta^n\cprt \cong \Delta^{n+1}, \]
 where now the unit $\eta : \Delta^n \hook \Delta^n\cprt \cong \Delta^{n+1}$ takes a sequence $i_1 \ge \cdots \ge i_n$ to $i_1 \ge \cdots \ge i_n \ge 0$ in $\Delta^{n+1}$. To distinguish the two inclusions $\Delta^n \hook \Delta^n\prt \cong \Delta^{n+1}$ and $\Delta^n \hook \Delta^{n}\cprt \cong \Delta^{n+1}$, we will denote the former as $\eta\prt$ and the latter as $\eta\cprt$.
 
@@ -761,7 +761,7 @@ As a start, a minimal requirement for synthetic domain theory to model divergent
 % \[ \bot := (0,?) : X\prt, \]
 % where $? : \ms t0 \cong \emp \to X$ is the unique map from $\emp$.
 
-This way, $\emp \eq \ms t0$ now will be affine, and it is both an open and closed proposition. As mentioned in introduction, (NT) together with a strong enough quasi-coherence principle will imply all the axioms for synthetic domain theory. Before we discuss that in \Cref{sec:infdomain}, a minimal amount of quasi-coherence provided by (SQCI) already implies a lot of elementary properties. As a first consequence of (NT) with (SQCI), we can show $\I$ is almost the Boolean algebra $2$ in the following sense:
+This way, $\emp \eq \ms t0$ now will be affine, and it is both an open and closed proposition. As mentioned in introduction, (NT) together with a strong enough quasi-coherence principle will imply all of Hyland's axioms for synthetic domain theory. Before we discuss that in \Cref{sec:infdomain}, a minimal amount of quasi-coherence provided by (SQCI) already implies a lot of elementary properties. As a first consequence of (NT) with (SQCI), we can show that $\I$ is almost the Boolean algebra $2$ in the following sense:
 
 \begin{proposition}[NT, SQCI]\label{prop:filed}
   For any $i : \I$ 
@@ -795,6 +795,8 @@ By definition, the specialisation order is reflexive and transitive. As already 
   This simply follows from compositionality of functions.
 \end{proof}
 
+\Jon{Let us not use the term ``discrete set'' to mean a ``set with decidable equality''. To me, discreteness emerges from some kind of topology; for example, in the presence of an interval, a discrete object is something that is orthogonal to this interval. } 
+
 We can very easily classify the specialisation order on discrete sets, i.e.\ sets with decidable equality:
 
 \begin{lemma}[NT]\label{lem:discretephoa}
@@ -813,8 +815,11 @@ We can very easily classify the specialisation order on discrete sets, i.e.\ set
 \end{proof}
 
 \begin{corollary}[NT]\label{cor:connectedpreservediscrete}
-  If the specialisation order on $X$ has a minimal or top element $x$, then $X$ is internally connected, in the sense that for any discrete set $M$, the constant map $M \to M^X$ is an equivalence.
+  If the specialisation order on $X$ has a least or greatest element, then $X$ is \emph{internally connected} in the sense that for any discrete set $M$, the constant map $M \to M^X$ is an equivalence.
 \end{corollary}
+
+\Jon{Could be helpful to phrase it in terms of $X$ being right orthogonal to any type with decidable equality, and then unravel that in the proof rather than in the statement.}
+
 \begin{proof}
   Since $x:X$ is inhabited, $M \to M^X$ is always an embedding. Thus it suffices to show for any $f : X \to M$, $f$ is a constant map. Since $x$ is minimal in $X$, for any $y:X$ by \Cref{lem:anymapmonotoneintriscorder} we have $f(x) \preceq f(y)$, which by \Cref{lem:discretephoa} implies $f(x) = f(y)$. Hence, $M \to M^X$ is also surjective. This shows it is an equivalence since it is a map between sets.
 \end{proof}
@@ -826,11 +831,11 @@ We can very easily classify the specialisation order on discrete sets, i.e.\ set
 Thus, it suffices to compute the specialisation order on $\I$. In fact, the specialisation order on any affine space is easy to characterise:
 
 \begin{lemma}\label{lem:specorderofaffine}
-  For any affine space $X \cong \spec A \cong \I\alg(A,\I)$, the specialisation order $\preceq$ on $X$ is induced by the pointwise order on $\I$,
+  For any affine space $X \cong \spec A \cong \I\alg(A,\I)$, the specialisation order $\preceq$ on $X$ is induced pointwise by $\I$ in the following sense:
   \[ x \preceq y \eq \fa aA xa \le ya. \]
 \end{lemma}
 \begin{proof}
-  This holds by definition of $\preceq$, and the fact that $\I^X \cong A$.
+  This holds by definition of $\preceq$, using the fact that $\I^X \cong A$.
 \end{proof}
 
 To apply the above result to $\I$, we would like to view $\I$ itself as an affine space. Since we know $\I \cong \spec\I[i]$, we would like $\I[i]$ to be a quasi-coherent $\I$-algebra. This goes beyond the assumption (SQCI), and we introduce the following stronger axiom:
@@ -839,7 +844,8 @@ To apply the above result to $\I$, we would like to view $\I$ itself as an affin
   For any $n : \N$, the finitely generated free $\I$-algebra $\I[n]$ is stably quasi-coherent. 
 \end{axiom}
 
-The above axiom is equivalent to saying that all f.p.\ $\I$-algebras are quasi-coherent. Under (SQCF), the cubes $\I^n$ and the simplices $\Delta^n$ will all be affine as shown by \Cref{exm:cubeaffine,exm:simplicesaffine}.
+The above axiom is equivalent to saying that all f.p.\ $\I$-algebras are quasi-coherent. \Jon{Can we include a more explicit argument for this? This is a cool observation that I don't think Gratzer et al. were aware of.}
+Under (SQCF), the cubes $\I^n$ and the simplices $\Delta^n$ will all be affine as shown by \Cref{exm:cubeaffine,exm:simplicesaffine}.
 
 \begin{corollary}[SQCF]\label{cor:pointwisecubeorder}
   The specialisation order on $\I^n$ is the pointwise order induced by $\I$ for any $n : \N$.
@@ -857,7 +863,7 @@ The above axiom is equivalent to saying that all f.p.\ $\I$-algebras are quasi-c
   By \Cref{cor:pointwisecubeorder}, the specialisation order on $\I$ coincides with its canonical order. Hence, it has a top element, thus by \Cref{cor:connectedpreservediscrete}, $2^\I \cong 2$. If $\I \cong 2$, then $2^\I \cong 2^2 \cong 4$, contradictory. Hence, $\I$ is not 2.
 \end{proof}
 
-We will continue the computation of specialisation order and investigating their consequences in \Cref{sec:intposet}. At this moment, we emphasis that all the previously established results are purely the consequences of the quasi-coherence assumption (SQCF), and the non-triviality axiom (NT). This showcases the strength and richness of the quasi-coherence axiom.
+We will continue the computation of the specialisation order and investigating their consequences in \Cref{sec:intposet}. At this moment, we emphasis that all the previously established results are purely the consequences of the quasi-coherence assumption (SQCF), and the non-triviality axiom (NT). This showcases the strength and richness of the quasi-coherence axiom.
 
 The remaining part of this section discusses further locality axioms on the interval $\I$, which would correspond to stronger properties of the dominance $\I$ and can be applied to different flavours of domain theory. 
 
@@ -927,12 +933,13 @@ The strongest locality axiom states that the simplicial structure is truncated t
 
 \begin{axiom}[1T]\label{ax:1T}
   $\I$ is \emph{1-truncated}, i.e.\ (SL) holds and for $i,j : \I$, 
-  \[ i \le j \eq \ms fi \vee i = j \vee \ms tj. \]
+  \[ i \le j \eq \ms fi \vee (i = j)\vee \ms tj. \]
   Geometrically, (1T) additionally requires the canonical inclusion $\partial\Delta_2 \hook \Delta_2$ from the boundary $\partial\Delta_2$ to the 2-simplice $\Delta_2$ is an equivalence, where $\partial\Delta_2$ type-theoretically is simply
-  \[ \partial\Delta_2 := \scomp{i,j : \I}{\ms fi \vee i = j \vee \ms ti}. \]
+  \[ \partial\Delta_2 := \scomp{i,j : \I}{\ms fi \vee (i = j) \vee \ms ti}. \]
 \end{axiom}
 
-In general we will at most work with the weakest locality axiom (NT). However, we will show in \Cref{sec:local} that all affine spaces will be \emph{orthogonal} to the maps that define these local principles as shown above.
+In general we will at most work with the weakest locality axiom (NT). However, we will show in \Cref{sec:local} that all affine spaces will be \emph{right orthogonal} to the maps that define these local principles as shown above.
+\Jon{Should we mention here that these axioms correspond to coverages, and that the final claim here is that all affine spaces lie within the corresponding subtoposes?}
 
 
 \section{Phoa's principle}\label{sec:intposet}
