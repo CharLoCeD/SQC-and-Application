@@ -143,7 +143,7 @@
 \newcommand{\emp}{\emptyset}
 \newcommand{\eq}{\leftrightarrow}
 \newcommand{\ass}[1]{\llbracket#1\rrbracket} %\usepackage{stmaryrd}
-\newcommand{\pss}[1]{||#1||} %\usepackage{stmaryrd}
+\newcommand{\pss}[1]{\lVert #1\rVert} %\usepackage{stmaryrd}
 \newcommand{\pt}{\ms{pt}}
 \newcommand{\tp}{\ms{Type}}
 \newcommand{\pp}{\ms{Prop}}
@@ -1042,6 +1042,7 @@ Of course $\Delta[\I]^n$ is simply $\Delta^n$. We have the following general alg
   sending any $a_0 \ge \cdots \ge a_n$ in $A$ to the polynomial 
   \[ a_0 \wedge i_1 \vee a_1 \wedge \cdots \wedge i_n \vee a_n. \]
 \end{proposition}
+\Jon{We need to explain the automatic associativity outside the proof---either in the theorem statement, or perhaps even further outside.}
 \begin{proof}
   The fact that the polynomial is well-defined in $A[n]/i_1 \le \cdots \le i_n$, in the sense that the value does not depend on how one arranges parenthesis, and that this gives an equivalence, again follows from a normal form result on algebras of the form $A[n]/i_1 \le \cdots \le i_n$, which is a consequence of the more general normal form for polynomials on distributive lattices; see~\cite[Thm. 10.21]{lausch2000algebra}.
 \end{proof}
@@ -1396,12 +1397,14 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 
 \section{Local properties for the interval}\label{sec:local}
 
-In this section we review some of the locality axioms we have introduced in \Cref{sec:locality}. As mentioned in the introduction, the observation is that even if we do not assume them to be true globally for the interval $\I$, we can still show the maps representing the locality axiom to be \emph{orthogonal} to $\I$. As explained in \Cref{rem:limofalgloc}, the reason we have these orthogonality conditions is due to the fact that we have various \emph{limits} of $\I$-algebras. Unlike completeness in \Cref{thm:complete}, the local conditions in \Cref{sec:locality} are all induced by limits of \emph{f.p.} $\I$-algebras. Thus in this section, working with distributive lattices or $\sigma$-frames does not matter.
+In this section we review some of the locality axioms we have introduced in \Cref{sec:locality}. As mentioned in the introduction, the observation is that even if we do not assume them to be true globally for the interval $\I$, we can still show the maps representing the locality axiom to be \emph{left orthogonal} to $\I$. As explained in \Cref{rem:limofalgloc}, the presence of these orthogonality conditions is due to the fact that we have various \emph{limits} of $\I$-algebras. \Jon{The preceding sentence is a slightly obscure; can we try to say something a little more specific?} Unlike completeness in \Cref{thm:complete}, the local conditions in \Cref{sec:locality} are all induced by limits of \emph{f.p.} $\I$-algebras. Thus in this section, it does not matter whether we work with distributive lattices or $\sigma$-frames.
 
-Starting from the simplest example, let us recall the local property (NT). In general, the proposition $0 = 1$ as the spectrum $\spec(\I/0=1)$ is \emph{not} $\emp$, if we do not assume (NT). However, we can look at the localisation class which thinks this map is invertible. The following fact shows that, from the perspective of $\I$, (NT) indeed holds:
+Starting from the simplest example, let us recall the local property (NT). In general, the proposition $0 = 1$ as the spectrum $\spec(\I/0=1)$ is \emph{not} necessarily $\emp$, if we do not assume (NT).  However, we can look at the localisation class that thinks this map is invertible. The following fact shows that, from the perspective of $\I$, (NT) indeed holds:
+
+\Jon{What was the meaning of the subphrase ``as the spectrum $\spec(\I/0=1)$''? Had trouble parsing this. \textbf{There is something fishy going on here: if $0\not=1$, then we would not expect $\spec(\I/0=1)$ to be empty, rather it should become contractible.}}
 
 \begin{proposition}[SQCI]\label{specisnontrivial}
-  $\I$ is orthogonal to $\emp \hook \spec(\I/0=1)$.
+  $\I$ is right orthogonal to $\emp \hook \spec(\I/0=1)$.
 \end{proposition}
 \begin{proof}
   By assumption,
@@ -1413,7 +1416,7 @@ By inspecting the proof above, one can see that the reason it works is due to qu
 As another example, consider the simplicial axiom (SL). We skip the discussion of (L) and (cL), because (SL) is strictly stronger, and it has a better-known geometric meaning. Recall from \Cref{ax:SL} that (SL) can be represented geometrically as an embedding $\Delta^2\cup\Delta_2 \hook \I^2$.
 
 \begin{definition}[Simplicial type]
-  A type $X$ is \emph{simplicial}, if it is orthogonal to $\Delta^2 \cup \Delta_2 \hook \I^2$.
+  A type $X$ is said to be \emph{simplicial} when it is right orthogonal to the inclusion $\Delta^2 \cup \Delta_2 \hook \I^2$.
 \end{definition}
 
 Again, (SL) holds globally iff the above embedding is an equivalence, thus every type in this case will be simplicial. When it does not hold globally, we can still show:
@@ -1422,16 +1425,18 @@ Again, (SL) holds globally iff the above embedding is an equivalence, thus every
   $\I$ is simplicial.
 \end{proposition}
 \begin{proof}
-  To show $\I$ is orthogonal to the embedding, equivalently it means for any $f,g$ indicated below making the solid diagram commute, there exists a unique lift $h$ making the whole diagram commute,
+  To show that $\I$ is orthogonal to the embedding, it is equivalent to verify that for any $f,g$ indicated below making the solid diagram below commute, there exists a unique lift $h$ making the whole diagram commute:
   \[\begin{tikzcd}
     \I \ar[r, "\delta"] \ar[d, "\delta"'] & \Delta^2 \ar[r, "f"] \ar[d] & \I \\
     \Delta_2 \ar[urr, "g"{description, near start}] \ar[r] & \I^2 \ar[ur, dashed, "h"']
     \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
   \end{tikzcd}\]
+  \Jon{Why do we have the pullback corner above? Did we mean to draw a pushout corner?}
   Now by (SQCF), since the vertices of the left square are all affine, equivalently it suffices to show we have a pullback of $\I$-algebras,
   \[\begin{tikzcd}
     {\I[i,j]} \ar[r] \ar[d] & {\I[i,j]/i \ge j} \ar[d, "{i,j \mapsto k}"] \\
     {\I[i,j]/i \le j} \ar[r, "{i,j\mapsto k}"'] & {\I[k]}
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
   \end{tikzcd}\]
   Recall from \Cref{prop:simplicesasalgebra} the normal form of elements in $\I[i,j]/i\ge j$. An element $p$ there can be viewed as the polynomial 
   \[ p = p_{0,0} \vee i \wedge p_{1,0} \vee j \wedge p_{1,1}, \]
@@ -1442,7 +1447,7 @@ Again, (SL) holds globally iff the above embedding is an equivalence, thus every
   This then gives us a polynomial in $\I[i,j]$, which we write it as follows,
   \[ (p_{0,0} \vee i \wedge p_{1,0}) \vee j \wedge (q_{0,1} \vee i \wedge q_{1,1}) \]
   where $p_{0,0} = q_{0,0} \le q_{0,1}$ and $p_{1,0} \le p_{1,1} = q_{1,1}$. 
-  By the general normal form for $A[i]$ for any $\I$-algebra $A$, if we view $\I[i,j]$ as $\I[i][j]$, the above exactly corresponds to the normal form of polynomials in $\I[i,j]$; also see~\cite[Thm. 10.21]{lausch2000algebra}. This means the above is a pullback of $\I$-algebras.
+  By the general normal form for $A[i]$ for any $\I$-algebra $A$, if we view $\I[i,j]$ as $\I[i][j]$, the above exactly corresponds to the normal form of polynomials in $\I[i,j]$; see also Lausch and Nobauer~\cite[Thm. 10.21]{lausch2000algebra}. This means the above is a pullback of $\I$-algebras.
 \end{proof}
 
 
@@ -1450,14 +1455,15 @@ Again, (SL) holds globally iff the above embedding is an equivalence, thus every
 Finally, we discuss the even stronger locality condition (1T). As mentioned in \Cref{ax:1T}, the additional property of (1T) is characterised by the embedding $\partial\Delta_2 \hook \Delta_2$.
 
 \begin{definition}[1-truncated type]
-  A type $X$ is \emph{1-truncated}, if it is simplicial, and it is also orthogonal to $\partial\Delta_2 \hook \Delta_2$.
+  \Jon{I think this terminology is too confusing in the context of intensional type theory, where there is an existing orthogonal notion of $n$-truncatedness. Can we find a new term? (Also need to update the earlier reference to this condition.)}
+  A type $X$ is said to be \emph{1-truncated} when it is both simplicial and right orthogonal to the boundary inclusion $\partial\Delta_2 \hook \Delta_2$.
 \end{definition}
 
 \begin{proposition}[SQCF]\label{specis1t}
   $\I$ is 1-truncated.
 \end{proposition}
 \begin{proof}
-  Completely similar to the proof of \Cref{specissimplicial}, it suffices to show we have a limit diagram of $\I$-algebras as follows,
+  Completely similar to the proof of \Cref{specissimplicial}, it suffices to show that we have a limit diagram of $\I$-algebras as follows,
   \[\begin{tikzcd}
     & {\I[i,j]/i\le j} \\
     \I[i] & \I[k] & \I[j] \\
@@ -1479,7 +1485,7 @@ Finally, we discuss the even stronger locality condition (1T). As mentioned in \
   Hence, the above is a limit diagram of $\I$-algebras.
 \end{proof}
 
-Besides the locality principles discussed in \Cref{sec:locality}, we also consider the orthogonality classes emerging from \emph{synthetic category theory}, as first introduced in~\cite{riehl2017type}. A synthetic category will be a type that satisfies the internal orthogonality condition of being \emph{simplicial}, \emph{Segal}, and \emph{Rezk}.
+Besides the locality principles discussed in \Cref{sec:locality}, we also consider the orthogonality classes emerging from \emph{synthetic category theory}, as first introduced in~\cite{riehl2017type}. \Jon{Let's find a way to credit Fiore and Rosolini with the definition of \emph{path transitivity}.} A synthetic category will be a type that satisfies the internal orthogonality condition of being \emph{simplicial}, \emph{Segal}, and \emph{Rezk}.
 
 We start with the Segal condition. Besides the outer horn discussed in \Cref{exm:hornaffine}, we can also define the inner horn $\Lambda^2_1$ as a pushout,
 \[
@@ -1492,11 +1498,12 @@ We start with the Segal condition. Besides the outer horn discussed in \Cref{exm
 As a subtype of $\Delta_2$, it can be identified as $\scomp{(i,j) : \Delta_2}{\ms fi \vee \ms tj}$.
 
 \begin{definition}[Segal types]
-  $X$ is \emph{Segal} if it is orthogonal to $\Lambda^2_1 \hook \Delta_2$.
+  $X$ is called \emph{Segal} when it is right orthogonal to $\Lambda^2_1 \hook \Delta_2$.
 \end{definition}
 
+
 \begin{proposition}[SQCF]
-  $\I$ will be Segal.
+  $\I$ is Segal.
 \end{proposition}
 \begin{proof}
   In this case, we need to show the following diagram is a pullback of $\I$-algebras, 
@@ -1511,7 +1518,7 @@ As a subtype of $\Delta_2$, it can be identified as $\scomp{(i,j) : \Delta_2}{\m
   Hence, the above is again a pullback.
 \end{proof}
 
-Next we consider the Rezk condition. Following~\cite{buchholtz2021synthetic}, we can define the type $\mbb E$ classifying categorical equivalences as the following colimit,
+Next we consider the Rezk condition. Following~\cite{buchholtz2021synthetic}, we can define the type $\mbb E$ classifying categorical equivalences as the colimit of the following diagram,
 \[
 \begin{tikzcd}
 	& \I && \I && \I \\
@@ -1524,9 +1531,10 @@ Next we consider the Rezk condition. Following~\cite{buchholtz2021synthetic}, we
 	\arrow[from=1-6, to=2-7]
 \end{tikzcd}
 \]
+\Jon{I always get confused about the conventions for $d_n$, etc. Can we write these maps more explicitly?}
 
 \begin{definition}[Rezk types]
-  We say $X$ is \emph{Rezk}, if it is orthogonal to $\mbb E \to 1$.
+  We say that a type $X$ is \emph{Rezk} when it is right orthogonal to $\mbb E \to 1$.
 \end{definition}
 
 \begin{proposition}[SQCF]
@@ -1536,7 +1544,7 @@ Next we consider the Rezk condition. Following~\cite{buchholtz2021synthetic}, we
   Notice by \Cref{thm:phoaaffine} $\I^\I$ classifies the canonical order on $\I$. This order is antisymmetric, thus $\I$ will be Rezk.
 \end{proof}
 
-In fact, $\I$ is slightly stronger than being a synthetic category, in the sense that they will be synthetic \emph{poset}. We construct $\I_{\rightrightarrows}$ as the following pushout,
+In fact, $\I$ is not only a synthetic category but in fact a synthetic \emph{poset}; this property too can be expressed in terms of orthogonality. To that end, we define the ``walking parallel pair'' $\I_{\rightrightarrows}$ to be the following pushout:
 \[
 \begin{tikzcd}
   2 \ar[r] \ar[d] & \I \ar[d] \\ 
@@ -1546,7 +1554,7 @@ In fact, $\I$ is slightly stronger than being a synthetic category, in the sense
 \]
 
 \begin{definition}[$\I$-separated types]
-  $X$ is \emph{$\I$-separated} if it is orthogonal to $\I_{\rightrightarrows} \to \I$.
+  $X$ is called \emph{$\I$-separated} when it is right orthogonal to $\I_{\rightrightarrows} \to \I$.
 \end{definition}
 
 Equivalently, $X$ is $\I$-separated iff $X^\I \to X \times X$ is an embedding. The following is evident:
@@ -1560,6 +1568,8 @@ Equivalently, $X$ is $\I$-separated iff $X^\I \to X \times X$ is an embedding. T
 
 The notion of synthetic categories and synthetic posets are formulated as these orthogonality classes:
 
+\Jon{We should not require simplicial-ness for synthetic categories, as the theory of categories does not require the simplicial property.}
+
 \begin{definition}[Synthetic categories and synthetic posets]
   A type $X$ is a \emph{synthetic category}, if it is simplicial, Segal, and Rezk. We say it is a \emph{synthetic poset}, if it is also $\I$-separated.
 \end{definition}
@@ -1571,7 +1581,7 @@ The notion of synthetic categories and synthetic posets are formulated as these 
   This follows from $\I$ being a synthetic poset, and spectra and quasi-coherent algebras are \emph{replete} as indicated in \Cref{rem:qcreplete,rem:specarereplete}.
 \end{proof}
 
-At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We show $\omega$ satisfies Phoa's principle, and satisfies all the locality conditions discussed above. 
+At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We show that $\omega$ satisfies Phoa's principle as well as all the locality conditions discussed above. 
 
 Recall from \Cref{prop:omegacolimit} that, under (NT) and (SQCC), $\omega$ is a colimit $\omega \cong \ct_{n:\N}\Delta^n$. As indicated in \Cref{rem:omegaalwayscolim}, this does not depend on working with distributive lattices or $\sigma$-frames. Type-theoretically, we have also shown that $\omega$ can be realised as the following subspace of $\ov\omega$,
 \[ \omega \cong \scomp{i : \ov\omega}{\ex n\N \ms fi_n}. \]
@@ -1581,12 +1591,12 @@ which implies $\Delta^n \hook \omega$ is \emph{downward closed}. This allows us 
 
 \begin{lemma}[NT, SQCC]\label{lem:intervalcommuteomega}
   We have a family of equivalences
-  \[ \omega^\I \cong \prth{\ct_{n:\N}\Delta^n}^\I \cong \ct_{n:\N}(\Delta^n)^\I, \]
+  \[ \omega^\I \cong \big({\ct_{n:\N}\Delta^n}\big)^\I \cong \ct_{n:\N}(\Delta^n)^\I, \]
   and similarly by replacing $\I$ with $\I^n$ or $\Delta^n$.
 \end{lemma}
 \begin{proof}
   We show the following canonical map is an equivalence,
-  \[ \ct_{n:\N}(\Delta^n)^\I \to \prth{\ct_{n:\N}\Delta^n}^\I. \]
+  \[ \ct_{n:\N}(\Delta^n)^\I \to \big({\ct_{n:\N}\Delta^n}\big)^\I. \]
   It is evident this map is an embedding, hence it suffices to show it is surjective. Given $f : \I \to \ct_{n:\N}\Delta^n$. By assumption, there merely exists $n:\N$ that $f(1)$ factors through $\Delta^n \hook \omega$. Now the claim is that the entire map $f$ factors through $\Delta^n$. This indeed holds, since we have shown in \Cref{cor:omegaphoa} that the specialisation order on $\omega$ is pointwise. By monotonicity, for any $i:\I$ we have $fi \preceq f1$, which implies $fi$ belongs to $\Delta^n$ as well, since $\Delta^n \hook \omega$ is a downward closed. The same holds for cubes or simplices since they all have a top element.
 \end{proof}
 
@@ -1606,13 +1616,17 @@ As another consequence, we can also show the following general result establishi
 \end{theorem}
 \begin{proof}
   Let $Y \cong \ct_{r}Y_r$ be a finite colimit with each $Y_r$ a simplice or a cube.
-  \[ \omega^Y \cong \lt_r\prth{\ct_{n:\N}\Delta^n}^{Y_r} \cong \lt_r\ct_{n:\N}(\Delta^n)^{Y_r} \cong \ct_{n:\N}\lt_r(\Delta^n)^{Y_r} \cong \ct_{n:\N}(\Delta^n)^Y \]
+  \[ \omega^Y \cong \lt_r\big({\ct_{n:\N}\Delta^n}\big)^{Y_r} \cong \lt_r\ct_{n:\N}(\Delta^n)^{Y_r} \cong \ct_{n:\N}\lt_r(\Delta^n)^{Y_r} \cong \ct_{n:\N}(\Delta^n)^Y \]
   The second equivalence holds by \Cref{lem:intervalcommuteomega}; the third holds since finite limits commutes with sequential colimits. Thus, if each $\Delta^n$ is $f$-local, i.e.\ $(\Delta^n)^Y \cong (\Delta^n)^X$, then so is $\omega$.
 \end{proof}
 
 \begin{remark}[Localisation classes closed under sequential colimits]
-  Notice that in \Cref{lem:intervalcommuteomega} we do not need to use any form of choice principle to show the exponential $(-)^\I$ commutes with the sequential colimit $\ct_{n:\N}\Delta^n$, exactly because $\Delta^n \hook \omega$ is downward closed. However, for general sequential colimit, the same proof still goes through if we assume $\I$ satisfies a choice principle: For any type family $P$ over $\I$, we have
-  \[ \prod_{i:\I}\pss{P(i)} \to \pss{\prod_{i:\I}P(i)}. \]
+  Notice that in \Cref{lem:intervalcommuteomega} we do not need to use any form of choice principle to show the exponential $(-)^\I$ commutes with the sequential colimit $\ct_{n:\N}\Delta^n$, exactly because $\Delta^n \hook \omega$ is downward closed. However, for general sequential colimits, the same proof still goes through if we assume $\I$ satisfies the following choice principle: 
+  
+  \begin{quote}
+  For any type family $P$ over $\I$, we have
+  \[ \prod_{i:\I}\pss{P(i)} \to \big\lVert\prod_{i:\I}P(i)\big\rVert. \]
+  \end{quote}
   Furthermore, the same holds for cubes and simplices since the types satisfying the choice principle are closed under finite products and retracts. Assuming $\I$ satisfies choice, following the proof of \Cref{thm:omegaortho}, one can show more generally that any orthogonality class specified by maps between finite colimits of simplices or cubes are always \emph{closed under sequential colimits}. However, not in every model of quasi-coherence $\I$ will satisfy the above choice principle. Hence, we do not include this result in the main text, as we tend to keep our assumptions as minimalistic as possible.
 \end{remark}
 
