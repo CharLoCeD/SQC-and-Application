@@ -1048,7 +1048,7 @@ Of course $\Delta[\I]^n$ is simply $\Delta^n$. We have the following general alg
 
 \section{Infinitary domain theory}\label{sec:infdomain}
 
-Until this point, we have seen that elementary axioms for synthetic domain theory follow from (SQCF) for distributive lattices ($\sigma$-frames). In this section we show that the infinitary axiom of synthetic domain theory, viz. completeness of the interval $\I$, is also a consequence of quasi-coherence for $\sigma$-frames. In fact, the only place we have used the essentially the properties of $\sigma$-frames is in the proof of \Cref{thm:complete}, and we will also indicate why that fails for distributive lattices in \Cref{rem:whynotdis}.
+Until this point, we have seen that elementary axioms for synthetic domain theory follow from (SQCF) for distributive lattices and thus $\sigma$-frames. In this section we show that the infinitary axiom of synthetic domain theory, viz.\ completeness of the interval $\I$, is also a consequence of quasi-coherence for $\sigma$-frames. In fact, the only place we have used the essentially the properties of $\sigma$-frames is in the proof of \Cref{thm:complete}, and we will also indicate why that fails for distributive lattices in \Cref{rem:whynotdis}.
 
 The connection between the infinitary aspect of synthetic domain theory and quasi-coherence starts from the observation that the final coalgebra $\ov\omega$ for the lifting functor $(-)\prt$ can be described as a \emph{spectrum}:
 
@@ -1076,16 +1076,16 @@ In general, by a c.p.\ $\I$-algebra we mean one of the form $\I[\N]/\pair{s_n = 
   Our modular development in the previous sections can be now immediately applied to $\ov\omega$ if we assume (SQCC). For instance, the description of the specialisation order for affine spaces in \Cref{lem:orderonaffine} now applies to $\ov\omega$, which shows this again coincides with its pointwise order as a subspace of $\I^\N$. In particular, it also has both a top and bottom element, thus \Cref{cor:connectedpreservediscrete} now implies $\ov\omega$ is also internally connected, i.e.\ $M \to M^{\ov\omega}$ will be an equivalence for any discrete set $M$. 
 \end{remark}
 
-(SQCC) combined with the non-triviality axiom (NT) has many logical consequences. The crucial observation is that (NT) implies a weak form of \emph{nullstellensatz} result, as already noted in~\cite{blechschmidt2021using,blechschmidt2020general,Cherubini_Coquand_Hutzler_2024}:
+(SQCC) combined with the non-triviality axiom (NT) has many logical consequences. The crucial observation is that (NT) implies a weak form of \emph{Nullstellensatz} result, as already noted by several authors~\cite{blechschmidt2021using,blechschmidt2020general,Cherubini_Coquand_Hutzler_2024}:
 
 \begin{lemma}[NT]\label{lem:nulls}
   For an affine space $X \cong \spec A$, $X \cong \emp$ iff $A$ is trivial, viz. $0=1$ in $A$.
 \end{lemma}
 \begin{proof}
-  The if direction holds since by (NT) $\I$ is non-trivial, thus there is no homomorphism from a trivial algebra to $\I$. For the only if direction, by assumption $A \cong \I^{\spec A} \cong \I^\emp$, which implies $A$ is trivial. 
+  The backward direction holds since because $\I$ is non-trivial (NT), thus there is no homomorphism from a trivial algebra to $\I$. For the forward direction: by assumption $A \cong \I^{\spec A} \cong \I^\emp$, which implies $A$ is trivial. 
 \end{proof}
 
-Together with (SQCC), this implies the following form of Markov principle; a similar result is shown in~\cite{cherubini2024foundation}:
+Together with (SQCC), this implies the following form of Markov's principle; a similar result is shown by Cherubini~et~al.~\cite{cherubini2024foundation}:
 
 \begin{lemma}[NT, SQCC]\label{lem:markov}
   For any $i : \ov\omega$, we have
@@ -1097,9 +1097,9 @@ Together with (SQCC), this implies the following form of Markov principle; a sim
   where we have abbreviated the c.p.\ $\I$-algebra $\I/\pair{i_n=1}_{n:\N}$ as $\I/i$. Now if we have $\neg\fa n\N \ms ti_n$, then $\spec\I/i \cong \emp$ which by \Cref{lem:nulls} implies $\I/i$ is trivial. But this algebra is trivial iff $\ex n\N \ms fi_n$.
 \end{proof}
 
-Equipped with the above result, we can now proceed to study the initial algebra $\omega$ for the lifting functor. \cite{JIBLADZE1997185} has given a beautiful formula for a type-theoretic description of $\omega$ as the following subset of $\ov\omega$, 
+Equipped with the above result, we can now proceed to study the initial algebra $\omega$ for the lifting functor. Jibladze~\cite{JIBLADZE1997185} has given a beautiful formula for a type-theoretic description of $\omega$ as the following subset of $\ov\omega$, 
 \[ \omega := \scomp{i : \ov\omega}{\fa\phi{\pp} (\fa n{\N} (\ms ti_n \to \phi) \to \phi) \to \phi}. \]
-For another proof, see e.g.~\cite{VANOOSTEN2000233}. In the presence of the Markov principle above, this description can be greatly simplified:
+For another proof, see e.g.\ that of Van Oosten and Simpson~\cite{VANOOSTEN2000233}. In the presence of \Cref{lem:markov}, this description can be greatly simplified:
 
 \begin{proposition}[NT, SQCC]\label{prop:omegacolimit}
   $\omega$ is equivalent to the following subset of $\ov\omega$,
@@ -1123,8 +1123,10 @@ For another proof, see e.g.~\cite{VANOOSTEN2000233}. In the presence of the Mark
 
 Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affine, by working with $\sigma$-frames, we can show $\I$ is complete:
 
+\Jon{The little phrases like ``by working with $\sigma$-frames'' are making me slightly queasy. Can we express this more precisely? For example, we are not only assuming that $\I$ is a $\sigma$-frame, but we are specialising precisely which category of algebras we are computing a limit in.}
+
 \begin{theorem}[NT, SQCC]\label{thm:complete}
-  $\I$ is orthogonal to the inclusion $\omega\hook\ov\omega$.
+  $\I$ is right orthogonal to the inclusion $\omega\hook\ov\omega$.
 \end{theorem}
 \begin{proof}
   Since $\ov\omega$ is now affine, we have
@@ -1167,10 +1169,11 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
   \end{tikzcd}\]
   where $\pi_{n} : \Delta_{n+1} \to \Delta_{n+1}$ forgets the last entry, i.e.\ it takes $i_0 \le \cdots \le i_{n+1}$ to $i_0 \le \cdots \le i_{n}$. Hence, the sequential limit is given by
   \[ \lt_{n:\N} \Delta_{n} \cong \Delta_\infty := \scomp{i : \N \to \I}{\fa n\N i_n \le i_{n+1}}. \]
-  Now it suffices to show that $\Delta_\infty$ gives a normal form for $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$. This is indeed true for $\sigma$-frames: By a generalisation or the results in \Cref{prop:simplicesasalgebra}, an element $p$ in $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ can be uniquely written as the \emph{countable join},
+  Now it suffices to show that $\Delta_\infty$ gives a normal form for $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$. This is indeed true for $\sigma$-frames: By a generalisation of the results in \Cref{prop:simplicesasalgebra}, an element $p$ in $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ can be uniquely written as the \emph{countable join},
   \[ p = \bigvee_{n:\N}p_n \wedge i_n, \]
   with $p_n \le p_{n+1}$ for all $n:\N$. A more detailed proof is given in \Cref{app:normalsigma}. This identifies $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ with $\Delta_\infty$, and completes the proof.
 \end{proof}
+
 
 \begin{remark}
   As indicated in \Cref{rem:qcreplete,rem:specarereplete}, both spectra and quasi-coherent $\I$-algebras are replete. The above result then implies that they are also complete, i.e.\ orthogonal to $\omega\hook\ov\omega$.
@@ -1184,7 +1187,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 \end{proof}
 
 \begin{remark}[$\sigma$-frames vs.\ distributive lattices]\label{rem:whynotdis}
-  The completeness result shown in \Cref{thm:complete} is the only place in this paper where it works for $\sigma$-frames while not for distributive lattices. The reason is exactly because the c.p.\ distributive lattice $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ will \emph{not} be isomorphic to $\Delta_\infty$, thus the cone $\set{f_n}_{n:\N}$ displayed in the proof of \Cref{thm:complete} will \emph{not} be a limiting diagram of distributive lattices. The fact that we have \emph{all} infinite increasing sequences is clearly due to the fact that we have countable disjunctions in $\sigma$-frames, as when identifying $p$ in $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ with $p = \bigvee_{n:\N}p_n\wedge i_n$. More specifically, for the c.p.\ distributive lattice $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$, since it is a sequential colimit of the following f.p.\ distributive lattices
+  The completeness result shown in \Cref{thm:complete} is the only thing in this paper that works for $\sigma$-frames and not distributive lattices more generally. The reason is exactly because the c.p.\ distributive lattice $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ will \emph{not} be isomorphic to $\Delta_\infty$, thus the cone $\set{f_n}_{n:\N}$ displayed in the proof of \Cref{thm:complete} will \emph{not} be limiting in the category of distributive lattices. The fact that we have \emph{all} infinite increasing sequences is clearly due to the fact that we have countable disjunctions in $\sigma$-frames, as when identifying $p$ in $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ with $p = \bigvee_{n:\N}p_n\wedge i_n$. More specifically, for the c.p.\ distributive lattice $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$, since it is a sequential colimit of the following f.p.\ distributive lattices
   \[ 
   \begin{tikzcd}
     \cdots \ar[r] & \I[n]/i_{0} \ge \cdots \ge i_{n-1} \ar[r, hook] & \I[n\!+\!1]/i_0 \ge \cdots \ge i_n \ar[r, hook] & \cdots
@@ -1196,7 +1199,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 \end{remark}
 
 \begin{remark}[Limits of algebras induce locality for $\I$]\label{rem:limofalgloc}
-  By inspecting the proof of \Cref{thm:complete}, it is clear that the reason $\I$ is complete is because there is a specific \emph{limiting diagram} of quasi-coherent $\I$-algebras. In general, any such limit diagram will induce an orthogonality property satisfied by the all spectra, and we will see many more examples in \Cref{sec:local}. From \Cref{rem:whynotdis} it is clear whether a diagram of $\I$-algebras is a limit heavily relies on the underlying algebraic theory. This is thus a perfect example of how the algebraic properties of a theory has significant consequence on the internal logic of its classifying topos.
+  By inspecting the proof of \Cref{thm:complete}, it is clear that $\I$ is complete \emph{precisely} because there is a specific \emph{limiting diagram} of quasi-coherent $\I$-algebras. In general, any such limit diagram will induce an orthogonality property satisfied by the all spectra, and we will see many more examples in \Cref{sec:local}. From \Cref{rem:whynotdis} it is clear whether a diagram of $\I$-algebras is a limit heavily relies on the underlying algebraic theory. This is thus a perfect example of how the algebraic properties of a theory has significant consequences for the internal logic of its classifying topos.
 \end{remark}
 
 % \section{specialisation posets continued}\label{sec:synposet}
@@ -1921,7 +1924,11 @@ This leads us to conjecture that $\mc H$ will be equivalent to the sheaf topos $
 
 \appendix
 
+
+
 \section{A normal form result}
+
+\Jon{I suggest just moving this into the body in time for it to be used.}
 
 \begin{lemma}\label{app:normalsigma}
   For the countably presented $\sigma$-frame $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$, an element $p$ can be uniquely written as 
