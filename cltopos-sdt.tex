@@ -295,25 +295,34 @@ Blechschmidt also points out that quasicoherence descends from the classifying (
 
 \subsection{Main contribution}
 
-The aim of this paper is to explain the connection between quasi-coherence for \emph{distributive lattices} and \emph{$\sigma$-frames} with synthetic domain theory. The theory of distributive lattices is  As a first indication of why quasi-coherence for these theories might be useful for domain theory, we have observed that by taking the interval $\I$ to be the generic distributive lattice or $\sigma$-frame, many important objects for domain theory can be written as \emph{spectrums}. This include the cubes $\I^n$ (\Cref{exm:cubeaffine}), the simplices $\Delta^n$ (\Cref{exm:simplicesaffine}), and the final coalgebra $\ov\omega$ (\Cref{exm:ovomegaaffine}). The initial algebra $\omega$ will also be realised as a sequential colimit of spectrums (\Cref{prop:omegacolimit}). Here we outline the main results of this paper, and discuss some of their potential applications.
+We study an emerging connection between synthetic domain theory and the quasi-coherence axioms for \emph{distributive lattices} and \emph{$\sigma$-frames}. As a first indication of why quasi-coherence for these theories might be useful for domain theory, we have observed that by taking the interval $\I$ to be the generic distributive lattice or $\sigma$-frame, many important objects for domain theory can be written as \emph{spectrums}. This include the cubes $\I^n$ (\Cref{exm:cubeaffine}), the simplices $\Delta^n$ (\Cref{exm:simplicesaffine}), and the final coalgebra $\ov\omega$ (\Cref{exm:ovomegaaffine}). The initial algebra $\omega$ will also be realised as a sequential colimit of spectrums (\Cref{prop:omegacolimit}). Here we outline the main results of this paper, and discuss some of their potential applications.
 
-\emph{1) Quasi-coherence produces synthetic domain theory}: We show the principle of quasi-coherence suffices to account for \emph{all} essential axioms for synthetic domain theory. Specifically:
+\begin{enumerate}
+  \item \emph{Quasi-coherence produces synthetic domain theory.} We show the principle of quasi-coherence suffices to account for \emph{all} essential axioms for synthetic domain theory. Specifically:
+  \begin{enumerate}
+    \item In the case of both distributive lattices and $\sigma$-frames, the quasi-coherence for f.p.\ algebras (in fact a weaker assumption; cf.\ \Cref{ax:sqci}) implies that the generic interval $\I$ forms a dominance (\Cref{prop:Idominance}). It also leads to an explicit computation of the lifting of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectrums (\Cref{prop:liftofaffine}).
+    \item As mentioned, quasi-coherence for f.p.\ algebras implies that the generic interval $\I$ satisfies Phoa's principle. In fact, we can show more generally that any affine space will also satisfy the Phoa's principle (\Cref{thm:phoaaffine}), and similarly for quasi-coherent algebras (\Cref{thm:algebraphoa}).
+    \item In the case of $\sigma$-frames, the quasi-coherence for c.p.\ algebras implies completeness of $\I$ (\Cref{thm:complete}) assuming $\I$ is non-trivial. \Jon{This is a little confusing, because obviously the generic $\sigma$-frame is already non-trivial; can we make the claim more precise?} This is the only place where we have to work with $\sigma$-frames and not distributive lattices (cf.~\Cref{rem:whynotdis}). This gives a full account of the axioms for synthetic domain theory as specified in~\cite{hyland2006first}. \Jon{Do we really? I wasn't sure that we had considered all the dual axioms for co-partial maps, etc.} Additionally, we can show the initial algebra $\omega$ is characterised by a sequential colimit (\Cref{prop:omegacolimit}). \Jon{We can cite something from Fiore et al.\ here, to connect the the infinitary tradition of SDT in which that is taken as an axiom.}
 
-\emph{\ \ 1.1)} Work with distributive lattices or $\sigma$-frames, the quasi-coherence for f.p.\ algebras (in fact a weaker assumption; cf. \Cref{ax:sqci}) implies that the generic interval $\I$ forms a dominance (\Cref{prop:Idominance}). It also leads to an explicit computation of the lifting of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectrums (\Cref{prop:liftofaffine}).
+  \end{enumerate}
 
-\emph{\ \ 1.2)} As mentioned, quasi-coherence for f.p.\ algebras implies the generic interval $\I$ satisfies the Phoa's principle. In fact, we can show more generally that any affine space will also satisfy the Phoa's principle (\Cref{thm:phoaaffine}), and similarly for quasi-coherent algebras (\Cref{thm:algebraphoa}).
+  \item \emph{Local properties of spectrums.} Though in general we do not assume the generic interval $\I$ to satisfy any local property such as linearity, we do discuss many instances of them and investigate their consequences.
+  \begin{enumerate}
 
-\emph{\ \ 1.3)} Most importantly, working with $\sigma$-frames, the quasi-coherence for c.p.\ algebras (plus the minor assumption that $\I$ is non-trivial) implies completeness of $\I$ (\Cref{thm:complete}). This is the only place where we have to work with $\sigma$-frames and not distributive lattices (cf.~\Cref{rem:whynotdis}) This gives a full account of the axioms for synthetic domain theory as specified in~\cite{hyland2006first}. Additionally, we can show the initial algebra $\omega$ is characterised by a sequential colimit (\Cref{prop:omegacolimit}).
+    \item \Cref{sec:locality} introduces various local conditions for $\I$, all of which will be compatible with quasi-coherence. This showcases the flexibility of this framework to encompass different flavours of domain theory.
 
-\emph{2) Local properties of spectrums}: Though in general we do not assume the generic interval $\I$ to satisfy any local property such as linearity, we do discuss many instances of them and investigate their consequences.
+    \item  More interestingly, without assuming the local properties globally, one can still show that $\I$ will be \emph{right orthogonal} to the maps that classifies these local properties (\Cref{specisnontrivial,specissimplicial,specis1t}). In general, any limiting diagram of quasi-coherent algebras will induce a localisation class containing $\I$; cf. \Cref{rem:limofalgloc}. This exhibits a new type of techniques in reasoning about domains in this framework.
+    
+    \item As a special case of locality, we also connect to the recent approach of synthetic (higher) category theory~\cite{riehl2017type,buchholtz2021synthetic,gratzer2024directed}. In particular, we show spectrums will be synthetic categories (\Cref{thm:affineposet}). As another example, we also show $\omega$ is a synthetic category, in fact it satisfies \emph{all} the orthogonality conditions discussed in this paper (\Cref{thm:omegaortho}). 
+  \end{enumerate}
 
-\emph{\ \ 2.1)} \Cref{sec:locality} introduces various local conditions for $\I$, all of which will be compatible with quasi-coherence. This showcases the flexibility of this framework to encompass different flavours of domain theory.
+  \item \emph{New models for synthetic domain theory.} Consequently, we uncover a large family of new models for synthetic domain theory based on classifying topoi for $\sigma$-frames. We will discuss these models in \Cref{sec:model}, and compare them to the existing sheaf models for synthetic domain theory~\cite{FIORE1997151} in \Cref{subsec:compare}.
+\end{enumerate}
 
-\emph{\ \ 2.2)} More interestingly, without assuming the local properties globally, one can still show that $\I$ will be \emph{orthogonal} to the maps that classifies these local properties (\Cref{specisnontrivial,specissimplicial,specis1t}). In general, any limiting diagram of quasi-coherent algebras will induce a localisation class containing $\I$; cf. \Cref{rem:limofalgloc}. This exhibits a new type of techniques in reasoning about domains in this framework.
 
-\emph{\ \ 2.3)} As a special case of locality, we also connect to the recent approach of synthetic (higher) category theory~\cite{riehl2017type,buchholtz2021synthetic,gratzer2024directed}. In particular, we show spectrums will be synthetic categories (\Cref{thm:affineposet}). As another example, we also show $\omega$ is a synthetic category, in fact it satisfies \emph{all} the orthogonality conditions discussed in this paper (\Cref{thm:omegaortho}). 
 
-\emph{3) New models for synthetic domain theory}: As a consequence, a large family of new models for synthetic domain theory based on classifying topoi for $\sigma$-frames emerges. We will discuss these models in \Cref{sec:model}, and compare them to the existing sheaf models for synthetic domain theory~\cite{FIORE1997151} in \Cref{subsec:compare}.
+
+
 
 \subsection{Style and notation of the paper}
 
