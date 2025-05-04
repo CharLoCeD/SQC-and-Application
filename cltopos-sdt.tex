@@ -256,7 +256,7 @@ Cambridge, UK\newline
 
 \subsection{Synthetic domain theory}\label{subsec:sdt}
 
-The proposal to develop a synthetic theory of domains was raised by Dana Scott in the 1980s. The thesis is that (pre)domains should be viewed simply as some special sets in a suitable universe, and any function between them should automatically respect the computational data associated to domains. Later Hyland~\cite{hyland2006first} gives an extensive list of the properties such a universe should satisfy.
+The proposal to develop a synthetic theory of domains was raised by Dana Scott in the 1980s. The thesis is that (pre)domains should be viewed simply as some special sets in a suitable universe, and any function between them should automatically respect the computational data associated to domains. Later Hyland~\cite{hyland1990first} gives an extensive list of the properties such a universe should satisfy.
 
 Firstly, a universe for synthetic domains should contain an interval object $\I$ which induces an information order (or specialisation order from a topological perspective) on domains, and every function will automatically be monotone. \Jon{Let's be a little careful here; although in the classic SDT, the information order played an important role, it seems to me that without a deeper change to the architecture of SDT (e.g.\ augmenting $\I$ to something that captures non-propositional measurements), this viewpoint will not scale to higher domains. Can we be a little more agnostic?} An internal axiom that characterises the synthetic nature of this fact is the so-called \emph{Phoa's principle}: The function space $\I^\I$ should classify the order on $\I$. In other words, the functions from $\I$ to itself are completely determined by the order structure on $\I$. 
 
@@ -302,7 +302,7 @@ We study an emerging connection between synthetic domain theory and the quasi-co
   \begin{enumerate}
     \item\label{contribution:dominance} In the case of both distributive lattices and $\sigma$-frames, the quasi-coherence for f.p.\ algebras (in fact a weaker assumption; cf.\ \Cref{ax:sqci}) implies that the generic interval $\I$ forms a dominance (\Cref{prop:Idominance}). It also leads to an explicit computation of the lifting of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectra (\Cref{prop:liftofaffine}).
     \item As mentioned, quasi-coherence for f.p.\ algebras implies that the generic interval $\I$ satisfies Phoa's principle. In fact, we can show more generally that any affine space will also satisfy the Phoa's principle (\Cref{thm:phoaaffine}), and similarly for quasi-coherent algebras (\Cref{thm:algebraphoa}).
-    \item In the case of $\sigma$-frames, the quasi-coherence for c.p.\ algebras implies completeness of $\I$ (\Cref{thm:complete}) assuming $\I$ is non-trivial. \Jon{This is a little confusing, because obviously the generic $\sigma$-frame is already non-trivial; can we make the claim more precise?} This is the only place where we have to work with $\sigma$-frames and not distributive lattices (cf.~\Cref{rem:whynotdis}). This gives a full account of the axioms for synthetic domain theory as specified in~\cite{hyland2006first}. \Jon{Do we really? I wasn't sure that we had considered all the dual axioms for co-partial maps, etc.} Additionally, we can show the initial algebra $\omega$ is characterised by a sequential colimit (\Cref{prop:omegacolimit}). \Jon{We can cite something from Fiore et al.\ here, to connect the the infinitary tradition of SDT in which that is taken as an axiom.}
+    \item In the case of $\sigma$-frames, the quasi-coherence for c.p.\ algebras implies completeness of $\I$ (\Cref{thm:complete}) assuming $\I$ is non-trivial. \Jon{This is a little confusing, because obviously the generic $\sigma$-frame is already non-trivial; can we make the claim more precise?} This is the only place where we have to work with $\sigma$-frames and not distributive lattices (cf.~\Cref{rem:whynotdis}). This gives a full account of the axioms for synthetic domain theory as specified in~\cite{hyland1990first}. \Jon{Do we really? I wasn't sure that we had considered all the dual axioms for co-partial maps, etc.} Additionally, we can show the initial algebra $\omega$ is characterised by a sequential colimit (\Cref{prop:omegacolimit}). \Jon{We can cite something from Fiore et al.\ here, to connect the the infinitary tradition of SDT in which that is taken as an axiom.}
 
   \end{enumerate}
 
@@ -342,11 +342,11 @@ Given an $\I$-algebra $A$, we will abuse notation by identifying elements of $\I
 
 \section{Quasi-coherence and affine spaces}\label{sec:basics}
 
-As mentioned, we will work with a type system enriched with a generic model $\I$ of some Horn theory $\T$. In this section we will first describe the quasi-coherence property, and briefly recap some of its elementary consequences. The results in this section applies to any Horn theory $\T$, thus at this state we do not assume $\T$ to satisfy any additional properties.
+As mentioned, we will work in intensional type theory extended by a model $\I$ of some Horn theory $\T$. In this section we will first describe the quasi-coherence property, and briefly recap some of its elementary consequences. The results in this section applies to any Horn theory $\T$, thus at this stage we do not assume $\T$ to satisfy any additional properties.
 
-We view quasi-coherence as a \emph{property} of $\I$-algebras. As mentioned in \Cref{subsec:qc}, an $\I$-algebra is a $\T$-model $A$ equipped with a homomorphism $\I \to A$. Here by a $\T$-model we always mean a \emph{set} (in the sense of~\cite{hottbook}) equipped with a family of operations satisfying the axioms specified by $\T$. For any $\T$-algebras $A,B$, we will use $\I\alg(A,B)$ to denote the set of homomorphisms of $\I$-algebras from $A$ to $B$. For instance, we have mentioned the \emph{spectrum} $\spec A$ of $A$ is the set $\I\alg(A,\I)$.
+We view quasi-coherence as a \emph{property} of $\I$-algebras. As mentioned in \Cref{subsec:qc}, an $\I$-algebra is a $\T$-model $A$ equipped with a homomorphism $\I \to A$. Here by a $\T$-model we always mean a \emph{set} (in the sense of univalent foundations) equipped with a family of operations satisfying the axioms specified by $\T$. For any $\T$-algebras $A,B$, we will use $\I\alg(A,B)$ to denote the set of homomorphisms of $\I$-algebras from $A$ to $B$. For instance, we have mentioned the \emph{spectrum} $\spec A$ of $A$ is the set $\I\alg(A,\I)$. \Jon{This is important enough that it should be a separate definition so that readers can quickly skim back through the paper to find it.}
 
-Before discussing quasi-coherence, we observe that many sets can be naturally viewed as the spectrum of some $\I$-algebra. For the simplest example, since $\I$ is the initial $\I$-algebra, $\spec \I \cong \I\alg(\I,\I) \cong 1$. Similarly, $\I$ itself as a spectrum, $\spec \I[i] \cong \I\alg(\I[i],\I) \cong \I$. More generally, we have:
+Before discussing quasi-coherence, we observe that many sets can be naturally viewed as the spectrum of a certain $\I$-algebra. For example, we have $\spec \I \cong \I\alg(\I,\I) \cong 1$ because  $\I$ is the initial $\I$-algebra. Similarly, $\I$ itself it the spectrum of the polynomial $\I$-algebra $\I[x]$, as we have $\spec \I[x] \cong \I\alg(\I[x],\I) \cong \I$. More generally:
 
 \begin{example}[Cubes]\label{exm:cubeaffine}
   For any $n:\N$, let $\I[n]$ be the free $\I$-algebra on $n$ generators. The cube $\I^n$ is a spectrum,
@@ -355,10 +355,10 @@ Before discussing quasi-coherence, we observe that many sets can be naturally vi
 
 Evidently, the above construction not only applies to finite types, but arbitrary set $X$ where $\spec \I[X] \cong \I^X$. Notice $\I[X]$ is the $X$-indexed coproduct of $\I[i]$ for $\I$-algebras, and $\spec$ takes it to the $X$-indexed product of $\spec\I[i] \cong \I$. 
 
-More generally, notice that $\spec$ is in fact a contravariant functor from $\I$-algebras to sets: For any $f : A \to B$, we have a map $\spec f : \spec B \to \spec A$ by precomposing with $f$. It indeed turns many colimits to limits, and as a consequence:
+Notice that $\spec$ is in fact a contravariant functor from $\I$-algebras to sets: For any $f \colon A \to B$, we have a map $\spec f \colon \spec B \to \spec A$ by precomposing with $f$. It indeed turns many colimits to limits, and as a consequence:
 
 \begin{proposition}
-  Every spectrum is a equaliser of powers of $\I$. 
+  Every spectrum is an equaliser of powers of $\I$. 
 \end{proposition}
 \begin{proof}
   Let $A$ be \emph{any} $\I$-algebra. Notice that it can be written as a coequaliser of free $\I$-algebras, e.g.\ by taking $X$ as $A$ and $R$ as $\I[X] \times \I[X]$,
@@ -367,6 +367,8 @@ More generally, notice that $\spec$ is in fact a contravariant functor from $\I$
     \I[R] \ar[r, shift left, "s"] \ar[r, shift right, "t"'] & \I[X] \ar[r, two heads] & A
   \end{tikzcd}
   \]
+  \Jon{The above was kind of non-obvious to me. I think an actual proof is needed for the above claim.}
+
   By the universal property, it follows that $\spec A$ can be identified as
   \[ \spec A \cong \scomp{x : \spec\I[X]}{xs = xt}, \]
   which implies it is the following equaliser,
@@ -379,7 +381,8 @@ More generally, notice that $\spec$ is in fact a contravariant functor from $\I$
 \end{proof}
 
 \begin{remark}[Spectra are replete]\label{rem:specarereplete}
-  Recall the notion of \emph{replete} type given in~\cite{hyland2006first}: $X$ is replete if it is orthogonal to any map $f$ that $\I$ is orthogonal to. Through out the paper, by orthogonality we always mean the \emph{internal} notion: $X$ is orthogonal to a map $f$ iff $X^f$ is an equivalence. Thus, an object is replete iff it belongs to the smallest internal localisation class containing $\I$. In particular, replete objects form an exponential ideal, which by the previous result it follows that all spectra will be replete.
+  Recall the notion of \emph{replete} type given by Hyland~\cite{hyland1990first}: $X$ is said to replete when it is right orthogonal to any map that $\I$ is right orthogonal to. Throughout the paper, by right orthogonality we always mean the \emph{internal} notion: $X$ is right orthogonal to a map $f$ iff the restriction map $X^f$ is an equivalence. Thus, an object is replete iff it belongs to the smallest internal localisation class containing $\I$. In particular, replete objects form an exponential ideal, from which by the previous result it follows that all spectra will be replete.
+  \Jon{You seem to be arguing that spectra are replete because they are formed by mapping into $\I$, but remember that $\spec A$ is not $\I^A$ but $\I\alg(A,\I)$. So at least one more step would be required---for example, it would be enough to show that $\I\alg(A,\I)$ can be computed as a limit involving $\I^A$ or something, etc. Is something like this possible?}
 \end{remark}
 
 Among all $\I$-algebras, some will be special:
@@ -388,7 +391,7 @@ Among all $\I$-algebras, some will be special:
   An $\I$-algebra $A$ is \emph{quasi-coherent}, if the canonical evaluation map $A \to \I^{\spec A}$ is an equivalence of $\I$-algebras, where $\I^{\spec A}$ has the pointwise $\I$-algebra structure.
 \end{definition}
 
-We emphasis that the equivalence $A \cong \I^{\spec A}$ is not only an equivalence of types, but an equivalence of $\I$-algebras. This implies that the algebraic structure on $A$ can be viewed as pointwise induced by that on $\I$. 
+We emphasise that the equivalence $A \cong \I^{\spec A}$ is not only an equivalence of types, but an equivalence of $\I$-algebras. This implies that the algebraic structure on $A$ can be viewed as pointwise induced by that on $\I$. 
 
 % As a first consequence, the spectrum of a quasi-coherent algebra $A$ always \emph{has enough points}, in the sense that it distinguishes elements in $A$:
 
@@ -401,7 +404,7 @@ We emphasis that the equivalence $A \cong \I^{\spec A}$ is not only an equivalen
 % \end{proof}
 
 \begin{remark}[Quasi-coherent algebras are replete]\label{rem:qcreplete}
-  If $A$ is quasi-coherent, then since $A \cong \I^{\spec A}$ it is also replete.
+  Any quasi-coherent algebra $A$ is also replete, as we have $A\cong \I^{\spec{A}}$
 \end{remark}
 
 \begin{example}\label{exm:intervalqc}
@@ -413,7 +416,7 @@ We emphasis that the equivalence $A \cong \I^{\spec A}$ is not only an equivalen
 Just like quasi-coherence is a property on $\I$-algebras, being affine will be a property on spectra:
 
 \begin{definition}[Affine]
-  We say a type $X$ is \emph{affine}, if $\I^X$ is quasi-coherent, and the canonical evaluation map $X \to \spec \I^X$ is an equivalence.
+  We say a type $X$ is \emph{affine}, if $\I^X$ is quasi-coherent and moreover the canonical evaluation map $X \to \spec \I^X$ is an equivalence.
 \end{definition}
 
 \begin{remark}[Dual algebra for affine space is unique]
@@ -421,17 +424,17 @@ Just like quasi-coherence is a property on $\I$-algebras, being affine will be a
 \end{remark}
 
 \begin{remark}[Affineness as a general property]
-  Our notion of affine space already indicates an important difference between our approach and the ones taken in the related works~\cite{Cherubini_Coquand_Hutzler_2024,cherubini2024foundation}. There, the notion is directly connected to a notion of size, i.e.\ they are the spectrum of f.p.\ or c.p.\ algebras. Since we aim for a completely modular development, our notion of affine is more general, which a priori does not favour a class of size-related algebras. Many of the results in this section are essentially developed in~\cite{Cherubini_Coquand_Hutzler_2024}. However, we include them here for the precise reason that we need a version of them that applies to our slightly more general set up.
+  Our notion of affine space already indicates an important difference between our approach and the ones taken in the related works~\cite{Cherubini_Coquand_Hutzler_2024,cherubini2024foundation}. There, the notion is directly connected to the size of presentation, i.e.\ they are the spectrum of f.p.\ or c.p.\ algebras. Since we aim for a completely modular development, our notion of affine is more general, which a priori does not favour a class of size-related algebras. Many of the results in this section are essentially developed by Cherubini~et~al.~\cite{Cherubini_Coquand_Hutzler_2024}. However, we include them here for the precise reason that we need a version of them that applies to our slightly more general set up.
 \end{remark}
 
 For quasi-coherent algebras, the contravariant functor $\spec$ now induces a duality between quasi-coherent algebras and affine spaces:
 
 \begin{proposition}\label{prop:duality}
-  If $B$ is quasi-coherent, then for any $A$, the canonical map is an equivalence,
-  \[ \I\alg(A,B) \cong \spec A^{\spec B}. \]
+  If $B$ is quasi-coherent, then for any $A$, the canonical map $\I\alg(A,B)\to (\spec A)^{\spec B}$ is an equivalence.
 \end{proposition}
+This is essentially Prop.~2.2.1 of Cherubini~et~al.~\cite{Cherubini_Coquand_Hutzler_2024}. We include the proof here for completeness since our assumption is slightly more general.
 \begin{proof}
-  The proof is essentially contained in~\cite[Prop. 2.2.1]{Cherubini_Coquand_Hutzler_2024}. We include the proof here for completeness since our assumption is slightly more general. By quasi-coherence of $B$, we have the following equivalences,
+ By quasi-coherence of $B$, we have the following equivalences,
   \[ \I\alg(A,B) \cong \I\alg(A,\I^{\spec B}) \cong \I\alg(A,\I)^{\spec B} \cong \spec A^{\spec B}. \]
   The second step holds since $\I^{\spec B}$ has pointwise $\I$-algebra structure.
 \end{proof}
@@ -442,17 +445,20 @@ The above duality result tells us that we can infer equivalence of algebras via 
   For any $f : \I\alg(A,B)$, if $A,B$ are quasi-coherent, then $f$ is an equivalence iff it induces an equivalence $\spec B \to \spec A$. 
 \end{corollary}
 
-At the end of this section, following~\cite{Cherubini_Coquand_Hutzler_2024} we describe an extremely useful formula computing coproducts of $\I$-algebras:
+At the end of this section, following Cherubini~et~al.~\cite{Cherubini_Coquand_Hutzler_2024} we describe an extremely useful formula computing coproducts of $\I$-algebras:
+
+\Jon{I think we need to define the tensor product here... Recalling that we are working with an arbitrary horn theory.}
 
 \begin{proposition}\label{prop:tensorasspace}
   For any $\I$-algebra $A,B$, 
   \[ \spec A \times \spec B \cong \spec(A \otimes B). \]
+  \Jon{Which map?}
   If $B$ is quasi-coherent, then there is an equivalence
   \[ \I^{\spec A \otimes B} \cong B^{\spec A}. \]
   Of course, this computes $A \otimes B$ when $A \otimes B$ is itself quasi-coherent.
 \end{proposition}
 \begin{proof}
-  This is essentially~\cite[Lem. 3.2.1 \& Lem. 3.3.1]{Cherubini_Coquand_Hutzler_2024}.
+  This is essentially Lemmas~3.2.1 and 3.3.1 of Cherubini~et~al~\cite{Cherubini_Coquand_Hutzler_2024}.
 \end{proof}
 
 Under the above identification, if $B$ is quasi-coherent, then the evaluation map $A \otimes B \to \I^{\spec A \otimes B}$ can be equivalently viewed as
@@ -790,7 +796,7 @@ We can very easily classify the specialisation order on discrete sets, i.e.\ set
 \end{proof}
 
 \begin{remark}
-  The above proof would also work with the weaker assumption that the specialisation order on $X$ is \emph{connected}. This generalises a similar result given in~\cite[Prop. 4.4.1]{hyland2006first}.
+  The above proof would also work with the weaker assumption that the specialisation order on $X$ is \emph{connected}. This generalises a similar result given in~\cite[Prop. 4.4.1]{hyland1990first}.
 \end{remark}
 
 Thus, it suffices to compute the specialisation order on $\I$. In fact, the specialisation order on any affine space is easy to characterise:
@@ -975,7 +981,7 @@ At this point, the situation for quasi-coherent algebras is easy to see:
   For a quasi-coherent $\I$-algebra $A$, the specialisation order coincides with its canonical order.
 \end{corollary}
 \begin{proof}
-  If $A$ is quasi-coherent, then $A \cong \I^{\spec A}$ as an $\I$-algebra, and its canonical order thus coincides with the pointwise order on $\I$. On the other hand, it is well-known that the Phoa's principle for the interval $\I$ implies the specialisation order on any type $\I^X$ is pointwise; see e.g.~\cite[Thm. 4.2.1]{hyland2006first}. Hence, the two orders on $A$ indeed coincide.
+  If $A$ is quasi-coherent, then $A \cong \I^{\spec A}$ as an $\I$-algebra, and its canonical order thus coincides with the pointwise order on $\I$. On the other hand, it is well-known that the Phoa's principle for the interval $\I$ implies the specialisation order on any type $\I^X$ is pointwise; see e.g.~\cite[Thm. 4.2.1]{hyland1990first}. Hence, the two orders on $A$ indeed coincide.
 \end{proof}
 
 \begin{theorem}[SQCF]\label{thm:algebraphoa}
@@ -1016,7 +1022,7 @@ The connection between the infinitary aspect of synthetic domain theory and quas
     \ov\omega \cong \lt_{n:\N}\Delta^n \ar[r] & \cdots \ar[r] & \Delta^2 \ar[r, "!\prt"] & \I \ar[r, "!"] & 1
   \end{tikzcd}
   \]
-  where the transition map $\Delta^{n+1} \to \Delta^n$ takes the sequence $i_0 \ge \cdots \ge i_n$ to the final segment $i_1 \ge \cdots \ge i_n$. As observed in~\cite[Sec. 5.2]{hyland2006first}, it also has an equivalent type-theoretic description as the object of infinite descending sequences in $\I$,
+  where the transition map $\Delta^{n+1} \to \Delta^n$ takes the sequence $i_0 \ge \cdots \ge i_n$ to the final segment $i_1 \ge \cdots \ge i_n$. As observed in~\cite[Sec. 5.2]{hyland1990first}, it also has an equivalent type-theoretic description as the object of infinite descending sequences in $\I$,
   \[ \ov\omega \cong \scomp{i : \N \to \I}{\fa n\N i_n \ge i_{n+1}}. \]
   This way, we have a natural equivalence
   \[ \ov\omega \cong \spec\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}. \]
@@ -1158,7 +1164,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 
 % \section{specialisation posets continued}\label{sec:synposet}
 
-% The aim of this section is to first show that specialisation posets are exactly the \emph{replete objects} in the sense of~\cite{hyland2006first}, and that they satisfy some closure properties under certain colimits.
+% The aim of this section is to first show that specialisation posets are exactly the \emph{replete objects} in the sense of~\cite{hyland1990first}, and that they satisfy some closure properties under certain colimits.
 
 % We say a type $X$ is \emph{$f$-local} if $X^f$ is an equivalence. Dually, we also say $f$ is \emph{$X$-trivial}.
 
@@ -1166,7 +1172,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 %   A type $X$ is \emph{replete}, if it is $f$-local for all $\I$-trivial maps $f$.
 % \end{definition}
 
-% Though this is a very big orthogonality class, it is shown in~\cite{hyland2006first} that it is \emph{reflective}, and the reflector is the image of the canonical map $X \to \I^{\I^X}$.
+% Though this is a very big orthogonality class, it is shown in~\cite{hyland1990first} that it is \emph{reflective}, and the reflector is the image of the canonical map $X \to \I^{\I^X}$.
 
 % \begin{lemma}[SQCF]
 %   $X$ is replete iff its specialisation order is anti-symmetric.
