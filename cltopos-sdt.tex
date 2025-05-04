@@ -1895,7 +1895,7 @@ Both synthetic topology~\cite{bauer2009dedekind} and synthetic computability the
 
 Finally, it will be instructive to compare the sheaf models for synthetic domain theory constructed by Fiore and Rosolini~\cite{FIORE1997151} with the models discussed in \Cref{sec:model}. Recall the topos $\mc H$ constructed in \emph{loc. cit.} is the following sheaf topos,
 \[ \mc H := \sh(\mb P,J_{\ms{can}}), \]
-where $\mb P$ be the full subcategory of the category $\wCPO$ of $\omega$-cpos consisting of retracts of the Scott's graph model $G$, and $J_{\ms{can}}$ is the canonical topology on $\mb P$. An $\omega$-cpo is simply a poset having countable joins, and a morphism between them are monotone maps preserving the countable joins.
+where $\mb P$ be the full subcategory of the category $\wCPO$ of $\omega$-cpos consisting of retracts of the Scott's graph model $G$, and $J_{\ms{can}}$ is the canonical topology on $\mb P$. An $\omega$-cpo is simply a poset having countable joins, and a morphism between them are monotone maps preserving the countable joins.\Jon{Not all countable joins, but just joins of $\omega$-chains.}
 
 Here we observe that the inclusion $\mb P \hook \wTop$ is \emph{fully faithful}, because
 \begin{align*}
@@ -1904,6 +1904,8 @@ Here we observe that the inclusion $\mb P \hook \wTop$ is \emph{fully faithful},
   \cong& \sFrm\cp([P_f(\N),2],[P_f(\N),2]) \\ 
   \cong& \wTop(G,G) \qedhere
 \end{align*}
+\Jon{I am concerned about the first step above because of my last comment.}
+
 This leads us to conjecture that $\mc H$ will be equivalent to the sheaf topos $\sh(\wTop,J_{\mr{can}})$. However, a detailed proof of this requires us to better understand the categorical properties of $\wTop$.
 
 % \begin{theorem}\label{thm:comparemodel}
