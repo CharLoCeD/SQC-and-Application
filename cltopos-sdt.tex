@@ -1080,7 +1080,7 @@ In general, by a c.p.\ $\I$-algebra we mean one of the form $\I[\N]/\pair{s_n = 
 (SQCC) combined with the non-triviality axiom (NT) has many logical consequences. The crucial observation is that (NT) implies a weak form of \emph{Nullstellensatz} result, as already noted by several authors~\cite{blechschmidt2021using,blechschmidt2020general,Cherubini_Coquand_Hutzler_2024}:
 
 \begin{lemma}[NT]\label{lem:nulls}
-  For an affine space $X \cong \spec A$, $X \cong \emp$ iff $A$ is trivial, viz. $0=1$ in $A$.
+  For an affine space $X \cong \spec A$, $X \cong \emp$ iff $A$ is trivial, viz.\ $0=1$ in $A$.
 \end{lemma}
 \begin{proof}
   The backward direction holds since because $\I$ is non-trivial (NT), thus there is no homomorphism from a trivial algebra to $\I$. For the forward direction: by assumption $A \cong \I^{\spec A} \cong \I^\emp$, which implies $A$ is trivial. 
@@ -1714,13 +1714,13 @@ It is now instructive to discuss models for the axioms we have used in the previ
   \item Various locality axioms discussed in \Cref{sec:locality}.
 \end{enumerate}
 
-For any Horn theory $\T$, through the work in~\cite{blechschmidt2020general,blechschmidt2021using} we know that the classifying topos $\Set[\T] \cong [\mmod\T\fp,\Set]$, with the generic $\T$-model $U_\T$, models quasi-coherence for finitely presented $U_\T$-algebras, viz. (SQCF). As mentioned in \Cref{subsec:qc}, the proof for quasi-coherence for finitely presented $U_\T$-algebras can be completely adapted to the countably presented case, provided we work with a larger site,
+For any Horn theory $\T$, we know from Blechschmidt~\cite{blechschmidt2020general,blechschmidt2021using} that the generic $\T$-model $U_\T\in\Set[\T]$ satisfies quasi-coherence for finitely presented $U_\T$-algebras, viz.\ (SQCF). As mentioned in \Cref{subsec:qc}, the proof of quasi-coherence for finitely presented $U_\T$-algebras adapts readily to the countably presented case, provided we work with the larger site
 \[ \Set[\T]_\omega := [\mmod\T\cp,\Set], \]
-where $\mmod\T\cp$ is the category of c.p.\ $\T$-models. In other words, (SQCC) holds in the larger topos $\Set[\T]_\omega$. And in this case, we also allow $\T$ to contain algebraic operations of countable arity.
+where $\mmod\T\cp$ is the category of c.p.\ $\T$-models. In other words, (SQCC) holds in the larger topos $\Set[\T]_\omega$. And in this case, we can also allow $\T$ to contain algebraic operations of countable arity. \Jon{Did we need countable choice in $\Set$ for this last part?}
 
-These two topoi are intimately related. There is a fully faithful and left exact inclusion of site
-\[ \mmod\T\fp\op \hook \mmod\T\cp\op, \]
-Hence, it induces an adjoint triple (cf.~\cite[Thm. 7.20]{caramello2019denseness}),
+These two topoi $\Set[\T]$ and $\Set[\T]_\omega$ are intimately related. There is a fully faithful and left exact inclusion of sites
+\[ \mmod\T\fp\op \hook \mmod\T\cp\op \]
+inducing an adjoint triple (cf.\ Caramello~\cite[Thm. 7.20]{caramello2019denseness}),
 \[\begin{tikzcd}
   {\Set[\T]_\omega} & {\Set[\T]}
   \arrow[""{name=0, anchor=center, inner sep=0}, "\Gamma"{description}, from=1-1, to=1-2]
@@ -1729,9 +1729,9 @@ Hence, it induces an adjoint triple (cf.~\cite[Thm. 7.20]{caramello2019denseness
   \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=2]
   \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=1, to=0]
 \end{tikzcd}\]
-equivalently, a \emph{local geometric morphism} $\Set[\T]_\omega \surj \Set[\T]$ as in~\cite[C3.6]{johnstone2002sketches}.
+equivalently, a \emph{local geometric morphism} $\Set[\T]_\omega \surj \Set[\T]$.
 
-More generally, it is already observed in~\cite[Thm. 4.11.]{blechschmidt2020general} that if we have a topology $J$ on $\mmod\T\fp\op$ where $U_\T$ is a $J$-sheaf, then (SQCF) again holds in the sheaf subtopos $\sh(\mmod\T\fp\op,J)$. We call such a topology $J$ \emph{admissible}. For instance, since $U_\T$ is representable, any subcanonical topology will in particular be admissible. Completely similarly, for any admissible topology $J$ on $\mmod\T\cp\op$, the sheaf subtopos $\sh(\mmod\T\cp\op,J)$ also models (SQCC). As an example, this is the theoretical basis of the quasi-coherence principle for countably presented Boolean algebras in the topos of light condensed sets introduced by Clausen and Scholze, as shown in~\cite{cherubini2024foundation}.
+More generally, it is already observed by Blechschmidt~\cite[Thm. 4.11.]{blechschmidt2020general} that if we have a topology $J$ on $\mmod\T\fp\op$ where $U_\T$ is a $J$-sheaf, then (SQCF) again holds in the sheaf subtopos $\sh(\mmod\T\fp\op,J)$. We call such a topology $J$ \emph{admissible}. \Jon{What about $\T$-admissible or something?} For instance, since $U_\T$ is representable, any subcanonical topology will in particular be admissible. In the same way, for any admissible topology $J$ on $\mmod\T\cp\op$, the sheaf subtopos $\sh(\mmod\T\cp\op,J)$ also models (SQCC). \Jon{This is a little confusing, becuase we have defined what an admissible topology is only on $\mmod\T\fp\op$, and have not extended this to the case of larger sites; I understand that we can look at the representable presheaf in each case, but somehow this definition ought to be a little more precise; for example, it could be defined precisely to refer to topologies on subcategories of $\mmod\T\op$ containing the free model on one generator.} As an example, this is the theoretical basis of the quasi-coherence principle for countably presented Boolean algebras in the topos of light condensed sets introduced by Clausen and Scholze, as shown by Cherubini~et~al.~\cite{cherubini2024foundation}.
 
 An admissible topology $J$ on $\mmod\T\cp\op$ restricts to an admissible one on $\mmod\T\fp\op$. In this case, the adjoint triple mentioned above between the two presheaf topoi will restrict to the sheaf subtopoi,
 \[\begin{tikzcd}
@@ -1742,14 +1742,15 @@ An admissible topology $J$ on $\mmod\T\cp\op$ restricts to an admissible one on 
   \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=2]
   \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=1, to=0]
 \end{tikzcd}\]
-which again identifies $\sh(\mmod\T\cp\op,J)$ a local topos over $\sh(\mmod\T\fp\op,J)$. These admissible topologies on $\mmod\T\fp$ or $\mmod\T\cp$ are exactly the required data to validate various local properties of the generic model $U_\T$. 
+which again identifies $\sh(\mmod\T\cp\op,J)$ as a local topos over $\sh(\mmod\T\fp\op,J)$. These admissible topologies on $\mmod\T\fp$ or $\mmod\T\cp$ are exactly the required data to validate various local properties of the generic model $U_\T$. 
 
 More specifically for us, let $\sFrm$ be the category of $\sigma$-frames, i.e.\ whose objects are posets with finite meets and countable joins, where they distribute through each other. We will also use $\sFrm\cp$ to denote the full subcategory of countably presented $\sigma$-frames, and $\sFrm\fp$ to denote the finitely presented ones. Since f.p.\ $\sigma$-frames are simply f.p.\ distributive lattices, we have an isomorphism $\sFrm\fp \cong \DL\fp$.
 
 It is well-known the dual category of $\DL\fp \cong \sFrm\fp$ is $\Pos\fp$ of finite posets. In this case, we can also have a fairly explicit description of the larger dual category $\sFrm\cp$. The first observation is that any c.p.\ $\sigma$-frame $A$ is indeed a \emph{frame}, i.e.\ it has \emph{all} joins and finite meets, which distributes with each other. This is clear for all finitely presented $\sigma$-frames, since they are simply finite distributive lattices. To see this for the countable case, consider the countably generated free $\sigma$-frame $2[\N]$:
 
+\Jon{What is $2$ here? Is this the free $\sigma$-frame on one object? Perhaps another notation like $\Omega$ would be more clear, because $2$ qua the boolean set is not a $\sigma$-frame in constructive mathematics.}
 \begin{lemma}\label{lem:cgfreesframe}
-  We have an isomorphism
+  We have an isomorphism of $\sigma$-frames
   \[ 2[\N] \cong [P_f(\N),2], \]
   where $P_f(\N)$ is the poset of finite subsets of $\N$.
 \end{lemma}
@@ -1758,27 +1759,29 @@ It is well-known the dual category of $\DL\fp \cong \sFrm\fp$ is $\Pos\fp$ of fi
   \[ 2[\N] \cong [(P_f(\N)\op)\op,2] \cong [P_f(\N),2]. \qedhere \]
 \end{proof}
 
+\Jon{Shall we write $\Topp$ as $\mathbf{Esp}$ or something to avoid confusion with toposes?}
+
 \begin{corollary}\label{cor:dualsframe}
   There is a fully faithful embedding
   \[ \sFrm\cp \hook \Frm, \]
   preserving all countable colimits. This is again fully faithful when composed with $\ms{pt} : \Frm\op \to \Topp$. 
 \end{corollary}
 \begin{proof}
-  Any c.p.\ $\sigma$-frame will be isomorphic to one of the form $2[\N]/R$ for some countably generated equivalence relation $R$. By \Cref{lem:cgfreesframe} $2[\N]$ is a frame, so is any of its quotient. By~\cite[Thm. 6.2.4]{makkai2006first}, such frames are indeed \emph{spatial}, hence they fully faithfully embed into the category of topological spaces via the functor $\pt$.
+  Any c.p.\ $\sigma$-frame will be isomorphic to one of the form $2[\N]/R$ for some countably generated equivalence relation $R$ \Jon{congruence?}. By \Cref{lem:cgfreesframe}, $2[\N]$ is a frame, so is any of its quotient. By~\cite[Thm. 6.2.4]{makkai2006first}, such frames are indeed \emph{spatial}, hence they fully faithfully embed into the category of topological spaces via the functor $\pt$.
 \end{proof}
 
-This way, we can view $\sFrm\cp\op$ as a certain class of topological spaces. Notice that since all c.p.\ $\sigma$-frame will be a quotient of $2[\N]$, their dual spaces will be a subspace of $\pt(2[\N])$, which we can compute quite easily:
+This way, we can view $\sFrm\cp\op$ as a certain class of topological spaces. Notice that since all c.p.\ $\sigma$-frames will be quotients of $2[\N]$, their dual spaces will be a subspace of $\pt(2[\N])$, which we can compute quite easily:
 
 \begin{lemma}
-  The space of points of $2[\N]$ is the Scott's graph model $G$, which is the countable product of the Sierpi\'nski space $G \cong \Sigma^\N$.
+  The space of points of $2[\N]$ is Scott's graph model $G$, which is the countable product of the Sierpi\'nski space $G \cong \Sigma^\N$.
 \end{lemma}
 \begin{proof}
-  Note $\pt$ takes colimits in $\Frm$ to limits in $\Topp$, since $\pt : \Loc \to \Topp$ is a right adjoint. Since $2[\N]$ is the countable coproduct of the free frame on one generator, we have
+  Note $\pt$ takes colimits in $\Frm$ to limits in $\Topp$, since $\pt \colon \Loc \to \Topp$ is a right adjoint. Since $2[\N]$ is the countable coproduct of the free frame on one generator, we have
   \[ \pt(2[\N]) \cong \pt(2[x])^\N \cong \Sigma^\N, \]
   Here $\pt(2[x]) \cong \Sigma$ follows from a simple computation.
 \end{proof}
 
-This way, if we write $\wTop$ as the essential image of the fully faithful functor $\pt : \sFrm\cp\op \to \Topp$, its objects will all be subspaces of $G$. We would then have the following diagram,
+This way, if we write $\wTop$ as the essential image of the fully faithful functor $\pt \colon \sFrm\cp\op \to \Topp$, its objects will all be subspaces of $G$. We would then have the following diagram,
 \[
 \begin{tikzcd}
   \sFrm\fp\op \ar[d, hook] \ar[r, "\simeq"] & \Pos\fp \ar[d, hook] \\
@@ -1795,16 +1798,16 @@ Below we discuss the corresponding admissible topologies on $\wTop$, modelling t
   To model (NT), we would want the empty sieve on $\pt(2/0=1) \cong \emp$ to be a covering. Since $\emp$ is a strict initial object in $\wTop$, this is a subcanonical topology. Thus, this gives us a least topology $J_{\ms{NT}}$ that models (NT), and we have
   \[ \sh(\wTop,J_{\ms{NT}}) \cong \psh(\wTop_+), \]
   where $\wTop_+$ is the full subcategory of $\wTop$ excluding $\emp$. The induced local geometric morphism now is given by 
-  \[ \Gamma : \psh(\wTop_+) \surj \psh(\Pos_{\mr{f.p.,+}}), \]
+  \[ \Gamma \colon \psh(\wTop_+) \surj \psh(\Pos_{\mr{f.p.,+}}), \]
   where, again $\Pos_{\mr{f.p.,+}}$ is the full subcategory of $\Pos_{\mr{f.p.,+}}$ consisting of non-empty posets, and $\psh(\Pos_{\mr{f.,+}})$ is the classifying topos for non-trivial distributive lattices.
 \end{example}
 
 \begin{example}[L]
   The additional axiom for (L) besides (NT) is that 
   \[ x \vee y = 1 \vdash x = 1 \vee y = 1, \] 
-  This means the dual embeddings of the following quotients needs to be a covering family,
+  This means the dual embeddings of the following quotients need to form a covering family,
   \[ 2[y] \cong 2[x,y]/x \twoheadleftarrow 2[x,y]/x\vee y \surj 2[x,y]/y \cong 2[x]. \]
-  It is easy to see that $\pt(2[x,y]/x \vee y)$ is the space $\Lambda^2_1$ obtained by glueing the open points of two copies of Sierpinski spaces together, i.e.\ it is the following pushout,
+  It is easy to see that $\pt(2[x,y]/x \vee y)$ is the space $\Lambda^2_1$ obtained by glueing the open points of two copies of Sierpinski spaces together, i.e.\ it is the following pushout:
   \[
   \begin{tikzcd}
     1 \ar[d, "1"'] \ar[r, "1"] & \Sigma \ar[d, "l"] \\ 
@@ -1814,7 +1817,7 @@ Below we discuss the corresponding admissible topologies on $\wTop$, modelling t
   \]
   The least topology $J_{\ms L}$ is thus generated by the empty covering on $\emp$, and the covering $\set{l,r : \Sigma \to \Lambda^2_1}$. Since we have the pushout above, this topology is again subcanonical. 
   
-  In this case, it is not hard to give an explicit description of a covering family in $\Pos\fp$: A family of maps is a $\ms J_{\ms L}$ covering on $P \in \Pos\fp$ iff it contains a (finite) subfamily of \emph{upward closed subsets} $\set{P_i\subseteq P}_{i\in I}$, where $P \cong \bigcup_{i\in I}P_i$; see a similar calculation for commutative rings in~\cite[VIII. 6]{maclane2012sheaves}. Following the terminology for algebraic geometry, this can be denoted as the \emph{Zariski topology}, and the local geometric morphism
+  In this case, it is not hard to give an explicit description of a covering family in $\Pos\fp$: a family of maps is a $\ms J_{\ms L}$-covering on $P \in \Pos\fp$ iff it contains a (finite) subfamily of \emph{upward closed subsets} $\set{P_i\subseteq P}_{i\in I}$, where $P \cong \bigcup_{i\in I}P_i$; see a similar calculation for commutative rings in Mac Lane and Moerdijk~\cite[VIII. 6]{maclane1992sheaves}. Following the terminology for algebraic geometry, this can be denoted as the \emph{Zariski topology}, and the local geometric morphism
   \[ \sh(\wTop,J_{\ms L}) \surj \sh(\Pos\fp,J_{\ms L}) \simeq \mb{Zar}(\mbb D), \]
   is over the \emph{Zariski topos} $\mb{Zar}(\mbb D)$ for distributive lattices.
 \end{example}
@@ -1836,7 +1839,7 @@ Below we discuss the corresponding admissible topologies on $\wTop$, modelling t
   \]
   where $\partial : \Sigma \to \Sigma_2$ maps $\Sigma$ to the end points of $\Sigma_2$, and $l,r : \Sigma_2 \hook \Sigma^2$ is the two $\Sigma_2$-chains in $\Sigma^2$. The least topology $\ms J_{\ms{SL}}$ for the linearity axiom is thus generated by the empty covering on $\emp$, and $\set{l,r : \Sigma_2 \hook \Sigma^2}$. Similarly, given this pushout, $J_{\ms{SL}}$ will be subcanonical.
 
-  The topos $\sh(\wTop,J_{\ms{SL}})$ is closely related to simplicial sets. This is due to the fact that simplicial sets is the classifying topos of non-empty linear orders (cf.\ e.g.~\cite[VIII. 8]{maclane2012sheaves}), and thus we have an equivalence 
+  The topos $\sh(\wTop,J_{\ms{SL}})$ is closely related to simplicial sets. This is due to the fact that simplicial sets is the classifying topos of non-empty linear orders (cf.\ e.g.~\cite[VIII. 8]{maclane1992sheaves}), and thus we have an equivalence 
   \[ \sh(\Pos\fp,J_{\ms{SL}}) \cong \psh(\Delta). \]
   This makes $\sh(\wTop,J_{\ms{SL}}) \surj \psh(\Delta)$ a local topos over simplicial sets.
 \end{example}
@@ -1890,7 +1893,7 @@ Both synthetic topology~\cite{bauer2009dedekind} and synthetic computability the
 
 \subsection{Connection with existing models}\label{subsec:compare}
 
-Finally, it will be instructive to compare the sheaf models for synthetic domain theory constructed in~\cite{FIORE1997151} with the models discussed in \Cref{sec:model}. Recall the topos $\mc H$ constructed in \emph{loc. cit.} is the following sheaf topos,
+Finally, it will be instructive to compare the sheaf models for synthetic domain theory constructed by Fiore and Rosolini~\cite{FIORE1997151} with the models discussed in \Cref{sec:model}. Recall the topos $\mc H$ constructed in \emph{loc. cit.} is the following sheaf topos,
 \[ \mc H := \sh(\mb P,J_{\ms{can}}), \]
 where $\mb P$ be the full subcategory of the category $\wCPO$ of $\omega$-cpos consisting of retracts of the Scott's graph model $G$, and $J_{\ms{can}}$ is the canonical topology on $\mb P$. An $\omega$-cpo is simply a poset having countable joins, and a morphism between them are monotone maps preserving the countable joins.
 
