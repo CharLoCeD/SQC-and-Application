@@ -632,6 +632,7 @@ If $X$ is affine, open subtypes are easy to classify:
 
 
 \section{Lifting}\label{sec:lifting}
+\Jon{Let's speak of partial map classifiers rather than ``lifting'' here.}
 
 Given then dominance structure $\I$, we can construct internally the lifting functor. For any type $X$, its lift is given by
 \[ X\prt := \sum_{i:\I}X^{\ms ti}. \]
@@ -675,7 +676,9 @@ In other words, an element $(i,a) : A\prt$ is simply a pair $i : \I$ and $a : A$
   The second equivalence again uses the fact that $\T$ is propositional.
 \end{proof}
 
-\begin{remark}[Algebra v.s. geometry, I]
+\begin{remark}[Algebra vs.\ geometry, I]
+  \Jon{I don't think there is an Algebra vs.\ geometry II...}
+
   One interesting fact to note here is that, though $\I\prt$ by computation is a dependent sum of algebras, it is naturally equivalent to a \emph{spectrum}. In some sense the source is the assumption that $\T$ is propositional, which allows us to identify the algebraic object $\I/i$ as a subset $\scomp{j : \I}{j \le i}$. There will be more examples of such nature once we work more specifically with distributive lattices; cf.\ \Cref{prop:simplicesasalgebra}.
 \end{remark}
 
@@ -687,7 +690,7 @@ More generally, for domain theoretic applications we would want to compute the l
 \end{proposition}
 \begin{proof}
   By (SQCI) and \Cref{lem:openpropaffine}, $\ms ti$ is affine for any $i:\I$. By the duality result in \Cref{prop:duality}, we have
-  \[ (\spec A)\prt \cong \sum_{i:\I}\spec A^{\ms ti}\cong \sum_{i:\I}\I\alg(A,\I/i). \qedhere \]
+  \[ (\spec A)\prt \cong \sum_{i:\I}(\spec A)^{\ms ti}\cong \sum_{i:\I}\I\alg(A,\I/i). \qedhere \]
 \end{proof}
 
 % Thus, motivated by domain theory, we find ourselves naturally move towards the following axiomatisation:
@@ -1167,7 +1170,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
   By the above proof, we have $\I^{\ov\omega} \cong \I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N} \cong \Delta_\infty$.
 \end{proof}
 
-\begin{remark}[$\sigma$-frames v.s. distributive lattices]\label{rem:whynotdis}
+\begin{remark}[$\sigma$-frames vs.\ distributive lattices]\label{rem:whynotdis}
   The completeness result shown in \Cref{thm:complete} is the only place in this paper where it works for $\sigma$-frames while not for distributive lattices. The reason is exactly because the c.p.\ distributive lattice $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ will \emph{not} be isomorphic to $\Delta_\infty$, thus the cone $\set{f_n}_{n:\N}$ displayed in the proof of \Cref{thm:complete} will \emph{not} be a limiting diagram of distributive lattices. The fact that we have \emph{all} infinite increasing sequences is clearly due to the fact that we have countable disjunctions in $\sigma$-frames, as when identifying $p$ in $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ with $p = \bigvee_{n:\N}p_n\wedge i_n$. More specifically, for the c.p.\ distributive lattice $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$, since it is a sequential colimit of the following f.p.\ distributive lattices
   \[ 
   \begin{tikzcd}
