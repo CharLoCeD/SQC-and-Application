@@ -295,25 +295,25 @@ Blechschmidt also points out that quasicoherence descends from the classifying (
 
 \subsection{Main contribution}\label{sec:contributions}
 
-We study an emerging connection between synthetic domain theory and the quasi-coherence axioms for \emph{distributive lattices} and \emph{$\sigma$-frames}. As a first indication of why quasi-coherence for these theories might be useful for domain theory, we have observed that by taking the interval $\I$ to be the generic distributive lattice or $\sigma$-frame, many important objects for domain theory can be written as \emph{spectrums}. This include the cubes $\I^n$ (\Cref{exm:cubeaffine}), the simplices $\Delta^n$ (\Cref{exm:simplicesaffine}), and the final coalgebra $\ov\omega$ (\Cref{exm:ovomegaaffine}). The initial algebra $\omega$ will also be realised as a sequential colimit of spectrums (\Cref{prop:omegacolimit}). Here we outline the main results of this paper, and discuss some of their potential applications.
+We study an emerging connection between synthetic domain theory and the quasi-coherence axioms for \emph{distributive lattices} and \emph{$\sigma$-frames}. As a first indication of why quasi-coherence for these theories might be useful for domain theory, we have observed that by taking the interval $\I$ to be the generic distributive lattice or $\sigma$-frame, many important objects for domain theory can be written as \emph{spectra}. This include the cubes $\I^n$ (\Cref{exm:cubeaffine}), the simplices $\Delta^n$ (\Cref{exm:simplicesaffine}), and the final coalgebra $\ov\omega$ (\Cref{exm:ovomegaaffine}). The initial algebra $\omega$ will also be realised as a sequential colimit of spectra (\Cref{prop:omegacolimit}). Here we outline the main results of this paper, and discuss some of their potential applications.
 
 \begin{enumerate}
   \item \emph{Quasi-coherence produces synthetic domain theory.} We show the principle of quasi-coherence suffices to account for \emph{all} essential axioms for synthetic domain theory. Specifically:
   \begin{enumerate}
-    \item\label{contribution:dominance} In the case of both distributive lattices and $\sigma$-frames, the quasi-coherence for f.p.\ algebras (in fact a weaker assumption; cf.\ \Cref{ax:sqci}) implies that the generic interval $\I$ forms a dominance (\Cref{prop:Idominance}). It also leads to an explicit computation of the lifting of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectrums (\Cref{prop:liftofaffine}).
+    \item\label{contribution:dominance} In the case of both distributive lattices and $\sigma$-frames, the quasi-coherence for f.p.\ algebras (in fact a weaker assumption; cf.\ \Cref{ax:sqci}) implies that the generic interval $\I$ forms a dominance (\Cref{prop:Idominance}). It also leads to an explicit computation of the lifting of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectra (\Cref{prop:liftofaffine}).
     \item As mentioned, quasi-coherence for f.p.\ algebras implies that the generic interval $\I$ satisfies Phoa's principle. In fact, we can show more generally that any affine space will also satisfy the Phoa's principle (\Cref{thm:phoaaffine}), and similarly for quasi-coherent algebras (\Cref{thm:algebraphoa}).
     \item In the case of $\sigma$-frames, the quasi-coherence for c.p.\ algebras implies completeness of $\I$ (\Cref{thm:complete}) assuming $\I$ is non-trivial. \Jon{This is a little confusing, because obviously the generic $\sigma$-frame is already non-trivial; can we make the claim more precise?} This is the only place where we have to work with $\sigma$-frames and not distributive lattices (cf.~\Cref{rem:whynotdis}). This gives a full account of the axioms for synthetic domain theory as specified in~\cite{hyland2006first}. \Jon{Do we really? I wasn't sure that we had considered all the dual axioms for co-partial maps, etc.} Additionally, we can show the initial algebra $\omega$ is characterised by a sequential colimit (\Cref{prop:omegacolimit}). \Jon{We can cite something from Fiore et al.\ here, to connect the the infinitary tradition of SDT in which that is taken as an axiom.}
 
   \end{enumerate}
 
-  \item \emph{Local properties of spectrums.} Though in general we do not assume the generic interval $\I$ to satisfy any local property such as linearity, we do discuss many instances of them and investigate their consequences.
+  \item \emph{Local properties of spectra.} Though in general we do not assume the generic interval $\I$ to satisfy any local property such as linearity, we do discuss many instances of them and investigate their consequences.
   \begin{enumerate}
 
     \item \Cref{sec:locality} introduces various local conditions for $\I$, all of which will be compatible with quasi-coherence. This showcases the flexibility of this framework to encompass different flavours of domain theory.
 
     \item  More interestingly, without assuming the local properties globally, one can still show that $\I$ will be \emph{right orthogonal} to the maps that classifies these local properties (\Cref{specisnontrivial,specissimplicial,specis1t}). In general, any limiting diagram of quasi-coherent algebras will induce a localisation class containing $\I$; cf. \Cref{rem:limofalgloc}. This exhibits a new type of techniques in reasoning about domains in this framework.
     
-    \item As a special case of locality, we also connect to the recent approach of synthetic (higher) category theory~\cite{riehl2017type,buchholtz2021synthetic,gratzer2024directed}. In particular, we show spectrums will be synthetic categories (\Cref{thm:affineposet}). As another example, we also show $\omega$ is a synthetic category, in fact it satisfies \emph{all} the orthogonality conditions discussed in this paper (\Cref{thm:omegaortho}). 
+    \item As a special case of locality, we also connect to the recent approach of synthetic (higher) category theory~\cite{riehl2017type,buchholtz2021synthetic,gratzer2024directed}. In particular, we show spectra will be synthetic categories (\Cref{thm:affineposet}). As another example, we also show $\omega$ is a synthetic category, in fact it satisfies \emph{all} the orthogonality conditions discussed in this paper (\Cref{thm:omegaortho}). 
   \end{enumerate}
 
   \item \emph{New models for synthetic domain theory.} Consequently, we uncover a large family of new models for synthetic domain theory based on classifying topoi for $\sigma$-frames. We will discuss these models in \Cref{sec:model}, and compare them to the existing sheaf models for synthetic domain theory~\cite{FIORE1997151} in \Cref{subsec:compare}.
@@ -378,8 +378,8 @@ More generally, notice that $\spec$ is in fact a contravariant functor from $\I$
   This completes the proof.
 \end{proof}
 
-\begin{remark}[Spectrums are replete]\label{rem:specarereplete}
-  Recall the notion of \emph{replete} type given in~\cite{hyland2006first}: $X$ is replete if it is orthogonal to any map $f$ that $\I$ is orthogonal to. Through out the paper, by orthogonality we always mean the \emph{internal} notion: $X$ is orthogonal to a map $f$ iff $X^f$ is an equivalence. Thus, an object is replete iff it belongs to the smallest internal localisation class containing $\I$. In particular, replete objects form an exponential ideal, which by the previous result it follows that all spectrums will be replete.
+\begin{remark}[Spectra are replete]\label{rem:specarereplete}
+  Recall the notion of \emph{replete} type given in~\cite{hyland2006first}: $X$ is replete if it is orthogonal to any map $f$ that $\I$ is orthogonal to. Through out the paper, by orthogonality we always mean the \emph{internal} notion: $X$ is orthogonal to a map $f$ iff $X^f$ is an equivalence. Thus, an object is replete iff it belongs to the smallest internal localisation class containing $\I$. In particular, replete objects form an exponential ideal, which by the previous result it follows that all spectra will be replete.
 \end{remark}
 
 Among all $\I$-algebras, some will be special:
@@ -410,7 +410,7 @@ We emphasis that the equivalence $A \cong \I^{\spec A}$ is not only an equivalen
   is exactly the identity on $\I$, hence is an equivalence.
 \end{example}
 
-Just like quasi-coherence is a property on $\I$-algebras, being affine will be a property on spectrums:
+Just like quasi-coherence is a property on $\I$-algebras, being affine will be a property on spectra:
 
 \begin{definition}[Affine]
   We say a type $X$ is \emph{affine}, if $\I^X$ is quasi-coherent, and the canonical evaluation map $X \to \spec \I^X$ is an equivalence.
@@ -436,7 +436,7 @@ For quasi-coherent algebras, the contravariant functor $\spec$ now induces a dua
   The second step holds since $\I^{\spec B}$ has pointwise $\I$-algebra structure.
 \end{proof}
 
-The above duality result tells us that we can infer equivalence of algebras via equivalence of their spectrums:
+The above duality result tells us that we can infer equivalence of algebras via equivalence of their spectra:
 
 \begin{corollary}\label{cor:dualityeqv}
   For any $f : \I\alg(A,B)$, if $A,B$ are quasi-coherent, then $f$ is an equivalence iff it induces an equivalence $\spec B \to \spec A$. 
@@ -503,7 +503,7 @@ Notice that up till this point we have not used any special property of $\T$ rat
   A notable fact about $\sigma$-frames is that, their finitary behaviours are exactly the same as distributive lattices, in the sense that for any $\sigma$-frame $A$, a f.p.\ $\sigma$-frame $A[n]/R$ generated from $A$ coincides with the f.p.\ \emph{distributive lattice} $A[n]/R$. Thus, there will be no difference between working with $\sigma$-frames or distributive lattice when we work with f.p.\ $\I$-algebras. The distinguished feature of $\sigma$-frames allowing countably joins will only shine in \Cref{sec:infdomain} when we prove completeness of $\I$.
 \end{remark}
 
-For a propositional theory $\T$, we think of the generic model $\I$ as certain interval object, since it is equipped with a partial order. In this case, more types can be realised as spectrums. The important examples are \emph{simplices}:
+For a propositional theory $\T$, we think of the generic model $\I$ as certain interval object, since it is equipped with a partial order. In this case, more types can be realised as spectra. The important examples are \emph{simplices}:
 
 \begin{example}\label{exm:simplicesaffine}
   For any $n : \N$, let $\Delta^n \hook \I^n$ be the following subset,
@@ -1130,7 +1130,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 \end{proof}
 
 \begin{remark}
-  As indicated in \Cref{rem:qcreplete,rem:specarereplete}, both spectrums and quasi-coherent $\I$-algebras are replete. The above result then implies that they are also complete, i.e. orthogonal to $\omega\hook\ov\omega$.
+  As indicated in \Cref{rem:qcreplete,rem:specarereplete}, both spectra and quasi-coherent $\I$-algebras are replete. The above result then implies that they are also complete, i.e. orthogonal to $\omega\hook\ov\omega$.
 \end{remark}
 
 \begin{corollary}[NT, SQCC]
@@ -1153,7 +1153,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 \end{remark}
 
 \begin{remark}[Limits of algebras induce locality for $\I$]\label{rem:limofalgloc}
-  By inspecting the proof of \Cref{thm:complete}, it is clear that the reason $\I$ is complete is because there is a specific \emph{limiting diagram} of quasi-coherent $\I$-algebras. In general, any such limit diagram will induce an orthogonality property satisfied by the all spectrums, and we will see many more examples in \Cref{sec:local}. From \Cref{rem:whynotdis} it is clear whether a diagram of $\I$-algebras is a limit heavily relies on the underlying algebraic theory. This is thus a perfect example of how the algebraic properties of a theory has significant consequence on the internal logic of its classifying topos.
+  By inspecting the proof of \Cref{thm:complete}, it is clear that the reason $\I$ is complete is because there is a specific \emph{limiting diagram} of quasi-coherent $\I$-algebras. In general, any such limit diagram will induce an orthogonality property satisfied by the all spectra, and we will see many more examples in \Cref{sec:local}. From \Cref{rem:whynotdis} it is clear whether a diagram of $\I$-algebras is a limit heavily relies on the underlying algebraic theory. This is thus a perfect example of how the algebraic properties of a theory has significant consequence on the internal logic of its classifying topos.
 \end{remark}
 
 % \section{specialisation posets continued}\label{sec:synposet}
@@ -1522,7 +1522,7 @@ The notion of synthetic categories and synthetic posets are formulated as these 
   Any spectrum or quasi-coherent $\I$-algebra will be a synthetic poset.
 \end{theorem}
 \begin{proof}
-  This follows from $\I$ being a synthetic poset, and spectrums and quasi-coherent algebras are \emph{replete} as indicated in \Cref{rem:qcreplete,rem:specarereplete}.
+  This follows from $\I$ being a synthetic poset, and spectra and quasi-coherent algebras are \emph{replete} as indicated in \Cref{rem:qcreplete,rem:specarereplete}.
 \end{proof}
 
 At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We show $\omega$ satisfies the Phoa's principle, and satisfies all the locality conditions discussed above. 
@@ -1822,7 +1822,7 @@ Below we discuss the corresponding admissible topologies on $\wTop$, modelling t
 
 In this paper we have explained the axioms of synthetic domain theory using the quasi-coherence principle for distributive lattices and $\sigma$-frames. As we have seen from various examples (\Cref{prop:liftingofalgebra,prop:liftofaffine,prop:complementinalgebra}, etc.) the quasi-coherence principle moreover helps with the actual \emph{computation} for operations on domains. Thus, the natural step next is to further develop domain theory within this framework.
 
-% In particular, it will be extremely useful to investigate the orthogonality conditions satisfied by all spectrums (affine spaces), some of which have been observed in \Cref{sec:infdomain,sec:local}. In particular, in this paper we haven't found any orthogonality condition satisfied by $\I$ but not by general affine spaces. This allows us to conjecture that all (or at least some classes of) affine spaces will be \emph{replete}. This will be a non-trivial way of constructing new replete objects other than retracts of $\I^X$ for some type $X$.
+% In particular, it will be extremely useful to investigate the orthogonality conditions satisfied by all spectra (affine spaces), some of which have been observed in \Cref{sec:infdomain,sec:local}. In particular, in this paper we haven't found any orthogonality condition satisfied by $\I$ but not by general affine spaces. This allows us to conjecture that all (or at least some classes of) affine spaces will be \emph{replete}. This will be a non-trivial way of constructing new replete objects other than retracts of $\I^X$ for some type $X$.
 
 \subsection{Quasi-coherence for related synthetic mathematics}
 
