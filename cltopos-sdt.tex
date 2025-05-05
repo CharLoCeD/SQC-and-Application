@@ -524,7 +524,7 @@ Notice that up till this point we have not used any special property of $\T$ rat
 \begin{remark}[The theory of $\sigma$-frames]\label{rem:sigmaframe}
   We also consider theory of $\sigma$-frames. A $\sigma$-frame $A$ is a lattice with finite meets and countable joins satisfying the distributivity axiom 
   \[ a \wedge \bigvee_{n:\N} b_n = \bigvee_{n:\N} a \wedge b_n, \]
-  for any $a$ in $A$ and $b \colon \N \to A$. We can axiomatise $\sigma$-frames as an \emph{infinitary} algebraic theory $\mbb S$, extending the theory of meet-semi-lattices with a constant $0$ and a function symbol $\bigvee$ with \emph{countable} arity. (Such an axiomatisation can be found e.g.\ in Ad\'amek and Rosicky~\cite[Exa.~3.26]{adamek1994locally}.) It is easy to see $\mbb S$ is propositional. 
+  for any $a$ in $A$ and $b \colon \N \to A$. We can axiomatise $\sigma$-frames as an \emph{infinitary} algebraic theory $\mbb S$, extending the theory of meet-semi-lattices with a constant $0$ and a function symbol $\bigvee$ with \emph{countable} arity. (Such an axiomatisation can be found e.g.\ in Ad\'amek and Rosicky~\cite[Exa.~3.26]{adamek1994locally}.) It is easy to see that $\mbb S$ is propositional. 
 
   A notable fact about $\sigma$-frames is that their finitary behaviours are exactly the same as distributive lattices, in the sense that for any $\sigma$-frame $A$, the f.p.\ $\sigma$-frame $A[n]/R$ coincides with the f.p.\ \emph{distributive lattice} $A[n]/R$. Thus, there will be no difference between working with $\sigma$-frames or distributive lattice when we work with f.p.\ $\I$-algebras. The salience of countable joins will emerge only in \Cref{sec:infdomain} when we prove completeness of $\I$.
 \end{remark}
@@ -1900,9 +1900,9 @@ where $\mb P$ be the full subcategory of the category $\wCPO$ of $\omega$-cpos c
 Here we observe that the inclusion $\mb P \hook \wTop$ is \emph{fully faithful}, because
 \begin{align*}
   &\wCPO(G,G) \\
-  \cong& \Pos(P_f(\N)\op,[P_f(\N),2]) \\
-  \cong& \sFrm\cp([P_f(\N),2],[P_f(\N),2]) \\ 
-  \cong& \wTop(G,G) \qedhere
+  &\cong \Pos(P_f(\N)\op,[P_f(\N),2]) \\
+  &\cong \sFrm\cp([P_f(\N),2],[P_f(\N),2]) \\ 
+  &\cong \wTop(G,G) \qedhere
 \end{align*}
 \Jon{I am concerned about the first step above because of my last comment.}
 
