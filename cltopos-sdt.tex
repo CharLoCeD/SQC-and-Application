@@ -1650,17 +1650,18 @@ Both synthetic topology~\cite{bauer2009dedekind} and synthetic computability the
 
 Finally, it will be instructive to compare the sheaf models for synthetic domain theory constructed by \citet{FIORE1997151} with the models discussed in \Cref{sec:model}. Recall the topos $\mc H$ constructed in \emph{loc. cit.} is the following sheaf topos,
 \[ \mc H \coloneq \sh(\mb P,J_{\ms{can}}), \]
-where $\mb P$ be the full subcategory of the category $\wCPO$ of $\omega$-cpos consisting of retracts of the Scott's graph model $G$, and $J_{\ms{can}}$ is the canonical topology on $\mb P$. An $\omega$-cpo is simply a poset having countable joins, and a morphism between them are monotone maps preserving joins of countable chains.
+where $\mb P$ be the full subcategory of the category $\wCPO$ of $\omega$-cpos consisting of retracts of the Scott's graph model $G$, and $J_{\ms{can}}$ is the canonical topology on $\mb P$. An $\omega$-cpo is simply a poset having joins of countable chains, and morphisms between them are maps preserving joins of countable chains.
 % \Jon{Not all countable joins, but just joins of $\omega$-chains.}
 
 Here we observe that the inclusion $\mb P \hook \wTop$ is \emph{fully faithful}, because
 \begin{align*}
   \wCPO(G,G)
-  \cong& \Pos(P_f(\N)\op,[P_f(\N),2]) \\
-  \cong& \sFrm\cp([P_f(\N),2],[P_f(\N),2]) \\ 
-  \cong& \wTop(G,G) \qedhere
+  \cong\ & \Pos(P_f(\N),P(\N)) \\
+  \cong\ & \Pos(\N,[P_f(\N),2]) \\
+  \cong\ & \sFrm\cp([P_f(\N),2],[P_f(\N),2]) \\ 
+  \cong\ & \wTop(G,G)
 \end{align*}
-The first isomorphism holds because it is easy to see $G$ is the \emph{free} $\omega$-cpo on $P_f(\N)\op$; the second isomorphism is due to the fact that $[P_f(\N),2]$ is the free cocompletion of $P_f(\N)\op$ under (countable) joins.
+The first isomorphism holds because $G$ is the \emph{free} $\omega$-cpo on $P_f(\N)$; the second holds by formal manipulation; the third is due to the fact that $[P_f(\N),2]$ is the free $\sigma$-frame over the discrete poset $\N$; the final one is given by the duality between c.p. $\sigma$-frames and $\wTop$. 
 % \Jon{I am concerned about the first step above because of my last comment.}
 
 This leads us to conjecture that $\mc H$ will be equivalent to the sheaf topos $\sh(\wTop,J_{\mr{can}})$. However, a detailed proof of this requires us to better understand the categorical properties of $\wTop$.
