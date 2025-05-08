@@ -372,7 +372,7 @@ We view quasi-coherence as a \emph{property} of $\I$-algebras. As mentioned in \
 % \Jon{This is important enough that it should be a separate definition so that readers can quickly skim back through the paper to find it.}
 \begin{definition}
   For any $\I$-algebra $A$, its \emph{spectrum} is the following set,
-  \[ \spec A := \I\alg(A,\I). \]
+  \[ \spec A \coloneq \I\alg(A,\I). \]
 \end{definition}
 
 Before discussing quasi-coherence, we observe that many sets can be naturally viewed as the spectrum of a certain $\I$-algebra. For example, we have $\spec \I \cong \I\alg(\I,\I) \cong 1$ because  $\I$ is the initial $\I$-algebra. Similarly, $\I$ itself it the spectrum of the polynomial $\I$-algebra $\I[x]$, as we have $\spec \I[x] \cong \I\alg(\I[x],\I) \cong \I$. More generally:
@@ -390,7 +390,7 @@ Notice that $\spec$ is in fact a contravariant functor from $\I$-algebras to set
   Every spectrum is an equaliser of powers of $\I$. 
 \end{proposition}
 \begin{proof}
-  Let $A$ be \emph{any} $\I$-algebra. Recall that it can be written as a coequaliser of free $\I$-algebras (cf.~\cite[Prop. 3.8.9]{borceux1994handbook2})
+  Let $A$ be \emph{any} $\I$-algebra. Recall that it can be written as a coequaliser of free $\I$-algebras (cf.~\citet[Prop. 3.8.9]{borceux1994handbook2})
   \[
   \begin{tikzcd}
     \I[R] \ar[r, shift left, "s"] \ar[r, shift right, "t"'] & \I[X] \ar[r, two heads] & A
@@ -398,6 +398,7 @@ Notice that $\spec$ is in fact a contravariant functor from $\I$-algebras to set
   \]
   % \Jon{The above was kind of non-obvious to me. I think an actual proof is needed for the above claim.}
   % \LY{This is a standard result; I have added a reference.}
+  \Jon{The result of Borceux is for algebraic theories; perhaps it works for Horn theories too, but we would need to prove that.}
   By the universal property, it follows that $\spec A$ can be identified as
   \[ \spec A \cong \scomp{x : \spec\I[X]}{xs = xt}, \]
   which implies it is the following equaliser,
