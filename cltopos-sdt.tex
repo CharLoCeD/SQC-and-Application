@@ -269,7 +269,7 @@ Cambridge, UK
 
 The proposal to develop a synthetic theory of domains was raised by Dana Scott in the 1980s. The thesis is that (pre)domains should be viewed simply as some special sets in a suitable universe, and any function between them should automatically respect the computational data associated to domains. Later \citet{hyland1990first} gives an extensive list of the properties such a universe should satisfy.
 
-Firstly, a universe for synthetic domains should contain an interval object $\I$, which induces an information order (or specialisation order from a topological perspective) on domains for which function is automatically monotone. An internal axiom that characterises the synthetic nature of this fact is the so-called \emph{Phoa's principle}: The function space $\I^\I$ should classify the order on $\I$. In other words, the functions from $\I$ to itself are completely determined by the order structure on $\I$. 
+Firstly, a universe for synthetic domains should contain an interval object $\I$, which induces an information order (or specialisation preorder from a topological perspective) on domains for which function is automatically monotone. An internal axiom that characterises the synthetic nature of this fact is the so-called \emph{Phoa's principle}: The function space $\I^\I$ should classify the order on $\I$. In other words, the functions from $\I$ to itself are completely determined by the order structure on $\I$. 
 
 Additionally, $\I$ should also form a subuniverse of propositions closed under dependent sums, so as to form a dominance in the sense of~\cite{rosolini1986continuity}. The dominance structure is used to parametrise partial functions through a functor $L$ constructed from $\I$. 
 
@@ -321,7 +321,7 @@ We study an emerging connection between synthetic domain theory and the quasi-co
   \item \emph{Quasi-coherence produces synthetic domain theory.} We show the principle of quasi-coherence suffices to account for \emph{all} essential axioms for synthetic domain theory. Specifically:
   \begin{enumerate}
     \item\label{contribution:dominance} In the case of both bounded distributive lattices and $\sigma$-frames, the quasi-coherence for f.p.\ algebras (in fact a weaker assumption; cf.\ \Cref{ax:sqci}) implies that the generic interval $\I$ and its dual form a dominance (\Cref{prop:Idominance} and \Cref{cor:dualisdominance}). It also leads to an explicit computation of the partial map classifiers of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectra (\Cref{prop:liftofaffine}).
-    \item The quasi-coherence principle allows an explicit computation of the \emph{specialisation order} (\Cref{defn:specialisation}) on affine spaces (\Cref{lem:specorderofaffine}) and quasi-coherent $\I$-algebras (\Cref{cor:specordonalgiscan}).
+    \item The quasi-coherence principle allows an explicit computation of the \emph{specialisation preorder} (\Cref{defn:specialisation}) on affine spaces (\Cref{lem:specorderofaffine}) and quasi-coherent $\I$-algebras (\Cref{cor:specordonalgiscan}).
     \item As mentioned, quasi-coherence for f.p.\ algebras implies that the generic interval $\I$ satisfies the Phoa's principle. In fact, this is more generally true for any affine space (\Cref{thm:phoaaffine}), and similarly for quasi-coherent algebras (\Cref{thm:algebraphoa}).
     \item In the case of $\sigma$-frames, quasi-coherence for c.p.\ algebras implies completeness of $\I$ (\Cref{thm:complete}) assuming $\I$ is non-trivial internally. 
     % \Jon{This is a little confusing, because obviously the generic $\sigma$-frame is already non-trivial; can we make the claim more precise?} 
@@ -898,19 +898,19 @@ In general we will at most work with the weakest locality axiom (NT). However, w
 
 
 
-\section{Specialisation order}\label{sec:intposet}
-\Jon{Let's speak of specialisation \emph{preorder} everywhere to avoid confusion.}
-% \Jon{I think this section would be improved if we clarify that what we are talking about here is relating \emph{path structure} to the specialisation order.}
+\section{Specialisation preorder}\label{sec:intposet}
+% \Jon{Let's speak of specialisation \emph{preorder} everywhere to avoid confusion.}
+% \Jon{I think this section would be improved if we clarify that what we are talking about here is relating \emph{path structure} to the specialisation preorder.}
 % \LY{Very good point, and I have revised accordingly. I hope now it is more clear.}
 
-The goal of this section is to investigate the the computation and consequences of the \emph{specialisation orders} in view of quasi-coherence and the various locality axioms introduced in \Cref{sec:locality}. The specialisation order is a classical notion in domain theory (cf.~\cite{PhoaWesleyKym-Son1991DtiR,hyland1990first}):
+The goal of this section is to investigate the the computation and consequences of the \emph{specialisation preorders} in view of quasi-coherence and the various locality axioms introduced in \Cref{sec:locality}. The specialisation preorder is a classical notion in domain theory (cf.~\cite{PhoaWesleyKym-Son1991DtiR,hyland1990first}):
 
-\begin{definition}[Specialisation order]\label{defn:specialisation}
-  The \emph{specialisation order} on a type $X$ is defined as follows:
+\begin{definition}[Specialisation preorder]\label{defn:specialisation}
+  The \emph{specialisation preorder} on a type $X$ is defined as follows:
   \[ x \preceq y \coloneq \fa{U}{X\to\I} U(x) \le U(y). \]
 \end{definition}
 
-By definition, the specialisation order is reflexive and transitive. As already observed in \emph{loc.\ cit.}, one important property of the specialisation order is that \emph{every} map is monotone w.r.t. this order:
+By definition, the specialisation preorder is reflexive and transitive. As already observed in \emph{loc.\ cit.}, one important property of the specialisation preorder is that \emph{every} map is monotone w.r.t. this order:
 
 \begin{lemma}\label{lem:anymapmonotoneintriscorder}
   For $f \colon X \to Y$, $x \preceq y$ in $X$ implies $fx \preceq fy$ in $Y$.
@@ -920,10 +920,10 @@ By definition, the specialisation order is reflexive and transitive. As already 
 \end{proof}
 
 % \Jon{Let us not use the term ``discrete set'' to mean a ``set with decidable equality''. To me, discreteness emerges from some kind of topology; for example, in the presence of an interval, a discrete object is something that is orthogonal to this interval. } 
-We can very easily classify the specialisation order on a classical set, i.e.\ sets with decidable equality:
+We can very easily classify the specialisation preorder on a classical set, i.e.\ sets with decidable equality:
 
 \begin{lemma}[NT]\label{lem:discretephoa}
-  If $M$ is a classical set, then the specialisation order on $M$ is discrete, in the sense that for $n,m : M$,
+  If $M$ is a classical set, then the specialisation preorder on $M$ is discrete, in the sense that for $n,m : M$,
   \[ n \preceq m \to n = m. \]
 \end{lemma}
 \begin{proof}
@@ -938,7 +938,7 @@ We can very easily classify the specialisation order on a classical set, i.e.\ s
 \end{proof}
 
 \begin{corollary}[NT]\label{cor:connectedpreservediscrete}
-  If the specialisation order on $X$ has a least or greatest element, then $X$ is \emph{internally connected} in the sense that $X$ is right orthogonal to $M \to 1$ for any classical set $M$.
+  If the specialisation preorder on $X$ has a least or greatest element, then $X$ is \emph{internally connected} in the sense that $X$ is right orthogonal to $M \to 1$ for any classical set $M$.
 \end{corollary}
 % \Jon{Could be helpful to phrase it in terms of $X$ being right orthogonal to any type with decidable equality, and then unravel that in the proof rather than in the statement.}
 \begin{proof}
@@ -946,27 +946,29 @@ We can very easily classify the specialisation order on a classical set, i.e.\ s
 \end{proof}
 
 \begin{remark}
-  With greater efforts, the above proof would also work with the weaker assumption that the specialisation order on $X$ is \emph{connected}. This generalises a similar result given in~\cite[Prop.~4.4.1]{hyland1990first}.
+  With greater efforts, the above proof would also work with the weaker assumption that the specialisation preorder on $X$ is \emph{connected}. This generalises a similar result given in~\cite[Prop.~4.4.1]{hyland1990first}.
 \end{remark}
 
-The above result showcases the usefulness of the specialisation order. We would like to use it to show e.g. that $\I$ is internally connected. For this, we need to characterise the specialisation order on them. 
+The above result showcases the usefulness of the specialisation preorder. We would like to use it to show e.g. that $\I$ is internally connected. For this, we need to characterise the specialisation preorder on them. It turns out that for any affine space, this is simply its canonical order:
 
-In fact, the specialisation order on any affine space is easy to characterise:
+% \Jon{I think that we should give an explicit definition of the canonical order for a spectrum in its own \texttt{definition} environment.}
 
-\Jon{I think that we should give an explicit definition of the canonical order for a spectrum in its own \texttt{definition} environment.}
+\begin{definition}
+  For an $\I$-algebra $A$, we define the \emph{canonical order} on $\spec A$ to be the pointwise order by viewing it as $\I\alg(A,\I)$,
+  \[ x \le y \eq \fa aA xa \le ya. \]
+\end{definition}
 
 \begin{proposition}\label{lem:specorderofaffine}
-  For any affine space $\spec A \cong \I\alg(A,\I)$, the specialisation order $\preceq$ is the same as its canonical order, i.e. pointwise induced by $\I\alg(A,\I)$:
-  \[ x \preceq y \eq \fa aA xa \le ya. \]
+  For any affine space $\spec A$, the specialisation preorder $\preceq$ is the same as its canonical order.
 \end{proposition}
 \begin{proof}
   This holds by definition of $\preceq$, using the fact that $\I^{\spec A} \cong A$.
 \end{proof}
 
-In practice, the following perspective on the canonical order on $\spec A$ is usually more useful:
+In practice, the canonical order on $\spec A$ is what we expect them to be:
 
 \begin{lemma}\label{lem:cancoincide}
-  For any $A$ with a quotient from a free algebra $q : \I[Y] \surj A$, the canonical order on $\spec A$ induced from $\I\alg(A,\I)$ is equivalently the pointwise order induced by viewing it as a subspace $\spec q : \spec A \hook \I^Y$.
+  For any $A$ with a quotient from a free algebra $q : \I[Y] \surj A$, the canonical order on $\spec A$ is equivalently the pointwise order induced by viewing it as a subspace $\spec q : \spec A \hook \I^Y$.
 \end{lemma}
 \begin{proof}
   Let $x,x' : \spec A$. We have the following equivalences,
@@ -980,7 +982,10 @@ In practice, the following perspective on the canonical order on $\spec A$ is us
   The first equivalence is by definition of the pointwise order on $\I^Y$; the second holds by definition of $\spec q$; the third is due to the fact that all the polynomials for bounded distributive lattices are monotone; the final equivalence is due to $q$ being surjective.
 \end{proof}
 
-For instance, the above result shows that the canonical order on $\I^n$ and $\Delta^n$ as spectra coincides with their expected order. This furthermore coincides with the specialisation order on them if they are affine by \Cref{lem:specorderofaffine}. This goes beyond the assumption (SQCI), and we introduce the following stronger axiom:
+
+
+
+For instance, the above result shows that the canonical order on $\I^n$ and $\Delta^n$ as spectra coincides with their expected order. This furthermore coincides with the specialisation preorder on them if they are affine by \Cref{lem:specorderofaffine}. This goes beyond the assumption (SQCI), and we introduce the following stronger axiom:
 
 \begin{axiom}[SQCF]
   For any $n : \N$, the finitely generated free $\I$-algebra $\I[n]$ is stably quasi-coherent. 
@@ -988,23 +993,23 @@ For instance, the above result shows that the canonical order on $\I^n$ and $\De
 
 Since by definition a f.p. $\I$-algebra is a finitely generated quotient of a free $\I$-algebra, the above axiom is equivalent to saying that all f.p.\ $\I$-algebras are quasi-coherent. 
 % \Jon{Can we include a more explicit argument for this? This is a cool observation that I don't think Gratzer et al. were aware of.}
-Under (SQCF), the cubes $\I^n$ and the simplices $\Delta^n$ will all be affine as shown by \Cref{exm:cubeaffine,exm:simplicesaffine}. The characterisation of the specialisation order has immediate consequences on the elementary properties of affine spaces:
+Under (SQCF), the cubes $\I^n$ and the simplices $\Delta^n$ will all be affine as shown by \Cref{exm:cubeaffine,exm:simplicesaffine}. The characterisation of the specialisation preorder has immediate consequences on the elementary properties of affine spaces:
 
 \begin{corollary}[NT, SQCF]\label{cor:intisnot2}
   For any $n$, the cubes $\I^n$ and simplices $\Delta^n$ are all internally connected. In particular, $\I$ is not the classical set $2$.
 \end{corollary}
 \begin{proof}
-  By \Cref{lem:specorderofaffine,lem:cancoincide}, the specialisation order on them coincides with their canonical orders, which all have a top element. Thus by \Cref{cor:connectedpreservediscrete}, they are all internally connected. In particular, $2^\I \cong 2$, which implies $\I$ cannot be $2$.
+  By \Cref{lem:specorderofaffine,lem:cancoincide}, the specialisation preorder on them coincides with their canonical orders, which all have a top element. Thus by \Cref{cor:connectedpreservediscrete}, they are all internally connected. In particular, $2^\I \cong 2$, which implies $\I$ cannot be $2$.
 \end{proof}
 
-Besides affine spaces, it is also interesting to characterise the specialisation orders on \emph{$\I$-algebras}. This will be immediate once we discuss the \emph{Phoa's principle} in the next section.
+Besides affine spaces, it is also interesting to characterise the specialisation preorders on \emph{$\I$-algebras}. This will be immediate once we discuss the \emph{Phoa's principle} in the next section.
 
 \section{Phoa's principle}
 
 Recall the Phoa's principle states that the function space $\I^\I$ classifies the canonical order on $\I$. Under quasi-coherence, we can in fact generalise this to arbitrary spectra:
 
 \begin{theorem}[SQCF]\label{thm:phoaaffine}
-  For any $\I$-algebra $A$, the function space ${(\spec A)}^\I$ classifies the canonical order on $\spec A$ pointwise induced as $\I\alg(A,\I)$.
+  For any $\I$-algebra $A$, the function space ${(\spec A)}^\I$ classifies the canonical order on $\spec A$.
 \end{theorem}
 \begin{proof}
   By assumption $\I$ is affine, thus from \Cref{prop:duality} we have
@@ -1020,7 +1025,7 @@ Recall the Phoa's principle states that the function space $\I^\I$ classifies th
   In view of \Cref{lem:cancoincide}, under (SQCF) the above result implies e.g. that the function space $(\Delta^n)^\I$ indeed classifies the pointwise order on $\Delta^n$, and similarly for other examples of spectra we have considered so far.
 \end{remark}
 
-% The goal of this section is to more generally investigate the relationship between the \emph{path structure} given by functions out of $\I$, and the specialisation order. For this we introduce the following notion:
+% The goal of this section is to more generally investigate the relationship between the \emph{path structure} given by functions out of $\I$, and the specialisation preorder. For this we introduce the following notion:
 
 % \begin{definition}[Generalised Phoa's principle]\label{def:phoa}
 %   A type $X$ satisfies \emph{generalised Phoa's principle}, if the following map is an equivalence
@@ -1034,7 +1039,7 @@ Recall the Phoa's principle states that the function space $\I^\I$ classifies th
 % The first important consequence of working with bounded distributive lattices, besides the symmetry between meets and joins, is the fact that \emph{all} affine spaces will satisfy the generalised Phoa principle:
 
 % \begin{remark}[Generalised Phoa's principle vs. Phoa's principle]
-%   For the affine space $\I$, it satisfies the generalised Phoa principle indeed implies it satisfy the Phoa's principle in the usual sense, because we have seen in \Cref{cor:pointwisecubeorder}, under (SQCF) the canonical order on $\I$ coincides with its specialisation order. 
+%   For the affine space $\I$, it satisfies the generalised Phoa principle indeed implies it satisfy the Phoa's principle in the usual sense, because we have seen in \Cref{cor:pointwisecubeorder}, under (SQCF) the canonical order on $\I$ coincides with its specialisation preorder. 
 % \end{remark}
 
 % \Jon{I wonder if we should call this the ``generalised Phoa principle''; then we can observe that the interval satisfies the generalised Phoa principle if and only if it satisfies the generalised Phoa principle.}
@@ -1054,17 +1059,17 @@ In fact, we can also explicitly compute the function space $A^\I$ for a quasi-co
   We emphasis that the above proofs are purely the consequences of the algebraic fact that $A[i]$ classifies the canonical order on $A$ for any $\I$-algebra $A$, plus quasi-coherence. This is a perfect example of how an algebraic property of a theory has a non-trivial effect on the internal logic of its classifying topos.
 \end{remark}
 
-As a consequence of Phoa's principle, we can also characterise the specialisation order on quasi-coherent $\I$-algebras:
+As a consequence of Phoa's principle, we can also characterise the specialisation preorder on quasi-coherent $\I$-algebras:
 
 \begin{proposition}[SQCF]\label{cor:specordonalgiscan}
-  For a quasi-coherent $\I$-algebra $A$, the specialisation order coincides with its canonical order induced by its algebraic structure.
+  For a quasi-coherent $\I$-algebra $A$, the specialisation preorder coincides with its canonical order induced by its algebraic structure.
 \end{proposition}
 \begin{proof}
-  If $A$ is quasi-coherent, then $A \cong \I^{\spec A}$ as an $\I$-algebra, and its canonical order thus coincides with the pointwise order on $\I$. On the other hand, it is well-known that Phoa's principle for the interval $\I$ implies the specialisation order on any type $\I^X$ is pointwise; see e.g.~\cite[Thm. 4.2.1]{hyland1990first}. Hence, the two orders on $A$ indeed coincide.
+  If $A$ is quasi-coherent, then $A \cong \I^{\spec A}$ as an $\I$-algebra, and its canonical order thus coincides with the pointwise order on $\I$. On the other hand, it is well-known that Phoa's principle for the interval $\I$ implies the specialisation preorder on any type $\I^X$ is pointwise; see e.g.~\cite[Thm. 4.2.1]{hyland1990first}. Hence, the two orders on $A$ indeed coincide.
 \end{proof}
 
 \begin{remark}[Linked spaces]
-  \citet{PhoaWesleyKym-Son1991DtiR} calls type $X$ \emph{linked} when $X^\I \to \operatorname{\preceq}$ is a surjection, and a \emph{space} when $\preceq$ is antisymmetric. Both affine spaces and quasi-coherent algebras in our sense are spaces in the sense of Phoa, as can be seen by our characterisation of their specialisation orders in \Cref{lem:specorderofaffine,cor:specordonalgiscan}. Furthermore, together with \Cref{thm:phoaaffine,thm:algebraphoa}, the map $X^\I \to \operatorname{\preceq}$ is actually an \emph{equivalence} for affine spaces, and similarly for $\I$-algebras $A$ where both $A$ and $A[i]$ are quasi-coherent.
+  \citet{PhoaWesleyKym-Son1991DtiR} calls type $X$ \emph{linked} when $X^\I \to \operatorname{\preceq}$ is a surjection, and a \emph{space} when $\preceq$ is antisymmetric. Both affine spaces and quasi-coherent algebras in our sense are spaces in the sense of Phoa, as can be seen by our characterisation of their specialisation preorders in \Cref{lem:specorderofaffine,cor:specordonalgiscan}. Furthermore, together with \Cref{thm:phoaaffine,thm:algebraphoa}, the map $X^\I \to \operatorname{\preceq}$ is actually an \emph{equivalence} for affine spaces, and similarly for $\I$-algebras $A$ where both $A$ and $A[i]$ are quasi-coherent.
 \end{remark}
 
 At the end of this section, we describe another interesting perspective arising from the proof of \Cref{thm:phoaaffine}. We have seen that the dualising object $\I$ has a double role: It is both an algebra and a spectrum. The mixture of algebraic and geometric object has also been observed in \Cref{rem:alggeoI}. The proof of \Cref{thm:phoaaffine} gives us many more such examples. For instance, $\I[i]$ classifies the order on $\I$, which by definition is the spectrum $\Delta_2$. In fact, \emph{all} the simplices are classified by some algebra.
@@ -1111,7 +1116,7 @@ In general, by a c.p.\ $\I$-algebra we mean one of the form $\I[\N]/\pair{s_n = 
 \end{axiom}
 
 \begin{remark}
-  Our modular development in the previous sections can be now immediately applied to $\ov\omega$ if we assume (SQCC). For instance, the description of the specialisation order for affine spaces in \Cref{lem:specorderofaffine} now applies to $\ov\omega$, which shows this again coincides with its pointwise order as a subspace of $\I^\N$. In particular, it also has both a top and bottom element, thus \Cref{cor:connectedpreservediscrete} now implies $\ov\omega$ is also internally connected. 
+  Our modular development in the previous sections can be now immediately applied to $\ov\omega$ if we assume (SQCC). For instance, the description of the specialisation preorder for affine spaces in \Cref{lem:specorderofaffine} now applies to $\ov\omega$, which shows this again coincides with its pointwise order as a subspace of $\I^\N$. In particular, it also has both a top and bottom element, thus \Cref{cor:connectedpreservediscrete} now implies $\ov\omega$ is also internally connected. 
 \end{remark}
 
 (SQCC) combined with the non-triviality axiom (NT) has many logical consequences. The crucial observation is that (NT) implies a weak form of \emph{Nullstellensatz} result, as already noted by several authors~\cite{blechschmidt2021using,blechschmidt2020general,Cherubini_Coquand_Hutzler_2024}:
@@ -1432,7 +1437,7 @@ Equivalently, $X$ is $\I$-separated iff $X^\I \to X \times X$ is an embedding. T
   $\I$ is $\I$-separated. Any type $X$ satisfying Phoa's principle is also $\I$-separated.
 \end{proposition}
 \begin{proof}
-  Since $\I^\I$ classifies the canonical order on $\I$ which is a partial order, it will be $\I$-separated. For types $X$ satisfying Phoa's principle, since $X^\I$ classifies the specialisation order on $X$, which is again a partial order, they will be $\I$-separated.
+  Since $\I^\I$ classifies the canonical order on $\I$ which is a partial order, it will be $\I$-separated. For types $X$ satisfying Phoa's principle, since $X^\I$ classifies the specialisation preorder on $X$, which is again a partial order, they will be $\I$-separated.
 \end{proof}
 
 The notion of synthetic categories and synthetic posets are formulated as these orthogonality classes:
@@ -1450,16 +1455,16 @@ The notion of synthetic categories and synthetic posets are formulated as these 
   This follows from $\I$ being a synthetic poset, and spectra and quasi-coherent algebras are \emph{replete} as indicated in \Cref{rem:qcreplete,rem:specarereplete}.
 \end{proof}
 
-At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We first observe that its specialisation order again coincides with its canonical pointwise order viewed as a subspace of $\I^\N$.
+At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We first observe its specialisation preorder again coincides with its expected pointwise order viewed as a subspace of $\I^\N$:
 
 \begin{lemma}[NT, SQCC]\label{speconomegaiscan}
-  The inclusion $\omega \hook \ov\omega$ is an order embedding for the specialisation order. In particular, the specialisation on $\omega$ coincides with its canonical order.
+  The inclusion $\omega \hook \ov\omega$ is an order embedding for the specialisation preorder. In particular, the specialisation on $\omega$ is induced pointwise as a subspace of $\ov\omega$ ($\I^\N$).
 \end{lemma}
 \begin{proof}
-  The fact that $\omega\hook\ov\omega$ is an order embedding for the specialisation order follows from completeness of $\I$ in \Cref{thm:complete}. The fact that the specialisation order on $\ov\omega$ coincides with its canonical order follows from \Cref{lem:specorderofaffine} by the fact that it is affine under (SQCC). 
+  The fact that $\omega\hook\ov\omega$ is an order embedding for the specialisation preorder follows from completeness of $\I$ in \Cref{thm:complete}. The fact that the specialisation preorder on $\ov\omega$ coincides with its canonical order follows from \Cref{lem:specorderofaffine} by the fact that it is affine under (SQCC). 
 \end{proof}
 
-Furthermore, we can show that $\omega$ also satisfies the Phoa principle, i.e. the function space $\omega^\I$ again classifies its canonical order. For this we need to compute the function space $\omega^\I$.
+Furthermore, we can show that $\omega$ also satisfies the Phoa principle, i.e. the function space $\omega^\I$ again classifies its pointwise order. For this we need to compute the function space $\omega^\I$.
 % \Jon{Stale reference to generalised Phoa principle.}
 
 Recall from \Cref{prop:omegacolimit} that, under (NT) and (SQCC), $\omega$ is a colimit $\omega \cong \ct_{n:\N}\Delta^n$. As indicated in \Cref{rem:omegaalwayscolim}, this does not depend on working with bounded distributive lattices or $\sigma$-frames. Type-theoretically, we have also shown that $\omega$ can be realised as the following subspace of $\ov\omega$,
@@ -1471,18 +1476,18 @@ which implies $\Delta^n \hook \omega$ is \emph{downward closed}. This allows us 
 \begin{proposition}[NT, SQCC]\label{lem:intervalcommuteomega}
   We have a family of equivalences
   \[ \omega^\I \cong \big({\ct_{n:\N}\Delta^n}\big)^\I \cong \ct_{n:\N}(\Delta^n)^\I, \]
-  and similarly by replacing $\I$ with $\I^n$ or $\Delta^n$. In particular, $\omega^\I$ classifies the canonical order on $\omega$.
+  and similarly by replacing $\I$ with $\I^n$ or $\Delta^n$. In particular, $\omega^\I$ classifies the pointwise order on $\omega$.
 \end{proposition}
 \begin{proof}
   We show the following canonical map is an equivalence,
   \[ \ct_{n:\N}(\Delta^n)^\I \to \big({\ct_{n:\N}\Delta^n}\big)^\I. \]
-  It is evident this map is an embedding, hence it suffices to show it is surjective. Given $f \colon \I \to \ct_{n:\N}\Delta^n$. By assumption, there merely exists $n:\N$ that $f(1)$ factors through $\Delta^n \hook \omega$. Now the claim is that the entire map $f$ factors through $\Delta^n$. This indeed holds, since we have shown in \Cref{speconomegaiscan} that the specialisation order on $\omega$ is pointwise. By monotonicity, for any $i:\I$ we have $fi \preceq f1$, which implies $fi$ belongs to $\Delta^n$ as well, since $\Delta^n \hook \omega$ is a downward closed. The same holds for cubes or simplices since they all have a top element. This way, $\omega$ satisfies the Phoa's principle follows from the fact that each simplice $\Delta^n$ satisfies the Phoa's principle as shown in \Cref{thm:phoaaffine}.
+  It is evident this map is an embedding, hence it suffices to show it is surjective. Given $f \colon \I \to \ct_{n:\N}\Delta^n$. By assumption, there merely exists $n:\N$ that $f(1)$ factors through $\Delta^n \hook \omega$. Now the claim is that the entire map $f$ factors through $\Delta^n$. This indeed holds, since we have shown in \Cref{speconomegaiscan} that the specialisation preorder on $\omega$ is pointwise. By monotonicity, for any $i:\I$ we have $fi \preceq f1$, which implies $fi$ belongs to $\Delta^n$ as well, since $\Delta^n \hook \omega$ is a downward closed. The same holds for cubes or simplices since they all have a top element. This way, $\omega^\I$ classifies the pointwise order on $\omega$ since all simplices $\Delta^n$ satisfy the Phoa's principle as shown in \Cref{thm:phoaaffine}.
 \end{proof}
 
 % As a first consequence, we show $\omega$ satisfies the generalised Phoa principle: \Jon{Stale reference to generalised Phoa principle.}
 
 % \begin{proposition}[NT, SQCC]\label{cor:omegaphoa}
-%   The specialisation order on $\omega$ again coincides with its canonical pointwise order. In particular, $\omega$ also satisfies the generalised Phoa principle. \Jon{Stale reference to generalised Phoa principle.}
+%   The specialisation preorder on $\omega$ again coincides with its canonical pointwise order. In particular, $\omega$ also satisfies the generalised Phoa principle. \Jon{Stale reference to generalised Phoa principle.}
 % \end{proposition}
 % \begin{proof}
 %   For $i \le j$ in $\omega$, since $j$ merely belongs to $\Delta^n$ for some $n$. By downward closeness of $\Delta^n$ in $\omega$, $i,j$ both belongs to $\Delta^n$. Thus by \Cref{thm:phoaaffine} and \Cref{lem:intervalcommuteomega}, we get a map $f \colon \I \to \omega$ with $f(0) = i$ and $f(1) = j$. Hence, $i \preceq j$. Now if $i \preceq j$ in $\omega$, by \Cref{lem:anymapmonotoneintriscorder} we also have $i \preceq j$ in $\ov\omega$. Since $\ov\omega$ is affine, $i \le j$ in $\ov\omega$ by \Cref{thm:phoaaffine} again. This implies $i \le j$ in $\omega$. The uniqueness of $f \colon \I \to \omega$ follows from $\ov\omega$ satisfying Phoa's principle and the fact that $\omega\hook\ov\omega$ is an embedding.
