@@ -681,7 +681,7 @@ Given then dominance structure $\I$, we can construct internally the partial map
 \[ L X \coloneq \sum_{i:\I}X^{\ms ti}. \]
 The functoriality is easy to express: For any $f \colon X \to Y$, we have
 \[ L f(i,x) \coloneq (i,\ld{w}{\ms ti}fxw). \]
-There is an evident unit $\eta_L \colon X \to X\prt$, where
+There is an evident unit $\eta_L \colon X \to L(X)$, where
 \[ \eta_L(x) \coloneq (1,\ld\_ 1 x). \]
 The unit $\eta_L$ then classifies the partial maps out of $X$ with an \emph{open} domain. The dominance $\I$ also provides a multiplication $\mu \colon L(L X) \to L X$, where $\mu$ takes any $(i,u)$ with $i : \I$ and $u \colon \ms ti \to L X$ first to $(j,x)$, where $j$ is the dependent sum
 \[ j \coloneq \sum_{w:\ms ti} (uw)_0, \]
@@ -770,6 +770,7 @@ Thus, we now work with the theory $\mbb D$ of bounded distributive lattices, or 
 % \Jon{computation?} 
 will not change if we replace bounded distributive lattices by $\sigma$-frames. Hence, the results here and in \Cref{sec:intposet} will be applicable to $\sigma$-frames as well, where only the properties of f.p.\ $\I$-algebras matter.
 
+\Jon{I think there should be a subsection for all this material about the co-partial map classifier, etc.}
 In this case, $\I$ has a minimal element $0$. Notice that the constant $0$ also induces a predicate on $\I$,
 \[ \ms f \colon \I \to \pp, \]
 which takes any $i : \I$ to $i = 0$. As mentioned in \Cref{rem:opprop}, the theory of bounded distributive lattices is also \emph{propositionally op-stable}, and similarly for $\sigma$-frames. 
@@ -787,7 +788,6 @@ We will now call propositions in the image of $\ms f$ \emph{closed}, and a subty
   $\ms f$ forms a dominance.
 \end{corollary}
 
-\Jon{I'd like to move the definition of $T$ to be nearby the partial map classifier.}
 There is an accompanying classifier $T$ for partial maps with closed domains. Concretely, for any type $X$ it is defined by
 \[ T X \coloneq \sum_{i:\I} X^{\ms fi}. \]
 And analogously to \Cref{prop:liftingofalgebra}, under (SQCI) we can explicitly compute 
@@ -1099,10 +1099,11 @@ The connection between the infinitary aspect of synthetic domain theory and quas
   Since $L$ by construction is a polynomial functor, it preserves all connected limits. Hence, the final coalgebra $\ov\omega$ can be easily characterised as the following sequential limit, 
   \[
   \begin{tikzcd}
-    \ov\omega \cong \lt_{n:\N}\Delta^n \ar[r] & \cdots \ar[r] & \Delta^2 \ar[r, "!\prt"] & \I \ar[r, "!"] & 1
+    \ov\omega \cong \lt_{n:\N}\Delta^n \ar[r] & \cdots \ar[r] & \Delta^2 \ar[r, "L(!)"] & \Delta^1 \ar[r, "!"] & \Delta^0
   \end{tikzcd}
   \]
-  where the transition map $\Delta^{n+1} \to \Delta^n$ takes the sequence $i_0 \ge \cdots \ge i_n$ to the final segment $i_1 \ge \cdots \ge i_n$. As observed in~\cite[Sec. 5.2]{hyland1990first}, it also has an equivalent type-theoretic description as the object of infinite descending sequences in $\I$,
+  \Jon{Unless we shall define $\Delta^n$ to be literally $L^n(\varnothing)$, we should probably express the transition maps in terms of descending sequences rather than $L$, and then comment that under the identification, blah blah blah.}
+  where the transition map $\Delta^{n+1} \to \Delta^n$ takes the sequence $i_0 \ge \cdots \ge i_n$ to the final segment $i_1 \ge \cdots \ge i_n$. As observed by \citet[Sec. 5.2]{hyland1990first}, it also has an equivalent type-theoretic description as the object of infinite descending sequences in $\I$,
   \[ \ov\omega \cong \scomp{i : \N \to \I}{\fa n\N i_n \ge i_{n+1}}. \]
   This way, we have a natural equivalence
   \[ \ov\omega \cong \spec\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}. \]
@@ -1147,17 +1148,26 @@ For another proof, see e.g.\ that of \citet{VANOOSTEN2000233}. In the presence o
 \begin{proposition}[NT, SQCC]\label{prop:omegacolimit}
   $\omega$ is equivalent to the following subset of $\ov\omega$,
   \[ \omega \cong \scomp{i : \ov\omega}{\ex n{\N} \ms fi_n}. \]
-  In particular, $\omega$ is the colimit of the following sequence,
+  In particular, $\omega$ is the colimit of the following sequence:
   \[ 
   \begin{tikzcd}
-    \emp \ar[r, "?"] & 1 \ar[r, "?\prt \cong \eta_T"] & \I \ar[r, "\eta_T"] & \Delta^2 \ar[r] & \cdots \ar[r] & \ct_{n:\N}\Delta^n \cong \omega
+    \emp \ar[r, "?"] 
+    & \Delta^0 \ar[r, "0"] 
+    & \Delta^1 \ar[r, "(\cdots 0)"] 
+    & \Delta^2 \ar[r] 
+    & \cdots \ar[r] 
+    & \ct_{n:\N}\Delta^n 
+    \cong \omega
   \end{tikzcd}
   \]
 \end{proposition}
+
+The transition maps $\Delta^n\to \Delta^{n+1}$ in the sequence above are given by appending $0$ to the end of a descending sequence. Under the identification $\Delta^{n+1}\cong T(\Delta^n)$, this is $\eta_T\colon \Delta^n\to T(\Delta^{n})$.
+
 \begin{proof}
   Let $i : \ov\omega$. It suffices to show that
   \[ \prth{\fa\phi{\pp} (\fa n{\N} (\ms ti_n \to \phi) \to \phi) \to \phi} \to \ex{n}\N \ms fi_n. \]
-  Assume the premise. We can instantiate $\phi$ to $\emp$. By assumption, we have $\neg\fa n\N \neg\neg\ms ti_n$, which by \Cref{cor:opendnegclose} is equivalent to $\neg\fa n\N \ms ti_n$. Then \Cref{lem:markov} implies this is $\ex n\N \ms fi_n$. The fact that this makes $\omega$ into the above sequential colimit follows from~\cite[Cor. 1.10]{VANOOSTEN2000233}.
+  Assume the premise. We can instantiate $\phi$ to $\emp$. By assumption, we have $\neg\fa n\N \neg\neg\ms ti_n$, which by \Cref{cor:opendnegclose} is equivalent to $\neg\fa n\N \ms ti_n$. Then \Cref{lem:markov} implies this is $\ex n\N \ms fi_n$. The fact that this makes $\omega$ into the above sequential colimit follows from \citet[Cor.~1.10]{VANOOSTEN2000233}.
 \end{proof}
 
 \begin{remark}\label{rem:omegaalwayscolim}
