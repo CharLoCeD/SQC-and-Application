@@ -385,20 +385,32 @@ Before discussing quasi-coherence, we observe that many sets can be naturally vi
 
 Notice $\I[X]$ is the $X$-indexed coproduct of $\I[i]$ for $\I$-algebras, and $\spec$ takes it to the $X$-indexed product of $\spec\I[i] \cong \I$. $\spec$ is indeed a contravariant functor from $\I$-algebras to sets: For any $f \colon A \to B$, we have $\spec f \colon \spec B \to \spec A$ by precomposing with $f$. It indeed turns many colimits to limits, and as a consequence:
 
-\begin{proposition}
+\begin{proposition}\label{prop:spectra-are-powers-of-the-interval}
   Every spectrum is an equaliser of powers of $\I$. 
 \end{proposition}
+
+To verify \Cref{prop:spectra-are-powers-of-the-interval}, we must recall some results concerning adjunctions of descent type.
+
+\begin{definition}[\citet{kelly1993adjunctions}]
+  An adjunction $F\dashv U\colon \mathcal{A}\to \mathcal{C}$ is said to be of \emph{descent type} when either of the equivalent conditions hold:
+  \begin{enumerate}
+    \item The comparison functor $\Phi_{UF}\colon \mc{A} \to \mc{C}^{UF}$ into the Eilenberg--Moore category of the monad $UF$ on $\mathcal{C}$ is fully faithful.
+    \item For each $A\in \mc{A}$, the counit $\epsilon_A\colon FUA\to A$ is a coequaliser in $\mc{A}$:
+    \[\begin{tikzcd}
+      FUFUA \ar[r, shift left, "\epsilon_{FUA}"] \ar[r, shift right, "{FU\epsilon_A}"'] & FUA \ar[r, two heads, "\epsilon_{A}"] & A
+    \end{tikzcd}\]  
+  \end{enumerate}
+\end{definition}
+
+
+\begin{proposition}\label{lem:horn-free-models-descent}
+  For any horn theory $\T$, the adjunction $F\dashv U\colon \mmod\T\to\Set$ is of descent type.
+\end{proposition}
+
 \begin{proof}
-  For any Horn theory $\T$, the adjunction is of weak descent type,
+  Consider a presentation $\T = (\Sigma_\T,H_\T)$ where $\Sigma_\T$ is a signature and $H_\T$ is a set of horn clauses over this signature; we may of course regard $\Sigma_\T$ as an algebraic theory without any equations. We may then decompose the adjunction $F\dashv U\colon \mmod\T\to \Set$  into the composite adjunction:
   \[\begin{tikzcd}
-    {\mmod\T} & \Set
-    \arrow[""{name=0, anchor=center, inner sep=0}, "U", curve={height=-15pt}, from=1-1, to=1-2]
-    \arrow[""{name=1, anchor=center, inner sep=0}, "F", curve={height=-15pt}, from=1-2, to=1-1]
-    \arrow["\dashv"{anchor=center, rotate=90}, draw=none, from=1, to=0]
-  \end{tikzcd}\]
-  in the sense that the comparison functor $\mmod\T \to \Set^{UF}$ into the Eilenberg-Moore category of the monad $UF$ on $\Set$ is fully faithful. To show this, we may decompose the above adjunction into the following composite,
-  \[\begin{tikzcd}
-    {\mmod\T} & {\mmod{\geo{\T}}} & \Set
+    {\mmod\T} & {\mmod{\Sigma_\T}} & \Set
     \arrow[""{name=0, anchor=center, inner sep=0}, "{U_1}", curve={height=-15pt}, hook', from=1-1, to=1-2]
     \arrow[""{name=1, anchor=center, inner sep=0}, "{F_1}", curve={height=-15pt}, from=1-2, to=1-1]
     \arrow[""{name=2, anchor=center, inner sep=0}, "{U_0}", curve={height=-15pt}, from=1-2, to=1-3]
@@ -406,7 +418,15 @@ Notice $\I[X]$ is the $X$-indexed coproduct of $\I[i]$ for $\I$-algebras, and $\
     \arrow["\dashv"{anchor=center, rotate=90}, draw=none, from=1, to=0]
     \arrow["\dashv"{anchor=center, rotate=90}, draw=none, from=3, to=2]
   \end{tikzcd}\]
-  where $\geo{\T}$ denotes the signature of $\T$, and $\mmod{\geo{\T}}$ denotes the category of $\geo{\T}$-models, satisfying no further axioms. By~\cite[Rem. 3.19 (1)]{adamek1994locally}, the adjunction $F_1 \dashv U_1$ exists with $U_1$ fully faithful; $U_0$ by construction is also monadic. It follows from~\cite[Cor. 3.3]{kelly1993adjunctions} that the composite $U = U_0U_1$ is of weak descent type. Theorem 2.4 in \emph{loc. cit.} implies the following is a coequaliser of $\I$-algebras,
+
+  The existence and (epi)reflectivity of the left-hand adjunction $F_1\dashv U_1\colon \mmod\T\to\mmod{\Sigma_\T}$ is established by Remark~3.19~(1) of \citet{adamek1994locally}, as $\mmod\T$ is a ``quasivariety'' in the sense of \emph{op.\ cit.} The right-hand adjunction $F_0\dashv U_0\colon \mmod{\Sigma_T}\to \Set$ is monadic because $\Sigma_\T$ is algebraic, i.e.\ of (effective) descent type. Corollary 3.3 of \citet{kelly1993adjunctions} implies that the composition of a reflective adjunction followed by an adjunction of descent type is of descent type. 
+\end{proof}
+
+We are now prepared to verify \Cref{prop:spectra-are-powers-of-the-interval}.
+
+\begin{proof}[Proof of \Cref{prop:spectra-are-powers-of-the-interval}]
+  We wish to show that every spectrum $X=\spec A$ an equaliser of powers of the interval.
+  To that end, we note that the adjunction $F\dashv U\colon\mmod\T\to\Set$ is of descent type by \Cref{lem:horn-free-models-descent} and hence the following is a coequaliser of $\I$-algebras:
   \[
   \begin{tikzcd}
     \I[\I[A]] \ar[r, shift left, "\epsilon"] \ar[r, shift right, "{\I[\epsilon]}"'] & \I[A] \ar[r, two heads, "\epsilon"] & A
@@ -417,13 +437,13 @@ Notice $\I[X]$ is the $X$-indexed coproduct of $\I[i]$ for $\I$-algebras, and $\
   % \Jon{The result of Borceux is for algebraic theories; perhaps it works for Horn theories too, but we would need to prove that.}
   By the universal property, it follows that $\spec A$ can be identified as
   \[ \spec A \cong \scomp{x : \spec\I[A]}{x\epsilon = x\I[\epsilon]}, \]
-  which implies it is the following equaliser,
+  which implies it is the following equaliser:
   \[
   \begin{tikzcd}
     \spec A \ar[r, hook] & \spec\I[A] \cong \I^A \ar[r, shift left] \ar[r, shift right] & \spec\I[R]\cong\I^R
   \end{tikzcd}
+  \qedhere
   \]
-  This completes the proof.
 \end{proof}
 
 \begin{remark}[Spectra are replete]\label{rem:specarereplete}
