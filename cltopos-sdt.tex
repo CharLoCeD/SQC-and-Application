@@ -890,7 +890,7 @@ The strongest locality axiom states that the simplicial structure is truncated t
 \begin{axiom}[1CS]\label{ax:1cS}
   $\I$ is \emph{1-coskeletal}, i.e.\ (SL) holds and for $i,j : \I$, 
   \[ i \le j \eq \ms fi \vee (i = j)\vee \ms tj. \]
-  Geometrically, (1cS) additionally requires the canonical inclusion $\partial\Delta_2 \hook \Delta_2$ from the boundary $\partial\Delta_2$ to the 2-simplice $\Delta_2$ is an equivalence, where $\partial\Delta_2$ type-theoretically is simply
+  Geometrically, (1cS) additionally requires the canonical inclusion $\partial\Delta_2 \hook \Delta_2$ from the boundary $\partial\Delta_2$ to the 2-simplex $\Delta_2$ is an equivalence, where $\partial\Delta_2$ type-theoretically is simply
   \[ \partial\Delta_2 \coloneq \scomp{i,j : \I}{\ms fi \vee (i = j) \vee \ms ti}. \]
 \end{axiom}
 
@@ -1485,7 +1485,7 @@ As another consequence, we can also show the following general result establishi
   Let $f \colon X \to Y$ be a map where $X,Y$ are finite colimits of cubes or simplices. If each $\Delta^n$ is $f$-local, then so is $\omega$.
 \end{theorem}
 \begin{proof}
-  Let $Y \cong \ct_{r}Y_r$ be a finite colimit with each $Y_r$ a simplice or a cube.
+  Let $Y \cong \ct_{r}Y_r$ be a finite colimit with each $Y_r$ a simplex or a cube.
   \[ \omega^Y \cong \lt_r\big({\ct_{n:\N}\Delta^n}\big)^{Y_r} \cong \lt_r\ct_{n:\N}(\Delta^n)^{Y_r} \cong \ct_{n:\N}\lt_r(\Delta^n)^{Y_r} \cong \ct_{n:\N}(\Delta^n)^Y \]
   The second equivalence holds by \Cref{lem:intervalcommuteomega}; the third holds since finite limits commutes with sequential colimits. Thus, if each $\Delta^n$ is $f$-local, i.e.\ $(\Delta^n)^Y \cong (\Delta^n)^X$, then so is $\omega$.
 \end{proof}
