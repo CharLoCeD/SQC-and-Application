@@ -391,21 +391,22 @@ Notice that $\spec$ is in fact a contravariant functor from $\I$-algebras to set
   Every spectrum is an equaliser of powers of $\I$. 
 \end{proposition}
 \begin{proof}
-  Let $A$ be \emph{any} $\I$-algebra. Recall that it can be written as a coequaliser of free $\I$-algebras (cf.~\citet[Prop. 3.8.9]{borceux1994handbook2})
+  Let $A$ be \emph{any} $\I$-algebra. Recall that it can be written as a coequaliser of free $\I$-algebras
   \[
   \begin{tikzcd}
-    \I[R] \ar[r, shift left, "s"] \ar[r, shift right, "t"'] & \I[X] \ar[r, two heads] & A
+    \I[R] \ar[r, shift left, "s"] \ar[r, shift right, "t"'] & \I[A] \ar[r, two heads] & A
   \end{tikzcd}
   \]
+  From~\cite[Rem. 3.19 (1)]{adamek1994locally} we know the map $\I[A] \surj A$ is a regular epimorphism, i.e. it is part of a coequaliser $R \rightrightarrows \I[A] \surj A$. This way, we can take the surjection $\I[R] \surj R$ again and obtain a coequaliser $\I[R] \rightrightarrows \I[A] \surj A$.
   % \Jon{The above was kind of non-obvious to me. I think an actual proof is needed for the above claim.}
   % \LY{This is a standard result; I have added a reference.}
-  \Jon{The result of Borceux is for algebraic theories; perhaps it works for Horn theories too, but we would need to prove that.}
+  % \Jon{The result of Borceux is for algebraic theories; perhaps it works for Horn theories too, but we would need to prove that.}
   By the universal property, it follows that $\spec A$ can be identified as
-  \[ \spec A \cong \scomp{x : \spec\I[X]}{xs = xt}, \]
+  \[ \spec A \cong \scomp{x : \spec\I[A]}{xs = xt}, \]
   which implies it is the following equaliser,
   \[
   \begin{tikzcd}
-    \spec A \ar[r, hook] & \spec\I[X] \cong \I^X \ar[r, shift left, "\spec s"] \ar[r, shift right, "\spec t"'] & \spec\I[R]\cong\I^R
+    \spec A \ar[r, hook] & \spec\I[A] \cong \I^A \ar[r, shift left, "\spec s"] \ar[r, shift right, "\spec t"'] & \spec\I[R]\cong\I^R
   \end{tikzcd}
   \]
   This completes the proof.
@@ -1311,7 +1312,9 @@ Finally, we discuss the even stronger locality condition (1cS). As mentioned in 
   Hence, the above is a limit diagram of $\I$-algebras.
 \end{proof}
 
-Besides the locality principles discussed in \Cref{sec:locality}, we also consider the orthogonality classes emerging from \emph{synthetic category theory}, as first introduced in~\cite{riehl2017type}. \Jon{Let's find a way to credit Fiore and Rosolini with the definition of \emph{path transitivity}.} A synthetic category will be a type that satisfies the internal orthogonality condition of being \emph{simplicial}, \emph{Segal}, and \emph{Rezk}.
+Besides the locality principles discussed in \Cref{sec:locality}, we also consider the orthogonality classes emerging from \emph{synthetic category theory}, as first introduced in~\cite{riehl2017type}. 
+% \Jon{Let's find a way to credit Fiore and Rosolini with the definition of \emph{path transitivity}.} 
+A synthetic category will be a type that satisfies the internal orthogonality condition of being \emph{simplicial}, \emph{Segal}, and \emph{Rezk}.
 
 We start with the Segal condition. Besides the outer horn discussed in \Cref{exm:hornaffine}, we can also define the inner horn $\Lambda^2_1$ as a pushout,
 \[
@@ -1327,6 +1330,9 @@ As a subtype of $\Delta_2$, it can be identified as $\scomp{(i,j) : \Delta_2}{\m
   $X$ is called \emph{Segal} when it is right orthogonal to $\Lambda^2_1 \hook \Delta_2$.
 \end{definition}
 
+\begin{remark}[Path transitivity]
+  The Segal condition has also been introduced independently by~\citet{fiore2001domains} under the name of \emph{path transitivity}.
+\end{remark}
 
 \begin{proposition}[SQCF]
   $\I$ is Segal.
