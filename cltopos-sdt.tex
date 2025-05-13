@@ -682,7 +682,7 @@ Given then dominance structure $\I$, we can construct internally the partial map
 The functoriality is easy to express: For any $f \colon X \to Y$, we have
 \[ L f(i,x) \coloneq (i,\ld{w}{\ms ti}fxw). \]
 There is an evident unit $\eta_L \colon X \to X\prt$, where
-\[ \eta_L(x) \coloneq (1,\ld\hp 1 x). \]
+\[ \eta_L(x) \coloneq (1,\ld\_ 1 x). \]
 The unit $\eta_L$ then classifies the partial maps out of $X$ with an \emph{open} domain. The dominance $\I$ also provides a multiplication $\mu \colon L(L X) \to L X$, where $\mu$ takes any $(i,u)$ with $i : \I$ and $u \colon \ms ti \to L X$ first to $(j,x)$, where $j$ is the dependent sum
 \[ j \coloneq \sum_{w:\ms ti} (uw)_0, \]
 and $x \colon \ms tj \to X$ is the partial element such that for $w : \ms ti$ and $v : (uw)_0$
@@ -787,6 +787,7 @@ We will now call propositions in the image of $\ms f$ \emph{closed}, and a subty
   $\ms f$ forms a dominance.
 \end{corollary}
 
+\Jon{I'd like to move the definition of $T$ to be nearby the partial map classifier.}
 There is an accompanying classifier $T$ for partial maps with closed domains. Concretely, for any type $X$ it is defined by
 \[ T X \coloneq \sum_{i:\I} X^{\ms fi}. \]
 And analogously to \Cref{prop:liftingofalgebra}, under (SQCI) we can explicitly compute 
@@ -942,14 +943,14 @@ We can very easily classify the specialisation preorder on a classical set, i.e.
 \end{corollary}
 % \Jon{Could be helpful to phrase it in terms of $X$ being right orthogonal to any type with decidable equality, and then unravel that in the proof rather than in the statement.}
 \begin{proof}
-  Let $x:X$ be the minimal element of $X$. Since $X$ is inhabited, $M \to M^X$ is an embedding. Since $M,M^X$ are sets, it suffices to show this is also surjective, i.e. any $f \colon X \to M$ is a constant map. Since $x$ is minimal, for any $y:X$ by \Cref{lem:anymapmonotoneintriscorder} we have $f(x) \preceq f(y)$, which by \Cref{lem:discretephoa} implies $f(x) = f(y)$. The case of $x$ being maximal is completely similar.
+  Let $x:X$ be the minimal element of $X$. Since $X$ is inhabited, $M \to M^X$ is an embedding. Since $M,M^X$ are sets, it suffices to show this is also surjective, i.e.\ any $f \colon X \to M$ is a constant map. Since $x$ is minimal, for any $y:X$ by \Cref{lem:anymapmonotoneintriscorder} we have $f(x) \preceq f(y)$, which by \Cref{lem:discretephoa} implies $f(x) = f(y)$. The case of $x$ being maximal is completely similar.
 \end{proof}
 
 \begin{remark}
   With greater efforts, the above proof would also work with the weaker assumption that the specialisation preorder on $X$ is \emph{connected}. This generalises a similar result given in~\cite[Prop.~4.4.1]{hyland1990first}.
 \end{remark}
 
-The above result showcases the usefulness of the specialisation preorder. We would like to use it to show e.g. that $\I$ is internally connected. For this, we need to characterise the specialisation preorder on them. It turns out that for any affine space, this is simply its canonical order:
+The above result showcases the usefulness of the specialisation preorder. We would like to use it to show e.g.\ that $\I$ is internally connected. For this, we need to characterise the specialisation preorder on them. It turns out that for any affine space, this is simply its canonical order:
 
 % \Jon{I think that we should give an explicit definition of the canonical order for a spectrum in its own \texttt{definition} environment.}
 
@@ -992,7 +993,6 @@ For instance, the above result shows that the canonical order on $\I^n$ and $\De
 \end{axiom}
 
 Since by definition a f.p. $\I$-algebra is a finitely generated quotient of a free $\I$-algebra, the above axiom is equivalent to saying that all f.p.\ $\I$-algebras are quasi-coherent. 
-% \Jon{Can we include a more explicit argument for this? This is a cool observation that I don't think Gratzer et al. were aware of.}
 Under (SQCF), the cubes $\I^n$ and the simplices $\Delta^n$ will all be affine as shown by \Cref{exm:cubeaffine,exm:simplicesaffine}. The characterisation of the specialisation preorder has immediate consequences on the elementary properties of affine spaces:
 
 \begin{corollary}[NT, SQCF]\label{cor:intisnot2}
@@ -1022,7 +1022,7 @@ Recall the Phoa's principle states that the function space $\I^\I$ classifies th
 \end{proof}
 
 \begin{remark}
-  In view of \Cref{lem:cancoincide}, under (SQCF) the above result implies e.g. that the function space $(\Delta^n)^\I$ indeed classifies the pointwise order on $\Delta^n$, and similarly for other examples of spectra we have considered so far.
+  In view of \Cref{lem:cancoincide}, under (SQCF) the above result implies e.g.\ that the function space $(\Delta^n)^\I$ indeed classifies the pointwise order on $\Delta^n$, and similarly for other examples of spectra we have considered so far.
 \end{remark}
 
 % The goal of this section is to more generally investigate the relationship between the \emph{path structure} given by functions out of $\I$, and the specialisation preorder. For this we introduce the following notion:
@@ -1087,7 +1087,7 @@ Of course $\Delta[\I]^n$ is simply $\Delta^n$. We have a general algebraic descr
 \end{proposition}
 % \Jon{We need to explain the automatic associativity outside the proof---either in the theorem statement, or perhaps even further outside.}
 
-We omit the proof here, which again follows from a general normal form for polynomials with finitely many variables for bounded distributive lattices; see~\cite[Thm. 10.21]{lausch2000algebra}. We only note here that the above polynomial is well-defined, in the sense that the expression is associative and its value does not depend on how one add parenthesises. The reason for this is that for any expression $a \vee b \wedge c$ to have a definite meaning in a distributive lattice, i.e. the two value $(a \vee b) \wedge c$ and $a \vee (b \wedge c)$ coincide, it suffices to have $a \le c$. Then the condition $a_0 \ge \cdots \ge a_n$ for the parameters, and the fact that $i_1 \le \cdots \le i_n$, makes sure the above polynomial has a definite meaning in the quotient.
+We omit the proof here, which again follows from a general normal form for polynomials with finitely many variables for bounded distributive lattices; see~\cite[Thm. 10.21]{lausch2000algebra}. We only note here that the above polynomial is well-defined, in the sense that the expression is associative and its value does not depend on how one add parenthesises. The reason for this is that for any expression $a \vee b \wedge c$ to have a definite meaning in a distributive lattice, i.e.\ the two value $(a \vee b) \wedge c$ and $a \vee (b \wedge c)$ coincide, it suffices to have $a \le c$. Then the condition $a_0 \ge \cdots \ge a_n$ for the parameters, and the fact that $i_1 \le \cdots \le i_n$, makes sure the above polynomial has a definite meaning in the quotient.
 
 \section{Infinitary domain theory}\label{sec:infdomain}
 
@@ -1109,7 +1109,7 @@ The connection between the infinitary aspect of synthetic domain theory and quas
   Here now $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ is a \emph{countably presented} $\I$-algebra.
 \end{example}
 
-In general, by a c.p.\ $\I$-algebra we mean one of the form $\I[\N]/\pair{s_n = t_n}_{n:\N}$ for some $\N$-indexed lists of terms $s,t : \N \to \I[\N]$. In particular, all f.p.\ $\I$-algebra will also be c.p.. Motivated by the above characterisation of $\ov\omega$, we naturally consider the following stronger quasi-coherence principle:
+In general, by a c.p.\ $\I$-algebra we mean one of the form $\I[\N]/\pair{s_n = t_n}_{n:\N}$ for some $\N$-indexed lists of terms $s,t \colon \N \to \I[\N]$. In particular, all f.p.\ $\I$-algebra will also be c.p.. Motivated by the above characterisation of $\ov\omega$, we naturally consider the following stronger quasi-coherence principle:
 
 \begin{axiom}[SQCC]
   All c.p.\ $\I$-algebras are quasi-coherent.
@@ -1464,7 +1464,7 @@ At the end of this section, we also discuss the example of $\omega$, which as we
   The fact that $\omega\hook\ov\omega$ is an order embedding for the specialisation preorder follows from completeness of $\I$ in \Cref{thm:complete}. The fact that the specialisation preorder on $\ov\omega$ coincides with its canonical order follows from \Cref{lem:specorderofaffine} by the fact that it is affine under (SQCC). 
 \end{proof}
 
-Furthermore, we can show that $\omega$ also satisfies the Phoa principle, i.e. the function space $\omega^\I$ again classifies its pointwise order. For this we need to compute the function space $\omega^\I$.
+Furthermore, we can show that $\omega$ also satisfies the Phoa principle, i.e.\ the function space $\omega^\I$ again classifies its pointwise order. For this we need to compute the function space $\omega^\I$.
 % \Jon{Stale reference to generalised Phoa principle.}
 
 Recall from \Cref{prop:omegacolimit} that, under (NT) and (SQCC), $\omega$ is a colimit $\omega \cong \ct_{n:\N}\Delta^n$. As indicated in \Cref{rem:omegaalwayscolim}, this does not depend on working with bounded distributive lattices or $\sigma$-frames. Type-theoretically, we have also shown that $\omega$ can be realised as the following subspace of $\ov\omega$,
@@ -1569,7 +1569,7 @@ It is well-known the dual category of $\DL\fp \cong \sFrm\fp$ is $\Pos\fp$ of fi
 \end{lemma}
 \begin{proof}
   The free $\sigma$-frame can be generated by first freely adding finite meets to the discrete poset $\N$, and then freely adding all countable joins. The first step results in the poset $P_f(\N)\op$. Now since $P_f(\N)\op$ is countable, freely adding all countable joins is equivalently freely adding \emph{all} joins, which is achieved by the presheaf construction. This way,
-  \[ \Sigma[\N] \cong \Pos(P_f(\N)\op)\op,\Sigma) \cong \Pos(P_f(\N),\Sigma). \qedhere \]
+  \[ \Sigma[\N] \cong \Pos((P_f(\N)\op)\op,\Sigma) \cong \Pos(P_f(\N),\Sigma). \qedhere \]
 \end{proof}
 
 % \Jon{Shall we write $\Topp$ as $\mathbf{Esp}$ or something to avoid confusion with toposes?}
@@ -1577,7 +1577,7 @@ It is well-known the dual category of $\DL\fp \cong \sFrm\fp$ is $\Pos\fp$ of fi
 \begin{corollary}\label{cor:dualsframe}
   There is a fully faithful embedding
   \[ \sFrm\cp \hook \Frm, \]
-  preserving all countable colimits. This is again fully faithful when composed with $\ms{pt} : \Frm\op \to \Topp$, where $\Topp$ is the category of topological spaces.
+  preserving all countable colimits. This is again fully faithful when composed with $\ms{pt} \colon \Frm\op \to \Topp$, where $\Topp$ is the category of topological spaces.
 \end{corollary}
 \begin{proof}
   Any c.p.\ $\sigma$-frame will be isomorphic to one of the form $\Sigma[\N]/R$ for some countably generated congruence $R$. By \Cref{lem:cgfreesframe}, $\Sigma[\N]$ is a frame, so is any of its quotient. By~\cite[Thm. 6.2.4]{makkai2006first}, such frames are indeed \emph{spatial}, hence they fully faithfully embed into the category of topological spaces via the functor $\pt$.
