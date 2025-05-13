@@ -262,6 +262,7 @@ Cambridge, UK
 \maketitle              % typeset the header of the contribution
 %
 
+
 \section{Introduction}\label{sec:intro}
 
 \subsection{Synthetic domain theory}\label{subsec:sdt}
@@ -888,7 +889,7 @@ The strongest locality axiom states that the simplicial structure is truncated t
 \begin{axiom}[1CS]\label{ax:1cS}
   $\I$ is \emph{1-coskeletal}, i.e.\ (SL) holds and for $i,j : \I$, 
   \[ i \le j \eq \ms fi \vee (i = j)\vee \ms tj. \]
-  Geometrically, (1cS) additionally requires the canonical inclusion $\partial\Delta_2 \hook \Delta_2$ from the boundary $\partial\Delta_2$ to the 2-simplice $\Delta_2$ is an equivalence, where $\partial\Delta_2$ type-theoretically is simply
+  Geometrically, (1cS) additionally requires the canonical inclusion $\partial\Delta_2 \hook \Delta_2$ from the boundary $\partial\Delta_2$ to the 2-simplex $\Delta_2$ is an equivalence, where $\partial\Delta_2$ type-theoretically is simply
   \[ \partial\Delta_2 \coloneq \scomp{i,j : \I}{\ms fi \vee (i = j) \vee \ms ti}. \]
 \end{axiom}
 
@@ -898,6 +899,7 @@ In general we will at most work with the weakest locality axiom (NT). However, w
 
 
 \section{Specialisation order}\label{sec:intposet}
+\Jon{Let's speak of specialisation \emph{preorder} everywhere to avoid confusion.}
 % \Jon{I think this section would be improved if we clarify that what we are talking about here is relating \emph{path structure} to the specialisation order.}
 % \LY{Very good point, and I have revised accordingly. I hope now it is more clear.}
 
@@ -908,7 +910,7 @@ The goal of this section is to investigate the the computation and consequences 
   \[ x \preceq y \coloneq \fa{U}{X\to\I} U(x) \le U(y). \]
 \end{definition}
 
-By definition, the specialisation order is reflexive and transitive. As already observed in \emph{loc. cit.}, one important property of the specialisation order is that \emph{every} map is monotone w.r.t. this order:
+By definition, the specialisation order is reflexive and transitive. As already observed in \emph{loc.\ cit.}, one important property of the specialisation order is that \emph{every} map is monotone w.r.t. this order:
 
 \begin{lemma}\label{lem:anymapmonotoneintriscorder}
   For $f \colon X \to Y$, $x \preceq y$ in $X$ implies $fx \preceq fy$ in $Y$.
@@ -950,6 +952,8 @@ We can very easily classify the specialisation order on a classical set, i.e.\ s
 The above result showcases the usefulness of the specialisation order. We would like to use it to show e.g. that $\I$ is internally connected. For this, we need to characterise the specialisation order on them. 
 
 In fact, the specialisation order on any affine space is easy to characterise:
+
+\Jon{I think that we should give an explicit definition of the canonical order for a spectrum in its own \texttt{definition} environment.}
 
 \begin{proposition}\label{lem:specorderofaffine}
   For any affine space $\spec A \cong \I\alg(A,\I)$, the specialisation order $\preceq$ is the same as its canonical order, i.e. pointwise induced by $\I\alg(A,\I)$:
@@ -1000,11 +1004,11 @@ Besides affine spaces, it is also interesting to characterise the specialisation
 Recall the Phoa's principle states that the function space $\I^\I$ classifies the canonical order on $\I$. Under quasi-coherence, we can in fact generalise this to arbitrary spectra:
 
 \begin{theorem}[SQCF]\label{thm:phoaaffine}
-  For any $\I$-algebra $A$, the function space $\spec A^\I$ classifies the canonical order on $\spec A$ pointwise induced as $\I\alg(A,\I)$.
+  For any $\I$-algebra $A$, the function space ${(\spec A)}^\I$ classifies the canonical order on $\spec A$ pointwise induced as $\I\alg(A,\I)$.
 \end{theorem}
 \begin{proof}
   By assumption $\I$ is affine, thus from \Cref{prop:duality} we have
-  \[ \spec A^\I \cong \I\alg(A,\I[i]). \]
+  \[ (\spec A)^\I \cong \I\alg(A,\I[i]). \]
   We observe that the pair of evaluation maps
   \[ \pair{\ev_0,\ev_1} : \I[i] \to \I \times \I \]
   classifies the canonical order on $\I$. This follows from a normal form result of polynomials for bounded distributive lattices, i.e.\ any polynomial $p:\I[i]$ is of the form 
@@ -1490,14 +1494,14 @@ As another consequence, we can also show the following general result establishi
   Let $f \colon X \to Y$ be a map where $X,Y$ are finite colimits of cubes or simplices. If each $\Delta^n$ is $f$-local, then so is $\omega$.
 \end{theorem}
 \begin{proof}
-  Let $Y \cong \ct_{r}Y_r$ be a finite colimit with each $Y_r$ a simplice or a cube.
+  Let $Y \cong \ct_{r}Y_r$ be a finite colimit with each $Y_r$ a simplex or a cube.
   \[ \omega^Y \cong \lt_r\big({\ct_{n:\N}\Delta^n}\big)^{Y_r} \cong \lt_r\ct_{n:\N}(\Delta^n)^{Y_r} \cong \ct_{n:\N}\lt_r(\Delta^n)^{Y_r} \cong \ct_{n:\N}(\Delta^n)^Y \]
   The second equivalence holds by \Cref{lem:intervalcommuteomega}; the third holds since finite limits commutes with sequential colimits. Thus, if each $\Delta^n$ is $f$-local, i.e.\ $(\Delta^n)^Y \cong (\Delta^n)^X$, then so is $\omega$.
 \end{proof}
 
 \begin{remark}[Localisation classes closed under sequential colimits]
   Notice that in \Cref{lem:intervalcommuteomega} we do not need to use any form of choice principle to show the exponential $(-)^\I$ commutes with the sequential colimit $\ct_{n:\N}\Delta^n$, exactly because $\Delta^n \hook \omega$ is downward closed. However, for general sequential colimits, the same proof still goes through if we assume:
-  \begin{axiom}[Chioce principle for $\I$]
+  \begin{axiom}[Choice principle for $\I$]
     For any type family $P$ over $\I$, we have
     \[ \prod_{i:\I}\pss{P(i)} \to \big\lVert\prod_{i:\I}P(i)\big\rVert. \]
   \end{axiom}
@@ -1697,7 +1701,7 @@ Both synthetic topology~\cite{bauer2009dedekind} and synthetic computability the
 
 \subsection{Connection with existing models}\label{subsec:compare}
 
-Finally, it will be instructive to compare the sheaf models for synthetic domain theory constructed by \citet{FIORE1997151} with the models discussed in \Cref{sec:model}. Recall the topos $\mc H$ constructed in \emph{loc. cit.} is the following sheaf topos,
+Finally, it will be instructive to compare the sheaf models for synthetic domain theory constructed by \citet{FIORE1997151} with the models discussed in \Cref{sec:model}. Recall the topos $\mc H$ constructed in \emph{loc.\ cit.}\ is the following sheaf topos,
 \[ \mc H \coloneq \sh(\mb P,J_{\ms{can}}), \]
 where $\mb P$ be the full subcategory of the category $\wCPO$ of $\omega$-cpos consisting of retracts of the Scott's graph model $G$, and $J_{\ms{can}}$ is the canonical topology on $\mb P$. An $\omega$-cpo is simply a poset having joins of countable chains, and morphisms between them are maps preserving joins of countable chains.
 % \Jon{Not all countable joins, but just joins of $\omega$-chains.}
