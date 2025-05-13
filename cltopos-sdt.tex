@@ -389,9 +389,9 @@ Notice $\I[X]$ is the $X$-indexed coproduct of $\I[i]$ for $\I$-algebras, and $\
   Every spectrum is an equaliser of powers of $\I$. 
 \end{proposition}
 
-To verify \Cref{prop:spectra-are-powers-of-the-interval}, we must recall some results concerning adjunctions of descent type.
+To verify \Cref{prop:spectra-are-powers-of-the-interval}, we recall some results concerning adjunctions of descent type. This notion was first given in~\citet{BarrMichael1985Ttat}, and the following characterisation appeared in~\citet{kelly1993adjunctions}
 
-\begin{definition}[\citet{kelly1993adjunctions}]
+\begin{definition}
   An adjunction $F\dashv U\colon \mathcal{A}\to \mathcal{C}$ is said to be of \emph{descent type} when either of the equivalent conditions hold:
   \begin{enumerate}
     \item The comparison functor $\Phi_{UF}\colon \mc{A} \to \mc{C}^{UF}$ into the Eilenberg--Moore category of the monad $UF$ on $\mathcal{C}$ is fully faithful.
@@ -402,13 +402,12 @@ To verify \Cref{prop:spectra-are-powers-of-the-interval}, we must recall some re
   \end{enumerate}
 \end{definition}
 
-
 \begin{proposition}\label{lem:horn-free-models-descent}
-  For any horn theory $\T$, the adjunction $F\dashv U\colon \mmod\T\to\Set$ is of descent type.
+  For a Horn theory $\T$, the adjunction $F\dashv U\colon \mmod\T\to\Set$ is of descent type.
 \end{proposition}
 
 \begin{proof}
-  Consider a presentation $\T = (\Sigma_\T,H_\T)$ where $\Sigma_\T$ is a signature and $H_\T$ is a set of horn clauses over this signature; we may of course regard $\Sigma_\T$ as an algebraic theory without any equations. We may then decompose the adjunction $F\dashv U\colon \mmod\T\to \Set$  into the composite adjunction:
+  Consider a presentation $\T = (\Sigma_\T,H_\T)$ where $\Sigma_\T$ is a signature and $H_\T$ is a set of Horn clauses over this signature; we may of course regard $\Sigma_\T$ as an algebraic theory without any equations. We may then decompose the adjunction $F\dashv U\colon \mmod\T\to \Set$  into the composite adjunction:
   \[\begin{tikzcd}
     {\mmod\T} & {\mmod{\Sigma_\T}} & \Set
     \arrow[""{name=0, anchor=center, inner sep=0}, "{U_1}", curve={height=-15pt}, hook', from=1-1, to=1-2]
@@ -419,7 +418,7 @@ To verify \Cref{prop:spectra-are-powers-of-the-interval}, we must recall some re
     \arrow["\dashv"{anchor=center, rotate=90}, draw=none, from=3, to=2]
   \end{tikzcd}\]
 
-  The existence and (epi)reflectivity of the left-hand adjunction $F_1\dashv U_1\colon \mmod\T\to\mmod{\Sigma_\T}$ is established by Remark~3.19~(1) of \citet{adamek1994locally}, as $\mmod\T$ is a ``quasivariety'' in the sense of \emph{op.\ cit.} The right-hand adjunction $F_0\dashv U_0\colon \mmod{\Sigma_T}\to \Set$ is monadic because $\Sigma_\T$ is algebraic, i.e.\ of (effective) descent type. Corollary 3.3 of \citet{kelly1993adjunctions} implies that the composition of a reflective adjunction followed by an adjunction of descent type is of descent type. 
+  The existence and reflectivity of $F_1\dashv U_1\colon \mmod\T\to\mmod{\Sigma_\T}$ is established by Remark~3.19~(1) of \citet{adamek1994locally}, as $\mmod\T$ is a ``quasivariety'' in the sense of \emph{op.\ cit.} The right-hand adjunction $F_0\dashv U_0\colon \mmod{\Sigma_T}\to \Set$ is monadic because $\Sigma_\T$ is algebraic, i.e.\ of (effective) descent type. Corollary 3.3 of \citet{kelly1993adjunctions} implies that the composition of a reflective adjunction followed by an adjunction of descent type is of descent type. 
 \end{proof}
 
 We are now prepared to verify \Cref{prop:spectra-are-powers-of-the-interval}.
@@ -948,7 +947,7 @@ We can very easily classify the specialisation order on a classical set, i.e.\ s
   With greater efforts, the above proof would also work with the weaker assumption that the specialisation order on $X$ is \emph{connected}. This generalises a similar result given in~\cite[Prop.~4.4.1]{hyland1990first}.
 \end{remark}
 
-The above result showcases the usefulness of the specialisation order. We would like to use it to show e.g. that $\I$, or more generally $\I^n$ and $\Delta^n$, are internally connected. For this, we need to characterise the specialisation order on them. 
+The above result showcases the usefulness of the specialisation order. We would like to use it to show e.g. that $\I$ is internally connected. For this, we need to characterise the specialisation order on them. 
 
 In fact, the specialisation order on any affine space is easy to characterise:
 
@@ -1064,8 +1063,8 @@ As a consequence of Phoa's principle, we can also characterise the specialisatio
   \citet{PhoaWesleyKym-Son1991DtiR} calls type $X$ \emph{linked} when $X^\I \to \operatorname{\preceq}$ is a surjection, and a \emph{space} when $\preceq$ is antisymmetric. Both affine spaces and quasi-coherent algebras in our sense are spaces in the sense of Phoa, as can be seen by our characterisation of their specialisation orders in \Cref{lem:specorderofaffine,cor:specordonalgiscan}. Furthermore, together with \Cref{thm:phoaaffine,thm:algebraphoa}, the map $X^\I \to \operatorname{\preceq}$ is actually an \emph{equivalence} for affine spaces, and similarly for $\I$-algebras $A$ where both $A$ and $A[i]$ are quasi-coherent.
 \end{remark}
 
-At the end of this section, we describe another interesting perspective arising from the proof of \Cref{thm:phoaaffine}. We have seen that the dualising object $\I$ has a double role: It is both an algebra and a spectrum. The mixture of algebraic and geometric object has also been observed in \Cref{rem:alggeoI}. The proof of the generalised Phoa principle gives us many more such examples. For instance, $\I[i]$ classifies the order on $\I$, which by definition is the spectrum $\Delta_2$. In fact, \emph{all} the simplices are classified by some algebra.
-\Jon{This has a reference to ``generalised Phoa principle'', which is now undefined}
+At the end of this section, we describe another interesting perspective arising from the proof of \Cref{thm:phoaaffine}. We have seen that the dualising object $\I$ has a double role: It is both an algebra and a spectrum. The mixture of algebraic and geometric object has also been observed in \Cref{rem:alggeoI}. The proof of \Cref{thm:phoaaffine} gives us many more such examples. For instance, $\I[i]$ classifies the order on $\I$, which by definition is the spectrum $\Delta_2$. In fact, \emph{all} the simplices are classified by some algebra.
+% \Jon{This has a reference to ``generalised Phoa principle'', which is now undefined}
 
 For any $n : \N$ and $\I$-algebra $A$, we write $\Delta[A]^{n}$ as the lists of decreasing elements of length $n$ in $A$,
 \[ \Delta[A]^{n} \coloneq \scomp{a_1,\cdots,a_n : A}{a_1 \ge \cdots \ge a_n}. \]
@@ -1447,33 +1446,43 @@ The notion of synthetic categories and synthetic posets are formulated as these 
   This follows from $\I$ being a synthetic poset, and spectra and quasi-coherent algebras are \emph{replete} as indicated in \Cref{rem:qcreplete,rem:specarereplete}.
 \end{proof}
 
-At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We show that $\omega$ satisfies the generalised Phoa principle as well as all the locality conditions discussed above.  \Jon{Stale reference to generalised Phoa principle.}
+At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We first observe that its specialisation order again coincides with its canonical pointwise order viewed as a subspace of $\I^\N$.
+
+\begin{lemma}[NT, SQCC]\label{speconomegaiscan}
+  The inclusion $\omega \hook \ov\omega$ is an order embedding for the specialisation order. In particular, the specialisation on $\omega$ coincides with its canonical order.
+\end{lemma}
+\begin{proof}
+  The fact that $\omega\hook\ov\omega$ is an order embedding for the specialisation order follows from completeness of $\I$ in \Cref{thm:complete}. The fact that the specialisation order on $\ov\omega$ coincides with its canonical order follows from \Cref{lem:specorderofaffine} by the fact that it is affine under (SQCC). 
+\end{proof}
+
+Furthermore, we can show that $\omega$ also satisfies the Phoa principle, i.e. the function space $\omega^\I$ again classifies its canonical order. For this we need to compute the function space $\omega^\I$.
+% \Jon{Stale reference to generalised Phoa principle.}
 
 Recall from \Cref{prop:omegacolimit} that, under (NT) and (SQCC), $\omega$ is a colimit $\omega \cong \ct_{n:\N}\Delta^n$. As indicated in \Cref{rem:omegaalwayscolim}, this does not depend on working with bounded distributive lattices or $\sigma$-frames. Type-theoretically, we have also shown that $\omega$ can be realised as the following subspace of $\ov\omega$,
 \[ \omega \cong \scomp{i : \ov\omega}{\ex n\N \ms fi_n}. \]
 This way, the inclusion $\Delta^n \hook \omega$ can be viewed as follows, 
 \[ \Delta^n \cong \scomp{i : \omega}{\ms fi_{n}}, \]
-which implies $\Delta^n \hook \omega$ is \emph{downward closed}. This allows us to directly compute the function space $\omega^\I$:
+which implies $\Delta^n \hook \omega$ is \emph{downward closed}. This allows us to directly compute $\omega^\I$:
 
-\begin{lemma}[NT, SQCC]\label{lem:intervalcommuteomega}
+\begin{proposition}[NT, SQCC]\label{lem:intervalcommuteomega}
   We have a family of equivalences
   \[ \omega^\I \cong \big({\ct_{n:\N}\Delta^n}\big)^\I \cong \ct_{n:\N}(\Delta^n)^\I, \]
-  and similarly by replacing $\I$ with $\I^n$ or $\Delta^n$.
-\end{lemma}
+  and similarly by replacing $\I$ with $\I^n$ or $\Delta^n$. In particular, $\omega^\I$ classifies the canonical order on $\omega$.
+\end{proposition}
 \begin{proof}
   We show the following canonical map is an equivalence,
   \[ \ct_{n:\N}(\Delta^n)^\I \to \big({\ct_{n:\N}\Delta^n}\big)^\I. \]
-  It is evident this map is an embedding, hence it suffices to show it is surjective. Given $f \colon \I \to \ct_{n:\N}\Delta^n$. By assumption, there merely exists $n:\N$ that $f(1)$ factors through $\Delta^n \hook \omega$. Now the claim is that the entire map $f$ factors through $\Delta^n$. This indeed holds, since we have shown in \Cref{cor:omegaphoa} that the specialisation order on $\omega$ is pointwise. By monotonicity, for any $i:\I$ we have $fi \preceq f1$, which implies $fi$ belongs to $\Delta^n$ as well, since $\Delta^n \hook \omega$ is a downward closed. The same holds for cubes or simplices since they all have a top element.
+  It is evident this map is an embedding, hence it suffices to show it is surjective. Given $f \colon \I \to \ct_{n:\N}\Delta^n$. By assumption, there merely exists $n:\N$ that $f(1)$ factors through $\Delta^n \hook \omega$. Now the claim is that the entire map $f$ factors through $\Delta^n$. This indeed holds, since we have shown in \Cref{speconomegaiscan} that the specialisation order on $\omega$ is pointwise. By monotonicity, for any $i:\I$ we have $fi \preceq f1$, which implies $fi$ belongs to $\Delta^n$ as well, since $\Delta^n \hook \omega$ is a downward closed. The same holds for cubes or simplices since they all have a top element. This way, $\omega$ satisfies the Phoa's principle follows from the fact that each simplice $\Delta^n$ satisfies the Phoa's principle as shown in \Cref{thm:phoaaffine}.
 \end{proof}
 
-As a first consequence, we show $\omega$ satisfies the generalised Phoa principle: \Jon{Stale reference to generalised Phoa principle.}
+% As a first consequence, we show $\omega$ satisfies the generalised Phoa principle: \Jon{Stale reference to generalised Phoa principle.}
 
-\begin{proposition}[NT, SQCC]\label{cor:omegaphoa}
-  The specialisation order on $\omega$ again coincides with its canonical pointwise order. In particular, $\omega$ also satisfies the generalised Phoa principle. \Jon{Stale reference to generalised Phoa principle.}
-\end{proposition}
-\begin{proof}
-  For $i \le j$ in $\omega$, since $j$ merely belongs to $\Delta^n$ for some $n$. By downward closeness of $\Delta^n$ in $\omega$, $i,j$ both belongs to $\Delta^n$. Thus by \Cref{thm:phoaaffine} and \Cref{lem:intervalcommuteomega}, we get a map $f \colon \I \to \omega$ with $f(0) = i$ and $f(1) = j$. Hence, $i \preceq j$. Now if $i \preceq j$ in $\omega$, by \Cref{lem:anymapmonotoneintriscorder} we also have $i \preceq j$ in $\ov\omega$. Since $\ov\omega$ is affine, $i \le j$ in $\ov\omega$ by \Cref{thm:phoaaffine} again. This implies $i \le j$ in $\omega$. The uniqueness of $f \colon \I \to \omega$ follows from $\ov\omega$ satisfying Phoa's principle and the fact that $\omega\hook\ov\omega$ is an embedding.
-\end{proof}
+% \begin{proposition}[NT, SQCC]\label{cor:omegaphoa}
+%   The specialisation order on $\omega$ again coincides with its canonical pointwise order. In particular, $\omega$ also satisfies the generalised Phoa principle. \Jon{Stale reference to generalised Phoa principle.}
+% \end{proposition}
+% \begin{proof}
+%   For $i \le j$ in $\omega$, since $j$ merely belongs to $\Delta^n$ for some $n$. By downward closeness of $\Delta^n$ in $\omega$, $i,j$ both belongs to $\Delta^n$. Thus by \Cref{thm:phoaaffine} and \Cref{lem:intervalcommuteomega}, we get a map $f \colon \I \to \omega$ with $f(0) = i$ and $f(1) = j$. Hence, $i \preceq j$. Now if $i \preceq j$ in $\omega$, by \Cref{lem:anymapmonotoneintriscorder} we also have $i \preceq j$ in $\ov\omega$. Since $\ov\omega$ is affine, $i \le j$ in $\ov\omega$ by \Cref{thm:phoaaffine} again. This implies $i \le j$ in $\omega$. The uniqueness of $f \colon \I \to \omega$ follows from $\ov\omega$ satisfying Phoa's principle and the fact that $\omega\hook\ov\omega$ is an embedding.
+% \end{proof}
 
 As another consequence, we can also show the following general result establishing a large family of orthogonality conditions satisfied by $\omega$:
 
@@ -1541,17 +1550,17 @@ which again identifies $\sh(\mmod\T\cp\op,J)$ as a local topos over $\sh(\mmod\T
 
 More specifically for us, let $\sFrm$ be the category of $\sigma$-frames, i.e.\ whose objects are posets with finite meets and countable joins, where they distribute through each other. We will also use $\sFrm\cp$ to denote the full subcategory of countably presented $\sigma$-frames, and $\sFrm\fp$ to denote the finitely presented ones. Since f.p.\ $\sigma$-frames are simply f.p.\ bounded distributive lattices, we have an isomorphism $\sFrm\fp \cong \DL\fp$.
 
-It is well-known the dual category of $\DL\fp \cong \sFrm\fp$ is $\Pos\fp$ of finite posets. In this case, we can also have a fairly explicit description of the larger dual category $\sFrm\cp$. The first observation is that any c.p.\ $\sigma$-frame $A$ is indeed a \emph{frame}, i.e.\ it has \emph{all} joins and finite meets, which distributes with each other. This is clear for all finitely presented $\sigma$-frames, since they are simply finite bounded distributive lattices. To see this for the countable case, consider the countably generated free $\sigma$-frame $2[\N]$:
+It is well-known the dual category of $\DL\fp \cong \sFrm\fp$ is $\Pos\fp$ of finite posets. In this case, we can also have a fairly explicit description of the larger dual category $\sFrm\cp$. The first observation is that any c.p.\ $\sigma$-frame $A$ is indeed a \emph{frame}, i.e.\ it has \emph{all} joins and finite meets, which distributes with each other. This is clear for all finitely presented $\sigma$-frames, since they are simply finite bounded distributive lattices. To see this for the countable case, consider the countably generated free $\sigma$-frame $\Sigma[\N]$:
 
 % \Jon{What is $2$ here? Is this the free $\sigma$-frame on one object? Perhaps another notation like $\Omega$ would be more clear, because $2$ qua the boolean set is not a $\sigma$-frame in constructive mathematics.}
 \begin{lemma}\label{lem:cgfreesframe}
   We have an isomorphism of $\sigma$-frames
-  \[ 2[\N] \cong [P_f(\N),2], \]
+  \[ \Sigma[\N] \cong \Pos(P_f(\N),\Sigma), \]
   where $P_f(\N)$ is the poset of finite subsets of $\N$.
 \end{lemma}
 \begin{proof}
   The free $\sigma$-frame can be generated by first freely adding finite meets to the discrete poset $\N$, and then freely adding all countable joins. The first step results in the poset $P_f(\N)\op$. Now since $P_f(\N)\op$ is countable, freely adding all countable joins is equivalently freely adding \emph{all} joins, which is achieved by the presheaf construction. This way,
-  \[ 2[\N] \cong [(P_f(\N)\op)\op,2] \cong [P_f(\N),2]. \qedhere \]
+  \[ \Sigma[\N] \cong \Pos(P_f(\N)\op)\op,\Sigma) \cong \Pos(P_f(\N),\Sigma). \qedhere \]
 \end{proof}
 
 % \Jon{Shall we write $\Topp$ as $\mathbf{Esp}$ or something to avoid confusion with toposes?}
@@ -1562,18 +1571,18 @@ It is well-known the dual category of $\DL\fp \cong \sFrm\fp$ is $\Pos\fp$ of fi
   preserving all countable colimits. This is again fully faithful when composed with $\ms{pt} : \Frm\op \to \Topp$, where $\Topp$ is the category of topological spaces.
 \end{corollary}
 \begin{proof}
-  Any c.p.\ $\sigma$-frame will be isomorphic to one of the form $2[\N]/R$ for some countably generated congruence $R$. By \Cref{lem:cgfreesframe}, $2[\N]$ is a frame, so is any of its quotient. By~\cite[Thm. 6.2.4]{makkai2006first}, such frames are indeed \emph{spatial}, hence they fully faithfully embed into the category of topological spaces via the functor $\pt$.
+  Any c.p.\ $\sigma$-frame will be isomorphic to one of the form $\Sigma[\N]/R$ for some countably generated congruence $R$. By \Cref{lem:cgfreesframe}, $\Sigma[\N]$ is a frame, so is any of its quotient. By~\cite[Thm. 6.2.4]{makkai2006first}, such frames are indeed \emph{spatial}, hence they fully faithfully embed into the category of topological spaces via the functor $\pt$.
 \end{proof}
 
-This way, we can view $\sFrm\cp\op$ as a certain class of topological spaces. Notice that since all c.p.\ $\sigma$-frames will be quotients of $2[\N]$, their dual spaces will be a subspace of $\pt(2[\N])$, which we can compute quite easily:
+This way, we can view $\sFrm\cp\op$ as a certain class of topological spaces. Notice that since all c.p.\ $\sigma$-frames will be quotients of $\Sigma[\N]$, their dual spaces will be a subspace of $\pt(\Sigma[\N])$, which we can compute quite easily:
 
 \begin{lemma}
-  The space of points of $2[\N]$ is Scott's graph model $G$, which is the countable product of the Sierpi\'nski space $G \cong \Sigma^\N$.
+  The space of points of $\Sigma[\N]$ is Scott's graph model $G$, which is the countable product of the Sierpi\'nski space $G \cong \Sigma^\N$.
 \end{lemma}
 \begin{proof}
-  Note $\pt$ takes colimits in $\Frm$ to limits in $\Topp$, since $\pt \colon \Loc \to \Topp$ is a right adjoint. Since $2[\N]$ is the countable coproduct of the free frame on one generator, we have
-  \[ \pt(2[\N]) \cong \pt(2[x])^\N \cong \Sigma^\N, \]
-  Here $\pt(2[x]) \cong \Sigma$ follows from a simple computation.
+  Note $\pt$ takes colimits in $\Frm$ to limits in $\Topp$, since $\pt \colon \Loc \to \Topp$ is a right adjoint. Since $\Sigma[\N]$ is the countable coproduct of the free frame on one generator, we have
+  \[ \pt(\Sigma[\N]) \cong \pt(\Sigma[x])^\N \cong \Sigma^\N, \]
+  Here $\pt(\Sigma[x]) \cong \Sigma$ follows from a simple computation.
 \end{proof}
 
 This way, if we write $\wTop$ as the essential image of the fully faithful functor $\pt \colon \sFrm\cp\op \to \Topp$, its objects will all be subspaces of $G$. We would then have the following diagram,
@@ -1590,7 +1599,7 @@ where in each case, the generic $\sigma$-frame $\I$ as a presheaf is now the rep
 Below we discuss the corresponding admissible topologies on $\wTop$, modelling the various locality principles we have considered in \Cref{sec:locality}. We encourage the readers to notice the connection between the topologies we discuss below, and the developments in \Cref{sec:local}.
 
 \begin{example}[NT]
-  To model (NT), we would want the empty sieve on $\pt(2/0=1) \cong \emp$ to be a covering. Since $\emp$ is a strict initial object in $\wTop$, this is a subcanonical topology. Thus, this gives us a least topology $J_{\ms{NT}}$ that models (NT), and we have
+  To model (NT), we would want the empty sieve on $\pt(\Sigma/0=1) \cong \emp$ to be a covering. Since $\emp$ is a strict initial object in $\wTop$, this is a subcanonical topology. Thus, this gives us a least topology $J_{\ms{NT}}$ that models (NT), and we have
   \[ \sh(\wTop,J_{\ms{NT}}) \cong \psh(\wTop_+), \]
   where $\wTop_+$ is the full subcategory of $\wTop$ excluding $\emp$. The induced local geometric morphism now is given by 
   \[ \Gamma \colon \psh(\wTop_+) \surj \psh(\Pos_{\mr{f.p.,+}}), \]
@@ -1601,8 +1610,8 @@ Below we discuss the corresponding admissible topologies on $\wTop$, modelling t
   The additional axiom for (L) besides (NT) is that 
   \[ x \vee y = 1 \vdash x = 1 \vee y = 1, \] 
   This means the dual embeddings of the following quotients need to form a covering family,
-  \[ 2[y] \cong 2[x,y]/x \twoheadleftarrow 2[x,y]/x\vee y \surj 2[x,y]/y \cong 2[x]. \]
-  It is easy to see that $\pt(2[x,y]/x \vee y)$ is the space $\Lambda^2_1$ obtained by glueing the open points of two copies of Sierpinski spaces together, i.e.\ it is the following pushout:
+  \[ \Sigma[y] \cong \Sigma[x,y]/x \twoheadleftarrow \Sigma[x,y]/x\vee y \surj \Sigma[x,y]/y \cong \Sigma[x]. \]
+  It is easy to see that $\pt(\Sigma[x,y]/x \vee y)$ is the space $\Lambda^2_1$ obtained by glueing the open points of two copies of Sierpinski spaces together, i.e.\ it is the following pushout:
   \[
   \begin{tikzcd}
     1 \ar[d, "1"'] \ar[r, "1"] & \Sigma \ar[d, "l"] \\ 
@@ -1621,9 +1630,9 @@ Below we discuss the corresponding admissible topologies on $\wTop$, modelling t
   An even stronger axiom is the linearity axiom, 
   \[ \top \vdash x \le y \vee y \le x, \]
   which requires the dual embeddings of the following quotients to form a covering family,
-  \[ 2[x,y]/x \le y \twoheadleftarrow 2[x,y] \surj 2[x,y]/y \le x. \]
-  We can compute that $\spec 2[x,y] \cong \Sigma^2$, and 
-  \[ \pt(2[x,y]/x \le y) \cong \Sigma_2 \cong \set{0 < 1 < 2}. \]
+  \[ \Sigma[x,y]/x \le y \twoheadleftarrow \Sigma[x,y] \surj \Sigma[x,y]/y \le x. \]
+  We can compute that $\spec \Sigma[x,y] \cong \Sigma^2$, and 
+  \[ \pt(\Sigma[x,y]/x \le y) \cong \Sigma_2 \cong \set{0 < 1 < 2}. \]
   Again we have a pushout diagram,
   \[
   \begin{tikzcd}
@@ -1642,8 +1651,8 @@ Below we discuss the corresponding admissible topologies on $\wTop$, modelling t
 \begin{example}[1cS]\label{exm:model1T}
   Similarly to the case of (SL), the 1-truncation axiom requires dual embeddings of the following quotient maps
   \[\begin{tikzcd}
-    & {2[x,y]/x\le y} \\
-    {2[x,y]/x=0} & {2[x,y]/x=y} & {2[x,y]/y=1}
+    & {\Sigma[x,y]/x\le y} \\
+    {\Sigma[x,y]/x=0} & {\Sigma[x,y]/x=y} & {\Sigma[x,y]/y=1}
     \arrow[two heads, from=1-2, to=2-1]
     \arrow[two heads, from=1-2, to=2-2]
     \arrow[two heads, from=1-2, to=2-3]
@@ -1697,11 +1706,11 @@ Here we observe that the inclusion $\mb P \hook \wTop$ is \emph{fully faithful},
 \begin{align*}
   \wCPO(G,G)
   \cong\ & \Pos(P_f(\N),P(\N)) \\
-  \cong\ & \Pos(\N,[P_f(\N),2]) \\
-  \cong\ & \sFrm\cp([P_f(\N),2],[P_f(\N),2]) \\ 
+  \cong\ & \Pos(\N,\Pos(P_f(\N),\Sigma)) \\
+  \cong\ & \sFrm\cp(\Pos(P_f(\N),\Sigma),\Pos(P_f(\N),\Sigma)) \\ 
   \cong\ & \wTop(G,G)
 \end{align*}
-The first isomorphism holds because $G$ is the \emph{free} $\omega$-cpo on $P_f(\N)$; the second holds by formal manipulation; the third is due to the fact that $[P_f(\N),2]$ is the free $\sigma$-frame over the discrete poset $\N$; the final one is given by the duality between c.p. $\sigma$-frames and $\wTop$. 
+The first isomorphism holds because $G$ is the \emph{free} $\omega$-cpo on $P_f(\N)$; the second holds by formal manipulation; the third is due to the fact that $\Pos(P_f(\N),\Sigma)$ is the free $\sigma$-frame over the discrete poset $\N$; the final one is given by the duality between c.p. $\sigma$-frames and $\wTop$. 
 % \Jon{I am concerned about the first step above because of my last comment.}
 
 This leads us to conjecture that $\mc H$ will be equivalent to the sheaf topos $\sh(\wTop,J_{\mr{can}})$. However, a detailed proof of this requires us to better understand the categorical properties of $\wTop$.
