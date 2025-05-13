@@ -766,8 +766,7 @@ More generally, for domain theoretic applications we would want to compute the p
 
 One important finitary axiom for synthetic domain theory is \emph{Phoa's principle}, which we have mentioned in~\Cref{subsec:classtopphoa} is a consequence of the quasi-coherence principle for bounded distributive lattices. 
 % \Jon{I think we haven't stated this principle just yet.} 
-Thus, we now work with the theory $\mbb D$ of bounded distributive lattices, or more generally the theory of $D$-algebra for some bounded distributive lattice $D$. As indicated in \Cref{rem:sigmaframe}, computation for f.p. algebras 
-% \Jon{computation?} 
+Thus, we now work with the theory $\mbb D$ of bounded distributive lattices, or more generally the theory of $D$-algebra for some bounded distributive lattice $D$. As indicated in \Cref{rem:sigmaframe}, computation for f.p.\ algebras 
 will not change if we replace bounded distributive lattices by $\sigma$-frames. Hence, the results here and in \Cref{sec:intposet} will be applicable to $\sigma$-frames as well, where only the properties of f.p.\ $\I$-algebras matter.
 
 \Jon{I think there should be a subsection for all this material about the co-partial map classifier, etc.}
@@ -992,7 +991,7 @@ For instance, the above result shows that the canonical order on $\I^n$ and $\De
   For any $n : \N$, the finitely generated free $\I$-algebra $\I[n]$ is stably quasi-coherent. 
 \end{axiom}
 
-Since by definition a f.p. $\I$-algebra is a finitely generated quotient of a free $\I$-algebra, the above axiom is equivalent to saying that all f.p.\ $\I$-algebras are quasi-coherent. 
+Since by definition a f.p.\ $\I$-algebra is a finitely generated quotient of a free $\I$-algebra, the above axiom is equivalent to saying that all f.p.\ $\I$-algebras are quasi-coherent. 
 Under (SQCF), the cubes $\I^n$ and the simplices $\Delta^n$ will all be affine as shown by \Cref{exm:cubeaffine,exm:simplicesaffine}. The characterisation of the specialisation preorder has immediate consequences on the elementary properties of affine spaces:
 
 \begin{corollary}[NT, SQCF]\label{cor:intisnot2}
@@ -1162,7 +1161,8 @@ For another proof, see e.g.\ that of \citet{VANOOSTEN2000233}. In the presence o
   \]
 \end{proposition}
 
-The transition maps $\Delta^n\to \Delta^{n+1}$ in the sequence above are given by appending $0$ to the end of a descending sequence. Under the identification $\Delta^{n+1}\cong T(\Delta^n)$, this is $\eta_T\colon \Delta^n\to T(\Delta^{n})$.
+The transition maps $\Delta^n\to \Delta^{n+1}$ in the sequence above are given by appending $0$ to the end of a descending sequence. Under the canonical identification $\Delta^{n}\cong L^{n+1}(\varnothing)$, the corresponding transition map $L^{n+1}(\varnothing)\to L^{n+2}(\varnothing)\cong L^{n+1}(\Delta^0)$ is $L^{n+1}(?\colon \varnothing \to \mathbf{1})$ as described by \citet{fiore-plotkin:1996}. Under the identification $\Delta^{n+1}\cong T(\Delta^n)$, the corresponding transition map $\Delta^n\to T(\Delta^n)$ is the unit component $\eta_T\colon \Delta^n\to T(\Delta^{n})$.
+%%% JMS: I needed to explain some of the above, but I am starting to think that we might just want to have a section that describes all the different ways to identify constructions of the simplices, etc. This is getting confusing and there is some actual geometry to see here ;-)
 
 \begin{proof}
   Let $i : \ov\omega$. It suffices to show that
@@ -1174,10 +1174,10 @@ The transition maps $\Delta^n\to \Delta^{n+1}$ in the sequence above are given b
   The above characterisation of $\omega$ as a sequential colimit is still true if we work with bounded distributive lattices, rather than $\sigma$-frames.
 \end{remark}
 
-Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affine, we can show $\I$ is complete. This again crucially depends on a normal form result for a c.p. $\sigma$-frame, which generalises the finitary version for bounded distributive lattices given in \Cref{prop:simplicesasalgebra}:
+Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affine, we can show $\I$ is complete. This again crucially depends on a normal form result for a c.p.\ $\sigma$-frame, which generalises the finitary version for bounded distributive lattices given in \Cref{prop:simplicesasalgebra}:
 
 \begin{lemma}\label{app:normalsigma}
-  For the c.p. $\sigma$-frame $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$, an element $p$ can be uniquely written as 
+  For the c.p.\ $\sigma$-frame $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$, an element $p$ can be uniquely written as 
   \[ p = p_0 \vee \bigvee_{n:\N} p_{n+1} \wedge i_n, \]
   with $p_n \le p_{n+1}$ for all $n$. In other words, $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ is isomorphic to the following $\sigma$-frame with the pointwise order induced by $\I$,
   \[ \Delta_\infty \coloneq \scomp{i : \N \to \I}{\fa n\N i_n \le i_{n+1}}. \]
@@ -1729,7 +1729,7 @@ Here we observe that the inclusion $\mb P \hook \wTop$ is \emph{fully faithful},
   \cong\ & \sFrm\cp(\Pos(P_f(\N),\Sigma),\Pos(P_f(\N),\Sigma)) \\ 
   \cong\ & \wTop(G,G)
 \end{align*}
-The first isomorphism holds because $G$ is the \emph{free} $\omega$-cpo on $P_f(\N)$; the second holds by formal manipulation; the third is due to the fact that $\Pos(P_f(\N),\Sigma)$ is the free $\sigma$-frame over the discrete poset $\N$; the final one is given by the duality between c.p. $\sigma$-frames and $\wTop$. 
+The first isomorphism holds because $G$ is the \emph{free} $\omega$-cpo on $P_f(\N)$; the second holds by formal manipulation; the third is due to the fact that $\Pos(P_f(\N),\Sigma)$ is the free $\sigma$-frame over the discrete poset $\N$; the final one is given by the duality between c.p.\ $\sigma$-frames and $\wTop$. 
 % \Jon{I am concerned about the first step above because of my last comment.}
 
 This leads us to conjecture that $\mc H$ will be equivalent to the sheaf topos $\sh(\wTop,J_{\mr{can}})$. However, a detailed proof of this requires us to better understand the categorical properties of $\wTop$.
