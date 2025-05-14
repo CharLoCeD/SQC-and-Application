@@ -729,8 +729,7 @@ will not change if we replace bounded distributive lattices by $\sigma$-frames. 
 
 As mentioned in \Cref{rem:opprop}, the theory of bounded distributive lattices is also \emph{propositionally op-stable}, and similarly for $\sigma$-frames. Hence, dual versions of the previous results will also hold by symmetry, when we exchange $1$ for $0$ and $\wedge$ for $\vee$. Thus, we first record some simple corollaries for the dual structure.
 
-% \Jon{I think there should be a subsection for all this material about the co-partial map classifier, etc.}
-\subsection{The dual structure}
+\subsection{The dual dominance and co-partial map classifier}
 In this case, $\I$ has a minimal element $0$. Notice that the constant $0$ also induces a predicate on $\I$,
 \[ \ms f \colon \I \to \pp, \]
 which takes any $i : \I$ to $i = 0$. 
@@ -745,7 +744,7 @@ We will now call propositions in the image of $\ms f$ \emph{closed}, and a subty
   $\ms f$ forms a dominance.
 \end{corollary}
 
-There is an accompanying classifier $T$ for partial maps with closed domains. Concretely, for any type $X$ it is defined by
+There is an accompanying ``co-partial map classifier'' $T$ for partial maps with \emph{closed} domains, as \citet{hyland1990first} pointed out. Concretely, for any type $X$ it is defined by
 \[ T X \coloneq \sum_{i:\I} X^{\ms fi}. \]
 And analogously to \Cref{prop:liftingofalgebra}, under (SQCI) we can explicitly compute 
 \[ T\Delta^n \cong \Delta^{n+1}, \]
@@ -1481,7 +1480,7 @@ As another consequence, we can also show the following general result establishi
 
 \section{New models for synthetic domain theory}\label{sec:model}
 
-It is now instructive to discuss models for the axioms we have used in the previous sections. For this purpose, we now work in the classical set-theoretic setting of $\ms{ZFC}$. These axioms can be organised into two classes:
+It is now instructive to discuss models for the axioms we have used in the previous sections. For this purpose, we now work externally under the assumption that the base topos $\Set$ satisfies the axiom of choice. Our axioms for synthetic domain theory can be organised into two classes:
 
 \begin{enumerate}
   \item The quasi-coherence principle (SQCF), (SQCC);
