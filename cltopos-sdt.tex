@@ -769,13 +769,15 @@ One important finitary axiom for synthetic domain theory is \emph{Phoa's princip
 Thus, we now work with the theory $\mbb D$ of bounded distributive lattices, or more generally the theory of $D$-algebra for some bounded distributive lattice $D$. As indicated in \Cref{rem:sigmaframe}, computation for f.p.\ algebras 
 will not change if we replace bounded distributive lattices by $\sigma$-frames. Hence, the results here and in \Cref{sec:intposet} will be applicable to $\sigma$-frames as well, where only the properties of f.p.\ $\I$-algebras matter.
 
-\Jon{I think there should be a subsection for all this material about the co-partial map classifier, etc.}
+As mentioned in \Cref{rem:opprop}, the theory of bounded distributive lattices is also \emph{propositionally op-stable}, and similarly for $\sigma$-frames. Hence, dual versions of the previous results will also hold by symmetry, when we exchange $1$ for $0$ and $\wedge$ for $\vee$. Thus, we first record some simple corollaries for the dual structure.
+
+% \Jon{I think there should be a subsection for all this material about the co-partial map classifier, etc.}
+\subsection{The dual structure}
 In this case, $\I$ has a minimal element $0$. Notice that the constant $0$ also induces a predicate on $\I$,
 \[ \ms f \colon \I \to \pp, \]
-which takes any $i : \I$ to $i = 0$. As mentioned in \Cref{rem:opprop}, the theory of bounded distributive lattices is also \emph{propositionally op-stable}, and similarly for $\sigma$-frames. 
+which takes any $i : \I$ to $i = 0$. 
 % \Jon{If this will play a role, perhaps we should just define the dual thing early on?} 
 % \LY{I have added Remark 3.4}
-Hence, dual versions of the previous results will also hold by symmetry, when we exchange $1$ for $0$ and $\wedge$ for $\vee$. For instance, the same proof as in \Cref{lem:intconserve} also implies the following:
 
 \begin{corollary}[SQCI]
   $\ms f \colon \I \to \pp$ is an embedding.
@@ -791,9 +793,11 @@ There is an accompanying classifier $T$ for partial maps with closed domains. Co
 \[ T X \coloneq \sum_{i:\I} X^{\ms fi}. \]
 And analogously to \Cref{prop:liftingofalgebra}, under (SQCI) we can explicitly compute 
 \[ T\Delta^n \cong \Delta^{n+1}, \]
-where now the unit $\eta_T \colon \Delta^n \hook \Delta^n\cprt \cong \Delta^{n+1}$ takes a sequence $i_1 \ge \cdots \ge i_n$ to $i_1 \ge \cdots \ge i_n \ge 0$ in $\Delta^{n+1}$. 
+where now the unit $\eta_T \colon \Delta^n \hook T\Delta^n \cong \Delta^{n+1}$ takes a sequence $i_1 \ge \cdots \ge i_n$ to $i_1 \ge \cdots \ge i_n \ge 0$ in $\Delta^{n+1}$. 
 
 The remaining part of this section will introduce various locality axioms for the interval $\I$, and discuss some of their consequences with the quasi-coherence axiom.
+
+\subsection{Non-triviality}
 
 As a start, a minimal requirement for synthetic domain theory to model divergent computation is for the dominance $\I$ to be closed under falsum. For this, we introduce the following minimal amount of non-triviality:
 
@@ -821,7 +825,9 @@ This allows us to observe that the open and closed propositions have a bijective
 
 On the other hand, \Cref{sec:intposet} will show that under the axiom (NT), quasi-coherence implies the interval $\I$ will \emph{never} be isomorphic to $2$. 
 
-We also consider stronger locality axioms on the interval $\I$, which correspond to stronger properties of the dominance $\I$ and can be applied to different flavours of domain theory. A slightly stronger axiom which is common in the practice of domain theory is that the dominance $\I$ should furthermore be closed under all finite disjunctions. For this, we consider the following axiom:
+\subsection{Locality}
+
+A slightly stronger axiom which is common in the practice of domain theory is that the dominance $\I$ should furthermore be closed under all finite disjunctions. For this, we consider the following axiom:
 
 \begin{axiom}[L]\label{ax:L}
   $\I$ is local, i.e.\ $0 \neq 1$, and $\ms t(i\vee j) \eq \ms ti \vee \ms tj$ for $i,j : \I$. Geometrically, (L) states that the following two inclusions are jointly surjective.
@@ -877,6 +883,8 @@ Axiom (L) clearly has a dual counterpart:
 \end{axiom}
 
 Similarly to \Cref{exm:hornaffine}, this allows one to identify the left outer horn $\Lambda^2_0$ as a spectrum. Of course we can combine the axioms (L) and (cL). 
+
+\subsection{Linearity and coskeletality}
 
 An axiom even stronger than both (L) and (cL) is the simplicial axiom:
 
@@ -1095,14 +1103,22 @@ Until this point, we have seen that elementary axioms for synthetic domain theor
 The connection between the infinitary aspect of synthetic domain theory and quasi-coherence starts from the observation that the final coalgebra $\ov\omega$ for the functor $L$ can be described as a \emph{spectrum}:
 
 \begin{example}[$\ov\omega$ is a spectrum]\label{exm:ovomegaaffine}
-  Since $L$ by construction is a polynomial functor, it preserves all connected limits. Hence, the final coalgebra $\ov\omega$ can be easily characterised as the following sequential limit, 
-  \[
-  \begin{tikzcd}
-    \ov\omega \cong \lt_{n:\N}\Delta^n \ar[r] & \cdots \ar[r] & \Delta^2 \ar[r, "L(!)"] & \Delta^1 \ar[r, "!"] & \Delta^0
-  \end{tikzcd}
-  \]
-  \Jon{Unless we shall define $\Delta^n$ to be literally $L^n(\varnothing)$, we should probably express the transition maps in terms of descending sequences rather than $L$, and then comment that under the identification, blah blah blah.}
-  where the transition map $\Delta^{n+1} \to \Delta^n$ takes the sequence $i_0 \ge \cdots \ge i_n$ to the final segment $i_1 \ge \cdots \ge i_n$. As observed by \citet[Sec. 5.2]{hyland1990first}, it also has an equivalent type-theoretic description as the object of infinite descending sequences in $\I$,
+  Since $L$ by construction is a polynomial functor, it preserves all connected limits. Hence, the final coalgebra $\ov\omega$ can be easily characterised as the sequential limit, 
+  \[\begin{tikzcd}
+    \cdots & {\Delta^2} & {\Delta^1} & {\Delta^0} \\
+    \cdots & {L^21} & L1 & 1
+    \arrow[from=1-1, to=1-2]
+    \arrow[from=1-2, to=1-3]
+    \arrow["\cong"{description}, from=1-2, to=2-2]
+    \arrow[from=1-3, to=1-4]
+    \arrow["\cong"{description}, from=1-3, to=2-3]
+    \arrow["\cong"{description}, from=1-4, to=2-4]
+    \arrow[from=2-1, to=2-2]
+    \arrow["{L!}"', from=2-2, to=2-3]
+    \arrow["{!}"', from=2-3, to=2-4]
+  \end{tikzcd}\]
+  % \Jon{Unless we shall define $\Delta^n$ to be literally $L^n(\varnothing)$, we should probably express the transition maps in terms of descending sequences rather than $L$, and then comment that under the identification, blah blah blah.}
+  where under the isomorphisms, the transition map $\Delta^{n+1} \to \Delta^n$ takes the sequence $i_0 \ge \cdots \ge i_n$ to the final segment $i_1 \ge \cdots \ge i_n$. As observed by \citet[Sec. 5.2]{hyland1990first}, it also has an equivalent type-theoretic description as the object of infinite descending sequences in $\I$,
   \[ \ov\omega \cong \scomp{i : \N \to \I}{\fa n\N i_n \ge i_{n+1}}. \]
   This way, we have a natural equivalence
   \[ \ov\omega \cong \spec\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}. \]
@@ -1161,7 +1177,7 @@ For another proof, see e.g.\ that of \citet{VANOOSTEN2000233}. In the presence o
   \]
 \end{proposition}
 
-The transition maps $\Delta^n\to \Delta^{n+1}$ in the sequence above are given by appending $0$ to the end of a descending sequence. Under the canonical identification $\Delta^{n}\cong L^{n+1}(\varnothing)$, the corresponding transition map $L^{n+1}(\varnothing)\to L^{n+2}(\varnothing)\cong L^{n+1}(\Delta^0)$ is $L^{n+1}(?\colon \varnothing \to \mathbf{1})$ as described by \citet{fiore-plotkin:1996}. Under the identification $\Delta^{n+1}\cong T(\Delta^n)$, the corresponding transition map $\Delta^n\to T(\Delta^n)$ is the unit component $\eta_T\colon \Delta^n\to T(\Delta^{n})$.
+The transition maps $\Delta^n\to \Delta^{n+1}$ above are given by appending $0$ to the end of a descending sequence. Under the canonical identification $\Delta^{n}\cong L^{n+1}(\varnothing)$, the corresponding map $L^{n+1}(\varnothing)\to L^{n+2}(\varnothing)\cong L^{n+1}(\Delta^0)$ is $L^{n+1}(?\colon \varnothing \to \mathbf{1})$ as described by \citet{fiore-plotkin:1996}. Under the identification $\Delta^{n+1}\cong T(\Delta^n)$, the corresponding transition map $\Delta^n\to T(\Delta^n)$ is the unit component $\eta_T\colon \Delta^n\to T(\Delta^{n})$.
 %%% JMS: I needed to explain some of the above, but I am starting to think that we might just want to have a section that describes all the different ways to identify constructions of the simplices, etc. This is getting confusing and there is some actual geometry to see here ;-)
 
 \begin{proof}
