@@ -1375,16 +1375,16 @@ Next we consider the Rezk condition. Following~\cite{buchholtz2021synthetic}, we
 \[
 \begin{tikzcd}
 	& \I && \I && \I \\
-	1 && {\Delta_2} && {\Delta_2} && 1
+	1 && {\Delta^2} && {\Delta^2} && 1
 	\arrow[from=1-2, to=2-1]
 	\arrow["{i \mapsto (i,i)}"{description}, from=1-2, to=2-3]
-	\arrow["{i \mapsto (0,i)}"{description}, from=1-4, to=2-3]
-	\arrow["{i \mapsto (i,1)}"{description}, from=1-4, to=2-5]
+	\arrow["{i \mapsto (i,0)}"{description}, from=1-4, to=2-3]
+	\arrow["{i \mapsto (1,i)}"{description}, from=1-4, to=2-5]
 	\arrow["{i \mapsto (i,i)}"{description}, from=1-6, to=2-5]
 	\arrow[from=1-6, to=2-7]
 \end{tikzcd}
 \]
-% \Jon{I always get confused about the conventions for $d_n$, etc. Can we write these maps more explicitly?}
+
 
 \begin{definition}[Rezk types]
   We say that a type $X$ is \emph{Rezk} when it is right orthogonal to $\mbb E \to 1$.
