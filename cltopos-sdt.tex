@@ -228,41 +228,28 @@
 
 \title{Domains and classifying topoi}
 \author{Jonathan Sterling}
-\address{
-Jonathan \textsc{Sterling} \newline
+\address{%
+Jonathan \textsc{Sterling}\newline
 Department of Computer Science and Technology\newline
 University of Cambridge\newline
-Cambridge, UK
+Cambridge, UK%
 }
+
 \author{Lingyuan Ye}
-\address{
-Lingyuan \textsc{Ye} \newline
+\address{%
+Lingyuan \textsc{Ye}\newline
 Department of Computer Science and Technology\newline
 University of Cambridge\newline
-Cambridge, UK
+Cambridge, UK%
 }
 
 \begin{document}
-%
 
-%
-%\titlerunning{Abbreviated paper title}
-% If the paper title is too long for the running head, you can set
-% an abbreviated paper title here
-%
-
-%
-% \Endhorrunning{L. Ye}
-% First names are abbreviated in the running head.
-% If there are more than two authors, 'et al.' is used.
-%
-% \institute{New College\\
 \begin{abstract}
   This paper produces models of synthetic domain theory via classifying topoi of algebraic theories. Using the internal logic of a large family of classifying topoi of theories based on $\sigma$-frames, especially the \emph{quasi-coherence principle}, we prove the axioms of synthetic domain theory hold in such topoi. This provides a new set of techniques reasoning about the behaviour of domains in a synthetic context, which allows us to establish a family of important orthogonality conditions for some special types of domains.
 \end{abstract}
-%
-\maketitle              % typeset the header of the contribution
-%
+
+\maketitle
 
 
 \section{Introduction}\label{sec:intro}
@@ -305,9 +292,9 @@ The quasi-coherence principle in $\Set[\T]$ proposed by \citet{blechschmidt2021u
   A\to \opens\spec A
 \]
 obtained on elements by transposing the evaluation map $A\times \spec A\to U_\T$ is an equivalence.
-Types of the form $\spec A$ for such $A$ are called \emph{affine} by \citet{blechschmidt2021using}. This in fact induces an internal duality between f.p.\ $U_\T$-algebras and affine types. In particular, it implies Blass's result. 
+Types of the form $\spec A$ for such $A$ are called \emph{affine} by \citet{blechschmidt2021using}. This in fact induces an internal duality between finitely presented $U_\T$-algebras and affine types. In particular, it implies Blass's result. 
 
-In fact, the appearance of finite presentation in the above formulation of quasi-coherence is not an essential limitation. Following the development in~\cite{blechschmidt2021using,blechschmidt2020general}, it is clear that the quasi-coherence principle for f.p.\ algebras can be generalised to larger cardinality,
+In fact, the appearance of finite presentation in the above formulation of quasi-coherence is not an essential limitation. Following the development in~\cite{blechschmidt2021using,blechschmidt2020general}, it is clear that the quasi-coherence principle for finitely presented algebras can be generalised to larger cardinality,
 if we enlarge the site of the classifying topos $\Set[\T]$. For instance, one can consider
 \[ \Set[\T]_\omega \coloneq [\mmod\T\cp,\Set], \]
 where $\mmod\T\cp$ denotes the category of \emph{countably presented}, or in short \emph{c.p.}, $\T$-models. In this case, countably presented $U_\T$-algebras will enjoying quasi-coherence in $\Set[\T]_\omega$. For instance, this is the theoretical basis in a recent approach for synthetic topology~\cite{cherubini2024foundation}, which exploits the quasi-coherence principle for countably presented Boolean algebras. Horn theories $\T$ whose operations have \emph{countable} arity can also be considered in this case, so long as the base topos $\Set$ satisfies countable choice.
@@ -323,10 +310,10 @@ We study an emerging connection between synthetic domain theory and the quasi-co
 \begin{enumerate}[leftmargin=*]
   \item \emph{Quasi-coherence produces synthetic domain theory.} We show the principle of quasi-coherence suffices to account for \emph{all} essential axioms for synthetic domain theory. Specifically:
   \begin{enumerate}
-    \item\label{contribution:dominance} In the case of both bounded distributive lattices and $\sigma$-frames, the quasi-coherence for f.p.\ algebras (in fact a weaker assumption; cf.\ \Cref{ax:sqci}) implies that the generic interval $\I$ and its dual form a dominance (\Cref{prop:Idominance} and \Cref{cor:dualisdominance}). It also leads to an explicit computation of the partial map classifiers of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectra (\Cref{prop:liftofaffine}).
+    \item\label{contribution:dominance} In the case of both bounded distributive lattices and $\sigma$-frames, the quasi-coherence for finitely presented algebras (in fact a weaker assumption; cf.\ \Cref{ax:sqci}) implies that the generic interval $\I$ and its dual form a dominance (\Cref{prop:Idominance} and \Cref{cor:dualisdominance}). It also leads to an explicit computation of the partial map classifiers of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectra (\Cref{prop:liftofaffine}).
     \item The quasi-coherence principle allows an explicit computation of the \emph{specialisation preorder} (\Cref{defn:specialisation}) on affine spaces (\Cref{lem:specorderofaffine}) and quasi-coherent $\I$-algebras (\Cref{cor:specordonalgiscan}).
-    \item As mentioned, quasi-coherence for f.p.\ algebras implies that the generic interval $\I$ satisfies the Phoa's principle. In fact, this is more generally true for any affine space (\Cref{thm:phoaaffine}), and similarly for quasi-coherent algebras (\Cref{thm:algebraphoa}).
-    \item In the case of $\sigma$-frames, quasi-coherence for c.p.\ algebras implies completeness of $\I$ (\Cref{thm:complete}) assuming $\I$ is non-trivial internally. 
+    \item As mentioned, quasi-coherence for finitely presented algebras implies that the generic interval $\I$ satisfies the Phoa's principle. In fact, this is more generally true for any affine space (\Cref{thm:phoaaffine}), and similarly for quasi-coherent algebras (\Cref{thm:algebraphoa}).
+    \item In the case of $\sigma$-frames, quasi-coherence for countably presented algebras implies completeness of $\I$ (\Cref{thm:complete}) assuming $\I$ is non-trivial internally. 
     This is the only place where it is important to work with $\sigma$-frames and not bounded distributive lattices (cf.~\Cref{rem:whynotdis}). This gives a full account of the axioms for synthetic domain theory as specified in~\cite{hyland1990first}. 
   \end{enumerate}
 
@@ -387,7 +374,7 @@ As mentioned in \Cref{subsec:qc}, an $\I$-algebra is a $\T$-model $A$ equipped w
 \end{definition}
 
 \begin{proposition}\label{specrightadj}
-  We have an adjunction
+  The spectrum construction is right adjoint to the functor taking a set $X$ to its algebra of observations:
   \[\begin{tikzcd}
     {\I\alg\op} & \Set
     \arrow[""{name=0, anchor=center, inner sep=0}, "\spec"', curve={height=18pt}, from=1-1, to=1-2]
@@ -408,7 +395,7 @@ Many sets can be naturally viewed as the spectrum of a certain $\I$-algebra. For
   \[ \spec \I[X] \cong \I\alg(\I[X],\I) \cong \I^X. \]
 \end{example}
 
-Notice $\I[X]$ is the $X$-indexed coproduct of $\I[i]$ for $\I$-algebras, and $\spec$ takes it to the $X$-indexed product of $\spec\I[i] \cong \I$. In fact, all the spectra are equalisers of powers of $\I$:
+Notice $\I[X]$ is the $X$-fold coproduct of the polynomial $\I$-algebra $\I[i]$, and its spectrum is the $X$-fold product of $\spec\I[i] \cong \I$. In fact, all the spectra can be obtained as equalisers of powers of $\I$:
 
 \begin{proposition}\label{prop:spectra-are-powers-of-the-interval}
   Every spectrum is an equaliser of powers of $\I$. 
@@ -497,7 +484,7 @@ We emphasise that the equivalence $A \cong \opens{\spec A}$ is not only an equiv
 In the future whenever we indicate $X$ is affine with $X \cong \spec A$, we will assume $A$ is the quasi-coherent $\I$-algebra $A \cong \opens X$.
 
 \begin{remark}[Quasi-coherence and affineness as general properties]
-  Our notion of being quasi-coherent and affine already indicates an important difference between our approach and the ones taken in the related works~\cite{Cherubini_Coquand_Hutzler_2024,cherubini2024foundation}. There, the notion is directly connected to the size of presentation, i.e.\ they are spectra of f.p.\ or c.p.\ algebras. Since we aim for a completely modular development, our notion is more general, which a priori does not favour a class of size-related algebras. 
+  Our notion of being quasi-coherent and affine already indicates an important difference between our approach and the ones taken in the related works~\cite{Cherubini_Coquand_Hutzler_2024,cherubini2024foundation}. There, the notion is directly connected to the size of presentation, i.e.\ they are spectra of finitely presented or countably presented algebras. Since we aim for a completely modular development, our notion is more general, which a priori does not favour a class of size-related algebras. 
 \end{remark}
 
 Being the fixed points of an adjunction, quasi-coherent $\I$-algebras and affine spaces induces certain duality results. The first half of the following result appears in Prop.~2.2.1 of \citet{Cherubini_Coquand_Hutzler_2024} (for the more restrictive definition of quasi-coherence). We include the result here for completeness since our assumption is slightly more general.
@@ -532,7 +519,7 @@ Notice that up till this point we have not used any special property of $\T$ rat
   \[ a \wedge \bigvee_{n:\N} b_n = \bigvee_{n:\N} a \wedge b_n, \]
   for any $a$ in $A$ and $b \colon \N \to A$. We can axiomatise $\sigma$-frames as an \emph{infinitary} algebraic theory $\mbb S$, extending the theory of bounded meet-semi-lattices with a constant $0$ and a function symbol $\bigvee$ with \emph{countable} arity. (Such an axiomatisation can be found e.g.\ in~\citet[Exa.~3.26]{adamek1994locally}.) It is easy to see that $\mbb S$ is propositional. 
 
-  A notable fact about $\sigma$-frames is that their finitary behaviours are exactly the same as bounded distributive lattices, in the sense that for any $\sigma$-frame $A$, the f.p.\ $\sigma$-frame $A[n]/R$ coincides with the f.p.\ \emph{bounded distributive lattice} $A[n]/R$. Thus, there will be no difference between working with $\sigma$-frames or bounded distributive lattice when we work with f.p.\ $\I$-algebras. The salience of countable joins will emerge only in \Cref{sec:infdomain} when we prove completeness of $\I$.
+  A notable fact about $\sigma$-frames is that their finitary behaviours are exactly the same as bounded distributive lattices, in the sense that for any $\sigma$-frame $A$, the finitely presented $\sigma$-frame $A[n]/R$ coincides with the finitely presented \emph{bounded distributive lattice} $A[n]/R$. Thus, there will be no difference between working with $\sigma$-frames or bounded distributive lattice when we work with finitely presented $\I$-algebras. The salience of countable joins will emerge only in \Cref{sec:infdomain} when we prove completeness of $\I$.
 \end{remark}
 
 \begin{remark}[Propositionally op-stable theories]\label{rem:opprop}
@@ -737,8 +724,8 @@ More generally, for domain theoretic applications we would want to compute the p
 \section{Distributive lattices and locality}\label{sec:locality}
 
 One important finitary axiom for synthetic domain theory is \emph{Phoa's principle}, which we have mentioned in~\Cref{subsec:classtopphoa} is a consequence of the quasi-coherence principle for bounded distributive lattices. 
-Thus, we now work with the theory $\mbb D$ of bounded distributive lattices, or more generally the theory of $D$-algebra for some bounded distributive lattice $D$. As indicated in \Cref{rem:sigmaframe}, computation for f.p.\ algebras 
-will not change if we replace bounded distributive lattices by $\sigma$-frames. Hence, the results here and in \Cref{sec:intposet} will be applicable to $\sigma$-frames as well, where only the properties of f.p.\ $\I$-algebras matter.
+Thus, we now work with the theory $\mbb D$ of bounded distributive lattices, or more generally the theory of $D$-algebra for some bounded distributive lattice $D$. As indicated in \Cref{rem:sigmaframe}, computation for finitely presented algebras 
+will not change if we replace bounded distributive lattices by $\sigma$-frames. Hence, the results here and in \Cref{sec:intposet} will be applicable to $\sigma$-frames as well, where only the properties of finitely presented $\I$-algebras matter.
 
 As mentioned in \Cref{rem:opprop}, the theory of bounded distributive lattices is also \emph{propositionally op-stable}, and similarly for $\sigma$-frames. Hence, dual versions of the previous results will also hold by symmetry, when we exchange $1$ for $0$ and $\wedge$ for $\vee$. Thus, we first record some simple corollaries for the dual structure.
 
@@ -967,7 +954,7 @@ For instance, the above result shows that the canonical order on $\I^n$ and $\De
   For any $n : \N$, the finitely generated free $\I$-algebra $\I[n]$ is stably quasi-coherent. 
 \end{axiom}
 
-Since by definition a f.p.\ $\I$-algebra is a finitely generated quotient of a free $\I$-algebra, the above axiom is equivalent to saying that all f.p.\ $\I$-algebras are quasi-coherent. 
+Since by definition a finitely presented $\I$-algebra is a finitely generated quotient of a free $\I$-algebra, the above axiom is equivalent to saying that all finitely presented $\I$-algebras are quasi-coherent. 
 Under (SQCF), the cubes $\I^n$ and the simplices $\Delta^n$ will all be affine as shown by \Cref{exm:cubeaffine,exm:simplicesaffine}. The characterisation of the specialisation preorder has immediate consequences on the elementary properties of affine spaces:
 
 \begin{corollary}[NT, SQCF]\label{cor:intisnot2}
@@ -1074,10 +1061,10 @@ The connection between the infinitary aspect of synthetic domain theory and quas
   Here now $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ is a \emph{countably presented} $\I$-algebra.
 \end{example}
 
-In general, by a c.p.\ $\I$-algebra we mean one of the form $\I[\N]/\pair{s_n = t_n}_{n:\N}$ for some $\N$-indexed lists of terms $s,t \colon \N \to \I[\N]$. In particular, all f.p.\ $\I$-algebras will also be c.p.. Motivated by the above characterisation of $\ov\omega$, we naturally consider the following stronger quasi-coherence principle:
+In general, by a countably presented $\I$-algebra we mean one of the form $\I[\N]/\pair{s_n = t_n}_{n:\N}$ for some $\N$-indexed lists of terms $s,t \colon \N \to \I[\N]$. In particular, all finitely presented $\I$-algebras will also be c.p.. Motivated by the above characterisation of $\ov\omega$, we naturally consider the following stronger quasi-coherence principle:
 
 \begin{axiom}[SQCC]
-  All c.p.\ $\I$-algebras are quasi-coherent.
+  All countably presented $\I$-algebras are quasi-coherent.
 \end{axiom}
 
 \begin{remark}
@@ -1102,7 +1089,7 @@ Together with (SQCC), this implies the following form of Markov's principle; a s
 \begin{proof}
   Let $i : \ov\omega$. Notice that similar to \Cref{lem:openpropaffine}, the proposition $\fa n\N \ms ti_n$ by construction is the following affine space, 
   \[ \spec\I/i \cong \I\alg(\I/i,\I) \cong \fa n\N \ms ti_n, \]
-  where we have abbreviated the c.p.\ $\I$-algebra $\I/\pair{i_n=1}_{n:\N}$ as $\I/i$. Now if we have $\neg\fa n\N \ms ti_n$, then $\spec\I/i \cong \emp$ which by \Cref{lem:nulls} implies $\I/i$ is trivial. But this algebra is trivial iff $\ex n\N \ms fi_n$.
+  where we have abbreviated the countably presented $\I$-algebra $\I/\pair{i_n=1}_{n:\N}$ as $\I/i$. Now if we have $\neg\fa n\N \ms ti_n$, then $\spec\I/i \cong \emp$ which by \Cref{lem:nulls} implies $\I/i$ is trivial. But this algebra is trivial iff $\ex n\N \ms fi_n$.
 \end{proof}
 
 Equipped with the above result, we can now proceed to study the initial algebra $\omega$ for $L$. \citet{JIBLADZE1997185} has given a beautiful formula for a type-theoretic description of $\omega$ as the following subset of $\ov\omega$, 
@@ -1141,16 +1128,16 @@ The transition maps $\Delta^n\to \Delta^{n+1}$ above are given by appending $0$ 
   The above characterisation of $\omega$ as a sequential colimit is still true if we work with bounded distributive lattices, rather than $\sigma$-frames.
 \end{remark}
 
-Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affine, we can show $\I$ is complete. This again crucially depends on a normal form result for a c.p.\ $\sigma$-frame, which generalises the finitary version for bounded distributive lattices given in \Cref{prop:simplicesasalgebra}:
+Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affine, we can show $\I$ is complete. This again crucially depends on a normal form result for a countably presented $\sigma$-frame, which generalises the finitary version for bounded distributive lattices given in \Cref{prop:simplicesasalgebra}:
 
 \begin{lemma}\label{app:normalsigma}
-  For the c.p.\ $\sigma$-frame $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$, an element $p$ can be uniquely written as 
+  For the countably presented $\sigma$-frame $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$, an element $p$ can be uniquely written as 
   \[ p = p_0 \vee \bigvee_{n:\N} p_{n+1} \wedge i_n, \]
   with $p_n \le p_{n+1}$ for all $n$. In other words, $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ is isomorphic to the following $\sigma$-frame with the pointwise order induced by $\I$,
   \[ \Delta_\infty \coloneq \scomp{i : \N \to \I}{\fa n\N i_n \le i_{n+1}}. \]
 \end{lemma}
 \begin{proof}
-  We directly prove that $\Delta_\infty$ satisfies the universal property of the c.p.\ $\sigma$-frame $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$. We pick the generators in $\Delta_\infty$ as follows,
+  We directly prove that $\Delta_\infty$ satisfies the universal property of the countably presented $\sigma$-frame $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$. We pick the generators in $\Delta_\infty$ as follows,
   \[ i_n \coloneq (\underbrace{0,\cdots,0}_{n+1 \text{ times}},1,1,\cdots). \]
   For any $\sigma$-frame $A$ with $a_0 \ge a_1 \ge \cdots$, we define a map $f_a : \Delta_\infty \to A$ sending $j = (j^0,j^1,\cdots) : \Delta_\infty$ to
   \[ f_a(i) \coloneq j_0 \vee \bigvee_{n:\N} j^{n+1} \wedge a_{n}. \]
@@ -1222,7 +1209,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 \end{proof}
 
 \begin{remark}[$\sigma$-frames vs.\ bounded distributive lattices]\label{rem:whynotdis}
-  The completeness result shown in \Cref{thm:complete} is the only one in this paper that works for $\sigma$-frames and not for bounded distributive lattices more generally. The reason is exactly because the normal form in \Cref{app:normalsigma} for the c.p.\ \emph{bounded distributive lattice} $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ will \emph{not} be isomorphic to $\Delta_\infty$. More specifically, for the c.p.\ bounded distributive lattice $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$, since it is a sequential colimit of the following f.p.\ bounded distributive lattices
+  The completeness result shown in \Cref{thm:complete} is the only one in this paper that works for $\sigma$-frames and not for bounded distributive lattices more generally. The reason is exactly because the normal form in \Cref{app:normalsigma} for the countably presented \emph{bounded distributive lattice} $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$ will \emph{not} be isomorphic to $\Delta_\infty$. More specifically, for the countably presented bounded distributive lattice $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$, since it is a sequential colimit of the following finitely presented bounded distributive lattices
   \[ 
   \begin{tikzcd}
     \cdots \ar[r] & \I[n]/i_{0} \ge \cdots \ge i_{n-1} \ar[r, hook] & \I[n\!+\!1]/i_0 \ge \cdots \ge i_n \ar[r, hook] & \cdots
@@ -1507,7 +1494,7 @@ It is now instructive to discuss models for the axioms we have used in the previ
 
 For any Horn theory $\T$, we know from Blechschmidt~\cite{blechschmidt2020general,blechschmidt2021using} that the generic $\T$-model $U_\T\in\Set[\T]$ satisfies quasi-coherence for finitely presented $U_\T$-algebras, viz.\ (SQCF). As mentioned in \Cref{subsec:qc}, the proof of quasi-coherence for finitely presented $U_\T$-algebras adapts readily to the countably presented case, provided we work with the larger site
 \[ \Set[\T]_\omega \coloneq [\mmod\T\cp,\Set], \]
-where $\mmod\T\cp$ is the category of c.p.\ $\T$-models. The generic $\T$-model in $\Set[\T]_\omega$ is again defined to be the forgetful functor $\mmod\T\cp \to \Set$, and we also denote it as $U_\T$. In other words, (SQCC) holds in the larger topos $\Set[\T]_\omega$. And in this case, we can also allow $\T$ to contain algebraic operations of countable arity. 
+where $\mmod\T\cp$ is the category of countably presented $\T$-models. The generic $\T$-model in $\Set[\T]_\omega$ is again defined to be the forgetful functor $\mmod\T\cp \to \Set$, and we also denote it as $U_\T$. In other words, (SQCC) holds in the larger topos $\Set[\T]_\omega$. And in this case, we can also allow $\T$ to contain algebraic operations of countable arity. 
 % \Jon{Did we need countable choice in $\Set$ for this last part?}
 
 These two topoi $\Set[\T]$ and $\Set[\T]_\omega$ are intimately related. There is a fully faithful and left exact inclusion of sites
@@ -1540,9 +1527,9 @@ An admissible topology $J$ on $\mmod\T\cp\op$ restricts to an admissible one on 
 \end{tikzcd}\]
 which again identifies $\sh(\mmod\T\cp\op,J)$ as a local topos over $\sh(\mmod\T\fp\op,J)$. These admissible topologies on $\mmod\T\fp$ or $\mmod\T\cp$ are exactly the required data to validate various local properties of the generic model $U_\T$. 
 
-More specifically for us, let $\sFrm$ be the category of $\sigma$-frames, i.e.\ whose objects are posets with finite meets and countable joins, where they distribute through each other. We will also use $\sFrm\cp$ to denote the full subcategory of countably presented $\sigma$-frames, and $\sFrm\fp$ to denote the finitely presented ones. Since f.p.\ $\sigma$-frames are simply f.p.\ bounded distributive lattices, we have an isomorphism $\sFrm\fp \cong \DL\fp$.
+More specifically for us, let $\sFrm$ be the category of $\sigma$-frames, i.e.\ whose objects are posets with finite meets and countable joins, where they distribute through each other. We will also use $\sFrm\cp$ to denote the full subcategory of countably presented $\sigma$-frames, and $\sFrm\fp$ to denote the finitely presented ones. Since finitely presented $\sigma$-frames are simply finitely presented bounded distributive lattices, we have an isomorphism $\sFrm\fp \cong \DL\fp$.
 
-It is well-known the dual category of $\DL\fp \cong \sFrm\fp$ is $\Pos\fp$ of finite posets. In this case, we can also have a fairly explicit description of the larger dual category $\sFrm\cp$. The first observation is that any c.p.\ $\sigma$-frame $A$ is indeed a \emph{frame}, i.e.\ it has \emph{all} joins and finite meets, which distributes with each other. This is clear for all finitely presented $\sigma$-frames, since they are simply finite bounded distributive lattices. To see this for the countable case, consider the countably generated free $\sigma$-frame $\Sigma[\N]$:
+It is well-known the dual category of $\DL\fp \cong \sFrm\fp$ is $\Pos\fp$ of finite posets. In this case, we can also have a fairly explicit description of the larger dual category $\sFrm\cp$. The first observation is that any countably presented $\sigma$-frame $A$ is indeed a \emph{frame}, i.e.\ it has \emph{all} joins and finite meets, which distributes with each other. This is clear for all finitely presented $\sigma$-frames, since they are simply finite bounded distributive lattices. To see this for the countable case, consider the countably generated free $\sigma$-frame $\Sigma[\N]$:
 
 % \Jon{What is $2$ here? Is this the free $\sigma$-frame on one object? Perhaps another notation like $\Omega$ would be more clear, because $2$ qua the boolean set is not a $\sigma$-frame in constructive mathematics.}
 \begin{lemma}\label{lem:cgfreesframe}
@@ -1563,10 +1550,10 @@ It is well-known the dual category of $\DL\fp \cong \sFrm\fp$ is $\Pos\fp$ of fi
   preserving all countable colimits. This is again fully faithful when composed with $\ms{pt} \colon \Frm\op \to \Topp$, where $\Topp$ is the category of topological spaces.
 \end{corollary}
 \begin{proof}
-  Any c.p.\ $\sigma$-frame will be isomorphic to one of the form $\Sigma[\N]/R$ for some countably generated congruence $R$. By \Cref{lem:cgfreesframe}, $\Sigma[\N]$ is a frame, so is any of its quotient. By~\cite[Thm. 6.2.4]{makkai2006first}, such frames are indeed \emph{spatial}, hence they fully faithfully embed into the category of topological spaces via the functor $\pt$.
+  Any countably presented $\sigma$-frame will be isomorphic to one of the form $\Sigma[\N]/R$ for some countably generated congruence $R$. By \Cref{lem:cgfreesframe}, $\Sigma[\N]$ is a frame, so is any of its quotient. By~\cite[Thm. 6.2.4]{makkai2006first}, such frames are indeed \emph{spatial}, hence they fully faithfully embed into the category of topological spaces via the functor $\pt$.
 \end{proof}
 
-This way, we can view $\sFrm\cp\op$ as a certain class of topological spaces. Notice that since all c.p.\ $\sigma$-frames will be quotients of $\Sigma[\N]$, their dual spaces will be a subspace of $\pt(\Sigma[\N])$, which we can compute quite easily:
+This way, we can view $\sFrm\cp\op$ as a certain class of topological spaces. Notice that since all countably presented $\sigma$-frames will be quotients of $\Sigma[\N]$, their dual spaces will be a subspace of $\pt(\Sigma[\N])$, which we can compute quite easily:
 
 \begin{lemma}
   The space of points of $\Sigma[\N]$ is Scott's graph model $G$, which is the countable product of the Sierpi\'nski space $G \cong \Sigma^\N$.
@@ -1702,7 +1689,7 @@ Here we observe that the inclusion $\mb P \hook \wTop$ is \emph{fully faithful},
   \cong\ & \sFrm\cp(\Pos(P_f(\N),\Sigma),\Pos(P_f(\N),\Sigma)) \\ 
   \cong\ & \wTop(G,G)
 \end{align*}
-The first isomorphism holds because $G$ is the \emph{free} $\omega$-cpo on $P_f(\N)$; the second holds by formal manipulation; the third is due to the fact that $\Pos(P_f(\N),\Sigma)$ is the free $\sigma$-frame over the discrete poset $\N$; the final one is given by the duality between c.p.\ $\sigma$-frames and $\wTop$. 
+The first isomorphism holds because $G$ is the \emph{free} $\omega$-cpo on $P_f(\N)$; the second holds by formal manipulation; the third is due to the fact that $\Pos(P_f(\N),\Sigma)$ is the free $\sigma$-frame over the discrete poset $\N$; the final one is given by the duality between countably presented $\sigma$-frames and $\wTop$. 
 % \Jon{I am concerned about the first step above because of my last comment.}
 
 This leads us to conjecture that $\mc H$ will be equivalent to the sheaf topos $\sh(\wTop,J_{\mr{can}})$. However, a detailed proof of this requires us to better understand the categorical properties of $\wTop$.
