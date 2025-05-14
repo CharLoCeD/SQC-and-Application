@@ -262,8 +262,8 @@ Firstly, a universe for synthetic domains should contain an interval object $\I$
 
 Additionally, $\I$ should also form a subuniverse of propositions closed under dependent sums, so as to form a dominance in the sense of~\cite{rosolini1986continuity}. The dominance structure is used to parametrise partial functions through a functor $L$ constructed from $\I$. 
 
-Besides these elementary axioms, the main additional axiom of synthetic domain theory is the \emph{completeness} of the interval: Let $\omega$ and $\ov\omega$ be the carriers of the internal initial algebra and final coalgebra to the functor $L$, respectively. 
-There is a canonical inclusion $\omega \hook \ov\omega$, and the completeness axiom states that $\I$ is \emph{right orthogonal} to this inclusion in the sense that the canonically induced map $\I^{\ov\omega} \to \I^{\omega}$ should be an equivalence. This can be viewed as the synthetic version of the $\omega$-completeness of the Sierpi\'nski space in traditional domain theory.
+Besides these elementary axioms, the main additional axiom of synthetic domain theory is the \emph{chain completeness} of the interval: Let $\omega$ and $\ov\omega$ be the carriers of the internal initial algebra and final coalgebra to the functor $L$, respectively. 
+There is a canonical inclusion $\omega \hook \ov\omega$, and the chain completeness axiom states that $\I$ is \emph{right orthogonal} to this inclusion in the sense that the canonically induced map $\I^{\ov\omega} \to \I^{\omega}$ should be an equivalence. This can be viewed as the synthetic version of the $\omega$-completeness of the Sierpi\'nski space in traditional domain theory.
 
 \subsection{Classifying topoi and Phoa's principle}\label{subsec:classtopphoa}
 
@@ -313,7 +313,7 @@ We study an emerging connection between synthetic domain theory and the quasi-co
     \item\label{contribution:dominance} In the case of both bounded distributive lattices and $\sigma$-frames, the quasi-coherence for finitely presented algebras (in fact a weaker assumption; cf.\ \Cref{ax:sqci}) implies that the generic interval $\I$ and its dual form a dominance (\Cref{prop:Idominance} and \Cref{cor:dualisdominance}). It also leads to an explicit computation of the partial map classifiers of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectra (\Cref{prop:liftofaffine}).
     \item The quasi-coherence principle allows an explicit computation of the \emph{specialisation preorder} (\Cref{defn:specialisation}) on affine spaces (\Cref{lem:specorderofaffine}) and quasi-coherent $\I$-algebras (\Cref{cor:specordonalgiscan}).
     \item As mentioned, quasi-coherence for finitely presented algebras implies that the generic interval $\I$ satisfies the Phoa's principle. In fact, this is more generally true for any affine space (\Cref{thm:phoaaffine}), and similarly for quasi-coherent algebras (\Cref{thm:algebraphoa}).
-    \item In the case of $\sigma$-frames, quasi-coherence for countably presented algebras implies completeness of $\I$ (\Cref{thm:complete}) assuming $\I$ is non-trivial internally. 
+    \item In the case of $\sigma$-frames, quasi-coherence for countably presented algebras implies chain completeness of $\I$ (\Cref{thm:complete}) assuming $\I$ is non-trivial. 
     This is the only place where it is important to work with $\sigma$-frames and not bounded distributive lattices (cf.~\Cref{rem:whynotdis}). This gives a full account of the axioms for synthetic domain theory as specified in~\cite{hyland1990first}. 
   \end{enumerate}
 
@@ -519,7 +519,7 @@ Notice that up till this point we have not used any special property of $\T$ rat
   \[ a \wedge \bigvee_{n:\N} b_n = \bigvee_{n:\N} a \wedge b_n, \]
   for any $a$ in $A$ and $b \colon \N \to A$. We can axiomatise $\sigma$-frames as an \emph{infinitary} algebraic theory $\mbb S$, extending the theory of bounded meet-semi-lattices with a constant $0$ and a function symbol $\bigvee$ with \emph{countable} arity. (Such an axiomatisation can be found e.g.\ in~\citet[Exa.~3.26]{adamek1994locally}.) It is easy to see that $\mbb S$ is propositional. 
 
-  A notable fact about $\sigma$-frames is that their finitary behaviours are exactly the same as bounded distributive lattices, in the sense that for any $\sigma$-frame $A$, the finitely presented $\sigma$-frame $A[n]/R$ coincides with the finitely presented \emph{bounded distributive lattice} $A[n]/R$. Thus, there will be no difference between working with $\sigma$-frames or bounded distributive lattice when we work with finitely presented $\I$-algebras. The salience of countable joins will emerge only in \Cref{sec:infdomain} when we prove completeness of $\I$.
+  A notable fact about $\sigma$-frames is that their finitary behaviours are exactly the same as bounded distributive lattices, in the sense that for any $\sigma$-frame $A$, the finitely presented $\sigma$-frame $A[n]/R$ coincides with the finitely presented \emph{bounded distributive lattice} $A[n]/R$. Thus, there will be no difference between working with $\sigma$-frames or bounded distributive lattice when we work with finitely presented $\I$-algebras. The salience of countable joins will emerge only in \Cref{sec:infdomain} when we prove chain completeness of $\I$.
 \end{remark}
 
 \begin{remark}[Propositionally op-stable theories]\label{rem:opprop}
@@ -1034,7 +1034,7 @@ We omit the proof here, which again follows from a general normal form for polyn
 
 \section{Infinitary domain theory}\label{sec:infdomain}
 
-Until this point, we have seen that elementary axioms for synthetic domain theory follow from (SQCF) for bounded distributive lattices and thus $\sigma$-frames. In this section we show that the infinitary axiom of synthetic domain theory, viz.\ completeness of the interval $\I$, is also a consequence of quasi-coherence for $\sigma$-frames. In fact, the only place we have used the essentially the properties of $\sigma$-frames is in the proof of \Cref{thm:complete}, and we will also indicate why that fails for bounded distributive lattices in \Cref{rem:whynotdis}.
+Until this point, we have seen that elementary axioms for synthetic domain theory follow from (SQCF) for bounded distributive lattices and thus $\sigma$-frames. In this section we show that the infinitary axiom of synthetic domain theory, viz.\ chain completeness of the interval $\I$, is also a consequence of quasi-coherence for $\sigma$-frames. In fact, the only place we have used the essentially the properties of $\sigma$-frames is in the proof of \Cref{thm:complete}, and we will also indicate why that fails for bounded distributive lattices in \Cref{rem:whynotdis}.
 
 The connection between the infinitary aspect of synthetic domain theory and quasi-coherence starts from the observation that the final coalgebra $\ov\omega$ for the functor $L$ can be described as a \emph{spectrum}:
 
@@ -1128,7 +1128,7 @@ The transition maps $\Delta^n\to \Delta^{n+1}$ above are given by appending $0$ 
   The above characterisation of $\omega$ as a sequential colimit is still true if we work with bounded distributive lattices, rather than $\sigma$-frames.
 \end{remark}
 
-Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affine, we can show $\I$ is complete. This again crucially depends on a normal form result for a countably presented $\sigma$-frame, which generalises the finitary version for bounded distributive lattices given in \Cref{prop:simplicesasalgebra}:
+Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affine, we can show $\I$ is chain complete. This again crucially depends on a normal form result for a countably presented $\sigma$-frame, which generalises the finitary version for bounded distributive lattices given in \Cref{prop:simplicesasalgebra}:
 
 \begin{lemma}\label{app:normalsigma}
   For the countably presented $\sigma$-frame $\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}$, an element $p$ can be uniquely written as 
@@ -1198,7 +1198,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 \end{proof}
 
 \begin{remark}
-  As indicated in \Cref{rem:qcreplete,rem:specarereplete}, both spectra and quasi-coherent $\I$-algebras are replete. The above result then implies that they are also complete, i.e.\ orthogonal to $\omega\hook\ov\omega$.
+  As indicated in \Cref{rem:qcreplete,rem:specarereplete}, both spectra and quasi-coherent $\I$-algebras are replete. The above result then implies that they are also chain complete, i.e.\ orthogonal to $\omega\hook\ov\omega$.
 \end{remark}
 
 \begin{corollary}[NT, SQCC]
@@ -1221,19 +1221,15 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 \end{remark}
 
 \begin{remark}[Limits of algebras induce locality for $\I$]\label{rem:limofalgloc}
-  By inspecting the proof of \Cref{thm:complete}, it is clear that $\I$ is complete \emph{precisely} because there is a specific \emph{limiting diagram} of quasi-coherent $\I$-algebras. In general, any such limit diagram will induce an orthogonality property satisfied by the all spectra, and we will see many more examples in \Cref{sec:local}. From \Cref{rem:whynotdis} it is clear whether a diagram of $\I$-algebras is a limit heavily relies on the underlying algebraic theory. This is again a perfect example of how the algebraic properties of a theory has significant consequences for the internal logic of its classifying topos.
+  By inspecting the proof of \Cref{thm:complete}, it is clear that $\I$ is chain complete \emph{precisely} because there is a specific \emph{limiting diagram} of quasi-coherent $\I$-algebras. In general, any such limit diagram will induce an orthogonality property satisfied by the all spectra, and we will see many more examples in \Cref{sec:local}. From \Cref{rem:whynotdis} it is clear whether a diagram of $\I$-algebras is a limit heavily relies on the underlying algebraic theory. This is again a perfect example of how the algebraic properties of a theory has significant consequences for the internal logic of its classifying topos.
 \end{remark}
 
 \section{Local properties for the interval}\label{sec:local}
 
 In this section we review some of the locality axioms we have introduced in \Cref{sec:locality}. As mentioned in the introduction, the observation is that even if we do not assume them to be true globally for the interval $\I$, we can still show the maps representing the locality axiom to be \emph{left orthogonal} to $\I$.  
-% \Jon{The preceding sentence is a slightly obscure; can we try to say something a little more specific?} 
-% \LY{I have simply deleted it.}
-Unlike completeness in \Cref{thm:complete}, the local conditions in \Cref{sec:locality} are all induced by limits of \emph{f.p.} $\I$-algebras. Thus in this section, it does not matter whether we work with bounded distributive lattices or $\sigma$-frames.
+Unlike chain completeness in \Cref{thm:complete}, the local conditions in \Cref{sec:locality} are all induced by limits of \emph{f.p.} $\I$-algebras. Thus in this section, it does not matter whether we work with bounded distributive lattices or $\sigma$-frames.
 
 Starting from the simplest example, let us recall the local property (NT). In general it is \emph{not} necessarily $\emp$, if we do not assume (NT). However, we can look at the localisation class that thinks this map is invertible. The following fact shows that, from the perspective of $\I$, (NT) indeed holds:
-% \Jon{What was the meaning of the subphrase ``as the spectrum $\spec(\I/0=1)$''? Had trouble parsing this. \textbf{There is something fishy going on here: if $0\not=1$, then we would not expect $\spec(\I/0=1)$ to be empty, rather it should become contractible.}}
-% \LY{No, if 0 \neq 1, then $\spec(\I/0=1)$ is exactly empty, because an $\I$-algebra map $\I/0=1 \to \I$ need to preserve both 0, and 1. Since they agree in \I/0=1, they must also agree in the image, which implies 0 = 1. Hence, contradictory, thus $\spec\I/0=1$ is empty.}
 
 \begin{proposition}[SQCI]\label{specisnontrivial}
   $\I$ is right orthogonal to $\emp \hook (0 = 1)$.
@@ -1431,7 +1427,7 @@ At the end of this section, we also discuss the example of $\omega$, which as we
   The inclusion $\omega \hook \ov\omega$ is an order embedding for the specialisation preorder. In particular, the specialisation on $\omega$ is induced pointwise as a subspace of $\ov\omega\hookrightarrow \I^N$.
 \end{lemma}
 \begin{proof}
-  The fact that $\omega\hook\ov\omega$ is an order embedding for the specialisation preorder follows from completeness of $\I$ in \Cref{thm:complete}. The fact that the specialisation preorder on $\ov\omega$ coincides with its canonical order follows from \Cref{lem:specorderofaffine} by the fact that it is affine under (SQCC). 
+  The fact that $\omega\hook\ov\omega$ is an order embedding for the specialisation preorder follows from chain completeness of $\I$ in \Cref{thm:complete}. The fact that the specialisation preorder on $\ov\omega$ coincides with its canonical order follows from \Cref{lem:specorderofaffine} by the fact that it is affine under (SQCC). 
 \end{proof}
 
 Furthermore, we can show that $\omega$ also satisfies a version of the Phoa principle, i.e.\ the function space $\omega^\I$ again classifies its pointwise order. For this we need to compute the function space $\omega^\I$.
@@ -1483,7 +1479,7 @@ As another consequence, we can also show the following general result establishi
   Furthermore, the same holds for cubes and simplices since the types satisfying the choice principle are closed under finite products and retracts. Assuming $\I$ satisfies choice, following the proof of \Cref{thm:omegaortho}, one can show more generally that any orthogonality class specified by maps between finite colimits of simplices or cubes are always \emph{closed under sequential colimits}. However, not in every model of quasi-coherence $\I$ will satisfy the above choice principle. Hence, we do not include this result in the main text, as we tend to keep our assumptions as minimalistic as possible.
 \end{remark}
 
-\section{A discussion on the models}\label{sec:model}
+\section{New models for synthetic domain theory}\label{sec:model}
 
 It is now instructive to discuss models for the axioms we have used in the previous sections. For this purpose, we now work in the classical set-theoretic setting of $\ms{ZFC}$. These axioms can be organised into two classes:
 
