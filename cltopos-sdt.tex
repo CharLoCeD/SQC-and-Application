@@ -1322,9 +1322,9 @@ Finally, we discuss the even stronger locality condition (1cS). As mentioned in 
 \end{proof}
 
 Besides the locality principles discussed in \Cref{sec:locality}, we also consider the orthogonality classes emerging from \emph{synthetic category theory}, as introduced by \citet{riehl2017type}. 
-A synthetic category will be a type that satisfies the internal orthogonality condition of being \emph{simplicial}, \emph{Segal}, and \emph{Rezk}.
+A synthetic category will be a type that satisfies the internal orthogonality condition of being \emph{simplicial}, \emph{Segal complete}, and \emph{Rezk complete}.
 
-We start with the Segal condition. Besides the outer horn discussed in \Cref{exm:hornaffine}, we can also define the inner horn $\Lambda^2_1$ as a pushout,
+We start with the Segal completeness condition. Besides the outer horn discussed in \Cref{exm:hornaffine}, we can also define the inner horn $\Lambda^2_1$ as a pushout,
 \[
   \begin{tikzcd}
     1 \ar[d, "0"'] \ar[r, "1"] & \I \ar[d] \\
@@ -1334,16 +1334,16 @@ We start with the Segal condition. Besides the outer horn discussed in \Cref{exm
 \]
 As a subtype of $\Delta_2$, it can be identified as $\scomp{(i,j) : \Delta_2}{\ms fi \vee \ms tj}$.
 
-\begin{definition}[Segal types]
-  $X$ is called \emph{Segal} when it is right orthogonal to $\Lambda^2_1 \hook \Delta_2$.
+\begin{definition}[Segal complete types]
+  $X$ is called \emph{Segal complete} when it is right orthogonal to $\Lambda^2_1 \hook \Delta_2$.
 \end{definition}
 
 \begin{remark}[Path transitivity]
-  The Segal condition has also been studied independently by \citet{fiore2001domains} under the name of \emph{path transitivity}.
+  The Segal completeness condition has also been studied independently by \citet{fiore2001domains} under the name of \emph{path transitivity}.
 \end{remark}
 
 \begin{proposition}[SQCF]
-  $\I$ is Segal.
+  $\I$ is Segal complete.
 \end{proposition}
 \begin{proof}
   In this case, we need to show the following diagram is a pullback of $\I$-algebras, 
@@ -1358,7 +1358,7 @@ As a subtype of $\Delta_2$, it can be identified as $\scomp{(i,j) : \Delta_2}{\m
   Hence, the above is again a pullback.
 \end{proof}
 
-Next we consider the Rezk condition. Following~\cite{buchholtz2021synthetic}, we can define the type $\mbb E$ classifying categorical equivalences as the colimit of the following diagram,
+Next we consider the Rezk completeness condition. Following \citet{buchholtz2021synthetic}, we can define the type $\mbb E$ classifying categorical equivalences as the colimit of the following diagram,
 \[
 \begin{tikzcd}
 	& \I && \I && \I \\
@@ -1374,14 +1374,14 @@ Next we consider the Rezk condition. Following~\cite{buchholtz2021synthetic}, we
 
 
 \begin{definition}[Rezk types]
-  We say that a type $X$ is \emph{Rezk} when it is right orthogonal to $\mbb E \to 1$.
+  We say that a type $X$ is \emph{Rezk complete} when it is right orthogonal to $\mbb E \to 1$.
 \end{definition}
 
 \begin{proposition}[SQCF]
-  $\I$ is Rezk.
+  $\I$ is Rezk complete.
 \end{proposition}
 \begin{proof}
-  Notice by \Cref{thm:phoaaffine} $\I^\I$ classifies the canonical order on $\I$. This order is antisymmetric, thus $\I$ will be Rezk.
+  Notice by \Cref{thm:phoaaffine} $\I^\I$ classifies the canonical order on $\I$. This order is antisymmetric, thus $\I$ will be Rezk complete.
 \end{proof}
 
 In fact, $\I$ is not only a synthetic category but in fact a synthetic \emph{poset}; this property too can be expressed in terms of orthogonality. To that end, we define the ``walking parallel pair'' $\I_{\rightrightarrows}$ to be the following pushout:
@@ -1411,7 +1411,7 @@ The notion of synthetic categories and synthetic posets are formulated as these 
 % \Jon{We should not require simplicial-ness for synthetic categories, as the theory of categories does not require the simplicial property.}
 
 \begin{definition}[Synthetic categories and synthetic posets]
-  A type $X$ is a \emph{synthetic category}, if it is Segal and Rezk. We say it is a \emph{synthetic poset}, if it is also $\I$-separated.
+  A type $X$ is a \emph{synthetic category}, if it is Segal and Rezk complete. We say it is a \emph{synthetic poset}, if it is also $\I$-separated.
 \end{definition}
 
 \begin{theorem}[SQCF]\label{thm:affineposet}
