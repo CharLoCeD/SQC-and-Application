@@ -197,7 +197,8 @@
 \DeclareFontShape{U}{dmjhira}{m}{n}{ <-> dmjhira }{}
 \DeclareRobustCommand{\yon}{\text{\usefont{U}{dmjhira}{m}{n}\symbol{"48}}}
 \DeclareRobustCommand{\noy}{\text{\reflectbox{\yon}}\!}
-\newcommand{\opens}{\operatorname{\mc{O}}\!}
+% \newcommand{\opens}{\operatorname{\mc{O}}\!}
+\newcommand{\opens}{\operatorname{\mc{O}}} %% JMS: The \! is messing up some of the kerning, I think.
 
 \NewDocumentCommand\Jon{m}{\textcolor{red}{\textbf{Jon:~}#1}}
 \NewDocumentCommand\LY{m}{\textcolor{blue}{\textbf{LY:~}#1}}
