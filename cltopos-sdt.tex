@@ -268,10 +268,10 @@ There is a canonical inclusion $\omega \hook \ov\omega$, and the chain completen
 
 \subsection{Classifying topoi and Phoa's principle}\label{subsec:classtopphoa}
 
-As a preliminary observation, there is a connection between Phoa's principle and classifying topoi (cf.~\cite[Lem 3.8]{gratzer2024directed}).
+As a preliminary observation, there is a connection between Phoa's principle and classifying topoi (cf.\ \citet[Lem 3.8]{gratzer2024directed}).
 \emph{A posteriori}, the technical elements required for this observation are already contained in the work of \citet{RN879}.
 
-To recap, let $\T$ be a (finitary) Horn theory. Recall that the classifying topos of $\T$ is given by the following presheaf category (cf.~\cite[D3.1]{johnstone2002sketches}),
+To recap, let $\T$ be a (finitary) Horn theory. Recall that the classifying topos of $\T$ is given by the following presheaf category (cf.\ \citet[D3.1]{johnstone2002sketches}),
 \[ \Set[\T] \coloneq [\mmod\T\fp,\Set], \]
 where $\mmod\T\fp$ is the category of finitely presented $\T$-algebras. In particular, there is a generic $\T$-model $U_\T$, such that any $\T$-model in a topos $\mc E$ is realised as the image of $U_\T$ under the inverse image part of a geometric morphism $\mc E \to \Set[\T]$. The observation of \citet{RN879} is that, internally in $\Set[\T]$, the function space of $U_\T$ is completely characterised by polynomials,
 \[ U_\T^{U_\T} \cong U_\T[x], \]
@@ -919,7 +919,7 @@ We can very easily classify the specialisation preorder on a classical set, i.e.
 \end{proof}
 
 \begin{remark}
-  With greater efforts, the above proof would also work with the weaker assumption that the specialisation preorder on $X$ is \emph{connected}. This generalises a similar result given in~\cite[Prop.~4.4.1]{hyland1990first}.
+  With greater efforts, the above proof would also work with the weaker assumption that the specialisation preorder on $X$ is \emph{connected}. This generalises a similar result given by \citet[Prop.~4.4.1]{hyland1990first}.
 \end{remark}
 
 The above result showcases the usefulness of the specialisation preorder. We would like to use it to show e.g.\ that $\I$ is internally connected. For this, we need to characterise the specialisation preorder on them. It turns out that for any affine space, this is simply its canonical order:
@@ -1018,7 +1018,7 @@ As a consequence of Phoa's principle, we can also characterise the specialisatio
   For a quasi-coherent $\I$-algebra $A$, the specialisation preorder coincides with its canonical order induced by its algebraic structure.
 \end{proposition}
 \begin{proof}
-  If $A$ is quasi-coherent, then $A \cong \I^{\spec A}$ as an $\I$-algebra, and its canonical order thus coincides with the pointwise order on $\I$. On the other hand, it is well-known that Phoa's principle for the interval $\I$ implies the specialisation preorder on any type $\I^X$ is pointwise; see e.g.~\cite[Thm.\ 4.2.1]{hyland1990first}. Hence, the two orders on $A$ indeed coincide.
+  If $A$ is quasi-coherent, then $A \cong \I^{\spec A}$ as an $\I$-algebra, and its canonical order thus coincides with the pointwise order on $\I$. On the other hand, it is well-known that Phoa's principle for the interval $\I$ implies the specialisation preorder on any type $\I^X$ is pointwise; see e.g.\ \citet[Thm.\ 4.2.1]{hyland1990first}. Hence, the two orders on $A$ indeed coincide.
 \end{proof}
 
 \begin{remark}[Linked spaces]
@@ -1040,7 +1040,7 @@ Of course $\Delta[\I]^n$ is simply $\Delta^n$. We have a general algebraic descr
 \end{proposition}
 % \Jon{We need to explain the automatic associativity outside the proof---either in the theorem statement, or perhaps even further outside.}
 
-We omit the proof here, which again follows from a general normal form for polynomials with finitely many variables for bounded distributive lattices; see~\cite[Thm.\ 10.21]{lausch2000algebra}. We only note here that the above polynomial is well-defined, in the sense that the expression is associative and its value does not depend on how one add parenthesises. The reason for this is that for any expression $a \vee b \wedge c$ to have a definite meaning in a distributive lattice, i.e.\ the two value $(a \vee b) \wedge c$ and $a \vee (b \wedge c)$ coincide, it suffices to have $a \le c$. Then the condition $a_0 \ge \cdots \ge a_n$ for the parameters, and the fact that $i_1 \le \cdots \le i_n$, makes sure the above polynomial has a definite meaning in the quotient.
+We omit the proof here, which again follows from a general normal form for polynomials with finitely many variables for bounded distributive lattices; see \citet[Thm.\ 10.21]{lausch2000algebra}. We only note here that the above polynomial is well-defined, in the sense that the expression is associative and its value does not depend on how one add parenthesises. The reason for this is that for any expression $a \vee b \wedge c$ to have a definite meaning in a distributive lattice, i.e.\ the two value $(a \vee b) \wedge c$ and $a \vee (b \wedge c)$ coincide, it suffices to have $a \le c$. Then the condition $a_0 \ge \cdots \ge a_n$ for the parameters, and the fact that $i_1 \le \cdots \le i_n$, makes sure the above polynomial has a definite meaning in the quotient.
 
 \section{Infinitary domain theory}\label{sec:infdomain}
 
@@ -1064,7 +1064,7 @@ The connection between the infinitary aspect of synthetic domain theory and quas
     \arrow["{!}"', from=2-3, to=2-4]
   \end{tikzcd}\]
   % \Jon{Unless we shall define $\Delta^n$ to be literally $L^n(\varnothing)$, we should probably express the transition maps in terms of descending sequences rather than $L$, and then comment that under the identification, blah blah blah.}
-  where under the isomorphisms, the transition map $\Delta^{n+1} \to \Delta^n$ takes the sequence $i_0 \ge \cdots \ge i_n$ to the final segment $i_1 \ge \cdots \ge i_n$. As observed by \citet[Sec. 5.2]{hyland1990first}, it also has an equivalent type-theoretic description as the object of infinite descending sequences in $\I$,
+  where under the isomorphisms, the transition map $\Delta^{n+1} \to \Delta^n$ takes the sequence $i_0 \ge \cdots \ge i_n$ to the final segment $i_1 \ge \cdots \ge i_n$. As observed by \citet[Sec.\ 5.2]{hyland1990first}, it also has an equivalent type-theoretic description as the object of infinite descending sequences in $\I$,
   \[ \ov\omega \cong \scomp{i : \N \to \I}{\fa n\N i_n \ge i_{n+1}}. \]
   This way, we have a natural equivalence
   \[ \ov\omega \cong \spec\I[\N]/\pair{i_n \ge i_{n+1}}_{n:\N}. \]
@@ -1516,7 +1516,7 @@ inducing an adjoint triple (cf.\ \citet[Thm.\ 7.20]{caramello2019denseness}),
 \end{tikzcd}\]
 equivalently, a \emph{local geometric morphism} $\Set[\T]_\omega \surj \Set[\T]$.
 
-More generally, it is already observed by Blechschmidt~\cite[Thm.\ 4.11.]{blechschmidt2020general} that if we have a topology $J$ on $\mmod\T\fp\op$ where $U_\T$ is a $J$-sheaf, then (SQCF) again holds in the sheaf subtopos $\sh(\mmod\T\fp\op,J)$. We call such a topology $J$ \emph{$\T$-admissible}, or simply \emph{admissible} when no confusion could arise. 
+More generally, it is already observed by \citet[Thm.\ 4.11]{blechschmidt2020general} that if we have a topology $J$ on $\mmod\T\fp\op$ where $U_\T$ is a $J$-sheaf, then (SQCF) again holds in the sheaf subtopos $\sh(\mmod\T\fp\op,J)$. We call such a topology $J$ \emph{$\T$-admissible}, or simply \emph{admissible} when no confusion could arise. 
 % \Jon{What about $\T$-admissible or something?} 
 For instance, since $U_\T$ is representable, any subcanonical topology will in particular be admissible. In the same way we cna define admissible topology $J$ for the larger presheaf topos $\mmod\T\cp\op$, which again is a topology making the generic model $U_\T$ a sheaf. In this case, the sheaf subtopos $\sh(\mmod\T\cp\op,J)$ also models (SQCC). 
 % \Jon{This is a little confusing, becuase we have defined what an admissible topology is only on $\mmod\T\fp\op$, and have not extended this to the case of larger sites; I understand that we can look at the representable presheaf in each case, but somehow this definition ought to be a little more precise; for example, it could be defined precisely to refer to topologies on subcategories of $\mmod\T\op$ containing the free model on one generator.} 
@@ -1556,7 +1556,7 @@ It is well-known the dual category of $\DL\fp \cong \sFrm\fp$ is $\Pos\fp$ of fi
   preserving all countable colimits. This is again fully faithful when composed with $\ms{pt} \colon \Frm\op \to \Topp$, where $\Topp$ is the category of topological spaces.
 \end{corollary}
 \begin{proof}
-  Any countably presented $\sigma$-frame will be isomorphic to one of the form $\Sigma[\N]/R$ for some countably generated congruence $R$. By \Cref{lem:cgfreesframe}, $\Sigma[\N]$ is a frame, so is any of its quotient. By~\cite[Thm.\ 6.2.4]{makkai2006first}, such frames are indeed \emph{spatial}, hence they fully faithfully embed into the category of topological spaces via the functor $\pt$.
+  Any countably presented $\sigma$-frame will be isomorphic to one of the form $\Sigma[\N]/R$ for some countably generated congruence $R$. By \Cref{lem:cgfreesframe}, $\Sigma[\N]$ is a frame, so is any of its quotient. By Theorem 6.2.4 of \citet{makkai2006first}, such frames are indeed \emph{spatial}, hence they fully faithfully embed into the category of topological spaces via the functor $\pt$.
 \end{proof}
 
 This way, we can view $\sFrm\cp\op$ as a certain class of topological spaces. Notice that since all countably presented $\sigma$-frames will be quotients of $\Sigma[\N]$, their dual spaces will be a subspace of $\pt(\Sigma[\N])$, which we can compute quite easily:
