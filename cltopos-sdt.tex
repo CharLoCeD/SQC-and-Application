@@ -304,6 +304,8 @@ Blechschmidt also points out that quasi-coherence descends from the classifying 
 Hence, in such a subtopos, $U_\T$ will validates more geometric sequents as specified by the topology, which should be viewed as certain \emph{local properties}. For instance, \citet{blechschmidt2021using,Cherubini_Coquand_Hutzler_2024} work with \emph{local rings}, where the additional geometric properties are validated by the Zariski topology.
 In the case of synthetic Stone duality, the Boolean algebra used by \citet{cherubini2024foundation} is the set 2, which is again only true in a suitably chosen topology.
 
+\LY{Do we discuss the realisability models here?}
+
 \subsection{Main contribution}\label{sec:contributions}
 
 We study an emerging connection between synthetic domain theory and the quasi-coherence axioms for \emph{bounded distributive lattices} and \emph{$\sigma$-frames}. As a first indication of why quasi-coherence for these theories might be useful for domain theory, we have observed that by taking the interval $\I$ to be the generic bounded distributive lattice or $\sigma$-frame, many important objects for domain theory can be written as \emph{spectra}. This include the cubes $\I^n$ (\Cref{exm:cubeaffine}), the simplices $\Delta^n$ (\Cref{exm:simplicesaffine}), and the final coalgebra $\ov\omega$ (\Cref{exm:ovomegaaffine}). The initial algebra $\omega$ will also be realised as a sequential colimit of spectra (\Cref{prop:omegacolimit}). Here we outline the main results of this paper, and discuss some of their potential applications.
@@ -423,7 +425,8 @@ To verify \Cref{prop:spectra-are-powers-of-the-interval}, we recall some results
   For a Horn theory $\T$, the adjunction $F\dashv U\colon \mmod\T\to\Set$ is of descent type.
 \end{proposition}
 
-\Jon{Technically we need to be sure that all the below actually holds constructively in order for it to apply. Can we double check that this is OK?}
+% \Jon{Technically we need to be sure that all the below actually holds constructively in order for it to apply. Can we double check that this is OK?}
+% \LY{This indeed works constructively.}
 
 \begin{proof}
   Consider a presentation $\T = (\Sigma_\T,H_\T)$ where $\Sigma_\T$ is a signature and $H_\T$ is a set of Horn clauses over this signature; we may of course regard $\Sigma_\T$ as an algebraic theory without any equations. We may then decompose the adjunction $F\dashv U\colon \mmod\T\to \Set$  into the composite adjunction:
