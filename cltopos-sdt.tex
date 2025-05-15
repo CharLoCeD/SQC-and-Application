@@ -914,7 +914,7 @@ We can very easily classify the observational preorder on a set with decidable e
 \begin{proof}
   Since $X$ is inhabited, the restriction map $M \to M^X$ is an embedding (here we use the fact that $M$ is a set). It suffices to show that this map is also surjective.
   %% Since $M$ and $M^X$ are sets, it suffices to show this is also surjective, i.e.\ any $f \colon X \to M$ is a constant map. 
-  % In HoTT, embedding ++ surjection => equivalence holds regardless of h-level. But we **do** need $M$ to be a set in order to decude that M -> M^X is an embedding.
+  % In HoTT, embedding ++ surjection => equivalence holds regardless of h-level. But we **do** need $M$ to be a set in order to deduce that M -> M^X is an embedding.
   %
   Fixing $f\colon X\to M$, we must show that there exists $m:M$ such that $f(x) = m$ for all $x:X$. Let $x_0$ be the least element of $X$ in its observational preorder, so that we have $x_0\obsle[X] x$; by \Cref{lem:anymapmonotoneintriscorder} we have $f(x_0) \obsle f(x)$ which implies $f(x_0) = f(x)$ by \Cref{lem:obs-preord-on-set-with-decidable-equality}. Therefore, we may choose $m\coloneq f(x_0)$. The case for a maximal element is analogous.
 \end{proof}
@@ -955,7 +955,7 @@ In addition to the canonical partial order, there is a local preordering of alge
 \end{definition}
 
 
-To relate the behavioural preorder to the canonical partial ordering, we first define a slight weakening of the quasicoherence principle.
+To relate the behavioural preorder to the canonical partial ordering, we first define a slight weakening of the quasi-coherence principle.
 
 \begin{definition}
   An $\I$-algebra $A$ is said to be pre-quasi-coherent when the counit component $\iota_A\colon A\to \opens\spec{A}$ is an embedding.
@@ -1067,7 +1067,7 @@ In the above, $\opens{X}$ is playing two roles simultaneously: it is both a spec
   The second equivalence holds because $q\colon \I[Y]\surj A$ is surjective.
 \end{proof}
 
-\subsection{Finitary quasicoherence}
+\subsection{Finitary quasi-coherence}
 
 \Cref{lem:cancoincide} shows that the satisfaction preorder on $\I^n$ and $\Delta^n$ viewed as spectra coincides with their pointwise order. This furthermore coincides with their observational preorder if they are affine by \Cref{lem:specorderofaffine}. Our existing assumption (SQCI) does not suffice to show that $\I^n$ and $\Delta^n$ are affine, however; for this, we introduce the following stronger axiom:
 
@@ -1202,7 +1202,7 @@ As a consequence of Phoa's principle, we can also characterise the observational
 \end{proof}
 
 \begin{corollary}[SQCF]
-  The canonical partial order, observtaional preorder, and behavioural preorder of a quasi-coherent $\I$-algebra all coincide.
+  The canonical partial order, observational preorder, and behavioural preorder of a quasi-coherent $\I$-algebra all coincide.
 \end{corollary}
 
 \begin{proof}
