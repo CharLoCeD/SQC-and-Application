@@ -1089,10 +1089,17 @@ Under (SQCF), the cubes $\I^n$ and the simplices $\Delta^n$ will all be affine a
 
 \subsection{Directed homotopy and Phoa's principle}\label{sec:phoa}
 
-A direct corollary of (SQCF) is \emph{Phoa's principle}, which states that the $\I^\I$ classifies the canonical partial order on $\I$. This observation generalises, in fact, to arbitrary spectra---even non-affine ones.
+
+A direct corollary of (SQCF) is \emph{Phoa's principle}, which states that the $\I^\I$ classifies the canonical partial order on $\I$. This result can be thought of in two ways: 
+\begin{enumerate}
+  \item If we think of $\I^{(-)}$ as taking a space to its algebra of observations, then Phoa's principle characterises the algebra of opens of the space $\I \cong \spec{\I[x]}$.
+  \item Alternatively, we may think of ${(-)^\I}$ as assigning \emph{path spaces} in the sense of (directed) homotopy. In this case, we are characterising the path space of the space $\I=\spec{\I[x]}$.
+\end{enumerate}
+
+The directed homotopical viewpoint on Phoa's principle generalises, in fact, to arbitrary spectra---even non-affine ones.
 
 \begin{theorem}[SQCF]\label{thm:phoa-spectrum}
-  For any $\I$-algebra $A$, the function space ${(\spec A)}^\I$ classifies the satisfaction preorder on $\spec A$.
+  For any $\I$-algebra $A$, the path space ${(\spec A)}^\I$ classifies the satisfaction preorder on $\spec A$.
 \end{theorem}
 \begin{proof}
   By assumption $\I$ is affine, thus from \Cref{prop:duality} we have
@@ -1111,13 +1118,39 @@ A direct corollary of (SQCF) is \emph{Phoa's principle}, which states that the $
 
 
 \begin{remark}[Phoa's principle]
-  In view of \Cref{lem:cancoincide}, the above result  implies e.g.\ that the function space $(\Delta^n)^\I$ indeed classifies the pointwise order on $\Delta^n$ under (SQCF), and similarly for other examples of spectra we have considered so far. In the case of $n=1$, this is the ordinary Phoa principle.
+  In view of \Cref{lem:cancoincide}, the above result  implies e.g.\ that the path space $(\Delta^n)^\I$ indeed classifies the pointwise order on $\Delta^n$ under (SQCF), and similarly for other examples of spectra we have considered so far. In the case of $n=1$, this is the ordinary Phoa principle.
 \end{remark}
 
-In fact, we can also explicitly compute the function space $A^\I$ for a quasi-coherent $\I$-algebra:
+We can compare the directed homotopy with the observational preorder using Phoa's principle as follows.
+
+\begin{observation}[SQCF]
+  For any type $X$, boundary map $\pair{\ev_0,\ev_1}\colon X^\I\to X\times X$ factors through the observational preorder relation ${\obsle[X]}\hook X\times X$ as displayed below:
+  \[ 
+    \begin{tikzcd}
+      X^\I 
+        \arrow[rr,densely dashed, "\exists"]
+        \arrow[dr]
+      && 
+      {\obsle[X]}
+        \arrow[dl,hookrightarrow]
+      \\ 
+      &
+      X\times X
+    \end{tikzcd}
+  \] 
+\end{observation}
+\begin{proof}
+  Fixing a path $\alpha\colon \I\to X$, we must show that $\alpha(0)\obsle[X] \alpha(1)$. Fixing $U\colon X\to \I$ we must check that $U(\alpha(0))\leq_\I U(\alpha(1))$.
+%
+  The composite map ${U\circ \alpha}\colon \I\to \I$ is monotone in the canonical order of $\I$ by Phoa's principle. Hence we have $U(\alpha(0)) \leq_\I U(\alpha(1))$ as desired.
+\end{proof}
+
+
+
+We can also explicitly compute the path space $A^\I$ for a quasi-coherent $\I$-algebra:
 
 \begin{theorem}[SQCF]\label{thm:algebraphoa}
-  If both $A$ and $A[i]$ are quasi-coherent, then $A^\I$ classifies the canonical order on $A$.
+  If both $A$ and $A[i]$ are quasi-coherent, then the path space $A^\I$ classifies the canonical order on $A$.
 \end{theorem}
 \begin{proof}
   By assumption and \Cref{specrightadj}, since $A \otimes \I[i] \cong A[i]$, we have
