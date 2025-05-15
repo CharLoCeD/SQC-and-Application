@@ -13,7 +13,7 @@
 \usepackage{stmaryrd}
 \usepackage{appendix}
 \usepackage{mathtools}
-\usepackage{cleveref}
+\usepackage[capitalise]{cleveref}
 \usepackage{quiver}
 \usepackage{microtype}
 
@@ -194,6 +194,11 @@
 \newcommand{\upp}{_{\ms U}}
 \newcommand{\dsg}[1]{\!\pair{#1}}
 \newcommand{\co}{\mr{Co}}
+
+\NewDocumentCommand\obsle{o}{\sqsubseteq_{\ms{obs}}\IfValueT{#1}{^{#1}}}
+\NewDocumentCommand\satle{o}{\sqsubseteq_{\ms{sat}}\IfValueT{#1}{^{#1}}}
+\NewDocumentCommand\behle{o}{\sqsubseteq_{\ms{beh}}\IfValueT{#1}{^{#1}}}
+
 \DeclareFontFamily{U}{dmjhira}{}
 \DeclareFontShape{U}{dmjhira}{m}{n}{ <-> dmjhira }{}
 \DeclareRobustCommand{\yon}{\text{\usefont{U}{dmjhira}{m}{n}\symbol{"48}}}
@@ -259,7 +264,7 @@ Cambridge, UK%
 
 The proposal to develop a synthetic theory of domains was raised by Dana Scott in the 1980s. The thesis is that (pre)domains should be viewed simply as some special sets in a suitable universe, and any function between them should automatically respect the computational data associated to domains. Later \citet{hyland1990first} gives an extensive list of the properties such a universe should satisfy.
 
-Firstly, a universe for synthetic domains should contain an interval object $\I$, which induces an information order (or specialisation preorder from a topological perspective) on domains for which function is automatically monotone. An internal axiom that characterises the synthetic nature of this fact is the so-called \emph{Phoa's principle}: The function space $\I^\I$ should classify the order on $\I$. In other words, the functions from $\I$ to itself are completely determined by the order structure on $\I$. 
+Firstly, a universe for synthetic domains should contain an interval object $\I$, which induces an observational preorder (or \emph{specialisation} preorder from a topological perspective) on domains for which function is automatically monotone. An internal axiom that characterises the synthetic nature of this fact is the so-called \emph{Phoa's principle}: The function space $\I^\I$ should classify the order on $\I$. In other words, the functions from $\I$ to itself are completely determined by the order structure on $\I$. 
 
 Additionally, $\I$ should also form a subuniverse of propositions closed under dependent sums, so as to form a dominance in the sense of \citet{rosolini1986continuity}. The dominance structure is used to parametrise partial functions through a functor $L$ constructed from $\I$. 
 
@@ -314,8 +319,8 @@ We study an emerging connection between synthetic domain theory and the quasi-co
   \item \emph{Quasi-coherence produces synthetic domain theory.} We show the principle of quasi-coherence suffices to account for \emph{all} essential axioms for synthetic domain theory. Specifically:
   \begin{enumerate}
     \item\label{contribution:dominance} In the case of both bounded distributive lattices and $\sigma$-frames, the quasi-coherence for finitely presented algebras (in fact a weaker assumption; cf.\ \Cref{ax:sqci}) implies that the generic interval $\I$ and its dual form a dominance (\Cref{prop:Idominance} and \Cref{cor:dualisdominance}). It also leads to an explicit computation of the partial map classifiers of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectra (\Cref{prop:liftofaffine}).
-    \item The quasi-coherence principle allows an explicit computation of the \emph{specialisation preorder} (\Cref{defn:specialisation}) on affine spaces (\Cref{lem:specorderofaffine}) and quasi-coherent $\I$-algebras (\Cref{cor:specordonalgiscan}).
-    \item As mentioned, quasi-coherence for finitely presented algebras implies that the generic interval $\I$ satisfies the Phoa's principle. In fact, this is more generally true for any affine space (\Cref{thm:phoaaffine}), and similarly for quasi-coherent algebras (\Cref{thm:algebraphoa}).
+    \item The quasi-coherence principle allows an explicit computation of the \emph{observational preorder} (\Cref{defn:specialisation}) on affine spaces (\Cref{lem:specorderofaffine}) and quasi-coherent $\I$-algebras (\Cref{cor:specordonalgiscan}).
+    \item As mentioned, quasi-coherence for finitely presented algebras implies that the generic interval $\I$ satisfies Phoa's principle. In fact, this is more generally true for any affine space (\Cref{thm:phoa-spectrum}), and similarly for quasi-coherent algebras (\Cref{thm:algebraphoa}).
     \item In the case of $\sigma$-frames, quasi-coherence for countably presented algebras implies chain completeness of $\I$ (\Cref{thm:complete}) assuming $\I$ is non-trivial. 
     This is the only place where it is important to work with $\sigma$-frames and not bounded distributive lattices (cf.~\Cref{rem:whynotdis}). This gives a full account of the axioms for synthetic domain theory as specified by \citet{hyland1990first}. 
   \end{enumerate}
@@ -513,12 +518,9 @@ Notice that up till this point we have not used any special property of $\T$ rat
 
 \begin{definition}[Propositionally stable theory]\label{defn:propositional}
   We say a Horn theory $\T$ is \emph{propositionally stable}, if it extends the theory of bounded meet-semi-lattices (1, $\wedge$), and truth of an element is computed by slicing: For any $\T$-model $A$ and element $a:A$, the quotient $A/a=1$ is given by the restriction map
-  \[ a \wedge - : A \surj A/a, \]
+  \[ {a \wedge -} \colon A \surj A/a, \]
   where the slice $A/a$ by definition is ${\cv} a \coloneq \scomp{b:A}{b\le a}$, with $\le$ the partial order on $A$ induced by the bounded meet-semi-lattice structure.
 \end{definition}
-
-%%% JMS: Just a comment to flag that I still don't like the terminology “propositional theory” but that I don’t yet have a suggestion for a better name.
-% \LY{I have changed it to propositionally stable; if I understand correctly the previous objection was the theory of lattices is also ``propositional''. I hope the added ``stability'' helps with this}
 
 \begin{remark}[Examples of propositionally stable theories]
   $\mbb M$ of bounded meet-semi-lattices, $\mbb D$ of bounded distributive lattices, $\mbb H$ of Heyting algebras, and $\mbb B$ of Boolean algebras are all examples of propositionally stable theories. In fact, all finitary quotients of $\mbb H$ or $\mbb B$ will again be propositionally stable. More generally, for any propositionally stable theory $\T$ and any $\T$-model $D$, the theory of $D$-algebras will again be so, because quotients of $D$-algebras are computed the same as quotients of models of $\T$.
@@ -533,7 +535,7 @@ Notice that up till this point we have not used any special property of $\T$ rat
 \end{remark}
 
 \begin{remark}[Propositionally op-stable theories]\label{rem:opprop}
-  There is an evident ``opposite'' notion of being propositionally stable, which requires $\T$ to extend the theory of bounded join-semi-lattices and the quotient $A/a = 0$ for any $a:A$ is computed by $a \vee - : A \surj a/A$. Every propositionally stable theory corresponds to a propositionally op-stable theory by dualising: The theories of join-semi-lattices and coHeyting algebras are propositionally op-stable; Boolean algebras and distributive lattices dualise to themselves \Jon{what does this mean exactly? if you swap the joins and the meets, the distributivity law is different, right?}; the theory of $\sigma$-frames is also propositionally op-stable.
+  There is an evident ``opposite'' notion of being propositionally stable, which requires $\T$ to extend the theory of bounded join-semi-lattices and the quotient $A/a = 0$ for any $a:A$ is computed by ${a \vee -} \colon A \surj a/A$. Every propositionally stable theory corresponds to a propositionally op-stable theory by dualising: The theories of join-semi-lattices and coHeyting algebras are propositionally op-stable; Boolean algebras and distributive lattices dualise to themselves; the theory of $\sigma$-frames is also propositionally op-stable.
 \end{remark}
 
 For a propositionally stable theory $\T$, we think of the generic model $\I$ as certain interval object, since it is equipped with a partial order. In this case, more types can be realised as spectra. The important examples are \emph{simplices}:
@@ -551,14 +553,14 @@ The constant $1 : \I$, which is the top element in $\I$, induces a predicate
 \[ \ms t \colon \I \to \pp, \]
 which takes $i : \I$ to the proposition $i = 1$. Using $\ms t$, we can think of the spectrum $\spec A$ of an $\I$-algebra $A$ as its set of \emph{models}, with a satisfaction relation $\models$ as follows:
 
-\begin{definition}
-  For any $\I$-algebra $A$ and elements $a:A$ and $x:\spec A$, we say $x$ \emph{satisfies}, or \emph{models}, $a$, written $x \models a$, if $\ms t(xa)$.
+\begin{definition}[Satisfaction]
+  For any $\I$-algebra $A$ and elements $a:A$ and $x:\spec A$, we say $x$ \emph{satisfies} $a$, written $x \models a$, if $\ms t(xa)$.
 \end{definition}
 
 For instance, the satisfaction relation can be used to carve out affine subspaces consisting of models satisfying some element in $A$:
 
 \begin{example}
-  For any $\I$-algebra $A$ and $a:A$, the following subtype of $\spec A$ is again a spectrum,
+  For any $\I$-algebra $A$ and $a:A$, the subtype $D_a\subseteq \spec A$ defined below is again a spectrum:
   \[ D_a \coloneq \scomp{x : X}{x \models a} \cong \spec A/a. \]
 \end{example}
 
@@ -735,7 +737,7 @@ More generally, for domain theoretic applications we would want to compute the p
 
 One important finitary axiom for synthetic domain theory is \emph{Phoa's principle}, which we have mentioned in~\Cref{subsec:classtopphoa} is a consequence of the quasi-coherence principle for bounded distributive lattices. 
 Thus, we now work with the theory $\mbb D$ of bounded distributive lattices, or more generally the theory of $D$-algebra for some bounded distributive lattice $D$. As indicated in \Cref{rem:sigmaframe}, computation for finitely presented algebras 
-will not change if we replace bounded distributive lattices by $\sigma$-frames. Hence, the results here and in \Cref{sec:intposet} will be applicable to $\sigma$-frames as well, where only the properties of finitely presented $\I$-algebras matter.
+will not change if we replace bounded distributive lattices by $\sigma$-frames. Hence, the results here and in \Cref{sec:order-theoretic-structure} will be applicable to $\sigma$-frames as well, where only the properties of finitely presented $\I$-algebras matter.
 
 As mentioned in \Cref{rem:opprop}, the theory of bounded distributive lattices is also \emph{propositionally op-stable}, and similarly for $\sigma$-frames. Hence, dual versions of the previous results will also hold by symmetry, when we exchange $1$ for $0$ and $\wedge$ for $\vee$. Thus, we first record some simple corollaries for the dual structure.
 
@@ -773,9 +775,9 @@ As a start, a minimal requirement for synthetic domain theory to model divergent
 This way, $\emp \eq \ms t0$ now will be affine, and it is both an open and closed proposition. As mentioned in introduction, (NT) together with a strong enough quasi-coherence principle will imply all of Hyland's axioms for synthetic domain theory. Before we discuss that in \Cref{sec:infdomain}, a minimal amount of quasi-coherence provided by (SQCI) already implies a lot of elementary properties. As a first consequence of (NT) with (SQCI), we can show that $\I$ is almost the Boolean algebra $2$ in the following sense:
 
 \begin{proposition}[NT, SQCI]\label{prop:filed}
-  For any $i : \I$ 
+  For any $i : \I$ we have:
   \[ \neg \ms ti \eq \ms fi, \quad \neg\ms fi \eq \ms ti. \]
-  In particular, the embedding $2 \hook \I$ induced by $0,1$ is $\neg\neg$-dense,
+  In particular, the embedding $2 \hook \I$ induced by $0,1$ is $\neg\neg$-dense:
   \[ \fa i\I \dneg(\ms ti \vee \ms fi). \]
 \end{proposition}
 \begin{proof}
@@ -788,15 +790,14 @@ This allows us to observe that the open and closed propositions have a bijective
   For any proposition $p$, $p$ is open iff $\neg p$ is closed and vice versa. Furthermore, open and closed propositions are $\dneg$-stable.
 \end{corollary}
 
-On the other hand, \Cref{sec:intposet} will show that under the axiom (NT), quasi-coherence implies the interval $\I$ will \emph{never} be isomorphic to $2$. 
+On the other hand, \Cref{sec:order-theoretic-structure} will show that under the axiom (NT), quasi-coherence implies the interval $\I$ will \emph{never} be isomorphic to $2$. 
 
 \subsection{Locality}
 
 A slightly stronger axiom which is common in the practice of domain theory is that the dominance $\I$ should furthermore be closed under all finite disjunctions. For this, we consider the following axiom:
 
 \begin{axiom}[L]\label{ax:L}
-  $\I$ is local, i.e.\ $0 \neq 1$, and $\ms t(i\vee j) \eq \ms ti \vee \ms tj$ for $i,j : \I$. Geometrically, the additional condition of (L) states that the following two inclusions are jointly surjective. 
-  % \Jon{Geometric interpretation of $0\not= 1$.}
+  $\I$ is local, i.e.\ $0 \neq 1$, and $\ms t(i\vee j) \eq \ms ti \vee \ms tj$ for $i,j : \I$. Geometrically, the second condition states that the following two inclusions are jointly surjective. 
   \[ 
   \begin{tikzcd}
     \I \ar[r, hook, "{i \mapsto (i,1)}"] & \scomp{i,j : \I}{\ms t(i\vee j)} & \I \ar[l, hook', "{j \mapsto (1,j)}"']
@@ -828,7 +829,7 @@ The above result allows us to realise 2 as a \emph{spectrum}:
 As another example of a new spectrum (L) allows us to define:
 
 \begin{example}\label{exm:hornaffine}
-  Consider the right outer horn $\Lambda^2_2$ as the following pushout,
+  Consider the right outer horn $\Lambda^2_2$, which we may describe by the following pushout:
   \[
     \begin{tikzcd}
       1 \ar[d, "1"'] \ar[r, "1"] & \I \ar[d] \\
@@ -836,7 +837,7 @@ As another example of a new spectrum (L) allows us to define:
       \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=2-2, to=1-1]
     \end{tikzcd}
   \]
-  By viewing $\Lambda^2_2$ as a subspace of $\I^2$, we may identify it as follows,
+  By viewing $\Lambda^2_2$ as a subspace of $\I^2$, we may identify it as follows:
   \[ \Lambda^2_2 \cong \scomp{(i,j) : \I^2}{\ms ti \vee \ms tj}. \]
   Assuming (L), $\ms ti \vee \ms tj \eq \ms t(i\vee j)$, it follows that 
   \[ \Lambda^2_2 \cong \spec \I[i,j]/i \vee j. \]
@@ -855,7 +856,7 @@ Similarly to \Cref{exm:hornaffine}, this allows one to identify the left outer h
 An axiom even stronger than both (L) and (cL) is the simplicial axiom:
 
 \begin{axiom}[SL]\label{ax:SL}
-  $\I$ is \emph{linear}, i.e.\ $0 \neq 1$ and for $i,j : \I$, $i \le j \vee j \le i$. Geometrically, the simplicial axiom states that the two simplices $\Delta^2,\Delta_2$ covers the square $\Delta^2 \cup \Delta_2 \cong \I^2$.
+  $\I$ is a \emph{strict linear order}, i.e.\ $0 \neq 1$ and for $i,j : \I$, $i \le j \vee j \le i$. Geometrically, the simplicial axiom states that the two simplices $\Delta^2,\Delta_2$ covers the square $\Delta^2 \cup \Delta_2 \cong \I^2$.
 \end{axiom}
 
 The strongest locality axiom states that the simplicial structure is truncated to level 1:
@@ -870,161 +871,318 @@ The strongest locality axiom states that the simplicial structure is truncated t
 In general we will at most work with the weakest locality axiom (NT). However, we will show in \Cref{sec:local} that $\I$, hence all quasi-coherent algebras and spectra, will be \emph{right orthogonal} to the maps that define these local principles as shown above. We will see in \Cref{sec:model} that these axioms corresponds to various coverages we can put on the presheaf classifying topos, and the orthogonality result particularly implies that $\I$ will belong to these subtopoi.
 
 
+\section{Order-theoretic structure on spaces and algebras}\label{sec:order-theoretic-structure}
 
-\section{Specialisation preorder}\label{sec:intposet}
-% \Jon{Let's speak of specialisation \emph{preorder} everywhere to avoid confusion.}
-% \Jon{I think this section would be improved if we clarify that what we are talking about here is relating \emph{path structure} to the specialisation preorder.}
-% \LY{Very good point, and I have revised accordingly. I hope now it is more clear.}
+\subsection{Local ordering of spaces}
 
-The goal of this section is to investigate the the computation and consequences of the \emph{specialisation preorders} in view of quasi-coherence and the various locality axioms introduced in \Cref{sec:locality}. The specialisation preorder is a classical notion in domain theory (cf.\ \citet{PhoaWesleyKym-Son1991DtiR,hyland1990first}):
+The \emph{observational preorder} is a classical notion in synthetic domain theory (cf.\ \citet{PhoaWesleyKym-Son1991DtiR,hyland1990first}):
 
-\begin{definition}[Specialisation preorder]\label{defn:specialisation}
-  The \emph{specialisation preorder} on a type $X$ is defined as follows:
-  \[ x \preceq y \coloneq \fa{U}{X\to\I} U(x) \le U(y). \]
+\begin{definition}[Observational preorder]\label{defn:specialisation}
+  For any type $X$, we define the \emph{observational preorder} on $X$ as follows:
+  \begin{align*}
+    x\obsle[X] y 
+    &\eq \fa{U}{\opens{X}} U(x)\le_\I V(x)
+    \\ 
+    &\eq \fa{U}{\opens{X}} x\in U\to y\in U
+  \end{align*}
 \end{definition}
 
-By definition, the specialisation preorder is reflexive and transitive. As already observed in \emph{loc.\ cit.}, one important property of the specialisation preorder is that \emph{every} map is monotone w.r.t. this order:
+By definition, the observational preorder is reflexive and transitive. As already observed in \emph{loc.\ cit.}, one important property of the observational preorder is that \emph{every} map is monotone w.r.t.\ this order:
 
 \begin{lemma}\label{lem:anymapmonotoneintriscorder}
-  For $f \colon X \to Y$, $x \preceq y$ in $X$ implies $fx \preceq fy$ in $Y$.
+  For $f \colon X \to Y$, $x \obsle y$ in $X$ implies $fx \obsle fy$ in $Y$.
 \end{lemma}
 \begin{proof}
   This simply follows from compositionality of functions.
 \end{proof}
 
-% \Jon{Let us not use the term ``discrete set'' to mean a ``set with decidable equality''. To me, discreteness emerges from some kind of topology; for example, in the presence of an interval, a discrete object is something that is orthogonal to this interval. } 
-We can very easily classify the specialisation preorder on a classical set, i.e.\ sets with decidable equality:
+We can very easily classify the observational preorder on a set with decidable equality.
+%% JMS: Removed "classical set", because maybe it could be argued that classical sets should also be projective?
 
-\begin{lemma}[NT]\label{lem:discretephoa}
-  If $M$ is a classical set, then the specialisation preorder on $M$ is discrete, in the sense that for $n,m : M$,
-  \[ n \preceq m \to n = m. \]
+\begin{lemma}[NT]\label{lem:obs-preord-on-set-with-decidable-equality}
+  If $M$ has decidable equality, then the observational preorder on $M$ is discrete, in the sense that for $n,m : M$,
+  \[ n \obsle[M] m \to n = m. \]
 \end{lemma}
 \begin{proof}
-  Suppose $n \preceq m$. If $n \neq m$, we can construct a map $f \colon M \to \I$ with 
-  \[ f(x) =
-  \begin{cases}
-    1 & x = n \\ 
-    0 & \other
-  \end{cases}
-  \]
-  This is well-defined since $M$ has decidable equality. In particular, $f(n) = 1$ and $f(m) = 0$, contradictory to $n \preceq m$. Hence, $\neg n \neq m$, or $n = m$.
+  Since $M$ has decidable equality and $\I$ is non-trivial, each singleton subset $\{n\}\subseteq M$ is open. Therefore, if $n\obsle[M] m$ holds, we must by definition have $m\in \{n\}$ and thus $m=n$.
 \end{proof}
 
+
 \begin{corollary}[NT]\label{cor:connectedpreservediscrete}
-  If the specialisation preorder on $X$ has a least or greatest element, then $X$ is \emph{internally connected} in the sense that $X$ is right orthogonal to $M \to 1$ for any classical set $M$.
+  If the observational preorder on $X$ has a least or greatest element, then $X$ is \emph{internally connected} in the sense that $X$ is right orthogonal to $M \to 1$ for any set $M$ with decidable equality.
 \end{corollary}
-% \Jon{Could be helpful to phrase it in terms of $X$ being right orthogonal to any type with decidable equality, and then unravel that in the proof rather than in the statement.}
 \begin{proof}
-  Let $x:X$ be the minimal element of $X$. Since $X$ is inhabited, $M \to M^X$ is an embedding. Since $M,M^X$ are sets, it suffices to show this is also surjective, i.e.\ any $f \colon X \to M$ is a constant map. Since $x$ is minimal, for any $y:X$ by \Cref{lem:anymapmonotoneintriscorder} we have $f(x) \preceq f(y)$, which by \Cref{lem:discretephoa} implies $f(x) = f(y)$. The case of $x$ being maximal is completely similar.
+  Since $X$ is inhabited, the restriction map $M \to M^X$ is an embedding (here we use the fact that $M$ is a set). It suffices to show that this map is also surjective.
+  %% Since $M$ and $M^X$ are sets, it suffices to show this is also surjective, i.e.\ any $f \colon X \to M$ is a constant map. 
+  % In HoTT, embedding ++ surjection => equivalence holds regardless of h-level. But we **do** need $M$ to be a set in order to decude that M -> M^X is an embedding.
+  %
+  Fixing $f\colon X\to M$, we must show that there exists $m:M$ such that $f(x) = m$ for all $x:X$. Let $x_0$ be the least element of $X$ in its observational preorder, so that we have $x_0\obsle[X] x$; by \Cref{lem:anymapmonotoneintriscorder} we have $f(x_0) \obsle f(x)$ which implies $f(x_0) = f(x)$ by \Cref{lem:obs-preord-on-set-with-decidable-equality}. Therefore, we may choose $m\coloneq f(x_0)$. The case for a maximal element is analogous.
 \end{proof}
 
 \begin{remark}
-  With greater efforts, the above proof would also work with the weaker assumption that the specialisation preorder on $X$ is \emph{connected}. This generalises a similar result given by \citet[Prop.~4.4.1]{hyland1990first}.
+  With greater efforts, the above proof would also work with the weaker assumption that the observational preorder on $X$ is \emph{connected}. This generalises a similar result given by \citet[Prop.~4.4.1]{hyland1990first}.
 \end{remark}
 
-The above result showcases the usefulness of the specialisation preorder. We would like to use it to show e.g.\ that $\I$ is internally connected. For this, we need to characterise the specialisation preorder on them. It turns out that for any affine space, this is simply its canonical order:
 
-% \Jon{I think that we should give an explicit definition of the canonical order for a spectrum in its own \texttt{definition} environment.}
+\subsection{Local ordering of algebras}
 
-\begin{definition}
-  For an $\I$-algebra $A$, we define the \emph{canonical order} on $\spec A$ to be the pointwise order by viewing it as $\I\alg(A,\I)$,
-  \[ x \le y \eq \fa aA xa \le ya. \]
+Every $\I$-algebras has a built-in ``canonical'' partial ordering.
+
+\begin{definition}[Canonical partial order]
+  We shall write $\le_A$ for the \emph{canonical} partial ordering of an $\I$-algebra $A$ defined equivalently by meets or joins:
+  \[ 
+    a\le_A b \eq (a\wedge b = a) \eq (a\vee b = b)
+  \]
 \end{definition}
 
-\begin{proposition}\label{lem:specorderofaffine}
-  For any affine space $\spec A$, the specialisation preorder $\preceq$ is the same as its canonical order.
+\begin{example}
+  The canonical partial ordering of an algebra of observations $\opens{X}$ is given pointwise because $\opens{X}$ is the product of algebras $\prod_{x\in X}\I$:
+  \begin{align*}
+    U\le_{\opens{X}} V 
+    &\eq \fa{x}{X} U(x)\le_\I V(x)
+    \\ 
+    &\eq \fa{x}{X} x\in U \to x \in V
+  \end{align*}
+\end{example}
+
+In addition to the canonical partial order, there is a local preordering of algebras that mirrors the observational order for spaces.
+
+\begin{definition}[Behavioural preorder]
+  For any $\I$-algebra $A$, we define the \emph{behavioural preorder} on $A$ as follows:
+  \begin{align*}
+    a \behle[A] b &\eq \fa{x}{\spec{A}} x\models a \to x\models b
+  \end{align*}
+\end{definition}
+
+
+To relate the behavioural preorder to the canonical partial ordering, we first define a slight weakening of the quasicoherence principle.
+
+\begin{definition}
+  An $\I$-algebra $A$ is said to be pre-quasi-coherent when the counit component $\iota_A\colon A\to \opens\spec{A}$ is an embedding.
+\end{definition}
+
+\begin{proposition}\label{lem:canon-beh-coincide}
+  The canonical partial order of any pre-quasi-coherent $\I$-algebra $A$ is its behavioural preorder.
 \end{proposition}
+
 \begin{proof}
-  This holds by definition of $\preceq$, using the fact that $\opens{\spec A} \cong A$.
+  For $a,b:A$ we have the following sequence of equivalences:
+  \begin{align*}
+    a\le_A b 
+    &\eq \iota_A(a) \le_{\opens\spec{A}} \iota_A(a)
+    \\ 
+    &\eq \fa{x}{\spec{A}} x\models a \to x \models b
+    \\ 
+    &\eq a\behle[A]b
+  \end{align*}
+
+  The first equivalence requires that $A$ is pre-quasi-coherent.
 \end{proof}
 
-In practice, the canonical order on $\spec A$ is what we expect them to be:
+\subsection{The satisfaction preorder of a spectrum}
+
+\Cref{cor:connectedpreservediscrete} demonstrated the usefulness of the observational preorder. We would like to use it to show e.g.\ that $\I$ is internally connected. For this, we need to characterise the observational preorder on affine spaces. It turns out that for any affine space, this is simply its \emph{satisfaction preorder} in the sense defined below:
+
+
+\begin{definition}[Satisfaction preorder]
+  We shall write $\satle[\spec{A}]$ for the \emph{satisfaction preorder} on the spectrum $\spec{A}$ of an $\I$-algebra as defined below:
+  \begin{align*}
+    x\satle[\spec{A}] y 
+    &\eq \fa{a}{A}
+    x(a) \le_\I y(a) 
+    \\ 
+    &\eq 
+    \fa{a}{A}
+    x\models a \to y \models a
+  \end{align*}
+\end{definition}
+
+
+\begin{observation}\label{lem:specorderofaffine}
+  When $A$ is a quasi-coherent $\I$-algebra (and thus $\spec{A}$ is affine), the observational and satisfaction preorders on $\spec{A}$ coincide.
+\end{observation}
+\begin{proof}
+  For any $x,y:\spec{A}$ we have the following chain of equivalences:
+  \begin{align*}
+    x\obsle[\spec{A}] y 
+    &\eq 
+    \fa{U}{\opens{\spec{A}}} x\in U\to y\in U
+    \\ 
+    &\eq 
+    \fa{a}{A} 
+    x\in \iota_A(a)
+    \to
+    y \in \iota_A(a)
+    \\ 
+    &\eq 
+    \fa{a}{A} 
+    x\models a 
+    \to 
+    y\models a 
+    \\ 
+    &\eq 
+    x\satle[\spec{A}] y
+    \qedhere
+  \end{align*}
+\end{proof}
+
+\begin{observation}
+  The satisfaction preorder on the spectrum $\spec{\I[X]}$ of a free $\I$-algebra is induced by the canonical order on \emph{observation algebra} $\opens{X}$ via the canonical bijection $\spec{\I[X]}\cong \opens{X}$.
+\end{observation}
+
+In the above, $\opens{X}$ is playing two roles simultaneously: it is both a spectrum of $\I[X]$ and the observational algebra of $X$.
+
+\begin{proof}
+  For any $u,v:\spec{\I[X]}$ we have the following equivalences:
+  \begin{align*}
+    u \satle[\spec{\I[X]}] v
+    &\eq \fa{p}{\I[X]} u\models p \to v \models p
+    \\ 
+    &\eq \fa{x}{X} u\models x \to v \models x
+    \\ 
+    &\eq (\ld{x}{X}u(x)) \le_{\opens{X}} (\ld{x}{X}v(x))
+    \qedhere
+  \end{align*}
+\end{proof}
 
 \begin{lemma}\label{lem:cancoincide}
-  For any $A$ with a quotient from a free algebra $q : \I[Y] \surj A$, the canonical order on $\spec A$ is equivalently the pointwise order induced by viewing it as a subspace $\spec q \colon \spec A \hook \I^Y$.
-\end{lemma}
+  For any quotient $q \colon \I[Y] \surj A$ of a free algebra $\I[Y]$, the satisfaction preorder on $\spec A$ is induced by the satisfaction preorder on $\spec{\I[Y]}$ via the inclusion ${\spec{q}}\colon\spec{A}\hook \spec{\I[Y]}$.
+\end{lemma} 
+
 \begin{proof}
-  Let $x,x' : \spec A$. We have the following equivalences,
+  Let $x,x' : \spec A$. We have the following equivalences:
   \begin{align*}
-    \spec q(x) \le \spec q(x') 
-    &\eq \fa yY \spec q(x)(y) \le \spec q(x')(y) \\
-    &\eq \fa yY x(qy) \le x'(qy) \\
-    &\eq \fa p{\I[Y]} x(qp) \le x'(qp) \\
-    &\eq \fa aA x(a) \le x'(a)
+    (\spec{q})(x)\satle[\spec{\I[Y]}] (\spec{q})(x')
+    &\eq 
+    \fa{p}{\I[Y]}
+    x\models qp \to x'\models qp
+    \\ 
+    &\eq 
+    \fa{a}{A} x\models a\to x'\models a 
+    \\ 
+    &\eq 
+    x\satle[\spec{A}] x'
   \end{align*}
-  The first equivalence is by definition of the pointwise order on $\I^Y$; the second holds by definition of $\spec q$; the third is due to the fact that all the polynomials for bounded distributive lattices are monotone; the final equivalence is due to $q$ being surjective.
+%
+  The second equivalence holds because $q\colon \I[Y]\surj A$ is surjective.
 \end{proof}
 
+\subsection{Finitary quasicoherence}
 
-
-
-For instance, the above result shows that the canonical order on $\I^n$ and $\Delta^n$ as spectra coincides with their expected order. This furthermore coincides with the specialisation preorder on them if they are affine by \Cref{lem:specorderofaffine}. This goes beyond the assumption (SQCI), and we introduce the following stronger axiom:
+\Cref{lem:cancoincide} shows that the satisfaction preorder on $\I^n$ and $\Delta^n$ viewed as spectra coincides with their pointwise order. This furthermore coincides with their observational preorder if they are affine by \Cref{lem:specorderofaffine}. Our existing assumption (SQCI) does not suffice to show that $\I^n$ and $\Delta^n$ are affine, however; for this, we introduce the following stronger axiom:
 
 \begin{axiom}[SQCF]
-  All finitely presented $\I$-algebras are quasi-coherent, or (equivalently) all finitely generated free $\I$-algebras are stably quasi-coherent.
+  All finitely presented $\I$-algebras are quasi-coherent, or (equivalently) all finitely generated free $\I$-algebras are \emph{stably} quasi-coherent.
 \end{axiom}
 
-Under (SQCF), the cubes $\I^n$ and the simplices $\Delta^n$ will all be affine as shown by \Cref{exm:cubeaffine,exm:simplicesaffine}. The characterisation of the specialisation preorder has immediate consequences on the elementary properties of affine spaces:
+Under (SQCF), the cubes $\I^n$ and the simplices $\Delta^n$ will all be affine as shown by \Cref{exm:cubeaffine,exm:simplicesaffine}. The characterisation of the observational preorder has immediate consequences on the elementary properties of affine spaces:
 
 \begin{corollary}[NT, SQCF]\label{cor:intisnot2}
-  For any $n$, the cubes $\I^n$ and simplices $\Delta^n$ are all internally connected. In particular, $\I$ is not the classical set $2$.
+  For any $n$, the cubes $\I^n$ and simplices $\Delta^n$ are all internally connected. In particular, $\I$ is not the boolean set $2$.
 \end{corollary}
 \begin{proof}
-  By \Cref{lem:specorderofaffine,lem:cancoincide}, the specialisation preorder on them coincides with their canonical orders, which all have a top element. Thus by \Cref{cor:connectedpreservediscrete}, they are all internally connected. In particular, $2^\I \cong 2$, which implies $\I$ cannot be $2$.
+  By \Cref{lem:specorderofaffine,lem:cancoincide}, the observational preorders on $\I^n$ and $\Delta^n$ are induced by the satisfaction preorders on $\spec\I[n]$ and $\spec\I[i_1,\cdots,i_n]/i_1\geq\cdots\geq i_n$ to which they are equivalent by (SQCF); both satisfaction preorders have a top element. Thus by \Cref{cor:connectedpreservediscrete}, both $\I^n$ and $\Delta^n$ internally connected. In particular, $2^\I \cong 2$, which implies $\I$ cannot be $2$.
 \end{proof}
 
-Besides affine spaces, it is also interesting to characterise the specialisation preorders on \emph{$\I$-algebras}. This will be immediate once we discuss the \emph{Phoa's principle} in the next section.
+% Besides affine spaces, it is also interesting to characterise the observational preorders on \emph{$\I$-algebras}. This will be immediate once we discuss the \emph{Phoa's principle} in \cref{sec:phoa}.
 
-\section{Phoa's principle}
 
-Recall that Phoa's principle states that the function space $\I^\I$ classifies the canonical order on $\I$. Under quasi-coherence, we can in fact generalise this to arbitrary spectra:
+\subsection{Directed homotopy and Phoa's principle}\label{sec:phoa}
 
-\begin{theorem}[SQCF]\label{thm:phoaaffine}
-  For any $\I$-algebra $A$, the function space ${(\spec A)}^\I$ classifies the canonical order on $\spec A$.
+A direct corollary of (SQCF) is \emph{Phoa's principle}, which states that the $\I^\I$ classifies the canonical partial order on $\I$. This observation generalises, in fact, to arbitrary spectra---even non-affine ones.
+
+\begin{theorem}[SQCF]\label{thm:phoa-spectrum}
+  For any $\I$-algebra $A$, the function space ${(\spec A)}^\I$ classifies the satisfaction preorder on $\spec A$.
 \end{theorem}
 \begin{proof}
   By assumption $\I$ is affine, thus from \Cref{prop:duality} we have
-  \[ (\spec A)^\I \cong \I\alg(A,\I[i]). \]
+  \[ (\spec A)^\I \cong (\spec{A})^{\spec{\I[i]}}\cong \I\alg(A,\I[i]). \]
   We observe that the pair of evaluation maps
-  \[ \pair{\ev_0,\ev_1} : \I[i] \to \I \times \I \]
+  \[ \pair{\ev_0,\ev_1} \colon \I[i] \to \I \times \I \]
   classifies the canonical order on $\I$. This follows from a normal form result of polynomials for bounded distributive lattices, i.e.\ any polynomial $p:\I[i]$ is of the form 
-  \[ p = p(0) \vee i \wedge p(1). \]
-  See e.g.\ \citet[Thm.\ 10.11]{lausch2000algebra}. This way, a map $\I \to \spec A$ is exactly described as two points $x,y$ such that $\fa aA xa \le ya$, which is its canonical order.
+  \[ p = \ev_0(p) \vee i \wedge \ev_1(p) \]
+  with $\ev_0(p)\le \ev_1(p)$.
+  See e.g.\ \citet[Thm.\ 10.11]{lausch2000algebra}.
+  %
+  Thus every homomorphism $h\colon A\to \I[i]$ is canonically induced by points $h_0,h_1\in\spec{A}$ with $h_0\satle[\spec{A}] h_1$ such that $h(a) = h_0(a) \vee i \wedge h_1(a)$.
 \end{proof}
 
-\begin{remark}
-  In view of \Cref{lem:cancoincide}, under (SQCF) the above result implies e.g.\ that the function space $(\Delta^n)^\I$ indeed classifies the pointwise order on $\Delta^n$, and similarly for other examples of spectra we have considered so far.
+
+
+
+\begin{remark}[Phoa's principle]
+  In view of \Cref{lem:cancoincide}, the above result  implies e.g.\ that the function space $(\Delta^n)^\I$ indeed classifies the pointwise order on $\Delta^n$ under (SQCF), and similarly for other examples of spectra we have considered so far. In the case of $n=1$, this is the ordinary Phoa principle.
 \end{remark}
 
 In fact, we can also explicitly compute the function space $A^\I$ for a quasi-coherent $\I$-algebra:
 
 \begin{theorem}[SQCF]\label{thm:algebraphoa}
-  If both $A$ and $A[i]$ are quasi-coherent, then $A^\I$ classifies the canonical order on $A$ induced by its algebraic structure.
+  If both $A$ and $A[i]$ are quasi-coherent, then $A^\I$ classifies the canonical order on $A$.
 \end{theorem}
 \begin{proof}
   By assumption and \Cref{specrightadj}, since $A \otimes \I[i] \cong A[i]$, we have
   \[ A^\I \cong (\opens{\spec A})^\I = (\I^{\spec A})^\I \cong \I^{\spec A \times \spec\I[i]} \cong \I^{\spec A[i]} \cong A[i]. \]
-  The normal form result for the polynomial $\I[i]$ stated in the proof of \Cref{thm:phoaaffine} more generally applies to any $\I$-algebra, and $A[i]$ is equivalent to the canonical order on $A$.
+  The normal form result for the polynomial $\I[i]$ stated in the proof of \Cref{thm:phoa-spectrum} more generally applies to any $\I$-algebra, and $A[i]$ classifies the canonical order of $A$.
 \end{proof}
+
+
+
 
 \begin{remark}[Algebraic properties in classifying topoi]\label{rem:normalalgebra}
-  We emphasis that the above proofs are purely the consequences of the algebraic fact that $A[i]$ classifies the canonical order on $A$ for any $\I$-algebra $A$, plus quasi-coherence. This is a perfect example of how an algebraic property of a theory has a non-trivial effect on the internal logic of its classifying topos.
+  We emphasis that the above proofs are purely the consequences of the algebraic fact that $A[i]$ classifies the canonical of any $\I$-algebra $A$, plus quasi-coherence. This is a perfect example of how an algebraic property of a theory has a non-trivial effect on the internal logic of its classifying topos.
 \end{remark}
 
-As a consequence of Phoa's principle, we can also characterise the specialisation preorder on quasi-coherent $\I$-algebras:
+As a consequence of Phoa's principle, we can also characterise the observational preorder on quasi-coherent $\I$-algebras:
 
-\begin{proposition}[SQCF]\label{cor:specordonalgiscan}
-  For a quasi-coherent $\I$-algebra $A$, the specialisation preorder coincides with its canonical order induced by its algebraic structure.
+\begin{proposition}[SQCF]\label{prop:specordinterval}
+  The canonical order of the interval $\I$ is its observational preorder.
 \end{proposition}
+
 \begin{proof}
-  If $A$ is quasi-coherent, then $A \cong \I^{\spec A}$ as an $\I$-algebra, and its canonical order thus coincides with the pointwise order on $\I$. On the other hand, it is well-known that Phoa's principle for the interval $\I$ implies the specialisation preorder on any type $\I^X$ is pointwise; see e.g.\ \citet[Thm.\ 4.2.1]{hyland1990first}. Hence, the two orders on $A$ indeed coincide.
+  When $i\le_\I j$, we naturally have $i\obsle[\I]j$ by Phoa's principle. Conversely, if $i\obsle[\I]j$ we have $f(i)\le f(j)$ for any $f\colon \I^\I$, so we may choose $f(k)=k$.
 \end{proof}
 
+\begin{proposition}[SQCF]\label{prop:specordopens}
+  On any observation algebra $\opens{X}$, the observational preorder coincides with the canonical order.
+\end{proposition}
+
+\begin{proof}
+  It is a well-known consequence of Phoa's principle that the observational order on function spaces can be computed pointwise. In particular, we have the following sequence of equivalences involving the function space $\opens{X}=\I^X$:
+  \begin{align*}
+    U\obsle[\I^X]V 
+    &\eq \fa{x}{X} U(x)\obsle[\I] V(x)
+    \\
+    &\eq \fa{x}{X} U(x)\le_{\I} V(x)
+    \\
+    &\eq U\le_{\opens{X}} V
+  \end{align*}
+
+  The first equivalence uses Phoa's principle; the second equivalence uses \Cref{prop:specordinterval}; and the final equivalence holds by definition.
+\end{proof}
+
+\begin{proposition}[SQCF]\label{cor:specordonalgiscan}
+  For a quasi-coherent $\I$-algebra $A$, the observational preorder on the underlying set of $A$ is induced by the canonical order on $\opens\spec{A}$ by the counit isomorphism $\iota_A\colon A\to \opens\spec{A}$.
+\end{proposition}
+
+\begin{proof}
+  Because $A$ is quasi-coherent, the counit component $\iota_A$ gives us an order-isomorphism ${(A,\le_A)}\to (\opens\spec{A},\le_{\opens\spec{A}})$. By \Cref{cor:specordonalgiscan}, this is an equivalently an order-isomorphism ${(A,\le_A)}\to {(\opens\spec{A},\obsle[\opens\spec{A}])}$. Meanwhile, any bijective function tracks an isomorphism of observational preorders, so the inverse function $\iota_A^{-1}\colon \opens\spec{A}\to A$ tracks an order-isomorphism  ${(\opens\spec{A},\obsle[\opens\spec{A}])}\to {(A,\obsle[A])}$. 
+\end{proof}
+
+\begin{corollary}[SQCF]
+  The canonical partial order, observtaional preorder, and behavioural preorder of a quasi-coherent $\I$-algebra all coincide.
+\end{corollary}
+
+\begin{proof}
+  By \Cref{cor:specordonalgiscan,lem:canon-beh-coincide}.
+\end{proof}
+
+
+
 \begin{remark}[Linked spaces]
-  \citet{PhoaWesleyKym-Son1991DtiR} calls type $X$ \emph{linked} when $X^\I \to \operatorname{\preceq}$ is a surjection, and a \emph{space} when $\preceq$ is antisymmetric. Both affine spaces and quasi-coherent algebras in our sense are spaces in the sense of Phoa, as can be seen by our characterisation of their specialisation preorders in \Cref{lem:specorderofaffine,cor:specordonalgiscan}. Furthermore, together with \Cref{thm:phoaaffine,thm:algebraphoa}, the map $X^\I \to \operatorname{\preceq}$ is actually an \emph{equivalence} for affine spaces, and similarly for $\I$-algebras $A$ where both $A$ and $A[i]$ are quasi-coherent.
+  \citet{PhoaWesleyKym-Son1991DtiR} calls type $X$ \emph{linked} when $X^\I \to {\obsle[X]}$ is a surjection, and a \emph{space} when $\obsle$ is antisymmetric. Both affine spaces and quasi-coherent algebras in our sense are spaces in the sense of Phoa, as can be seen by our characterisation of their observational preorders in \Cref{lem:specorderofaffine,cor:specordonalgiscan}. Furthermore, together with \Cref{thm:phoa-spectrum,thm:algebraphoa}, the map $X^\I \to {\obsle[X]}$ is actually an \emph{equivalence} for affine spaces, and similarly for $\I$-algebras $A$ where both $A$ and $A[i]$ are quasi-coherent.
 \end{remark}
 
-At the end of this section, we describe another interesting perspective arising from the proof of \Cref{thm:phoaaffine}. We have seen that the dualising object $\I$ has a double role: It is both an algebra and a spectrum. The mixture of algebraic and geometric object has also been observed in \Cref{rem:alggeoI}. The proof of \Cref{thm:phoaaffine} gives us many more such examples. For instance, $\I[i]$ classifies the order on $\I$, which by definition is the spectrum $\Delta_2$. In fact, \emph{all} the simplices are classified by some algebra.
+At the end of this section, we describe another interesting perspective arising from the proof of \Cref{thm:phoa-spectrum}. We have seen that the dualising object $\I$ has a double role: It is both an algebra and a spectrum. The mixture of algebraic and geometric object has also been observed in \Cref{rem:alggeoI}. The proof of \Cref{thm:phoa-spectrum} gives us many more such examples. For instance, $\I[i]$ classifies the order on $\I$, which by definition is the spectrum $\Delta_2$. In fact, \emph{all} the simplices are classified by some algebra.
 % \Jon{This has a reference to ``generalised Phoa principle'', which is now undefined}
 
 For any $n : \N$ and $\I$-algebra $A$, we write $\Delta[A]^{n}$ as the lists of decreasing elements of length $n$ in $A$,
@@ -1040,6 +1198,8 @@ Of course $\Delta[\I]^n$ is simply $\Delta^n$. We have a general algebraic descr
 % \Jon{We need to explain the automatic associativity outside the proof---either in the theorem statement, or perhaps even further outside.}
 
 We omit the proof here, which again follows from a general normal form for polynomials with finitely many variables for bounded distributive lattices; see \citet[Thm.\ 10.21]{lausch2000algebra}. We only note here that the above polynomial is well-defined, in the sense that the expression is associative and its value does not depend on how one add parenthesises. The reason for this is that for any expression $a \vee b \wedge c$ to have a definite meaning in a distributive lattice, i.e.\ the two value $(a \vee b) \wedge c$ and $a \vee (b \wedge c)$ coincide, it suffices to have $a \le c$. Then the condition $a_0 \ge \cdots \ge a_n$ for the parameters, and the fact that $i_1 \le \cdots \le i_n$, makes sure the above polynomial has a definite meaning in the quotient.
+
+
 
 \section{Infinitary domain theory}\label{sec:infdomain}
 
@@ -1077,7 +1237,7 @@ In general, by a countably presented $\I$-algebra we mean one of the form $\I[\N
 \end{axiom}
 
 \begin{remark}
-  Our modular development in the previous sections can be now immediately applied to $\ov\omega$ if we assume (SQCC). For instance, the description of the specialisation preorder for affine spaces in \Cref{lem:specorderofaffine} now applies to $\ov\omega$, which shows this again coincides with its pointwise order as a subspace of $\I^\N$. In particular, it also has both a top and bottom element, thus \Cref{cor:connectedpreservediscrete} now implies $\ov\omega$ is also internally connected. 
+  Our modular development in the previous sections can be now immediately applied to $\ov\omega$ if we assume (SQCC). For instance, the description of the observational preorder for affine spaces in \Cref{lem:specorderofaffine} now applies to $\ov\omega$, which shows this again coincides with its pointwise order as a subspace of $\I^\N$. In particular, it also has both a top and bottom element, thus \Cref{cor:connectedpreservediscrete} now implies $\ov\omega$ is also internally connected. 
 \end{remark}
 
 (SQCC) combined with the non-triviality axiom (NT) has many logical consequences. The crucial observation is that (NT) implies a weak form of \emph{Nullstellensatz} result, as already noted by several authors~\citep{blechschmidt2021using,blechschmidt2020general,Cherubini_Coquand_Hutzler_2024}:
@@ -1275,8 +1435,6 @@ Again, (SL) holds globally iff the above embedding is an equivalence, thus every
     \Delta_2 \ar[urr, "g"{description, near start}] \ar[r] & \I^2 \ar[ur, dashed, "h"']
     \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
   \end{tikzcd}\]
-  % \Jon{Why do we have the pullback corner above? Did we mean to draw a pushout corner?}
-  % \LY{It is simply because a map $\Delta^2 \cup \Delta_2 \to \I$ is simply two maps $\Delta^2 \to \I$ and $\Delta_2 \to \I$ which agrees on their intersection.}
   Now by (SQCF), since the vertices of the left square are all affine, equivalently it suffices to show we have a pullback of $\I$-algebras,
   \[\begin{tikzcd}
     {\I[i,j]} \ar[r] \ar[d] & {\I[i,j]/i \ge j} \ar[d, "{i,j \mapsto k}"] \\
@@ -1390,7 +1548,7 @@ Next we consider the Rezk completeness condition. Following \citet{buchholtz2021
   $\I$ is Rezk complete.
 \end{proposition}
 \begin{proof}
-  Notice by \Cref{thm:phoaaffine} $\I^\I$ classifies the canonical order on $\I$. This order is antisymmetric, thus $\I$ will be Rezk complete.
+  Notice by \Cref{thm:phoa-spectrum} $\I^\I$ classifies the canonical order on $\I$, which is antisymmetric by definition. Thus $\I$ will be Rezk complete.
 \end{proof}
 
 In fact, $\I$ is not only a synthetic category but in fact a synthetic \emph{poset}; this property too can be expressed in terms of orthogonality. To that end, we define the ``walking parallel pair'' $\I_{\rightrightarrows}$ to be the following pushout:
@@ -1409,10 +1567,11 @@ In fact, $\I$ is not only a synthetic category but in fact a synthetic \emph{pos
 Equivalently, $X$ is $\I$-separated iff $X^\I \to X \times X$ is an embedding. The following is evident:
 
 \begin{proposition}[SQCF]
-  $\I$ is $\I$-separated. Any type $X$ satisfying Phoa's principle is also $\I$-separated.
+  $\I$ is $\I$-separated. Any type $X$ for which $X^\I$ classifies the observational preorder on $X$ is also $\I$-separated.
 \end{proposition}
 \begin{proof}
-  Since $\I^\I$ classifies the canonical order on $\I$ which is a partial order, it will be $\I$-separated. For types $X$ satisfying Phoa's principle, since $X^\I$ classifies the specialisation preorder on $X$, which is again a partial order, they will be $\I$-separated.
+  Because $\I^\I$ classifies the canonical partial order on $\I$, it is $\I$-separated. When $X^\I$ classifies the observational preorder on $X$, which is again a partial order, $X$ will be $\I$-separated.
+  \Jon{I didn't actually see immediately what this has to do with separation. Could we make it more explicit?}
 \end{proof}
 
 The notion of synthetic categories and synthetic posets are formulated as these orthogonality classes:
@@ -1430,13 +1589,13 @@ The notion of synthetic categories and synthetic posets are formulated as these 
   This follows from $\I$ being a synthetic poset, and spectra and quasi-coherent algebras are \emph{replete} as indicated in \Cref{rem:qcreplete,rem:specarereplete}.
 \end{proof}
 
-At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We first observe its specialisation preorder again coincides with its expected pointwise order viewed as a subspace of $\I^\N$:
+At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We first observe that its observational preorder again coincides with its expected pointwise order viewed as a subspace of $\I^\N$:
 
 \begin{lemma}[NT, SQCC]\label{speconomegaiscan}
-  The inclusion $\omega \hook \ov\omega$ is an order embedding for the specialisation preorder. In particular, the specialisation on $\omega$ is induced pointwise as a subspace of $\ov\omega\hookrightarrow \I^N$.
+  The inclusion $\omega \hook \ov\omega$ is an order embedding for the observational preorder. In particular, the observational preorder on $\omega$ is induced pointwise as a subspace of $\ov\omega\hookrightarrow \I^N$.
 \end{lemma}
 \begin{proof}
-  The fact that $\omega\hook\ov\omega$ is an order embedding for the specialisation preorder follows from chain completeness of $\I$ in \Cref{thm:complete}. The fact that the specialisation preorder on $\ov\omega$ coincides with its canonical order follows from \Cref{lem:specorderofaffine} by the fact that it is affine under (SQCC). 
+  The fact that $\omega\hook\ov\omega$ is an order embedding for the observational preorder follows from chain completeness of $\I$ in \Cref{thm:complete}. The fact that the observational preorder on $\ov\omega$ coincides with its satisfaction preorder as a spectrum follows from \Cref{lem:specorderofaffine} by the fact that it is affine under (SQCC).
 \end{proof}
 
 Furthermore, we can show that $\omega$ also satisfies a version of the Phoa principle, i.e.\ the function space $\omega^\I$ again classifies its pointwise order. For this we need to compute the function space $\omega^\I$.
@@ -1456,17 +1615,8 @@ which implies $\Delta^n \hook \omega$ is \emph{downward closed}. This allows us 
 \begin{proof}
   We show the following canonical map is an equivalence,
   \[ \ct_{n:\N}(\Delta^n)^\I \to \big({\ct_{n:\N}\Delta^n}\big)^\I. \]
-  It is evident this map is an embedding, hence it suffices to show it is surjective. Given $f \colon \I \to \ct_{n:\N}\Delta^n$. By assumption, there merely exists $n:\N$ that $f(1)$ factors through $\Delta^n \hook \omega$. Now the claim is that the entire map $f$ factors through $\Delta^n$. This indeed holds, since we have shown in \Cref{speconomegaiscan} that the specialisation preorder on $\omega$ is pointwise. By monotonicity, for any $i:\I$ we have $fi \preceq f1$, which implies $fi$ belongs to $\Delta^n$ as well, since $\Delta^n \hook \omega$ is a downward closed. The same holds for cubes or simplices since they all have a top element. This way, $\omega^\I$ classifies the pointwise order on $\omega$ since all simplices $\Delta^n$ satisfy the Phoa's principle as shown in \Cref{thm:phoaaffine}.
+  It is evident this map is an embedding, hence it suffices to show it is surjective. Given $f \colon \I \to \ct_{n:\N}\Delta^n$. By assumption, there merely exists $n:\N$ that $f(1)$ factors through $\Delta^n \hook \omega$. Now the claim is that the entire map $f$ factors through $\Delta^n$. This indeed holds, since we have shown in \Cref{speconomegaiscan} that the observational preorder on $\omega$ is pointwise. By monotonicity, for any $i:\I$ we have $fi \obsle f1$, which implies $fi$ belongs to $\Delta^n$ as well, since $\Delta^n \hook \omega$ is a downward closed. The same holds for cubes or simplices since they all have a top element. This way, $\omega^\I$ classifies the pointwise order on $\omega$ since all simplices $\Delta^n$ satisfy Phoa's principle as shown in \Cref{thm:phoa-spectrum}.
 \end{proof}
-
-% As a first consequence, we show $\omega$ satisfies the generalised Phoa principle: \Jon{Stale reference to generalised Phoa principle.}
-
-% \begin{proposition}[NT, SQCC]\label{cor:omegaphoa}
-%   The specialisation preorder on $\omega$ again coincides with its canonical pointwise order. In particular, $\omega$ also satisfies the generalised Phoa principle. \Jon{Stale reference to generalised Phoa principle.}
-% \end{proposition}
-% \begin{proof}
-%   For $i \le j$ in $\omega$, since $j$ merely belongs to $\Delta^n$ for some $n$. By downward closeness of $\Delta^n$ in $\omega$, $i,j$ both belongs to $\Delta^n$. Thus by \Cref{thm:phoaaffine} and \Cref{lem:intervalcommuteomega}, we get a map $f \colon \I \to \omega$ with $f(0) = i$ and $f(1) = j$. Hence, $i \preceq j$. Now if $i \preceq j$ in $\omega$, by \Cref{lem:anymapmonotoneintriscorder} we also have $i \preceq j$ in $\ov\omega$. Since $\ov\omega$ is affine, $i \le j$ in $\ov\omega$ by \Cref{thm:phoaaffine} again. This implies $i \le j$ in $\omega$. The uniqueness of $f \colon \I \to \omega$ follows from $\ov\omega$ satisfying Phoa's principle and the fact that $\omega\hook\ov\omega$ is an embedding.
-% \end{proof}
 
 As another consequence, we can also show the following general result establishing a large family of orthogonality conditions satisfied by $\omega$:
 
