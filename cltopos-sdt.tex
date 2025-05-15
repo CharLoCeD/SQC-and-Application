@@ -767,7 +767,7 @@ The remaining part of this section will introduce various locality axioms for th
 As a start, a minimal requirement for synthetic domain theory to model divergent computation is for the dominance $\I$ to be closed under falsum. For this, we introduce the following minimal amount of non-triviality:
 
 \begin{axiom}[NT]\label{ax:nt}
-  We have $0 \neq 1$ in $\I$.
+  We have $0 \neq 1$ in $\I$. Geometrically, the proposition $0 = 1$ can be identified with the spectrum $\spec\I/0=1$. Hence, (NT) states that the unique map $\emp \hook \spec\I/0=1$ is an equivalence.
 \end{axiom}
 
 This way, $\emp \eq \ms t0$ now will be affine, and it is both an open and closed proposition. As mentioned in introduction, (NT) together with a strong enough quasi-coherence principle will imply all of Hyland's axioms for synthetic domain theory. Before we discuss that in \Cref{sec:infdomain}, a minimal amount of quasi-coherence provided by (SQCI) already implies a lot of elementary properties. As a first consequence of (NT) with (SQCI), we can show that $\I$ is almost the Boolean algebra $2$ in the following sense:
@@ -795,7 +795,8 @@ On the other hand, \Cref{sec:intposet} will show that under the axiom (NT), quas
 A slightly stronger axiom which is common in the practice of domain theory is that the dominance $\I$ should furthermore be closed under all finite disjunctions. For this, we consider the following axiom:
 
 \begin{axiom}[L]\label{ax:L}
-  $\I$ is local, i.e.\ $0 \neq 1$, and $\ms t(i\vee j) \eq \ms ti \vee \ms tj$ for $i,j : \I$. Geometrically, (L) states that the following two inclusions are jointly surjective. \Jon{Geometric interpretation of $0\not= 1$.}
+  $\I$ is local, i.e.\ $0 \neq 1$, and $\ms t(i\vee j) \eq \ms ti \vee \ms tj$ for $i,j : \I$. Geometrically, the additional condition of (L) states that the following two inclusions are jointly surjective. 
+  % \Jon{Geometric interpretation of $0\not= 1$.}
   \[ 
   \begin{tikzcd}
     \I \ar[r, hook, "{i \mapsto (i,1)}"] & \scomp{i,j : \I}{\ms t(i\vee j)} & \I \ar[l, hook', "{j \mapsto (1,j)}"']
