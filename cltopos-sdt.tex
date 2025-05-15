@@ -1570,13 +1570,25 @@ Equivalently, $X$ is $\I$-separated iff $X^\I \to X \times X$ is an embedding. T
   $\I$ is $\I$-separated. Any type $X$ for which $X^\I$ classifies the observational preorder on $X$ is also $\I$-separated.
 \end{proposition}
 \begin{proof}
-  Because $\I^\I$ classifies the canonical partial order on $\I$, it is $\I$-separated. When $X^\I$ classifies the observational preorder on $X$, which is again a partial order, $X$ will be $\I$-separated.
-  \Jon{I didn't actually see immediately what this has to do with separation. Could we make it more explicit?}
+  That $\I$ is $\I$-separated is an immediate consequence of Phoa's principle. That $X^I$ classifies the observational preorder means that the canonical comparison map $X^\I\to {\obsle[X]}$ in the triangle below is an isomorphism:
+  \[ 
+    \begin{tikzcd}
+      X^\I 
+        \arrow[rr,"\cong"]
+        \arrow[dr]
+      && 
+      {\obsle[X]}
+        \arrow[dl,hookrightarrow]
+      \\ 
+      &
+      X\times X
+    \end{tikzcd}
+  \] 
+
+  Hence it follows that $X^\I\to X\times X$ is an embedding.
 \end{proof}
 
 The notion of synthetic categories and synthetic posets are formulated as these orthogonality classes:
-
-% \Jon{We should not require simplicial-ness for synthetic categories, as the theory of categories does not require the simplicial property.}
 
 \begin{definition}[Synthetic categories and synthetic posets]
   A type $X$ is a \emph{synthetic category}, if it is Segal and Rezk complete. We say it is a \emph{synthetic poset}, if it is also $\I$-separated.
