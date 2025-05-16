@@ -1067,6 +1067,7 @@ In the above, $\opens{X}$ is playing two roles simultaneously: it is both a spec
   \end{align*}
 \end{proof}
 
+
 \begin{lemma}\label{lem:cancoincide}
   For any quotient $q \colon \I[Y] \surj A$ of a free algebra $\I[Y]$, the satisfaction order on $\spec A$ is induced by the satisfaction order on $\spec{\I[Y]}$ via the inclusion ${\spec{q}}\colon\spec{A}\hook \spec{\I[Y]}$.
 \end{lemma} 
@@ -1089,9 +1090,10 @@ In the above, $\opens{X}$ is playing two roles simultaneously: it is both a spec
   The second equivalence holds because $q\colon \I[Y]\surj A$ is surjective.
 \end{proof}
 
-\begin{corollary}\label{cor:satiscan}
-  In particular, the satisfaction order on $\I^n$ and $\Delta^n$ viewed as spectra coincides with their pointwise order.
-\end{corollary}
+%% I don't think this one is too enlightening on its own.
+% \begin{corollary}\label{cor:satiscan}
+%   In particular, the satisfaction order on $\I^n$ and $\Delta^n$ viewed as spectra coincides with their pointwise order.
+% \end{corollary}
 
 
 \section{Phoa's principle, finitary quasi-coherence, and homotopy}
@@ -1250,7 +1252,7 @@ The quasi-coherence axiom for polynomials in one variable is surprisingly strong
 \end{proof}
 
 \begin{remark}[Algebraic properties in classifying topoi]\label{rem:normalalgebra}
-  We emphasis that the above proofs are purely the consequences of the algebraic fact that $A[i]$ classifies the canonical order of any $\I$-algebra $A$, plus quasi-coherence. This is a perfect example of how an algebraic property of a theory has a non-trivial effect on the internal logic of its classifying topos.
+  We emphasise that the above proofs are purely the consequences of the algebraic fact that $A[i]$ classifies the canonical order of any $\I$-algebra $A$, plus quasi-coherence. This is a perfect example of how an algebraic property of a theory has a non-trivial effect on the internal logic of its classifying topos.
 \end{remark}
 
 \begin{corollary}[SQCP]\label{lem:cubes-are-affine}
@@ -1414,9 +1416,9 @@ Of course $\Delta[\I]^n$ is simply $\Delta^n$. We have a general algebraic descr
 We omit the proof here, which again follows from a general normal form for polynomials with finitely many variables for bounded distributive lattices; see \citet[Ch.\ 1, Thm.\ 10.21]{lausch2000algebra}. We only note here that the above polynomial is well-defined, in the sense that the expression is associative and its value does not depend on how one add parenthesises. The reason for this is that for any expression $a \vee b \wedge c$ to have a definite meaning in a distributive lattice, i.e.\ the two value $(a \vee b) \wedge c$ and $a \vee (b \wedge c)$ coincide, it suffices to have $a \le c$. Then the condition $a_0 \ge \cdots \ge a_n$ for the parameters, and the fact that $i_1 \le \cdots \le i_n$, makes sure the above polynomial has a definite meaning in the quotient.
 
 
-\section{Infinitary domain theory}\label{sec:infdomain}
+\section{Chain completeness}\label{sec:infdomain}
 
-Until this point, we have seen that elementary axioms for synthetic domain theory follow from (SQCF) for bounded distributive lattices and thus $\sigma$-frames. In this section we show that the infinitary axiom of synthetic domain theory, viz.\ chain completeness of the interval $\I$, is also a consequence of quasi-coherence for $\sigma$-frames. In fact, the only place we have used the essentially the properties of $\sigma$-frames is in the proof of \Cref{thm:complete}, and we will also indicate why that fails for bounded distributive lattices in \Cref{rem:whynotdis}.
+Until this point, we have seen that elementary axioms for synthetic domain theory follow from (SQCF) for bounded distributive lattices and thus $\sigma$-frames. In this section we show that the final axiom of synthetic domain theory, viz.\ chain completeness of the interval $\I$, is also a consequence of quasi-coherence for $\sigma$-frames. \Jon{We can mention here that this will also imply the actual main infinitary axiom of SDT in the hands of Fiore and Plotkin—that the initial lifting algebra is inductive.} In fact, the only place we have used the essentially the properties of $\sigma$-frames is in the proof of \Cref{thm:complete}, and we will also indicate why that fails for bounded distributive lattices in \Cref{rem:whynotdis}.
 
 The connection between the infinitary aspect of synthetic domain theory and quasi-coherence starts from the observation that the final coalgebra $\ov\omega$ for the functor $L$ can be described as a \emph{spectrum}:
 
