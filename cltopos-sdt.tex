@@ -1756,7 +1756,7 @@ Next we consider the Rezk completeness condition. Following \citet{buchholtz2021
   We say that a type $X$ is \emph{Rezk complete} when it is right orthogonal to $\mbb E \to 1$.
 \end{definition}
 
-\begin{proposition}[SQCF]
+\begin{proposition}[SQCP]
   $\I$ is Rezk complete.
 \end{proposition}
 \begin{proof}
@@ -1776,29 +1776,7 @@ In fact, $\I$ is not only a synthetic category but in fact a synthetic \emph{pos
   $X$ is called \emph{$\I$-separated} when it is right orthogonal to $\I_{\rightrightarrows} \to \I$.
 \end{definition}
 
-Equivalently, $X$ is $\I$-separated iff $X^\I \to X \times X$ is an embedding. The following is evident:
-
-\begin{proposition}[SQCF]
-  $\I$ is $\I$-separated. Any type $X$ for which $X^\I$ classifies the observational preorder on $X$ is also $\I$-separated.
-\end{proposition}
-\begin{proof}
-  That $\I$ is $\I$-separated is an immediate consequence of Phoa's principle. That $X^I$ classifies the observational preorder means that the canonical comparison map $X^\I\to {\obsle[X]}$ in the triangle below is an isomorphism:
-  \[ 
-    \begin{tikzcd}
-      X^\I 
-        \arrow[rr,"\cong"]
-        \arrow[dr]
-      && 
-      {\obsle[X]}
-        \arrow[dl,hookrightarrow]
-      \\ 
-      &
-      X\times X
-    \end{tikzcd}
-  \] 
-
-  Hence it follows that $X^\I\to X\times X$ is an embedding.
-\end{proof}
+Equivalently, $X$ is $\I$-separated iff $X^\I \to X \times X$ is an embedding. It is an immediate consequence of (SQCP) that $\I$ is $\I$-separated.
 
 The notion of synthetic categories and synthetic posets are formulated as these orthogonality classes:
 
