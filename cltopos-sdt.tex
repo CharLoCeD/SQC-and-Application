@@ -17,7 +17,7 @@
 \usepackage{quiver}
 \usepackage{microtype}
 
-% \usepackage[inline]{showlabels}
+\usepackage[inline]{showlabels}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{fact}[theorem]{Fact}
@@ -257,6 +257,7 @@ Cambridge, UK%
 \end{abstract}
 
 \maketitle
+\tableofcontents
 
 
 \section{Introduction}\label{sec:intro}
@@ -1292,26 +1293,28 @@ An immediate application of Phoa's principle is to compare path structure with t
   Fix a path $\alpha\colon \I\to X$. We have $0\obsle[\I] 1$ by Phoa's principle; because every function is monotone in the observation preorder, we conclude $\alpha(0)\obsle[X] \alpha(1)$.
 \end{proof}
 
-
-
-\begin{remark}[Linked spaces]
-  \citet{PhoaWesleyKym-Son1991DtiR} calls type $X$ \emph{linked} when $X^\I \to {\obsle[X]}$ is a surjection, and a \emph{space} when $\obsle$ is antisymmetric. Both affine spaces and quasi-coherent algebras in our sense are spaces in the sense of Phoa, as can be seen by our characterisation of their observational preorders in \Cref{lem:specorderofaffine,cor:specordonalgiscan}. Furthermore, together with \Cref{thm:phoa-spectrum,thm:algebraphoa}, the map $X^\I \to {\obsle[X]}$ is actually an \emph{equivalence} for affine spaces, and similarly for $\I$-algebras $A$ where both $A$ and $A[i]$ are quasi-coherent.
-\end{remark}
-
-
 \begin{definition}
-  A type $X$ for which $X^\I\to {\obsle[X]}$ is an surjection is called \emph{linked}; when the map is an equivalence, $X$ is called \emph{strongly linked}.
+  A type $X$ for which $X^\I\to {\obsle[X]}$ is an surjection is called \emph{linked} (following \citet{PhoaWesleyKym-Son1991DtiR}); when the map is an equivalence, $X$ is called \emph{strongly linked}.
 \end{definition}
+
+The following results holds without any assumptions.
+
+\begin{lemma}\label{lem:affine-strongly-linked}
+  Any affine space is strongly linked.
+\end{lemma}
+
+\begin{proof}
+  Let $X=\spec{A}$ be the spectrum of a quasi-coherent algebra $A$. 
+  By \Cref{thm:phoa-spectrum}, the path space $X^\I$ classifies the satisfaction order on $\spec{A}$, which is to say that there is a (necesarily unique) path from $x$ to $y$ if and only if \[\fa{a}{A} x(a)\le_\I y(a).\] Because $A$ is quasi-coherent, we have $A\cong \opens X$ and there is a unique path from $x$ to $y$ if and only if \[\fa{U}{\opens{X}} U(x)\le_\I U(y),\] but this is the observational order of $X$.
+\end{proof}
 
 \begin{lemma}[SQCP]\label{lem:int-strong-link}
   The interval is strongly linked.
 \end{lemma}
 
 \begin{proof}
-  That there can be at most one path between two elements of $\I$ is a consequence of Phoa's principle. Therefore, it suffices to show that 
-   $i\obsle[\I]j$ implies that a path from $i$ to $j$ exists. Instantiating the observational indequality $i\obsle[\I]j$ at the identity map on $\I$, we have $i\le_\I j$. From Phoa's principle, we obtain a path from $i$ to $j$.
+  The interval is affine because it is the spectrum of $\I[x]$, which is quasi-coherent by (SQCP).
 \end{proof}
-
 
 \begin{lemma}\label{lem:strong-link-exp-ideal}
   Being strongly linked is an exponential ideal.
@@ -1321,23 +1324,22 @@ An immediate application of Phoa's principle is to compare path structure with t
   \citet[Prop.\ 5.4.4]{PhoaWesleyKym-Son1991DtiR} implies that being linked is an exponential ideal, because an exponential is an internal limit. A type $X$ is strongly linked if and only if it is linked \emph{and} it is $\I$-separated in the sense that $X^\I\to X\times X$ is an embedding; but $\I$-separated types also form an exponential ideal (in fact, a reflective exponential ideal).
 \end{proof}
 
+\Jon{This is stronger than what was claimed before (which required quasicoherence of both $A$ and $A[i]$), but it appears to be true.}
+\begin{lemma}[SQCP]\label{lem:O-strongly-linked}
+  Any algebra of observations is strongly linked.
+\end{lemma}
+
+\begin{proof}
+  We assume that $A=\opens{X}$ for some not necessarily affine $X$; then $\opens{X}=\I^X$ is strongly linked by \Cref{lem:strong-link-exp-ideal,lem:int-strong-link}.
+\end{proof}
+
+
 \begin{corollary}\label{cor:strong-link-obs-pw}
   When $Y$ is strongly linked, the observational preorder on $Y^X$ is induced pointwise by the observational preorder on $Y$.
 \end{corollary}
 
 \begin{proof}
   Let $Y$ be strongly linked; by \cref{lem:strong-link-exp-ideal}, so is $Y^X$. Thus $\obsle[Y^X]$ is precisely $(Y^X)^\I\cong (Y^\I)^X\cong (\obsle[Y])^X$.
-\end{proof}
-
-
-As a consequence of Phoa's principle, we can also characterise the observational preorder on quasi-coherent $\I$-algebras:
-
-\begin{lemma}[SQCP]\label{prop:specordinterval}
-  The canonical order of the interval $\I$ is its observational preorder.
-\end{lemma}
-
-\begin{proof}
-  By Phoa's principle, $\I^\I$ classifies the canonical order; by \Cref{lem:int-strong-link}, the former with the observational order.
 \end{proof}
 
 \begin{proposition}[SQCP]\label{prop:specordopens}
@@ -1355,11 +1357,11 @@ As a consequence of Phoa's principle, we can also characterise the observational
     &\eq U\le_{\opens{X}} V \qedhere
   \end{align*}
 % 
-  The first equivalence uses Phoa's principle; the second equivalence uses \Cref{prop:specordinterval}; and the final equivalence holds by definition.
+  The first equivalence uses Phoa's principle; the second equivalence uses \Cref{cor:specordonalgiscan}; and the final equivalence holds by definition.
 \end{proof}
 
 \begin{proposition}[SQCP]\label{cor:specordonalgiscan}
-  For a quasi-coherent $\I$-algebra $A$, the observational preorder on the underlying set of $A$ is induced by the canonical order on $\opens\spec{A}$ by the counit isomorphism $\iota_A\colon A\to \opens\spec{A}$.
+  For a quasi-coherent $\I$-algebra $A$, the observational preorder on the underlying set of $A$ is induced by the canonical order on $\opens\spec{A}$ by the counit isomorphism $\iota_A\colon A\to \opens\spec{A}$. Hence the observational order and canonical order of $A$ coincide.
 \end{proposition}
 
 \begin{proof}
