@@ -196,7 +196,7 @@
 \newcommand{\co}{\mr{Co}}
 
 \NewDocumentCommand\obsle{o}{\sqsubseteq_{\ms{obs}}\IfValueT{#1}{^{#1}}}
-\NewDocumentCommand\satle{o}{\sqsubseteq_{\ms{sat}}\IfValueT{#1}{^{#1}}}
+\NewDocumentCommand\satle{o}{\le_{\ms{sat}}\IfValueT{#1}{^{#1}}}
 \NewDocumentCommand\behle{o}{\sqsubseteq_{\ms{beh}}\IfValueT{#1}{^{#1}}}
 
 \DeclareFontFamily{U}{dmjhira}{}
@@ -977,14 +977,13 @@ To relate the behavioural preorder to the canonical partial ordering, we first d
   The first equivalence requires that $A$ is pre-quasi-coherent.
 \end{proof}
 
-\subsection{The satisfaction preorder of a spectrum}
+\subsection{The satisfaction order of a spectrum}
 
-\Cref{cor:connectedpreservediscrete} demonstrated the usefulness of the observational preorder. We would like to use it to show e.g.\ that $\I$ is internally connected. For this, we need to characterise the observational preorder on affine spaces. It turns out that for any affine space, this is simply its \emph{satisfaction preorder} in the sense defined below:
+\Cref{cor:connectedpreservediscrete} demonstrated the usefulness of the observational preorder. We would like to use it to show e.g.\ that $\I$ is internally connected. For this, we need to characterise the observational preorder on affine spaces. It turns out that for any affine space, this is simply its \emph{satisfaction order} in the sense defined below:
 
-\Jon{I guess this is a partial order, not just a preorder. We can rename to ``satisfaction order''—and I will pick a new notation.}
 
-\begin{definition}[Satisfaction preorder]
-  We shall write $\satle[\spec{A}]$ for the \emph{satisfaction preorder} on the spectrum $\spec{A}$ of an $\I$-algebra as defined below:
+\begin{definition}[Satisfaction order]
+  We shall write $\satle[\spec{A}]$ for the \emph{satisfaction order} on the spectrum $\spec{A}$ of an $\I$-algebra as defined below:
   \begin{align*}
     x\satle[\spec{A}] y 
     &\eq \fa{a}{A}
@@ -994,7 +993,7 @@ To relate the behavioural preorder to the canonical partial ordering, we first d
 
 
 \begin{observation}\label{lem:specorderofaffine}
-  When $A$ is a quasi-coherent $\I$-algebra (and thus $\spec{A}$ is affine), the observational and satisfaction preorders on $\spec{A}$ coincide.
+  When $A$ is a quasi-coherent $\I$-algebra (and thus $\spec{A}$ is affine), the observational and satisfaction orders on $\spec{A}$ coincide.
 \end{observation}
 \begin{proof}
   For any $x,y:\spec{A}$ we have the following chain of equivalences:
@@ -1022,7 +1021,7 @@ To relate the behavioural preorder to the canonical partial ordering, we first d
 \end{proof}
 
 \begin{observation}
-  The satisfaction preorder on the spectrum $\spec{\I[X]}$ of a free $\I$-algebra is induced by the canonical order on \emph{observation algebra} $\opens{X}$ via the canonical bijection $\spec{\I[X]}\cong \opens{X}$.
+  The satisfaction order on the spectrum $\spec{\I[X]}$ of a free $\I$-algebra is induced by the canonical order on the \emph{observation algebra} $\opens{X}$ via the canonical bijection $\spec{\I[X]}\cong \opens{X}$.
 \end{observation}
 
 In the above, $\opens{X}$ is playing two roles simultaneously: it is both a spectrum of $\I[X]$ and the observational algebra of $X$.
@@ -1041,7 +1040,7 @@ In the above, $\opens{X}$ is playing two roles simultaneously: it is both a spec
 \end{proof}
 
 \begin{lemma}\label{lem:cancoincide}
-  For any quotient $q \colon \I[Y] \surj A$ of a free algebra $\I[Y]$, the satisfaction preorder on $\spec A$ is induced by the satisfaction preorder on $\spec{\I[Y]}$ via the inclusion ${\spec{q}}\colon\spec{A}\hook \spec{\I[Y]}$.
+  For any quotient $q \colon \I[Y] \surj A$ of a free algebra $\I[Y]$, the satisfaction order on $\spec A$ is induced by the satisfaction order on $\spec{\I[Y]}$ via the inclusion ${\spec{q}}\colon\spec{A}\hook \spec{\I[Y]}$.
 \end{lemma} 
 
 \begin{proof}
@@ -1063,7 +1062,7 @@ In the above, $\opens{X}$ is playing two roles simultaneously: it is both a spec
 \end{proof}
 
 \begin{corollary}\label{cor:satiscan}
-  In particular, the satisfaction preorder on $\I^n$ and $\Delta^n$ viewed as spectra coincides with their pointwise order.
+  In particular, the satisfaction order on $\I^n$ and $\Delta^n$ viewed as spectra coincides with their pointwise order.
 \end{corollary}
 
 \subsection{Finitary quasi-coherence}
@@ -1080,7 +1079,7 @@ Under (SQCF), the cubes $\I^n$ and the simplices $\Delta^n$ will all be affine a
   For any $n$, the cubes $\I^n$ and simplices $\Delta^n$ are all internally connected. In particular, $\I$ is not the boolean set $2$.
 \end{corollary}
 \begin{proof}
-  By \Cref{lem:specorderofaffine,lem:cancoincide}, the observational preorders on the affine spaces $\I^n$ and $\Delta^n$ are induced by the satisfaction preorders on $\spec\I[n]$ and $\spec\I[i_1,\cdots,i_n]/i_1\geq\cdots\geq i_n$, which is simply the pointwise order. Hence, they all have a top element. Thus by \Cref{cor:connectedpreservediscrete}, both $\I^n$ and $\Delta^n$ internally connected. In particular, $2^\I \cong 2$, and $\I$ cannot be $2$.
+  By \Cref{lem:specorderofaffine,lem:cancoincide}, the observational preorders on the affine spaces $\I^n$ and $\Delta^n$ are induced by the satisfaction orders on $\spec\I[n]$ and $\spec\I[i_1,\cdots,i_n]/i_1\geq\cdots\geq i_n$, which is simply the pointwise order. Hence, they all have a top element. Thus by \Cref{cor:connectedpreservediscrete}, both $\I^n$ and $\Delta^n$ internally connected. In particular, $2^\I \cong 2$, and $\I$ cannot be $2$.
 \end{proof}
 
 % Besides affine spaces, it is also interesting to characterise the observational preorders on \emph{$\I$-algebras}. This will be immediate once we discuss the \emph{Phoa's principle} in \cref{sec:phoa}.
@@ -1098,7 +1097,7 @@ A direct corollary of (SQCF) is \emph{Phoa's principle}, which states that the $
 The directed homotopical viewpoint on Phoa's principle generalises, in fact, to arbitrary spectra --- even non-affine ones.
 
 \begin{theorem}[SQCF]\label{thm:phoa-spectrum}
-  For any $\I$-algebra $A$, the path space ${(\spec A)}^\I$ classifies the satisfaction preorder on $\spec A$.
+  For any $\I$-algebra $A$, the path space ${(\spec A)}^\I$ classifies the satisfaction order on $\spec A$.
 \end{theorem}
 \begin{proof}
   By assumption $\I$ is affine, thus from \Cref{prop:duality} we have
@@ -1139,7 +1138,7 @@ We can compare the directed homotopy with the observational preorder using Phoa'
   \] 
 \end{observation}
 \begin{proof}
-  Fixing a path $\alpha\colon \I\to X$. By \Cref{lem:specorderofaffine} and \Cref{lem:cancoincide}, $0 \obsle[\I] 1$, thus by monotonicity $\alpha(0)\obsle[X] \alpha(1)$.
+  Fix a path $\alpha\colon \I\to X$. By \Cref{lem:specorderofaffine} and \Cref{lem:cancoincide} we have $0 \obsle[\I] 1$, thus by monotonicity we conclude $\alpha(0)\obsle[X] \alpha(1)$.
 \end{proof}
 
 
@@ -1636,7 +1635,7 @@ At the end of this section, we also discuss the example of $\omega$, which as we
   The inclusion $\omega \hook \ov\omega$ is an order embedding for the observational preorder. In particular, the observational preorder on $\omega$ is induced pointwise as a subspace of $\ov\omega\hookrightarrow \I^N$.
 \end{lemma}
 \begin{proof}
-  The fact that $\omega\hook\ov\omega$ is an order embedding for the observational preorder follows from chain completeness of $\I$ in \Cref{thm:complete}. The fact that the observational preorder on $\ov\omega$ coincides with its satisfaction preorder as a spectrum follows from \Cref{lem:specorderofaffine} by the fact that it is affine under (SQCC).
+  The fact that $\omega\hook\ov\omega$ is an order embedding for the observational preorder follows from chain completeness of $\I$ in \Cref{thm:complete}. The fact that the observational preorder on $\ov\omega$ coincides with its satisfaction order as a spectrum follows from \Cref{lem:specorderofaffine} by the fact that it is affine under (SQCC).
 \end{proof}
 
 Furthermore, we can show that $\omega$ also satisfies a version of the Phoa principle, i.e.\ the function space $\omega^\I$ again classifies its pointwise order. For this we need to compute the function space $\omega^\I$.
