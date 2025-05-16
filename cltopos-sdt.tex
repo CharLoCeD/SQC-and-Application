@@ -882,8 +882,6 @@ The \emph{observational preorder} is a classical notion in synthetic domain theo
   \begin{align*}
     x\obsle[X] y 
     &\eq \fa{U}{\opens{X}} U(x)\le_\I V(x)
-    \\ 
-    &\eq \fa{U}{\opens{X}} x\in U\to y\in U
   \end{align*}
 \end{definition}
 
@@ -940,8 +938,6 @@ Every $\I$-algebras has a built-in ``canonical'' partial ordering.
   \begin{align*}
     U\le_{\opens{X}} V 
     &\eq \fa{x}{X} U(x)\le_\I V(x)
-    \\ 
-    &\eq \fa{x}{X} x\in U \to x \in V
   \end{align*}
 \end{example}
 
@@ -950,7 +946,7 @@ In addition to the canonical partial order, there is a local preordering of alge
 \begin{definition}[Behavioural preorder]
   For any $\I$-algebra $A$, we define the \emph{behavioural preorder} on $A$ as follows:
   \begin{align*}
-    a \behle[A] b &\eq \fa{x}{\spec{A}} x\models a \to x\models b
+    a \behle[A] b &\eq \fa{x}{\spec{A}} xa \le_{\I} xb
   \end{align*}
 \end{definition}
 
@@ -971,11 +967,10 @@ To relate the behavioural preorder to the canonical partial ordering, we first d
     a\le_A b 
     &\eq \iota_A(a) \le_{\opens\spec{A}} \iota_A(a)
     \\ 
-    &\eq \fa{x}{\spec{A}} x\models a \to x \models b
+    &\eq \fa{x}{\spec{A}} x(a) \le_{\I} x(b)
     \\ 
     &\eq a\behle[A]b
   \end{align*}
-
   The first equivalence requires that $A$ is pre-quasi-coherent.
 \end{proof}
 
@@ -985,17 +980,12 @@ To relate the behavioural preorder to the canonical partial ordering, we first d
 
 \Jon{I guess this is a partial order, not just a preorder. We can rename to ``satisfaction order''—and I will pick a new notation.}
 
-
 \begin{definition}[Satisfaction preorder]
   We shall write $\satle[\spec{A}]$ for the \emph{satisfaction preorder} on the spectrum $\spec{A}$ of an $\I$-algebra as defined below:
   \begin{align*}
     x\satle[\spec{A}] y 
     &\eq \fa{a}{A}
     x(a) \le_\I y(a) 
-    \\ 
-    &\eq 
-    \fa{a}{A}
-    x\models a \to y \models a
   \end{align*}
 \end{definition}
 
@@ -1008,19 +998,19 @@ To relate the behavioural preorder to the canonical partial ordering, we first d
   \begin{align*}
     x\obsle[\spec{A}] y 
     &\eq 
-    \fa{U}{\opens{\spec{A}}} x\in U\to y\in U
+    \fa{U}{\opens{\spec{A}}} U(x) \le_{\I} U(y)
     \\ 
     &\eq 
     \fa{a}{A} 
-    x\in \iota_A(a)
-    \to
-    y \in \iota_A(a)
+    \iota_A(a)(x)
+    \le_\I
+    \iota_A(a)(y)
     \\ 
     &\eq 
     \fa{a}{A} 
-    x\models a 
+    x(a)
     \to 
-    y\models a 
+    y(a)
     \\ 
     &\eq 
     x\satle[\spec{A}] y
@@ -1038,9 +1028,9 @@ In the above, $\opens{X}$ is playing two roles simultaneously: it is both a spec
   For any $u,v:\spec{\I[X]}$ we have the following equivalences:
   \begin{align*}
     u \satle[\spec{\I[X]}] v
-    &\eq \fa{p}{\I[X]} u\models p \to v \models p
+    &\eq \fa{p}{\I[X]} u(p) \le_{\I} v(p)
     \\ 
-    &\eq \fa{x}{X} u\models x \to v \models x
+    &\eq \fa{x}{X} u(x) \le_{\I} v(x)
     \\ 
     &\eq (\ld{x}{X}u(x)) \le_{\opens{X}} (\ld{x}{X}v(x))
     \qedhere
@@ -1057,10 +1047,10 @@ In the above, $\opens{X}$ is playing two roles simultaneously: it is both a spec
     (\spec{q})(x)\satle[\spec{\I[Y]}] (\spec{q})(x')
     &\eq 
     \fa{p}{\I[Y]}
-    x\models qp \to x'\models qp
+    x(qp) \le_\I x'(qp)
     \\ 
     &\eq 
-    \fa{a}{A} x\models a\to x'\models a 
+    \fa{a}{A} x(a) \le_\I x'(a) 
     \\ 
     &\eq 
     x\satle[\spec{A}] x'
