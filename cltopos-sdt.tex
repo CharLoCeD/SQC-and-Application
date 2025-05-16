@@ -4,7 +4,7 @@
 \usepackage[numbers]{natbib}
 \usepackage[english]{babel}
 \usepackage[X2,T1]{fontenc}
-\usepackage{libertine}
+\usepackage[tt=false]{libertine}
 \usepackage{libertinust1math}
 \usepackage[utf8]{inputenc} %'utf8' instead of 'latin1'
 \usepackage{enumitem} 
@@ -17,6 +17,7 @@
 \usepackage{quiver}
 \usepackage{microtype}
 
+% \usepackage[inline]{showlabels}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{fact}[theorem]{Fact}
@@ -320,7 +321,7 @@ We study an emerging connection between synthetic domain theory and the quasi-co
   \begin{enumerate}
     \item\label{contribution:dominance} In the case of both bounded distributive lattices and $\sigma$-frames, the quasi-coherence for finitely presented algebras (in fact a weaker assumption; cf.\ \Cref{ax:sqci}) implies that the generic interval $\I$ and its dual form a dominance (\Cref{prop:Idominance} and \Cref{cor:dualisdominance}). It also leads to an explicit computation of the partial map classifiers of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectra (\Cref{prop:liftofaffine}).
     \item The quasi-coherence principle allows an explicit computation of the \emph{observational preorder} (\Cref{defn:specialisation}) on affine spaces (\Cref{lem:specorderofaffine}) and quasi-coherent $\I$-algebras (\Cref{cor:specordonalgiscan}).
-    \item As mentioned, quasi-coherence for finitely presented algebras implies that the generic interval $\I$ satisfies Phoa's principle. In fact, this is more generally true for any affine space (\Cref{thm:phoa-spectrum}), and similarly for quasi-coherent algebras (\Cref{thm:algebraphoa}).
+    \item As mentioned, quasi-coherence for finitely presented algebras implies that the generic interval $\I$ satisfies Phoa's principle. % In fact, this is more generally true for any affine space (\Cref{thm:phoa-spectrum}), and similarly for quasi-coherent algebras (\Cref{thm:algebraphoa}). %% JMS: It was not easy to interpret the previous sentence in a precise way.
     \item In the case of $\sigma$-frames, quasi-coherence for countably presented algebras implies chain completeness of $\I$ (\Cref{thm:complete}) assuming $\I$ is non-trivial. 
     This is the only place where it is important to work with $\sigma$-frames and not bounded distributive lattices (cf.~\Cref{rem:whynotdis}). This gives a full account of the axioms for synthetic domain theory as specified by \citet{hyland1990first}. 
   \end{enumerate}
@@ -871,7 +872,84 @@ The strongest locality axiom states that the simplicial structure is truncated t
 In general we will at most work with the weakest locality axiom (NT). However, we will show in \Cref{sec:local} that $\I$, hence all quasi-coherent algebras and spectra, will be \emph{right orthogonal} to the maps that define these local principles as shown above. We will see in \Cref{sec:model} that these axioms corresponds to various coverages we can put on the presheaf classifying topos, and the orthogonality result particularly implies that $\I$ will belong to these subtopoi.
 
 
-\section{Order-theoretic structure on spaces and algebras}\label{sec:order-theoretic-structure}
+\section{Order-theoretic structure on algebras and spaces}\label{sec:order-theoretic-structure}
+
+In this section, we describe several important local orderings on algebras and spaces, summarised in \Cref{table:orders}.
+
+\begin{table}
+  \begin{align*}
+    a\le_A b &\eq a\wedge b = a
+    \tag{canonical order}
+    \\
+    a\behle[A]b &\eq 
+    \fa{x}{\spec{A}}x(a)\le_\I x(b)
+    \tag{behavioural preorder}
+    \\
+    x\obsle[X]y &\eq \fa{U}{\opens{X}} U(x)\le_\I V(x)
+    \tag{observational preorder}
+    \\ 
+    x\satle[\spec{A}]y &\eq \fa{a}{A} x(a)\le_\I y(a)
+    \tag{satisfaction order}
+  \end{align*}
+  \begin{tabular}{ll}
+  \end{tabular}
+  \caption{List of important (pre)order structures on algebras and spaces. The \emph{canonical} and \emph{behavioural} (pre)orders are defined on all $\I$-algebras; the \emph{observational} preorder is defined on all types; and the \emph{satisfaction} preorder is defined just on spectra.}
+  \label{table:orders}
+\end{table}
+
+
+\subsection{Local ordering of algebras}
+
+Every $\I$-algebras has a built-in ``canonical'' partial ordering.
+
+\begin{definition}[Canonical partial order]
+  We shall write $\le_A$ for the \emph{canonical} partial ordering of an $\I$-algebra $A$ defined equivalently by meets or joins:
+  \[ 
+    a\le_A b \eq (a\wedge b = a) \eq (a\vee b = b)
+  \]
+\end{definition}
+
+\begin{example}
+  The canonical partial ordering of an algebra of observations $\opens{X}$ is given pointwise because $\opens{X}$ is the product of algebras $\prod_{x\in X}\I$:
+  \begin{align*}
+    U\le_{\opens{X}} V 
+    &\eq \fa{x}{X} U(x)\le_\I V(x)
+  \end{align*}
+\end{example}
+
+In addition to the canonical partial order, there is a local preordering of algebras that mirrors the observational order for spaces.
+
+\begin{definition}[Behavioural preorder]
+  For any $\I$-algebra $A$, we define the \emph{behavioural preorder} on $A$ as follows:
+  \begin{align*}
+    a \behle[A] b &\eq \fa{x}{\spec{A}} x(a) \le_{\I} x(b)
+  \end{align*}
+\end{definition}
+
+
+To relate the behavioural preorder to the canonical partial ordering, we first define a slight weakening of the quasi-coherence principle.
+
+\begin{definition}
+  We say that an $\I$-algebra $A$ is \emph{pre-quasi-coherent} when the counit component $\iota_A\colon A\to \opens\spec{A}$ is an embedding.
+\end{definition}
+
+\begin{proposition}\label{lem:canon-beh-coincide}
+  The canonical partial order of any pre-quasi-coherent $\I$-algebra $A$ is its behavioural preorder.
+\end{proposition}
+
+\begin{proof}
+  For $a,b:A$ we have the following sequence of equivalences:
+  \begin{align*}
+    a\le_A b 
+    &\eq \iota_A(a) \le_{\opens\spec{A}} \iota_A(a)
+    \\ 
+    &\eq \fa{x}{\spec{A}} x(a) \le_{\I} x(b)
+    \\ 
+    &\eq a\behle[A]b
+  \end{align*}
+  The first equivalence requires that $A$ is pre-quasi-coherent.
+\end{proof}
+
 
 \subsection{Local ordering of spaces}
 
@@ -881,7 +959,7 @@ The \emph{observational preorder} is a classical notion in synthetic domain theo
   For any type $X$, we define the \emph{observational preorder} on $X$ as follows:
   \begin{align*}
     x\obsle[X] y 
-    &\eq \fa{U}{\opens{X}} U(x)\le_\I V(x)
+    &\eq \fa{U}{\opens{X}} U(x)\le_\I U(x)
   \end{align*}
 \end{definition}
 
@@ -924,58 +1002,6 @@ We can very easily classify the observational preorder on a set with decidable e
   With greater efforts, the above proof would also work with the weaker assumption that the observational preorder on $X$ is \emph{connected}. This generalises a similar result given by \citet[Prop.~4.4.1]{hyland1990first}.
 \end{remark}
 
-
-\subsection{Local ordering of algebras}
-
-Every $\I$-algebras has a built-in ``canonical'' partial ordering.
-
-\begin{definition}[Canonical partial order]
-  We shall write $\le_A$ for the \emph{canonical} partial ordering of an $\I$-algebra $A$ defined equivalently by meets or joins:
-  \[ 
-    a\le_A b \eq (a\wedge b = a) \eq (a\vee b = b)
-  \]
-\end{definition}
-
-\begin{example}
-  The canonical partial ordering of an algebra of observations $\opens{X}$ is given pointwise because $\opens{X}$ is the product of algebras $\prod_{x\in X}\I$:
-  \begin{align*}
-    U\le_{\opens{X}} V 
-    &\eq \fa{x}{X} U(x)\le_\I V(x)
-  \end{align*}
-\end{example}
-
-In addition to the canonical partial order, there is a local preordering of algebras that mirrors the observational order for spaces.
-
-\begin{definition}[Behavioural preorder]
-  For any $\I$-algebra $A$, we define the \emph{behavioural preorder} on $A$ as follows:
-  \begin{align*}
-    a \behle[A] b &\eq \fa{x}{\spec{A}} xa \le_{\I} xb
-  \end{align*}
-\end{definition}
-
-
-To relate the behavioural preorder to the canonical partial ordering, we first define a slight weakening of the quasi-coherence principle.
-
-\begin{definition}
-  An $\I$-algebra $A$ is said to be pre-quasi-coherent when the counit component $\iota_A\colon A\to \opens\spec{A}$ is an embedding.
-\end{definition}
-
-\begin{proposition}\label{lem:canon-beh-coincide}
-  The canonical partial order of any pre-quasi-coherent $\I$-algebra $A$ is its behavioural preorder.
-\end{proposition}
-
-\begin{proof}
-  For $a,b:A$ we have the following sequence of equivalences:
-  \begin{align*}
-    a\le_A b 
-    &\eq \iota_A(a) \le_{\opens\spec{A}} \iota_A(a)
-    \\ 
-    &\eq \fa{x}{\spec{A}} x(a) \le_{\I} x(b)
-    \\ 
-    &\eq a\behle[A]b
-  \end{align*}
-  The first equivalence requires that $A$ is pre-quasi-coherent.
-\end{proof}
 
 \subsection{The satisfaction order of a spectrum}
 
@@ -1065,63 +1091,188 @@ In the above, $\opens{X}$ is playing two roles simultaneously: it is both a spec
   In particular, the satisfaction order on $\I^n$ and $\Delta^n$ viewed as spectra coincides with their pointwise order.
 \end{corollary}
 
-\subsection{Finitary quasi-coherence}
 
-By \Cref{cor:satiscan} and \Cref{lem:specorderofaffine}, the pointwise order on $\I^n$ and $\Delta^n$ furthermore coincides with their observational preorder if they are affine. Our existing assumption (SQCI) does not suffice to show that $\I^n$ and $\Delta^n$ are affine, however; for this, we introduce the following stronger axiom:
+\section{Phoa's principle, finitary quasi-coherence, and homotopy}
 
-\begin{axiom}[SQCF]
-  All finitely presented $\I$-algebras are quasi-coherent, or (equivalently) all finitely generated free $\I$-algebras are \emph{stably} quasi-coherent.
-\end{axiom}
-
-Under (SQCF), the cubes $\I^n$ and the simplices $\Delta^n$ will all be affine as shown by \Cref{exm:cubeaffine,exm:simplicesaffine}. The characterisation of the observational preorder has immediate consequences on the elementary properties of affine spaces:
-
-\begin{corollary}[NT, SQCF]\label{cor:intisnot2}
-  For any $n$, the cubes $\I^n$ and simplices $\Delta^n$ are all internally connected. In particular, $\I$ is not the boolean set $2$.
-\end{corollary}
-\begin{proof}
-  By \Cref{lem:specorderofaffine,lem:cancoincide}, the observational preorders on the affine spaces $\I^n$ and $\Delta^n$ are induced by the satisfaction orders on $\spec\I[n]$ and $\spec\I[i_1,\cdots,i_n]/i_1\geq\cdots\geq i_n$, which is simply the pointwise order. Hence, they all have a top element. Thus by \Cref{cor:connectedpreservediscrete}, both $\I^n$ and $\Delta^n$ internally connected. In particular, $2^\I \cong 2$, and $\I$ cannot be $2$.
-\end{proof}
-
-% Besides affine spaces, it is also interesting to characterise the observational preorders on \emph{$\I$-algebras}. This will be immediate once we discuss the \emph{Phoa's principle} in \cref{sec:phoa}.
-
-
-\subsection{Directed homotopy and Phoa's principle}\label{sec:phoa}
-
-
-A direct corollary of (SQCF) is \emph{Phoa's principle}, which states that the $\I^\I$ classifies the canonical partial order on $\I$. This result can be thought of in two ways: 
+The interval $\I$ is playing multiple roles so far:
 \begin{enumerate}
-  \item If we think of $\I^{(-)}$ as taking a space to its algebra of observations, then Phoa's principle characterises the algebra of opens of the space $\I \cong \spec{\I[x]}$.
-  \item Alternatively, we may think of ${(-)^\I}$ as assigning \emph{path spaces} in the sense of (directed) homotopy. In this case, we are characterising the path space of the space $\I\cong\spec{\I[x]}$.
+  \item Mapping a space $X$ into $\I$ computes its algebra of observations $\opens{X} = \I^X$.
+  \item Homomorphically mapping an algebra $A$ into $\I$ computes its spectrum $\spec{A} = \I\alg(A,\I)$.
 \end{enumerate}
 
-The directed homotopical viewpoint on Phoa's principle generalises, in fact, to arbitrary spectra --- even non-affine ones.
+In both cases above, $\I$ is viewed as an algebra of observations and not as a geometrical figure. For the latter, we may consider mappings from $\I$ into \emph{either} an algebra or a space as defining a notion of (directed) homotopy. In particular, the function space $X^\I$ classifies \emph{paths} drawn in $X$; this geometrical role of $\I$ as a figure shape for paths is the primary one in applications to synthetic category theory~\citep{riehl2017type}, and it is also upon the geometry of the interval that the notion of \emph{chain completeness} in synthetic domain theory is founded.
 
-\begin{theorem}[SQCF]\label{thm:phoa-spectrum}
+\subsection{The generalised Phoa principle and polynomial algebras}
+
+As soon as we have path spaces $X^\I$, we immediately wish to begin characterising them for specific $X$. For example, the path space of a function space $A\to B$ is given pointwise in terms of the path space of $B$, which follows immediately from the laws of exponentials. To characterise the path space of spaces like $\I^n$ and $\Delta^n$, however, we need additional axioms. The simplest such axiom asserts that the polynomial algebra $\I[i]$ is quasi-coherent—which, in the case of bounded distributive lattices, is equivalent to Phoa's principle.
+
+\begin{definition}
+  We say that an $\I$-algebra $A$ satisfies the \emph{generalised Phoa principle} when either of the following equivalent conditions hold:
+  \begin{enumerate}
+    \item The path space $A^\I$ classifies the canonical order on $A$.
+    \item For any function $\alpha\colon \I\to A$, we have $\alpha(i) = \alpha(0)\vee i \wedge \alpha(1)$.
+  \end{enumerate}
+\end{definition}
+
+\begin{proof}
+  Suppose that $A^\I$ classifies the canonical order on $A$; then any function $\alpha\colon \I\to A$ is monotone and uniquely determined by its values on $0$ and $1$, so the second condition holds.
+
+  Conversely, suppose that every path $\alpha\colon \I\to A$ is of the form $\alpha(i) = \alpha(0)\vee i \wedge \alpha(1)$. We must show that $a\le_A b$ holds if and only if there exists a unique path $\alpha\colon \I\to A$ sending $0$ and $1$ to $a$ and $b$ respectively.
+  \begin{enumerate}
+    \item If $a\le_A b$ holds, we define $\alpha(i) \coloneq a\vee i \wedge b$; this path is unique with the required property by our assumption. 
+    \item If there exists a path $\alpha\colon\I\to A$ from $a$ to $b$, we know that this takes the form $\alpha(i) = a \vee i \wedge b$. Therefore we have
+    \[ 
+      b = \alpha(1) = a\vee 1\wedge b = a \vee b.
+      \qedhere
+    \] 
+  \end{enumerate}
+\end{proof}
+
+The standard Phoa principle is the generalised Phoa principle for $\I$ itself.
+
+\begin{theorem}\label{thm:gen-phoa-poly}
+  If $A$ satisfies the generalised Phoa principle, then so does the polynomial $\I$-algebra $A[x]$.
+\end{theorem}
+
+\begin{proof}
+  Fixing $\alpha\colon \I\to A[x]$, we must check that $\alpha(i) = \alpha(0) \vee i \wedge \alpha(1)$. 
+  %
+  The normal form theorem for polynomials of bounded distributive lattices~\citep[Ch.\ 1, Thm.\ 10.11]{lausch2000algebra} implies that any function $\alpha\colon \I\to A[x]$ must be determined by functions $\alpha_0,\alpha_1\colon \I\to A$ such that $\alpha(i) = \alpha_0(i)\vee x \wedge \alpha_1(i)$ in $A[x]$. Meanwhile, Phoa's principle for $A$ characterises $\alpha_0$ and $\alpha_1$ as follows:
+  \begin{align*}
+    \alpha_0(i) &= \alpha_0(0) \vee i \wedge \alpha_0(1)
+    \\ 
+    \alpha_1(i) &= \alpha_1(0) \vee i \wedge \alpha_1(1)
+  \end{align*}
+
+  Hence we have $\alpha(i) = (\alpha_0(0) \vee i \wedge \alpha_0(1))\lor x \wedge (\alpha_0(0) \vee i \wedge \alpha_0(1))$. On the other hand, we can use the normal form theorem to compute $\alpha(0)$ and $\alpha(1)$ in terms of the variable $x$: 
+  \begin{align*}
+    \alpha(0) &= \alpha_0(0) \vee x\wedge \alpha_1(0)\\
+    \alpha(1) &= \alpha_0(1) \vee x\wedge \alpha_1(1)
+  \end{align*}
+
+  Hence $\alpha(0)\lor i \wedge \alpha(1) = (\alpha_0(0) \vee x\wedge \alpha_1(0))\vee i \wedge (\alpha_0(1) \vee x\wedge \alpha_1(1))$. Using elementary lattice algebra we deduce that $\alpha(i) = \alpha(0) \vee i \wedge \alpha(1)$.
+\end{proof}
+
+\begin{theorem}\label{obs:sqcp-phoa-gen}
+  Let $A$ be a quasi-coherent $\I$-algebra. Then the following are equivalent:
+  \begin{enumerate}
+    \item The polynomial $\I$-algebra $A[x]$ is quasi-coherent.
+    \item The generalised Phoa principle holds for $A$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  We note that $\spec{A[x]} \cong \spec{A}\times \I$ unconditionally, and so the algebra of opens $\opens\spec{A[x]}$ is actually the path space of $\opens\spec{A}$; taking quasi-coherence of $A$ into account, the counit component $A[x]\to \opens\spec A[x]$ is identified substitution map $A[x] \to A^\I$, and we wish to prove that the latter is an equivalence if and only if for each $\alpha\colon \I\to A$ we have $\alpha(i)=\alpha(0)\vee i\wedge\alpha(1)$. 
+  %
+  This follows immediately from the the normal form theorem for polynomials of bounded distributive lattices~\citep[Ch.\ 1, Thm.\ 10.11]{lausch2000algebra}: any polynomial $p:A[x]$ is uniquely of the form $p = \ev_0(p) \vee x \wedge \ev_1(p)$ with $\ev_0(p)\le_A \ev_1(p)$.
+\end{proof}
+
+
+\begin{corollary}\label{cor:Ax-qc-to-Axy-qc}
+  If $A[x]$ is quasi-coherent, then so is $A[x,y]$.
+\end{corollary}
+\begin{proof}
+  This is simply a restatement of \Cref{thm:gen-phoa-poly} via \Cref{obs:sqcp-phoa-gen}.
+\end{proof}
+
+\begin{corollary}
+  The following are equivalent:
+  \begin{enumerate}
+    \item The polynomial $\I$-algebra $\I[x]$ is quasi-coherent.
+    \item Phoa's principle holds.
+  \end{enumerate}
+\end{corollary}
+
+\begin{proof}
+  By \Cref{obs:sqcp-phoa-gen}, because $\I$ is unconditionally quasi-coherent.
+\end{proof}
+
+
+We therefore identify the axiom (SQCP) below accordingly, which we have seen to be equivalent to Phoa's principle.
+
+\begin{axiom}[SQCP]
+  The polynomial $\I$-algebra algebra $\I[i]$ is quasi-coherent.
+\end{axiom}
+
+
+The quasi-coherence axiom for polynomials in one variable is surprisingly strong:
+
+%% I think what follows is fine, but I haven't used it.
+% \begin{lemma}[SQCP]
+%   For any type $K$, the path space $(\I^K)^\I$ classifies the canonical order on $\I^K$.
+% \end{lemma}
+% \begin{proof}
+%   Let $f,g\colon K\to \I$ be two functions. We must show that the type of paths from $f$ to $g$ is a proposition that is equivalent to the canonical order $f\le_{\I^K}g$. We have the following sequence of equivalences:
+% %
+%   \[ 
+%     \mathsf{Path}_{\I^K}(f,g) \cong 
+%     \prod_{k:K} \mathsf{Path}_{\I}(f(k),g(k))
+%     \cong
+%     \prod_{k:K} f(k) \le_\I g(k) 
+%     \cong f\le_{\I^K} g
+%   \] 
+
+%   The first equivalence is immediate; the second equivalence follows from is Phoa's principle (SQCP), which characterises paths in $\I$ itself. The final equivalence is definitional.
+% \end{proof}
+
+\begin{lemma}[SQCP]\label{lem:fg-qc}
+  Every finitely generated free $\I$-algebra is quasi-coherent.
+\end{lemma}
+
+\begin{proof}
+  The free $\I$-algebra on $0$ generators is just $\I$, which is automatically quasi-coherent. The free $\I$-algebra $\I[x]$ on one generator is quasi-coherent by assumption. In the case of $\I[x,y_0,\ldots,y_n]$ we recall \cref{cor:Ax-qc-to-Axy-qc} and see that $\I[x]$ quasi-coherent implies $\I[x,y_0]$ quasi-coherent, which implies $\I[x,y_0,y_1]$ quasi-coherent and so on.
+\end{proof}
+
+
+\begin{theorem}[SQCP]\label{thm:phoa-spectrum}
   For any $\I$-algebra $A$, the path space ${(\spec A)}^\I$ classifies the satisfaction order on $\spec A$.
 \end{theorem}
 \begin{proof}
-  By assumption $\I$ is affine, thus from \Cref{prop:duality} we have
+  By assumption $\I[i]$ is quasi-coherent, so from \Cref{prop:duality} may characterise the path space of $\spec{A}$ algebraically as follows:
   \[ (\spec A)^\I \cong (\spec{A})^{\spec{\I[i]}}\cong \I\alg(A,\I[i]). \]
-  We observe that the pair of evaluation maps
+  
+  By the normalisation theorem for $\I[i]$, the pair of evaluation maps
   \[ \pair{\ev_0,\ev_1} \colon \I[i] \to \I \times \I \]
-  classifies the canonical order on $\I$. This follows from a normal form result of polynomials for bounded distributive lattices, i.e.\ any polynomial $p:\I[i]$ is of the form 
-  \[ p = \ev_0(p) \vee i \wedge \ev_1(p) \]
-  with $\ev_0(p)\le \ev_1(p)$.
-  See e.g.\ \citet[Thm.\ 10.11]{lausch2000algebra}.
-  %
+  classifies the canonical order on $\I$.
   Thus every homomorphism $h\colon A\to \I[i]$ is canonically induced by elements $h_0,h_1:\spec{A}$ with $h_0\satle[\spec{A}] h_1$ such that $h(a) = h_0(a) \vee i \wedge h_1(a)$.
 \end{proof}
 
 
+\begin{theorem}[SQCP]\label{thm:algebraphoa}
+  If both $A$ and $A[i]$ are quasi-coherent $\I$-algebras, then the path space $A^\I$ classifies the canonical order on $A$.
+\end{theorem}
+\begin{proof}
+  By assumption and \Cref{specrightadj}, since $A \otimes \I[i] \cong A[i]$, we have
+  \[ A^\I \cong (\opens{\spec A})^\I = (\I^{\spec A})^\I \cong \I^{\spec A \times \spec\I[i]} \cong \I^{\spec A[i]} \cong A[i]. \]
+  We have already seen that $A[i]$ classifies the canonical order of $A$ by the normalisation result for polynomial $\I$-algebras.
+\end{proof}
 
-
-\begin{remark}[Phoa's principle]
-  In view of \Cref{cor:satiscan}, the above result implies e.g.\ that the path space $(\Delta^n)^\I$ indeed classifies the pointwise order on $\Delta^n$ under (SQCF), and similarly for other examples of spectra we have considered so far. In the case of $n=1$, this is the ordinary Phoa principle.
+\begin{remark}[Algebraic properties in classifying topoi]\label{rem:normalalgebra}
+  We emphasis that the above proofs are purely the consequences of the algebraic fact that $A[i]$ classifies the canonical order of any $\I$-algebra $A$, plus quasi-coherence. This is a perfect example of how an algebraic property of a theory has a non-trivial effect on the internal logic of its classifying topos.
 \end{remark}
 
-We can compare the directed homotopy with the observational preorder using Phoa's principle as follows.
+\begin{corollary}[SQCP]\label{lem:cubes-are-affine}
+  Each cube $\I^n$ is affine.
+\end{corollary}
+\begin{proof}
+  The $n$-cube $\I^n$ is the spectrum of the free $\I$-algebra $\I[n]$, which is quasi-coherent by \Cref{lem:fg-qc}.
+\end{proof}
 
-\begin{observation}[SQCF]
+\begin{corollary}[NT, SQCP]\label{cor:cubes-internally-connected}
+  The $n$-cube $\I^n$ is internally connected.
+\end{corollary}
+
+In particular, $\I$ is not the boolean set $2$.
+
+\begin{proof}
+   By \Cref{lem:specorderofaffine,lem:cancoincide}, the observational preorder space $\I^n$ is induced by the satisfaction order on $\spec\I[n]$ because $\I^n$ is affine (\Cref{lem:cubes-are-affine}); the satisfaction order is simply the pointwise order, so it has a top element. Thus by \Cref{cor:connectedpreservediscrete}, $\I^n$ is internally connected.
+\end{proof}
+
+\subsection{Comparing the different orders}
+
+An immediate application of Phoa's principle is to compare path structure with the observational preorder.
+
+\begin{observation}[SQCP]
   For any type $X$, the boundary evaluation map $\pair{\ev_0,\ev_1}\colon X^\I\to X\times X$ factors through the observational preorder relation ${\obsle[X]}\hook X\times X$ as displayed below:
   \[ 
     \begin{tikzcd}
@@ -1138,70 +1289,7 @@ We can compare the directed homotopy with the observational preorder using Phoa'
   \] 
 \end{observation}
 \begin{proof}
-  Fix a path $\alpha\colon \I\to X$. By \Cref{lem:specorderofaffine} and \Cref{lem:cancoincide} we have $0 \obsle[\I] 1$, thus by monotonicity we conclude $\alpha(0)\obsle[X] \alpha(1)$.
-\end{proof}
-
-
-
-We can also explicitly compute the path space $A^\I$ for a quasi-coherent $\I$-algebra:
-
-\begin{theorem}[SQCF]\label{thm:algebraphoa}
-  If both $A$ and $A[i]$ are quasi-coherent, then the path space $A^\I$ classifies the canonical order on $A$.
-\end{theorem}
-\begin{proof}
-  By assumption and \Cref{specrightadj}, since $A \otimes \I[i] \cong A[i]$, we have
-  \[ A^\I \cong (\opens{\spec A})^\I = (\I^{\spec A})^\I \cong \I^{\spec A \times \spec\I[i]} \cong \I^{\spec A[i]} \cong A[i]. \]
-  The normal form result for the polynomial $\I[i]$ stated in the proof of \Cref{thm:phoa-spectrum} more generally applies to any $\I$-algebra, and $A[i]$ classifies the canonical order of $A$.
-\end{proof}
-
-\begin{remark}[Algebraic properties in classifying topoi]\label{rem:normalalgebra}
-  We emphasis that the above proofs are purely the consequences of the algebraic fact that $A[i]$ classifies the canonical of any $\I$-algebra $A$, plus quasi-coherence. This is a perfect example of how an algebraic property of a theory has a non-trivial effect on the internal logic of its classifying topos.
-\end{remark}
-
-As a consequence of Phoa's principle, we can also characterise the observational preorder on quasi-coherent $\I$-algebras:
-
-% \begin{lemma}[SQCF]\label{prop:specordinterval}
-%   The canonical order of the interval $\I$ is its observational preorder.
-% \end{lemma}
-
-% \begin{proof}
-%   This is a consequence of \Cref{lem:specorderofaffine} and \Cref{lem:cancoincide}.
-% \end{proof}
-
-% \LY{The proof below for the equivalence under Phoa's principle is actually not w.r.t. the pointwise observation order, but the canonical order on II}
-
-\begin{proposition}[SQCF]\label{prop:specordopens}
-  On any observation algebra $\opens{X}$, the observational preorder coincides with the canonical order.
-\end{proposition}
-
-\begin{proof}
-  It is a well-known consequence of Phoa's principle that the observational order on a function space $\I^X$ is pointwise induced by the canonical order on $\I$. In particular, we have the following equivalences involving the function space $\opens{X}=\I^X$:
-  \begin{align*}
-    U\obsle[\I^X]V 
-    % &\eq \fa{x}{X} U(x)\obsle[\I] V(x)
-    % \\
-    &\eq \fa{x}{X} U(x)\le_{\I} V(x)
-    \\
-    &\eq U\le_{\opens{X}} V \qedhere
-  \end{align*}
-% 
-  % The first equivalence uses Phoa's principle; the second equivalence uses \Cref{prop:specordinterval}; and the final equivalence holds by definition.
-\end{proof}
-
-\begin{proposition}[SQCF]\label{cor:specordonalgiscan}
-  For a quasi-coherent $\I$-algebra $A$, the observational preorder on the underlying set of $A$ is induced by the canonical order on $\opens\spec{A}$ by the counit isomorphism $\iota_A\colon A\to \opens\spec{A}$.
-\end{proposition}
-
-\begin{proof}
-  Because $A$ is quasi-coherent, the counit component $\iota_A$ gives us an order-isomorphism ${(A,\le_A)}\to (\opens\spec{A},\le_{\opens\spec{A}})$. By \Cref{cor:specordonalgiscan}, this is an equivalently an order-isomorphism ${(A,\le_A)}\to {(\opens\spec{A},\obsle[\opens\spec{A}])}$. Meanwhile, any bijective function tracks an isomorphism of observational preorders, so the inverse function $\iota_A^{-1}\colon \opens\spec{A}\to A$ tracks an order-isomorphism  ${(\opens\spec{A},\obsle[\opens\spec{A}])}\to {(A,\obsle[A])}$. 
-\end{proof}
-
-\begin{corollary}[SQCF]
-  The canonical partial order, observational preorder, and behavioural preorder of a quasi-coherent $\I$-algebra all coincide.
-\end{corollary}
-
-\begin{proof}
-  By \Cref{cor:specordonalgiscan,lem:canon-beh-coincide}.
+  Fix a path $\alpha\colon \I\to X$. We have $0\obsle[\I] 1$ by Phoa's principle; because every function is monotone in the observation preorder, we conclude $\alpha(0)\obsle[X] \alpha(1)$.
 \end{proof}
 
 
@@ -1210,12 +1298,110 @@ As a consequence of Phoa's principle, we can also characterise the observational
   \citet{PhoaWesleyKym-Son1991DtiR} calls type $X$ \emph{linked} when $X^\I \to {\obsle[X]}$ is a surjection, and a \emph{space} when $\obsle$ is antisymmetric. Both affine spaces and quasi-coherent algebras in our sense are spaces in the sense of Phoa, as can be seen by our characterisation of their observational preorders in \Cref{lem:specorderofaffine,cor:specordonalgiscan}. Furthermore, together with \Cref{thm:phoa-spectrum,thm:algebraphoa}, the map $X^\I \to {\obsle[X]}$ is actually an \emph{equivalence} for affine spaces, and similarly for $\I$-algebras $A$ where both $A$ and $A[i]$ are quasi-coherent.
 \end{remark}
 
-At the end of this section, we describe another interesting perspective arising from the proof of \Cref{thm:phoa-spectrum}. We have seen that the dualising object $\I$ has a double role: It is both an algebra and a spectrum. The mixture of algebraic and geometric object has also been observed in \Cref{rem:alggeoI}. The proof of \Cref{thm:phoa-spectrum} gives us many more such examples. For instance, $\I[i]$ classifies the order on $\I$, which by definition is the spectrum $\Delta_2$. In fact, \emph{all} the simplices are classified by some algebra.
-% \Jon{This has a reference to ``generalised Phoa principle'', which is now undefined}
 
-For any $n : \N$ and $\I$-algebra $A$, we write $\Delta[A]^{n}$ as the lists of decreasing elements of length $n$ in $A$,
+\begin{definition}
+  A type $X$ for which $X^\I\to {\obsle[X]}$ is an surjection is called \emph{linked}; when the map is an equivalence, $X$ is called \emph{strongly linked}.
+\end{definition}
+
+\begin{lemma}[SQCP]\label{lem:int-strong-link}
+  The interval is strongly linked.
+\end{lemma}
+
+\begin{proof}
+  That there can be at most one path between two elements of $\I$ is a consequence of Phoa's principle. Therefore, it suffices to show that 
+   $i\obsle[\I]j$ implies that a path from $i$ to $j$ exists. Instantiating the observational indequality $i\obsle[\I]j$ at the identity map on $\I$, we have $i\le_\I j$. From Phoa's principle, we obtain a path from $i$ to $j$.
+\end{proof}
+
+
+\begin{lemma}\label{lem:strong-link-exp-ideal}
+  Being strongly linked is an exponential ideal.
+\end{lemma}
+
+\begin{proof}
+  \citet[Prop.\ 5.4.4]{PhoaWesleyKym-Son1991DtiR} implies that being linked is an exponential ideal, because an exponential is an internal limit. A type $X$ is strongly linked if and only if it is linked \emph{and} it is $\I$-separated in the sense that $X^\I\to X\times X$ is an embedding; but $\I$-separated types also form an exponential ideal (in fact, a reflective exponential ideal).
+\end{proof}
+
+\begin{corollary}\label{cor:strong-link-obs-pw}
+  When $Y$ is strongly linked, the observational preorder on $Y^X$ is induced pointwise by the observational preorder on $Y$.
+\end{corollary}
+
+\begin{proof}
+  Let $Y$ be strongly linked; by \cref{lem:strong-link-exp-ideal}, so is $Y^X$. Thus $\obsle[Y^X]$ is precisely $(Y^X)^\I\cong (Y^\I)^X\cong (\obsle[Y])^X$.
+\end{proof}
+
+
+As a consequence of Phoa's principle, we can also characterise the observational preorder on quasi-coherent $\I$-algebras:
+
+\begin{lemma}[SQCP]\label{prop:specordinterval}
+  The canonical order of the interval $\I$ is its observational preorder.
+\end{lemma}
+
+\begin{proof}
+  By Phoa's principle, $\I^\I$ classifies the canonical order; by \Cref{lem:int-strong-link}, the former with the observational order.
+\end{proof}
+
+\begin{proposition}[SQCP]\label{prop:specordopens}
+  On any observation algebra $\opens{X}$, the observational preorder coincides with the canonical order.
+\end{proposition}
+
+\begin{proof}
+  By Phoa's principle, $\I$ is strongly linked; thus by \Cref{cor:strong-link-obs-pw}, the observational preorder on $\I^X$ is pointwise induced by that of $\I$. In particular, we have the following equivalences involving the function space $\opens{X}=\I^X$:
+  \begin{align*}
+    U\obsle[\I^X]V 
+    &\eq \fa{x}{X} U(x)\obsle[\I] V(x)
+    \\
+    &\eq \fa{x}{X} U(x)\le_{\I} V(x)
+    \\
+    &\eq U\le_{\opens{X}} V \qedhere
+  \end{align*}
+% 
+  The first equivalence uses Phoa's principle; the second equivalence uses \Cref{prop:specordinterval}; and the final equivalence holds by definition.
+\end{proof}
+
+\begin{proposition}[SQCP]\label{cor:specordonalgiscan}
+  For a quasi-coherent $\I$-algebra $A$, the observational preorder on the underlying set of $A$ is induced by the canonical order on $\opens\spec{A}$ by the counit isomorphism $\iota_A\colon A\to \opens\spec{A}$.
+\end{proposition}
+
+\begin{proof}
+  Because $A$ is quasi-coherent, the counit component $\iota_A$ gives us an order-isomorphism ${(A,\le_A)}\to (\opens\spec{A},\le_{\opens\spec{A}})$. By \Cref{prop:specordopens}, this is an equivalently an order-isomorphism ${(A,\le_A)}\to {(\opens\spec{A},\obsle[\opens\spec{A}])}$. Meanwhile, any bijective function tracks an isomorphism of observational preorders, so the inverse function $\iota_A^{-1}\colon \opens\spec{A}\to A$ tracks an order-isomorphism  ${(\opens\spec{A},\obsle[\opens\spec{A}])}\to {(A,\obsle[A])}$. 
+\end{proof}
+
+\begin{corollary}[SQCP]
+  The canonical partial order, observational preorder, and behavioural preorder of a quasi-coherent $\I$-algebra all coincide.
+\end{corollary}
+
+\begin{proof}
+  By \Cref{cor:specordonalgiscan,lem:canon-beh-coincide}.
+\end{proof}
+
+
+\subsection{Quasi-coherence for finitely presented algebras}
+
+The (SQCP) axiom does not imply that the simplices $\Delta^n$ are affine; for this, we need a stronger quasi-coherence principle that applies to all finitely \emph{presented} algebras.
+
+
+\begin{axiom}[SQCF]
+  All finitely presented $\I$-algebras are quasi-coherent, or (equivalently) all finitely generated free $\I$-algebras are \emph{stably} quasi-coherent.
+\end{axiom}
+
+It is immediate that $\Delta^n\cong \spec\I[i_1,\cdots,i_n]/i_1\geq \cdots i_n$ is affine under (SQCF).
+
+\begin{corollary}[SQCF]
+  Each $n$-simplex $\Delta^n$ is internally connected.
+\end{corollary}
+
+\begin{proof}
+  This follows in the same way as \Cref{cor:cubes-internally-connected}.
+\end{proof}
+
+\subsection{Classification of simplices by algebras}
+
+At the end of this section, we describe another interesting perspective arising from the proof of \Cref{thm:phoa-spectrum}. We have seen that the dualising object $\I$ has a double role: It is both an algebra and a spectrum. The mixture of algebraic and geometric object has also been observed in \Cref{rem:alggeoI}. The proof of \Cref{thm:phoa-spectrum} gives us many more such examples. For instance, $\I[i]$ classifies the order on $\I$, which by definition is the spectrum $\Delta_2$. In fact, \emph{all} the simplices are classified by some algebra.
+
+Just as we described $\Delta^n$ in terms of descending sequences in $\I$, we can do the same replacing $\I$ with another algebra $A$.
+For any $n : \N$ and $\I$-algebra $A$, we define $\Delta[A]^{n}$ to be the type of lists of decreasing elements of length $n$ in $A$, namely
 \[ \Delta[A]^{n} \coloneq \scomp{a_1,\cdots,a_n : A}{a_1 \ge \cdots \ge a_n}. \]
-Of course $\Delta[\I]^n$ is simply $\Delta^n$. We have a general algebraic description of $\Delta[A]^n$. What follows is a generalisation of the $n$-dimensional Phoa's principle appeared in \citet{pugh2025partialmapclassifiersierpinski}:
+Of course $\Delta[\I]^n$ is simply $\Delta^n$. We have a general algebraic description of $\Delta[A]^n$.
 
 \begin{proposition}\label{prop:simplicesasalgebra}
   For any $n : \N$ and $\I$-algebra $A$, there is an equivalence 
@@ -1223,10 +1409,8 @@ Of course $\Delta[\I]^n$ is simply $\Delta^n$. We have a general algebraic descr
   sending any $a_0 \ge \cdots \ge a_n$ in $A$ to the polynomial 
   \[ a_0 \wedge i_1 \vee a_1 \wedge \cdots \wedge i_n \vee a_n. \]
 \end{proposition}
-% \Jon{We need to explain the automatic associativity outside the proof---either in the theorem statement, or perhaps even further outside.}
 
-We omit the proof here, which again follows from a general normal form for polynomials with finitely many variables for bounded distributive lattices; see \citet[Thm.\ 10.21]{lausch2000algebra}. We only note here that the above polynomial is well-defined, in the sense that the expression is associative and its value does not depend on how one add parenthesises. The reason for this is that for any expression $a \vee b \wedge c$ to have a definite meaning in a distributive lattice, i.e.\ the two value $(a \vee b) \wedge c$ and $a \vee (b \wedge c)$ coincide, it suffices to have $a \le c$. Then the condition $a_0 \ge \cdots \ge a_n$ for the parameters, and the fact that $i_1 \le \cdots \le i_n$, makes sure the above polynomial has a definite meaning in the quotient.
-
+We omit the proof here, which again follows from a general normal form for polynomials with finitely many variables for bounded distributive lattices; see \citet[Ch.\ 1, Thm.\ 10.21]{lausch2000algebra}. We only note here that the above polynomial is well-defined, in the sense that the expression is associative and its value does not depend on how one add parenthesises. The reason for this is that for any expression $a \vee b \wedge c$ to have a definite meaning in a distributive lattice, i.e.\ the two value $(a \vee b) \wedge c$ and $a \vee (b \wedge c)$ coincide, it suffices to have $a \le c$. Then the condition $a_0 \ge \cdots \ge a_n$ for the parameters, and the fact that $i_1 \le \cdots \le i_n$, makes sure the above polynomial has a definite meaning in the quotient.
 
 
 \section{Infinitary domain theory}\label{sec:infdomain}
@@ -1478,7 +1662,7 @@ Again, (SL) holds globally iff the above embedding is an equivalence, thus every
   This then gives us a polynomial in $\I[i,j]$, which we write it as follows,
   \[ (p_{0,0} \vee i \wedge p_{1,0}) \vee j \wedge (q_{0,1} \vee i \wedge q_{1,1}) \]
   where $p_{0,0} = q_{0,0} \le q_{0,1}$ and $p_{1,0} \le p_{1,1} = q_{1,1}$. 
-  By the general normal form for $A[i]$ for any $\I$-algebra $A$, if we view $\I[i,j]$ as $\I[i][j]$, the above exactly corresponds to the normal form of polynomials in $\I[i,j]$; see also \citet[Thm.\ 10.21]{lausch2000algebra}. This means the above is a pullback of $\I$-algebras.
+  By the general normal form for $A[i]$ for any $\I$-algebra $A$, if we view $\I[i,j]$ as $\I[i][j]$, the above exactly corresponds to the normal form of polynomials in $\I[i,j]$; see also \citet[Ch.\ 1, Thm.\ 10.21]{lausch2000algebra}. This means the above is a pullback of $\I$-algebras.
 \end{proof}
 
 
