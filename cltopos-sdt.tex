@@ -902,7 +902,10 @@ We can very easily classify the observational preorder on a set with decidable e
   \[ n \obsle[M] m \to n = m. \]
 \end{lemma}
 \begin{proof}
-  Since $M$ has decidable equality and $\I$ is non-trivial, each singleton subset $\{n\}\subseteq M$ is open. Therefore, if $n\obsle[M] m$ holds, we must by definition have $m\in \{n\}$ and thus $m=n$.
+  % \LY{The below argument works only up to conservativity.}
+  % Since $M$ has decidable equality and $\I$ is non-trivial, each singleton subset $\{n\}\subseteq M$ is open. Therefore, if $n\obsle[M] m$ holds, we must by definition have $m\in \{n\}$ and thus $m=n$.
+
+  Since $M$ has decidable equality, we can define functions by case distinction. If $n \neq m$, we can construct a function $U : M \to \I$ with $U(n) = 1,U(m) = 0$, contradicting with $n \obsle[M] m$. Hence, $\neg\neg n=m$, and with decidable equality this implies $n = m$.
 \end{proof}
 
 
@@ -1009,7 +1012,7 @@ To relate the behavioural preorder to the canonical partial ordering, we first d
     &\eq 
     \fa{a}{A} 
     x(a)
-    \to 
+    \le_\I
     y(a)
     \\ 
     &\eq 
@@ -1055,13 +1058,17 @@ In the above, $\opens{X}$ is playing two roles simultaneously: it is both a spec
     &\eq 
     x\satle[\spec{A}] x'
   \end{align*}
-%
+% 
   The second equivalence holds because $q\colon \I[Y]\surj A$ is surjective.
 \end{proof}
 
+\begin{corollary}\label{cor:satiscan}
+  In particular, the satisfaction preorder on $\I^n$ and $\Delta^n$ viewed as spectra coincides with their pointwise order.
+\end{corollary}
+
 \subsection{Finitary quasi-coherence}
 
-\Cref{lem:cancoincide} shows that the satisfaction preorder on $\I^n$ and $\Delta^n$ viewed as spectra coincides with their pointwise order. This furthermore coincides with their observational preorder if they are affine by \Cref{lem:specorderofaffine}. Our existing assumption (SQCI) does not suffice to show that $\I^n$ and $\Delta^n$ are affine, however; for this, we introduce the following stronger axiom:
+By \Cref{cor:satiscan} and \Cref{lem:specorderofaffine}, the pointwise order on $\I^n$ and $\Delta^n$ furthermore coincides with their observational preorder if they are affine. Our existing assumption (SQCI) does not suffice to show that $\I^n$ and $\Delta^n$ are affine, however; for this, we introduce the following stronger axiom:
 
 \begin{axiom}[SQCF]
   All finitely presented $\I$-algebras are quasi-coherent, or (equivalently) all finitely generated free $\I$-algebras are \emph{stably} quasi-coherent.
@@ -1073,7 +1080,7 @@ Under (SQCF), the cubes $\I^n$ and the simplices $\Delta^n$ will all be affine a
   For any $n$, the cubes $\I^n$ and simplices $\Delta^n$ are all internally connected. In particular, $\I$ is not the boolean set $2$.
 \end{corollary}
 \begin{proof}
-  By \Cref{lem:specorderofaffine,lem:cancoincide}, the observational preorders on $\I^n$ and $\Delta^n$ are induced by the satisfaction preorders on $\spec\I[n]$ and $\spec\I[i_1,\cdots,i_n]/i_1\geq\cdots\geq i_n$ to which they are equivalent by (SQCF); both satisfaction preorders have a top element. Thus by \Cref{cor:connectedpreservediscrete}, both $\I^n$ and $\Delta^n$ internally connected. In particular, $2^\I \cong 2$, which implies $\I$ cannot be $2$.
+  By \Cref{lem:specorderofaffine,lem:cancoincide}, the observational preorders on the affine spaces $\I^n$ and $\Delta^n$ are induced by the satisfaction preorders on $\spec\I[n]$ and $\spec\I[i_1,\cdots,i_n]/i_1\geq\cdots\geq i_n$, which is simply the pointwise order. Hence, they all have a top element. Thus by \Cref{cor:connectedpreservediscrete}, both $\I^n$ and $\Delta^n$ internally connected. In particular, $2^\I \cong 2$, and $\I$ cannot be $2$.
 \end{proof}
 
 % Besides affine spaces, it is also interesting to characterise the observational preorders on \emph{$\I$-algebras}. This will be immediate once we discuss the \emph{Phoa's principle} in \cref{sec:phoa}.
@@ -1085,10 +1092,10 @@ Under (SQCF), the cubes $\I^n$ and the simplices $\Delta^n$ will all be affine a
 A direct corollary of (SQCF) is \emph{Phoa's principle}, which states that the $\I^\I$ classifies the canonical partial order on $\I$. This result can be thought of in two ways: 
 \begin{enumerate}
   \item If we think of $\I^{(-)}$ as taking a space to its algebra of observations, then Phoa's principle characterises the algebra of opens of the space $\I \cong \spec{\I[x]}$.
-  \item Alternatively, we may think of ${(-)^\I}$ as assigning \emph{path spaces} in the sense of (directed) homotopy. In this case, we are characterising the path space of the space $\I=\spec{\I[x]}$.
+  \item Alternatively, we may think of ${(-)^\I}$ as assigning \emph{path spaces} in the sense of (directed) homotopy. In this case, we are characterising the path space of the space $\I\cong\spec{\I[x]}$.
 \end{enumerate}
 
-The directed homotopical viewpoint on Phoa's principle generalises, in fact, to arbitrary spectra---even non-affine ones.
+The directed homotopical viewpoint on Phoa's principle generalises, in fact, to arbitrary spectra --- even non-affine ones.
 
 \begin{theorem}[SQCF]\label{thm:phoa-spectrum}
   For any $\I$-algebra $A$, the path space ${(\spec A)}^\I$ classifies the satisfaction preorder on $\spec A$.
@@ -1103,20 +1110,20 @@ The directed homotopical viewpoint on Phoa's principle generalises, in fact, to 
   with $\ev_0(p)\le \ev_1(p)$.
   See e.g.\ \citet[Thm.\ 10.11]{lausch2000algebra}.
   %
-  Thus every homomorphism $h\colon A\to \I[i]$ is canonically induced by points $h_0,h_1\in\spec{A}$ with $h_0\satle[\spec{A}] h_1$ such that $h(a) = h_0(a) \vee i \wedge h_1(a)$.
+  Thus every homomorphism $h\colon A\to \I[i]$ is canonically induced by elements $h_0,h_1:\spec{A}$ with $h_0\satle[\spec{A}] h_1$ such that $h(a) = h_0(a) \vee i \wedge h_1(a)$.
 \end{proof}
 
 
 
 
 \begin{remark}[Phoa's principle]
-  In view of \Cref{lem:cancoincide}, the above result  implies e.g.\ that the path space $(\Delta^n)^\I$ indeed classifies the pointwise order on $\Delta^n$ under (SQCF), and similarly for other examples of spectra we have considered so far. In the case of $n=1$, this is the ordinary Phoa principle.
+  In view of \Cref{cor:satiscan}, the above result implies e.g.\ that the path space $(\Delta^n)^\I$ indeed classifies the pointwise order on $\Delta^n$ under (SQCF), and similarly for other examples of spectra we have considered so far. In the case of $n=1$, this is the ordinary Phoa principle.
 \end{remark}
 
 We can compare the directed homotopy with the observational preorder using Phoa's principle as follows.
 
 \begin{observation}[SQCF]
-  For any type $X$, boundary map $\pair{\ev_0,\ev_1}\colon X^\I\to X\times X$ factors through the observational preorder relation ${\obsle[X]}\hook X\times X$ as displayed below:
+  For any type $X$, the boundary evaluation map $\pair{\ev_0,\ev_1}\colon X^\I\to X\times X$ factors through the observational preorder relation ${\obsle[X]}\hook X\times X$ as displayed below:
   \[ 
     \begin{tikzcd}
       X^\I 
@@ -1132,9 +1139,7 @@ We can compare the directed homotopy with the observational preorder using Phoa'
   \] 
 \end{observation}
 \begin{proof}
-  Fixing a path $\alpha\colon \I\to X$, we must show that $\alpha(0)\obsle[X] \alpha(1)$. Fixing $U\colon X\to \I$ we must check that $U(\alpha(0))\leq_\I U(\alpha(1))$.
-%
-  The composite map ${U\circ \alpha}\colon \I\to \I$ is monotone in the canonical order of $\I$ by Phoa's principle. Hence we have $U(\alpha(0)) \leq_\I U(\alpha(1))$ as desired.
+  Fixing a path $\alpha\colon \I\to X$. By \Cref{lem:specorderofaffine} and \Cref{lem:cancoincide}, $0 \obsle[\I] 1$, thus by monotonicity $\alpha(0)\obsle[X] \alpha(1)$.
 \end{proof}
 
 
@@ -1150,39 +1155,38 @@ We can also explicitly compute the path space $A^\I$ for a quasi-coherent $\I$-a
   The normal form result for the polynomial $\I[i]$ stated in the proof of \Cref{thm:phoa-spectrum} more generally applies to any $\I$-algebra, and $A[i]$ classifies the canonical order of $A$.
 \end{proof}
 
-
-
-
 \begin{remark}[Algebraic properties in classifying topoi]\label{rem:normalalgebra}
   We emphasis that the above proofs are purely the consequences of the algebraic fact that $A[i]$ classifies the canonical of any $\I$-algebra $A$, plus quasi-coherence. This is a perfect example of how an algebraic property of a theory has a non-trivial effect on the internal logic of its classifying topos.
 \end{remark}
 
 As a consequence of Phoa's principle, we can also characterise the observational preorder on quasi-coherent $\I$-algebras:
 
-\begin{proposition}[SQCF]\label{prop:specordinterval}
-  The canonical order of the interval $\I$ is its observational preorder.
-\end{proposition}
+% \begin{lemma}[SQCF]\label{prop:specordinterval}
+%   The canonical order of the interval $\I$ is its observational preorder.
+% \end{lemma}
 
-\begin{proof}
-  When $i\le_\I j$, we naturally have $i\obsle[\I]j$ by Phoa's principle. Conversely, if $i\obsle[\I]j$ we have $f(i)\le f(j)$ for any $f\colon \I^\I$, so we may choose $f(k)=k$.
-\end{proof}
+% \begin{proof}
+%   This is a consequence of \Cref{lem:specorderofaffine} and \Cref{lem:cancoincide}.
+% \end{proof}
+
+% \LY{The proof below for the equivalence under Phoa's principle is actually not w.r.t. the pointwise observation order, but the canonical order on II}
 
 \begin{proposition}[SQCF]\label{prop:specordopens}
   On any observation algebra $\opens{X}$, the observational preorder coincides with the canonical order.
 \end{proposition}
 
 \begin{proof}
-  It is a well-known consequence of Phoa's principle that the observational order on function spaces can be computed pointwise. In particular, we have the following sequence of equivalences involving the function space $\opens{X}=\I^X$:
+  It is a well-known consequence of Phoa's principle that the observational order on a function space $\I^X$ is pointwise induced by the canonical order on $\I$. In particular, we have the following equivalences involving the function space $\opens{X}=\I^X$:
   \begin{align*}
     U\obsle[\I^X]V 
-    &\eq \fa{x}{X} U(x)\obsle[\I] V(x)
-    \\
+    % &\eq \fa{x}{X} U(x)\obsle[\I] V(x)
+    % \\
     &\eq \fa{x}{X} U(x)\le_{\I} V(x)
     \\
-    &\eq U\le_{\opens{X}} V
+    &\eq U\le_{\opens{X}} V \qedhere
   \end{align*}
-
-  The first equivalence uses Phoa's principle; the second equivalence uses \Cref{prop:specordinterval}; and the final equivalence holds by definition.
+% 
+  % The first equivalence uses Phoa's principle; the second equivalence uses \Cref{prop:specordinterval}; and the final equivalence holds by definition.
 \end{proof}
 
 \begin{proposition}[SQCF]\label{cor:specordonalgiscan}
