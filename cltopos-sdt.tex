@@ -1167,11 +1167,11 @@ The interval $\I$ is playing multiple roles so far:
   \item Homomorphically mapping an algebra $A$ into $\I$ computes its spectrum $\spec{A} = \I\alg(A,\I)$.
 \end{enumerate}
 
-In both cases above, $\I$ is viewed as an algebra of observations and not as a geometrical figure. For the latter, we may consider mappings from $\I$ into \emph{either} an algebra or a space as defining a notion of (directed) homotopy. In particular, the function space $X^\I$ classifies \emph{paths} drawn in $X$; this geometrical role of $\I$ as a figure shape for paths is the primary one in applications to synthetic category theory~\citep{riehl2017type}, and it is also upon the geometry of the interval that the notion of \emph{chain completeness} in synthetic domain theory is founded.
+In both cases above, $\I$ is viewed as an algebra of observations and not as a geometrical figure. For the latter, we may consider mappings from $\I$ into \emph{either} an algebra or a space as defining a notion of (directed) homotopy. In particular, the function space $X^\I$ classifies \emph{paths} drawn in $X$; this geometrical role of $\I$ as a figure shape for paths is the primary one in applications to synthetic category theory~\citep{riehl2017type}, and it is also upon the geometry of the interval that the notion of \emph{chain completeness} in synthetic domain theory is founded (cf.\ \Cref{sec:infdomain}).
 
 \subsection{The generalised Phoa principle and quasi-coherence for polynomial algebras}
 
-As soon as we have path spaces $X^\I$, we immediately wish to begin characterising them for specific $X$. For example, the path space of a function space $A\to B$ is given pointwise in terms of the path space of $B$, which follows immediately from the laws of exponentials. To characterise the path space of spaces like $\I^n$ and $\Delta^n$, however, we need additional axioms. The simplest such axiom asserts that the polynomial algebra $\I[\ms{i}]$ is quasi-coherent—which, in the case of bounded distributive lattices, is equivalent to Phoa's principle.
+As soon as we have path spaces $X^\I$, we immediately wish to begin characterising them for specific $X$. For example, the path space of a function space $A\to B$ is given pointwise in terms of the path space of $B$, which follows immediately from the laws of exponentials. To characterise paths in spaces like $\I^n$ and $\Delta^n$, however, we need additional axioms. The simplest such axiom asserts that the polynomial algebra $\I[\ms{i}]$ is quasi-coherent—which, in the case of bounded distributive lattices, is equivalent to Phoa's principle.
 
 \begin{definition}
   We say that an $\I$-algebra $A$ satisfies the \emph{generalised Phoa principle} when either of the following equivalent conditions hold:
@@ -1239,11 +1239,11 @@ The standard Phoa principle is the generalised Phoa principle for $\I$ itself.
 \end{proof}
 
 
-\begin{corollary}\label{cor:Ax-qc-to-Axy-qc}
-  If $A[\ms{j}]$ is quasi-coherent, then so is $A[\ms{j},\ms{k}]$.
+\begin{corollary}\label{cor:A-and-Ax-qc-to-Axy-qc}
+  If both $A$ and $A[\ms{j}]$ are quasi-coherent, then so is $A[\ms{j},\ms{k}]$.
 \end{corollary}
 \begin{proof}
-  This is simply a restatement of \Cref{thm:gen-phoa-poly} via \Cref{obs:sqcp-phoa-gen}.
+  By \Cref{obs:sqcp-phoa-gen}, the generalised Phoa principle holds for $A$ because $A$ and $A[\ms{j}]$ are quasi-coherent; by \Cref{thm:gen-phoa-poly}, the generalised Phoa principle holds for $A[\ms{j}]$ because it holds for $A$.  By \Cref{thm:gen-phoa-poly} again, the generalised Phoa principle holds for $A[\ms{j},\ms{k}] = A[\ms{j}][\ms{k}]$ because it holds for $A[\ms{j}]$.
 \end{proof}
 
 \begin{corollary}
@@ -1289,7 +1289,7 @@ The quasi-coherence axiom for polynomials in one variable is surprisingly strong
 \end{lemma}
 
 \begin{proof}
-  The free $\I$-algebra on $0$ generators is just $\I$, which is automatically quasi-coherent. The free $\I$-algebra $\I[\ms{i}]$ on one generator is quasi-coherent by assumption. In the case of $\I[\ms{i},\ms{j}_0,\ldots,\ms{j}_n]$ we recall \cref{cor:Ax-qc-to-Axy-qc} and see that $\I[\ms{i}]$ quasi-coherent implies $\I[\ms{i},\ms{j}_0]$ quasi-coherent, which implies $\I[\ms{i},\ms{j}_0,\ms{j}_1]$ quasi-coherent and so on.
+  The free $\I$-algebra on $0$ generators is just $\I$, which is automatically quasi-coherent. The free $\I$-algebra $\I[\ms{i}]$ on one generator is quasi-coherent by assumption. In the case of $\I[\ms{i},\ms{j}_0,\ldots,\ms{j}_n]$ we recall \cref{cor:A-and-Ax-qc-to-Axy-qc} and see that $\I[\ms{i}]$ quasi-coherent implies $\I[\ms{i},\ms{j}_0]$ quasi-coherent, which implies $\I[\ms{i},\ms{j}_0,\ms{j}_1]$ quasi-coherent and so on.
 \end{proof}
 
 
