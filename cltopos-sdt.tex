@@ -1272,13 +1272,13 @@ The quasi-coherence axiom for polynomials in one variable is surprisingly strong
 \end{proof}
 
 \begin{corollary}[NT, SQCP]\label{cor:cubes-internally-connected}
-  The $n$-cube $\I^n$ is internally connected.
+  The $n$-cube $\I^n$ and the $n$-simplex $\Delta^n$ are internally connected.
 \end{corollary}
 
 In particular, $\I$ is not the boolean set $2$.
 
 \begin{proof}
-   By \Cref{lem:specorderofaffine,lem:cancoincide}, the observational preorder space $\I^n$ is induced by the satisfaction order on $\spec\I[n]$ because $\I^n$ is affine (\Cref{lem:cubes-are-affine}); the satisfaction order is simply the pointwise order, so it has a top element. Thus by \Cref{cor:connectedpreservediscrete}, $\I^n$ is internally connected.
+   By \Cref{lem:specorderofaffine,lem:cancoincide}, the observational preorder space $\I^n$ is induced by the satisfaction order on $\spec\I[n]$ because $\I^n$ is affine (\Cref{lem:cubes-are-affine}); the satisfaction order is simply the pointwise order, so it has a top element. Thus by \Cref{cor:connectedpreservediscrete}, $\I^n$ is internally connected. So are $\Delta^n$ because they are retracts of $\I^n$.
 \end{proof}
 
 \subsection{Comparing the different orders}
@@ -1479,21 +1479,21 @@ Together with (SQCC), this implies the following form of Markov's principle; a s
 
 \begin{lemma}[NT, SQCC]\label{lem:markov}
   For any $i : \ov\omega$, we have
-  \[ \neg\fa{n}{\N}\ist{i}_n \to \ex n\N\isf{i}_n\text{.} \]
+  \[ \neg\fa{n}{\N}\ist{i_n} \to \ex n\N\isf{i_n}\text{.} \]
 \end{lemma}
 \begin{proof}
-  Let $i : \ov\omega$. Notice that similar to \Cref{lem:openpropaffine}, the proposition $\fa n\N \ist{i}_n$ by construction is the following affine space, 
-  \[ \spec\I/i \cong \I\alg(\I/i,\I) \cong \fa n\N \ist{i}_n\text{,} \]
-  where we have abbreviated the countably presented $\I$-algebra $\I/\pair{i_n=1}_{n:\N}$ as $\I/i$. Now if we have $\neg\fa n\N \ist{i}_n$, then $\spec\I/i \cong \emp$ which by \Cref{lem:nulls} implies $\I/i$ is trivial. But this algebra is trivial iff $\ex n\N \isf{i}_n$.
+  Let $i : \ov\omega$. Note that similar to \Cref{lem:openpropaffine}, the proposition $\fa n\N \ist{i_n}$ by construction is the following affine space, 
+  \[ \spec\I/i \cong \I\alg(\I/i,\I) \cong \fa n\N \ist{i_n}\text{,} \]
+  where we have abbreviated the countably presented $\I$-algebra $\I/\pair{i_n=1}_{n:\N}$ as $\I/i$. Now if we have $\neg\fa n\N \ist{i_n}$, then $\spec\I/i \cong \emp$ which by \Cref{lem:nulls} implies $\I/i$ is trivial. But this algebra is trivial iff $\ex n\N \isf{i_n}$.
 \end{proof}
 
 Equipped with the above result, we can now proceed to study the initial algebra $\omega$ for $L$. \citet{JIBLADZE1997185} has given a beautiful formula for a type-theoretic description of $\omega$ as the following subset of $\ov\omega$, 
-\[ \omega \coloneq \scomp{i : \ov\omega}{\fa\phi{\pp} (\fa n{\N} (\ist{i}_n \to \phi) \to \phi) \to \phi}\text{.} \]
+\[ \omega \coloneq \scomp{i : \ov\omega}{\fa\phi{\pp} (\fa n{\N} (\ist{i_n} \to \phi) \to \phi) \to \phi}\text{.} \]
 For another proof, see e.g.\ that of \citet{VANOOSTEN2000233}. In the presence of \Cref{lem:markov}, this description can be greatly simplified:
 
 \begin{proposition}[NT, SQCC]\label{prop:omegacolimit}
   $\omega$ is equivalent to the following subset of $\ov\omega$,
-  \[ \omega \cong \scomp{i : \ov\omega}{\ex n{\N} \isf{i}_n}\text{.} \]
+  \[ \omega \cong \scomp{i : \ov\omega}{\ex n{\N} \isf{i_n}}\text{.} \]
   In particular, $\omega$ is the colimit of the following sequence:
     \[\begin{tikzcd}
     \emp & {\Delta^0} & {\Delta^1} & \cdots \\
@@ -1515,8 +1515,8 @@ The transition maps $\Delta^n\to \Delta^{n+1}$ above are given by appending $0$ 
 
 \begin{proof}
   Let $i : \ov\omega$. It suffices to show that
-  \[ \prth{\fa\phi{\pp} (\fa n{\N} (\ist{i}_n \to \phi) \to \phi) \to \phi} \to \ex{n}\N \isf{i}_n\text{.} \]
-  Assume the premise. We can instantiate $\phi$ to $\emp$. By assumption, we have $\neg\fa n\N \neg\neg\ist{i}_n$, which by \Cref{cor:opendnegclose} is equivalent to $\neg\fa n\N \ist{i}_n$. Then \Cref{lem:markov} implies this is $\ex n\N \isf{i}_n$. The fact that this makes $\omega$ into the above sequential colimit follows from \citet[Cor.~1.10]{VANOOSTEN2000233}.
+  \[ \prth{\fa\phi{\pp} (\fa n{\N} (\ist{i_n} \to \phi) \to \phi) \to \phi} \to \ex{n}\N \isf{i_n}\text{.} \]
+  Assume the premise. We can instantiate $\phi$ to $\emp$. By assumption, we have $\neg\fa n\N \neg\neg\ist{i_n}$, which by \Cref{cor:opendnegclose} is equivalent to $\neg\fa n\N \ist{i_n}$. Then \Cref{lem:markov} implies this is $\ex n\N \isf{i_n}$. The fact that this makes $\omega$ into the above sequential colimit follows from \citet[Cor.~1.10]{VANOOSTEN2000233}.
 \end{proof}
 
 \begin{remark}\label{rem:omegaalwayscolim}
@@ -1611,7 +1611,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
   \end{tikzcd}
   \]
   and, due to the fact that the theory of bounded distributive lattices is \emph{finitary}, this sequential colimit of \emph{algebras} is computed the same as their \emph{underlying sets}. Via \Cref{prop:simplicesasalgebra}, the result can be identified as the subtype of $\Delta_\infty$,
-  \[ \Delta_\omega \coloneq \scomp{i : \Delta_\infty}{\ex n\N \ist{i}_n}\text{,} \]
+  \[ \Delta_\omega \coloneq \scomp{i : \Delta_\infty}{\ex n\N \ist{i_n}}\text{,} \]
   where $\Delta_\omega \hook \Delta_\infty$ in some sense is the order-dual to the inclusion $\omega\hook\ov\omega$. The fact that we have \emph{all} infinite increasing sequences in the case for $\sigma$-frames is clearly due to the fact that we have countable disjunctions in $\sigma$-frames, as when identifying $p$ in $\I[\N]/\pair{\ms{i}_n \ge \ms{i}_{n+1}}_{n:\N}$ with $p = p_0 \vee \bigvee_{n:\N}p_{n+1}\wedge \ms{i}_n$.
 \end{remark}
 
@@ -1818,9 +1818,9 @@ Furthermore, we can show that $\omega$ also satisfies a version of the Phoa prin
 % \Jon{Stale reference to generalised Phoa principle.}
 
 Recall from \Cref{prop:omegacolimit} that, under (NT) and (SQCC), $\omega$ is a colimit $\omega \cong \ct_{n:\N}\Delta^n$. As indicated in \Cref{rem:omegaalwayscolim}, this does not depend on working with bounded distributive lattices or $\sigma$-frames. Type-theoretically, we have also shown that $\omega$ can be realised as the following subspace of $\ov\omega$,
-\[ \omega \cong \scomp{i : \ov\omega}{\ex n\N \isf{i}_n}\text{.} \]
+\[ \omega \cong \scomp{i : \ov\omega}{\ex n\N \isf{i_n}}\text{.} \]
 This way, the inclusion $\Delta^n \hook \omega$ can be viewed as follows, 
-\[ \Delta^n \cong \scomp{i : \omega}{\isf{i}_{n}}\text{,} \]
+\[ \Delta^n \cong \scomp{i : \omega}{\isf{i_n}}\text{,} \]
 which implies $\Delta^n \hook \omega$ is \emph{downward closed}. This allows us to directly compute $\omega^\I$:
 
 \begin{proposition}[NT, SQCC]\label{lem:intervalcommuteomega}
