@@ -239,6 +239,71 @@
 }
 \makeatother
 
+\NewDocumentCommand\AxiomSQCI{}{SQCI}
+\NewDocumentCommand\PrintAxiomSQCI{}{
+  \begin{axiom}[\AxiomSQCI]
+    $\I$ is stably quasi-coherent, i.e.\ every finitary quotient of $\I$ is quasi-coherent.
+  \end{axiom}
+}
+
+\NewDocumentCommand\AxiomSQCP{}{SQCP}
+\NewDocumentCommand\PrintAxiomSQCP{}{
+  \begin{axiom}[\AxiomSQCP]
+    The polynomial $\I$-algebra algebra $\I[\ms{i}]$ is quasi-coherent.
+  \end{axiom}
+}
+
+\NewDocumentCommand\AxiomNT{}{NT}
+\NewDocumentCommand\PrintAxiomNT{}{
+  \begin{axiom}[\AxiomNT]
+    We have $0 \neq 1$ in $\I$.
+  \end{axiom}
+}
+
+
+\NewDocumentCommand\AxiomL{}{L}
+\NewDocumentCommand\PrintAxiomL{}{
+  \begin{axiom}[\AxiomL]
+    $\I$ is local, i.e.\ $0 \neq 1$, and $\ist{i\vee j} \eq \ist{i} \vee \ist{j}$ for $i,j : \I$. 
+  \end{axiom}
+}
+
+\NewDocumentCommand\AxiomCL{}{cL}
+\NewDocumentCommand\PrintAxiomCL{}{
+  \begin{axiom}[\AxiomCL]
+    $\I$ is colocal, i.e.\ $0 \neq 1$ and $\isf{i\wedge j} \eq \isf{i} \vee \isf{j}$ for all $i,j : \I$.
+  \end{axiom}
+}
+
+\NewDocumentCommand\AxiomSL{}{SL}
+\NewDocumentCommand\PrintAxiomSL{}{
+  \begin{axiom}[\AxiomSL]
+    $\I$ is a \emph{strict linear order}, i.e.\ $0 \neq 1$ and $i \le j \vee j \le i$ for all $i,j:\I$. 
+  \end{axiom}
+}
+
+\NewDocumentCommand\AxiomOneCS{}{1cS}
+\NewDocumentCommand\PrintAxiomOneCS{}{
+  \begin{axiom}[\AxiomOneCS]
+    $\I$ is \emph{1-coskeletal}, i.e.\ (\AxiomSL) holds and $i \le j \eq \isf{i} \vee (i = j)\vee \ist{j}$ for all $i,j : \I$.
+  \end{axiom}
+}
+
+\NewDocumentCommand\AxiomSQCF{}{SQCF}
+\NewDocumentCommand\PrintAxiomSQCF{}{
+  \begin{axiom}[\AxiomSQCF]
+    All finitely presented $\I$-algebras are quasi-coherent, or (equivalently) all finitely generated free $\I$-algebras are \emph{stably} quasi-coherent.
+  \end{axiom}
+}
+
+\NewDocumentCommand\AxiomSQCC{}{SQCC}
+\NewDocumentCommand\PrintAxiomSQCC{}{
+  \begin{axiom}[\AxiomSQCC]
+    All countably presented $\I$-algebras are quasi-coherent.
+  \end{axiom}
+}
+
+
 \title{Domains and classifying topoi}
 \author{Jonathan Sterling}
 \address{%
@@ -326,7 +391,7 @@ We study an emerging connection between synthetic domain theory and the quasi-co
 \begin{enumerate}[leftmargin=*]
   \item \emph{Quasi-coherence produces synthetic domain theory.} We show the principle of quasi-coherence suffices to account for \emph{all} essential axioms for synthetic domain theory. Specifically:
   \begin{enumerate}
-    \item\label{contribution:dominance} In the case of both bounded distributive lattices and $\sigma$-frames, the quasi-coherence for finitely presented algebras (in fact a weaker assumption; cf.\ \Cref{ax:sqci}) implies that the generic interval $\I$ and its dual form a dominance (\Cref{prop:Idominance} and \Cref{cor:dualisdominance}). It also leads to an explicit computation of the partial map classifiers of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectra (\Cref{prop:liftofaffine}).
+    \item\label{contribution:dominance} In the case of both bounded distributive lattices and $\sigma$-frames, the quasi-coherence for finitely presented algebras (in fact a weaker assumption; cf.\ \Cref{sec:dominance}) implies that the generic interval $\I$ and its dual form a dominance (\Cref{prop:Idominance} and \Cref{cor:dualisdominance}). It also leads to an explicit computation of the partial map classifiers of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectra (\Cref{prop:liftofaffine}).
     \item The quasi-coherence principle allows an explicit computation of the \emph{observational preorder} (\Cref{defn:specialisation}) on affine spaces (\Cref{lem:specorderofaffine}) and quasi-coherent $\I$-algebras (\Cref{cor:specordonalgiscan}).
     \item As mentioned, quasi-coherence for finitely presented algebras implies that the generic interval $\I$ satisfies Phoa's principle. % In fact, this is more generally true for any affine space (\Cref{thm:phoa-spectrum}), and similarly for quasi-coherent algebras (\Cref{thm:algebraphoa}). %% JMS: It was not easy to interpret the previous sentence in a precise way.
     \item In the case of $\sigma$-frames, quasi-coherence for countably presented algebras implies chain completeness of $\I$ (\Cref{thm:complete}) assuming $\I$ is non-trivial. 
@@ -596,31 +661,29 @@ The goal of this section is to show that, under a suitable quasi-coherence assum
   An $\I$-algebra $A$ is \emph{stably quasi-coherent}, if for any $n : \N$ and $a,b \colon n \to A$, the quotient $A/a=b$ is again quasi-coherent. An affine $X \cong \spec A$ is \emph{stably affine}, if $A$ is stably quasi-coherent.
 \end{definition}
 
-\begin{axiom}[SQCI]\label{ax:sqci}
-  $\I$ is stably quasi-coherent.
-\end{axiom}
+\PrintAxiomSQCI
 
 As a first consequence, we show the following important lemma:
 
-\begin{lemma}[SQCI]\label{lem:intconserve}
+\begin{lemma}[\AxiomSQCI]\label{lem:intconserve}
   The interval $\I$ is \emph{conservative}: For any $i,j : \I$
   \[ (\ist{i} \eq \ist{j}) \eq i = j\text{.} \]
 \end{lemma}
 \begin{proof}
   If $i \le j$ then trivially $\ist{i} \to \ist{j}$. Thus it suffices to show
   \[ (\ist{i} \to \ist{j}) \to i \le j\text{.} \]
-  Take $i,j$ with $\ist{i} \to \ist{j}$. By \Cref{lem:openpropaffine} and (SQCI), each $\ist{i}$ and $\ist{j}$ will be affine. Then we get a restriction map between $\I$-algebras,
+  Take $i,j$ with $\ist{i} \to \ist{j}$. By \Cref{lem:openpropaffine} and (\AxiomSQCI), each $\ist{i}$ and $\ist{j}$ will be affine. Then we get a restriction map between $\I$-algebras,
   \[ \I/j \cong \I^{\ist{j}} \to \I^{\ist{i}} \cong \I/i\text{.} \]
   Similar to the proof of \Cref{lem:openpropaffine}, the existence of such an $\I$-algebra homomorphism implies $i \le j$. 
 \end{proof}
 
-Thus, under (SQCI), we may view the generic algebra $\I$ as a subuniverse of \emph{open} propositions via the embedding $\istsym$:
+Thus, under (\AxiomSQCI), we may view the generic algebra $\I$ as a subuniverse of \emph{open} propositions via the embedding $\istsym$:
 
 \begin{definition}[Open proposition]
   We say that a proposition $p$ is \emph{open} when $p$ is equivalent to $\ist{i}$ for some $i$ in $\I$.
 \end{definition}
 
-Under (SQCI), by \Cref{lem:intconserve} the $i$ that $p \eq \ist{i}$ will be \emph{unique}, thus being open is itself a proposition. Also, open propositions are evidently closed under finite conjunctions, since $\istsym$ preserves them. 
+Under (\AxiomSQCI), by \Cref{lem:intconserve} the $i$ that $p \eq \ist{i}$ will be \emph{unique}, thus being open is itself a proposition. Also, open propositions are evidently closed under finite conjunctions, since $\istsym$ preserves them. 
 
 More generally, we may define the notion of open subtypes:
 
@@ -630,7 +693,7 @@ More generally, we may define the notion of open subtypes:
 
 If $X$ is affine, open subtypes are easy to classify:
 
-\begin{lemma}[SQCI]\label{lem:openofaffinegivesalgebra}
+\begin{lemma}[\AxiomSQCI]\label{lem:openofaffinegivesalgebra}
   Let $X \cong \spec A$ be affine. Then any open subset of $X$ is of the form $D_a$ for some $a:A$.
 \end{lemma}
 % \Jon{I understand the notational convention here coming from affineness, but I wonder if we can think of a more evocative way to write this than $xa$.}
@@ -642,7 +705,7 @@ If $X$ is affine, open subtypes are easy to classify:
   and thus $U$ is the subtype $D_a$.
 \end{proof}
 
-\begin{proposition}[SQCI]\label{prop:Idominance}
+\begin{proposition}[\AxiomSQCI]\label{prop:Idominance}
   The type of opens $\I$ forms a dominance.
 \end{proposition}
 \begin{proof}
@@ -690,11 +753,11 @@ For synthetic domain theory, the object of particular importance is the partial 
 
 In other words, an element $(i,a) : L A$ is simply a pair $i : \I$ and $a : A$ that $a \le i$. This way, we can easily compute $L \I$:
 
-\begin{corollary}[SQCI]
+\begin{corollary}[\AxiomSQCI]
   $L \I \cong \Delta^2$.
 \end{corollary}
 \begin{proof}
-  By \Cref{prop:liftingofalgebra} and the assumption (SQCI),
+  By \Cref{prop:liftingofalgebra} and the assumption (\AxiomSQCI),
   \[ L\I \cong \sum_{i:\I}\I/i \cong \scomp{i,j : \I}{i \ge j} \cong \Delta^2\text{.} \]
   The second equivalence is again due to $\T$ being propositionally stable.
 \end{proof}
@@ -705,26 +768,26 @@ In other words, an element $(i,a) : L A$ is simply a pair $i : \I$ and $a : A$ t
 
 More generally, for domain theoretic applications we would want to compute the partial map classifier of $\Delta^2$, or $\Delta^n$ for any $n:\N$. For this purpose, we observe that we can more generally compute them for any spectra (not only affine spaces):
 
-\begin{proposition}[SQCI]\label{prop:liftofaffine}
+\begin{proposition}[\AxiomSQCI]\label{prop:liftofaffine}
   For an $\I$-algebra $A$, we have
   \[ L\spec A \cong \sum_{i:\I}\I\alg(A,\I/i)\text{.} \]
 \end{proposition}
 \begin{proof}
-  By (SQCI) and \Cref{lem:openpropaffine}, $\ist{i}$ is affine for any $i:\I$. By the duality result in \Cref{prop:duality}, we have
+  By (\AxiomSQCI) and \Cref{lem:openpropaffine}, $\ist{i}$ is affine for any $i:\I$. By the duality result in \Cref{prop:duality}, we have
   \[ L\spec A \cong \sum_{i:\I}(\spec A)^{\ist{i}}\cong \sum_{i:\I}\I\alg(A,\I/i). \qedhere \]
 \end{proof}
 
 % Thus, motivated by domain theory, we find ourselves naturally move towards the following axiomatisation:
 
-% \begin{axiom}[SQCF]
+% \begin{axiom}[\AxiomSQCF]
 %   All finitely generated free $\I$-algebras, i.e.\ $\I[n]$ for $n : \N$, are stably quasi-coherent.
 % \end{axiom}
 
-% Equivalently, (SQCF) says that any finitely presented $\I$-algebra is (stably) quasi-coherent, where an $\I$-algebra is finitely presented if it is merely of the form $\I[n]/s=t$ with $s,t \colon m \to \I[n]$ for some finite $n,m$.
+% Equivalently, (\AxiomSQCF) says that any finitely presented $\I$-algebra is (stably) quasi-coherent, where an $\I$-algebra is finitely presented if it is merely of the form $\I[n]/s=t$ with $s,t \colon m \to \I[n]$ for some finite $n,m$.
 
-% Of course, (SQCF) implies (SQCI) when taking $n$ to be 0. Furthermore, (SQCF) implies that the simplices $\Delta^n$ are now (stably) affine as well. This way, we can indeed compute their lifts:
+% Of course, (\AxiomSQCF) implies (\AxiomSQCI) when taking $n$ to be 0. Furthermore, (\AxiomSQCF) implies that the simplices $\Delta^n$ are now (stably) affine as well. This way, we can indeed compute their lifts:
 
-\begin{corollary}[SQCI]
+\begin{corollary}[\AxiomSQCI]
   For any $n : \N$, we have
   \[ L\Delta^n \cong \Delta^{n+1}\text{,} \]
   and the unit $\eta_L \colon \Delta^n \hook L\Delta^n \cong \Delta^{n+1}$ takes $i_1 \ge \cdots \ge i_n$ in $\Delta^n$ to $1 \ge i_1 \ge \cdots \ge i_n$ in $\Delta^{n+1}$. 
@@ -754,19 +817,19 @@ In this case, $\I$ has a minimal element $0$. Notice that the constant $0$ also 
 \[ \isfsym\colon \I \to \pp\text{,} \]
 which takes any $i : \I$ to $i = 0$. 
 
-\begin{corollary}[SQCI]
+\begin{corollary}[\AxiomSQCI]
   $\isfsym\colon \I \to \pp$ is an embedding.
 \end{corollary}
 
 We will now call propositions in the image of $\isfsym$ \emph{closed}, and a subtype classified by $\isfsym$ a \emph{closed subtype}. Analogously to the previous \Cref{prop:Idominance}, closed propositions also form a dominance:
 
-\begin{corollary}[SQCI]\label{cor:dualisdominance}
+\begin{corollary}[\AxiomSQCI]\label{cor:dualisdominance}
   $\isfsym$ forms a dominance.
 \end{corollary}
 
 There is an accompanying ``co-partial map classifier'' $T$ for partial maps with \emph{closed} domains, as \citet{hyland1990first} pointed out. Concretely, for any type $X$ it is defined by
 \[ T X \coloneq \sum_{i:\I} X^{\isf{i}}\text{.} \]
-And analogously to \Cref{prop:liftingofalgebra}, under (SQCI) we can explicitly compute 
+And analogously to \Cref{prop:liftingofalgebra}, under (\AxiomSQCI) we can explicitly compute 
 \[ T\Delta^n \cong \Delta^{n+1}\text{,} \]
 where now the unit $\eta_T \colon \Delta^n \hook T\Delta^n \cong \Delta^{n+1}$ takes a sequence $i_1 \ge \cdots \ge i_n$ to $i_1 \ge \cdots \ge i_n \ge 0$ in $\Delta^{n+1}$. 
 
@@ -776,50 +839,50 @@ The remaining part of this section will introduce various locality axioms for th
 
 As a start, a minimal requirement for synthetic domain theory to model divergent computation is for the dominance $\I$ to be closed under falsum. For this, we introduce the following minimal amount of non-triviality:
 
-\begin{axiom}[NT]\label{ax:nt}
-  We have $0 \neq 1$ in $\I$. Geometrically, the proposition $0 = 1$ can be identified with the spectrum $\spec\I/0=1$. Hence, (NT) states that the unique map $\emp \hook \spec\I/0=1$ is an equivalence.
-\end{axiom}
+\PrintAxiomNT
 
-This way, $\emp \eq \ist{0}$ now will be affine, and it is both an open and closed proposition. As mentioned in introduction, (NT) together with a strong enough quasi-coherence principle will imply all of Hyland's axioms for synthetic domain theory. Before we discuss that in \Cref{sec:infdomain}, a minimal amount of quasi-coherence provided by (SQCI) already implies a lot of elementary properties. As a first consequence of (NT) with (SQCI), we can show that $\I$ is almost the Boolean algebra $2$ in the following sense:
+Geometrically, the proposition $0 = 1$ can be identified with the spectrum $\spec\I/0=1$. Hence, (\AxiomNT) states that the unique map $\emp \hook \spec\I/0=1$ is an equivalence.
+ %
+This way, $\emp \eq \ist{0}$ now will be affine, and it is both an open and closed proposition. As mentioned in introduction, (\AxiomNT) together with a strong enough quasi-coherence principle will imply all of Hyland's axioms for synthetic domain theory. Before we discuss that in \Cref{sec:infdomain}, a minimal amount of quasi-coherence provided by (\AxiomSQCI) already implies a lot of elementary properties. As a first consequence of (\AxiomNT) with (\AxiomSQCI), we can show that $\I$ is almost the Boolean algebra $2$ in the following sense:
 
-\begin{proposition}[NT, SQCI]\label{prop:filed}
+\begin{proposition}[\AxiomNT, \AxiomSQCI]\label{prop:filed}
   For any $i : \I$ we have:
   \[ \neg \ist{i} \eq \isf{i}, \quad \neg\isf{i} \eq \ist{i}\text{.} \]
   In particular, the embedding $2 \hook \I$ induced by $0,1$ is $\neg\neg$-dense:
   \[ \fa i\I \dneg(\ist{i} \vee \isf{i})\text{.} \]
 \end{proposition}
 \begin{proof}
-  If $\isf{i}$ then $\neg\ist{i}$ by (NT). On the other hand, by the conservativity result in \Cref{lem:intconserve} and (NT), if $i \neq 1$ then $i = 0$ since $0 \neq 1$. The dual case also follows by symmetry. Now given $i :\I$, if $\neg(\ist{i} \vee \isf{i})$, which implies $\neg\ist{i} \vee \neg\isf{i}$, equivalently $\isf{i} \wedge \ist{i}$, contradictory to (NT). Hence, $\neg\neg(\ist{i} \wedge \isf{i})$.
+  If $\isf{i}$ then $\neg\ist{i}$ by (\AxiomNT). On the other hand, by the conservativity result in \Cref{lem:intconserve} and (\AxiomNT), if $i \neq 1$ then $i = 0$ since $0 \neq 1$. The dual case also follows by symmetry. Now given $i :\I$, if $\neg(\ist{i} \vee \isf{i})$, which implies $\neg\ist{i} \vee \neg\isf{i}$, equivalently $\isf{i} \wedge \ist{i}$, contradictory to (\AxiomNT). Hence, $\neg\neg(\ist{i} \wedge \isf{i})$.
 \end{proof}
 
 This allows us to observe that the open and closed propositions have a bijective correspondence between them:
 
-\begin{corollary}[NT, SQCI]\label{cor:opendnegclose}
+\begin{corollary}[\AxiomNT, \AxiomSQCI]\label{cor:opendnegclose}
   For any proposition $p$, $p$ is open iff $\neg p$ is closed and vice versa. Furthermore, open and closed propositions are $\dneg$-stable.
 \end{corollary}
 
-On the other hand, \Cref{sec:order-theoretic-structure} will show that under the axiom (NT), quasi-coherence implies the interval $\I$ will \emph{never} be isomorphic to $2$. 
+On the other hand, \Cref{sec:order-theoretic-structure} will show that under the axiom (\AxiomNT), quasi-coherence implies the interval $\I$ will \emph{never} be isomorphic to $2$. 
 
 \subsection{Locality}
 
 A slightly stronger axiom which is common in the practice of domain theory is that the dominance $\I$ should furthermore be closed under all finite disjunctions. For this, we consider the following axiom:
 
-\begin{axiom}[L]\label{ax:L}
-  $\I$ is local, i.e.\ $0 \neq 1$, and $\ist{i\vee j} \eq \ist{i} \vee \ist{j}$ for $i,j : \I$. Geometrically, the second condition states that the following two inclusions are jointly surjective. 
+\PrintAxiomL
+
+Geometrically, the second condition states that the following two inclusions are jointly surjective. 
   \[ 
   \begin{tikzcd}
     \I \ar[r, hook, "{i \mapsto (i,1)}"] & \scomp{i,j : \I}{\ist{i\vee j}} & \I \ar[l, hook', "{j \mapsto (1,j)}"']
   \end{tikzcd}
   \]
-\end{axiom}
 
-Under (L), the dominance $\I$ will be closed under finite disjunctions. Furthermore, it also implies more elementary properties about $\I$:
+Under (\AxiomL), the dominance $\I$ will be closed under finite disjunctions. Furthermore, it also implies more elementary properties about $\I$:
 
-\begin{lemma}[L, SQCI]\label{lem:intisnotBoolean}
+\begin{lemma}[L, \AxiomSQCI]\label{lem:intisnotBoolean}
   $\I$ has no non-trivial complemented elements, i.e.\ if $i : \I$ is complemented, then $\ist{i} \vee \isf{i}$. 
 \end{lemma}
 \begin{proof}
-  Suppose $i$ has a complement $j$. Then by (L) we have
+  Suppose $i$ has a complement $j$. Then by (\AxiomL) we have
   \[ 1 \eq \ist{i\vee j} \eq \ist{i} \vee \ist{j}\text{,} \]
   and similarly,
   \[ \emp \eq \ist{i\wedge j} \eq \ist{i} \wedge \ist{j}\text{.} \]
@@ -829,12 +892,12 @@ Under (L), the dominance $\I$ will be closed under finite disjunctions. Furtherm
 \Cref{lem:intisnotBoolean} above allows us to realise 2 as a \emph{spectrum}:
 
 \begin{example}\label{exm:2isaffine}
-  Consider the algebra $B \coloneq \I[\ms{i},\ms{j}]/{\ms{i}\wedge \ms{j} =0,\ms{i}\vee \ms{j} = 1}$. By construction, $B$ classifies complemented elements in $\I$-algebras. Thus, assuming (L) and (SQCI), by \Cref{lem:intisnotBoolean}
+  Consider the algebra $B \coloneq \I[\ms{i},\ms{j}]/{\ms{i}\wedge \ms{j} =0,\ms{i}\vee \ms{j} = 1}$. By construction, $B$ classifies complemented elements in $\I$-algebras. Thus, assuming (\AxiomL) and (\AxiomSQCI), by \Cref{lem:intisnotBoolean}
   \[ \spec B \cong \scomp{i,j : \I}{i \wedge j = 0 \wedge i \vee j = 1} \cong 2\text{.} \]
   In particular, this means that for any affine space $X \cong \spec A$, $2^X$ will be equivalent to the set of complemented elements in $A$ by \Cref{prop:duality}.
 \end{example}
 
-As another example of a new spectrum (L) allows us to define:
+As another example of a new spectrum (\AxiomL) allows us to define:
 
 \begin{example}\label{exm:hornaffine}
   Consider the right outer horn $\Lambda^2_2$, which we may describe by the following pushout:
@@ -847,36 +910,33 @@ As another example of a new spectrum (L) allows us to define:
   \]
   By viewing $\Lambda^2_2$ as a subspace of $\I^2$, we may identify it as follows:
   \[ \Lambda^2_2 \cong \scomp{(i,j) : \I^2}{\ist{i} \vee \ist{j}}\text{.} \]
-  Assuming (L), $\ist{i} \vee \ist{j} \eq \ist{i\vee j}$, it follows that 
+  Assuming (\AxiomL), $\ist{i} \vee \ist{j} \eq \ist{i\vee j}$, it follows that 
   \[ \Lambda^2_2 \cong \spec \I[\ms{i},\ms{j}]/\ms{i} \vee \ms{j}\text{.} \]
 \end{example}
 
-Axiom (L) clearly has a dual counterpart:
+Axiom (\AxiomL) clearly has a dual counterpart:
 
-\begin{axiom}[cL]\label{ax:cL}
-  $\I$ is colocal, i.e.\ $0 \neq 1$ and $\isf{i\wedge j} \eq \isf{i} \vee \isf{j}$ for all $i,j : \I$.
-\end{axiom}
 
-Similarly to \Cref{exm:hornaffine}, this allows one to identify the left outer horn $\Lambda^2_0$ as a spectrum. Of course we can combine the axioms (L) and (cL). 
+\PrintAxiomCL
 
-\subsection{Linearity and coskeletality}
+Similarly to \Cref{exm:hornaffine}, this allows one to identify the left outer horn $\Lambda^2_0$ as a spectrum. Of course we can combine the axioms (\AxiomL) and (\AxiomCL). 
 
-An axiom even stronger than both (L) and (cL) is the simplicial axiom:
+\subsection{Linearity and coskeletality}\label{sec:linearity-and-coskeletality}
 
-\begin{axiom}[SL]\label{ax:SL}
-  $\I$ is a \emph{strict linear order}, i.e.\ $0 \neq 1$ and for $i,j : \I$, $i \le j \vee j \le i$. Geometrically, the simplicial axiom states that the two simplices $\Delta^2,\Delta_2$ covers the square $\Delta^2 \cup \Delta_2 \cong \I^2$.
-\end{axiom}
+An axiom even stronger than both (\AxiomL) and (\AxiomCL) is the simplicial axiom (\AxiomSL):
 
+\PrintAxiomSL
+
+Geometrically, the simplicial axiom states that the two simplices $\Delta^2,\Delta_2$ covers the square $\Delta^2 \cup \Delta_2 \cong \I^2$.
 The strongest locality axiom states that the simplicial structure is truncated to level 1:
 
-\begin{axiom}[1CS]\label{ax:1cS}
-  $\I$ is \emph{1-coskeletal}, i.e.\ (SL) holds and for $i,j : \I$, 
-  \[ i \le j \eq \isf{i} \vee (i = j)\vee \ist{j}\text{.} \]
-  Geometrically, (1cS) additionally requires the canonical inclusion $\partial\Delta_2 \hook \Delta_2$ from the boundary $\partial\Delta_2$ to the 2-simplex $\Delta_2$ is an equivalence, where $\partial\Delta_2$ type-theoretically is simply
-  \[ \partial\Delta_2 \coloneq \scomp{i,j : \I}{\isf{i} \vee (i = j) \vee \ist{i}}\text{.} \]
-\end{axiom}
 
-In general we will at most work with the weakest locality axiom (NT). However, we will show in \Cref{sec:local} that $\I$, hence all quasi-coherent algebras and spectra, will be \emph{right orthogonal} to the maps that define these local principles as shown above. We will see in \Cref{sec:model} that these axioms corresponds to various coverages we can put on the presheaf classifying topos, and the orthogonality result particularly implies that $\I$ will belong to these subtopoi.
+\PrintAxiomOneCS
+
+Geometrically, (\AxiomOneCS) additionally requires the canonical inclusion $\partial\Delta_2 \hook \Delta_2$ from the boundary $\partial\Delta_2$ to the 2-simplex $\Delta_2$ is an equivalence, where $\partial\Delta_2$ type-theoretically is simply
+\[ \partial\Delta_2 \coloneq \scomp{i,j : \I}{\isf{i} \vee (i = j) \vee \ist{i}}\text{.} \]
+
+In general we will at most work with the weakest locality axiom (\AxiomNT). However, we will show in \Cref{sec:local} that $\I$, hence all quasi-coherent algebras and spectra, will be \emph{right orthogonal} to the maps that define these local principles as shown above. We will see in \Cref{sec:model} that these axioms corresponds to various coverages we can put on the presheaf classifying topos, and the orthogonality result particularly implies that $\I$ will belong to these subtopoi.
 
 
 \section{Order-theoretic structure on algebras and spaces}\label{sec:order-theoretic-structure}
@@ -982,7 +1042,7 @@ By definition, the observational preorder is reflexive and transitive. As alread
 We can very easily classify the observational preorder on a set with decidable equality.
 %% JMS: Removed "classical set", because maybe it could be argued that classical sets should also be projective?
 
-\begin{lemma}[NT]\label{lem:obs-preord-on-set-with-decidable-equality}
+\begin{lemma}[\AxiomNT]\label{lem:obs-preord-on-set-with-decidable-equality}
   If $M$ has decidable equality, then the observational preorder on $M$ is discrete, in the sense that for $n,m : M$,
   \[ n \obsle[M] m \to n = m\text{.} \]
 \end{lemma}
@@ -994,7 +1054,7 @@ We can very easily classify the observational preorder on a set with decidable e
 \end{proof}
 
 
-\begin{corollary}[NT]\label{cor:connectedpreservediscrete}
+\begin{corollary}[\AxiomNT]\label{cor:connectedpreservediscrete}
   If the observational preorder on $X$ has a least or greatest element, then $X$ is \emph{internally connected} in the sense that $X$ is right orthogonal to $M \to 1$ for any set $M$ with decidable equality.
 \end{corollary}
 \begin{proof}
@@ -1201,17 +1261,15 @@ The standard Phoa principle is the generalised Phoa principle for $\I$ itself.
 \end{proof}
 
 
-We therefore identify the axiom (SQCP) below accordingly, which we have seen to be equivalent to Phoa's principle.
+We therefore identify the axiom (\AxiomSQCP) below accordingly, which we have seen to be equivalent to Phoa's principle.
 
-\begin{axiom}[SQCP]
-  The polynomial $\I$-algebra algebra $\I[\ms{i}]$ is quasi-coherent.
-\end{axiom}
+\PrintAxiomSQCP
 
 
 The quasi-coherence axiom for polynomials in one variable is surprisingly strong:
 
 %% I think what follows is fine, but I haven't used it.
-% \begin{lemma}[SQCP]
+% \begin{lemma}[\AxiomSQCP]
 %   For any type $K$, the path space $(\I^K)^\I$ classifies the canonical order on $\I^K$.
 % \end{lemma}
 % \begin{proof}
@@ -1225,10 +1283,10 @@ The quasi-coherence axiom for polynomials in one variable is surprisingly strong
 %     \cong f\le_{\I^K} g
 %   \] 
 
-%   The first equivalence is immediate; the second equivalence follows from is Phoa's principle (SQCP), which characterises paths in $\I$ itself. The final equivalence is definitional.
+%   The first equivalence is immediate; the second equivalence follows from is Phoa's principle (\AxiomSQCP), which characterises paths in $\I$ itself. The final equivalence is definitional.
 % \end{proof}
 
-\begin{lemma}[SQCP]\label{lem:fg-qc}
+\begin{lemma}[\AxiomSQCP]\label{lem:fg-qc}
   Every finitely generated free $\I$-algebra is quasi-coherent.
 \end{lemma}
 
@@ -1237,7 +1295,7 @@ The quasi-coherence axiom for polynomials in one variable is surprisingly strong
 \end{proof}
 
 
-\begin{theorem}[SQCP]\label{thm:phoa-spectrum}
+\begin{theorem}[\AxiomSQCP]\label{thm:phoa-spectrum}
   For any $\I$-algebra $A$, the path space ${(\spec A)}^\I$ classifies the satisfaction order on $\spec A$.
 \end{theorem}
 \begin{proof}
@@ -1251,7 +1309,7 @@ The quasi-coherence axiom for polynomials in one variable is surprisingly strong
 \end{proof}
 
 
-\begin{theorem}[SQCP]\label{thm:algebraphoa}
+\begin{theorem}[\AxiomSQCP]\label{thm:algebraphoa}
   If both $A$ and $A[\ms{i}]$ are quasi-coherent $\I$-algebras, then the path space $A^\I$ classifies the canonical order on $A$.
 \end{theorem}
 \begin{proof}
@@ -1264,15 +1322,15 @@ The quasi-coherence axiom for polynomials in one variable is surprisingly strong
   We emphasise that the above proofs are purely the consequences of the algebraic fact that $A[\ms{i}]$ classifies the canonical order of any $\I$-algebra $A$, plus quasi-coherence. This is a perfect example of how an algebraic property of a theory has a non-trivial effect on the internal logic of its classifying topos.
 \end{remark}
 
-\begin{corollary}[SQCP]\label{lem:cubes-are-affine}
+\begin{corollary}[\AxiomSQCP]\label{lem:cubes-are-affine}
   Each cube $\I^n$ is affine.
 \end{corollary}
 \begin{proof}
   The $n$-cube $\I^n$ is the spectrum of the free $\I$-algebra $\I[n]$, which is quasi-coherent by \Cref{lem:fg-qc}.
 \end{proof}
 
-\begin{corollary}[NT, SQCP]\label{cor:cubes-internally-connected}
-  The $n$-cube $\I^n$ and the $n$-simplex $\Delta^n$ are internally connected.
+\begin{corollary}[\AxiomNT, \AxiomSQCP]\label{cor:cubes-internally-connected}
+  The $n$-cube $\I^n$ is internally connected.
 \end{corollary}
 
 In particular, $\I$ is not the boolean set $2$.
@@ -1285,7 +1343,7 @@ In particular, $\I$ is not the boolean set $2$.
 
 An immediate application of Phoa principle is to compare path structure with the observational preorder.
 
-\begin{observation}[SQCP]
+\begin{observation}[\AxiomSQCP]
   For any type $X$, the boundary evaluation map $\pair{\ev_0,\ev_1}\colon X^\I\to X\times X$ factors through the observational preorder relation ${\obsle[X]}\hook X\times X$ as displayed below:
   \[ 
     \begin{tikzcd}
@@ -1309,7 +1367,7 @@ An immediate application of Phoa principle is to compare path structure with the
   A type $X$ for which $X^\I\to {\obsle[X]}$ is an surjection is called \emph{linked} (following \citet{PhoaWesleyKym-Son1991DtiR}); when the map is an equivalence, $X$ is called \emph{strongly linked}.
 \end{definition}
 
-\begin{lemma}[SQCP]\label{lem:affine-strongly-linked}
+\begin{lemma}[\AxiomSQCP]\label{lem:affine-strongly-linked}
   Any affine space is strongly linked.
 \end{lemma}
 
@@ -1318,12 +1376,12 @@ An immediate application of Phoa principle is to compare path structure with the
   By \Cref{thm:phoa-spectrum}, the path space $X^\I$ classifies the satisfaction order on $\spec{A}$, which is to say that there is a (necessarily unique) path from $x$ to $y$ if and only if \[\fa{a}{A} x(a)\le_\I y(a)\text{.}\] Because $A$ is quasi-coherent, we have $A\cong \opens X$ and there is a unique path from $x$ to $y$ if and only if \[\fa{U}{\opens{X}} U(x)\le_\I U(y)\text{,}\] but this is the observational order of $X$.
 \end{proof}
 
-\begin{lemma}[SQCP]\label{lem:int-strong-link}
+\begin{lemma}[\AxiomSQCP]\label{lem:int-strong-link}
   The interval is strongly linked.
 \end{lemma}
 
 \begin{proof}
-  The interval is affine because it is the spectrum of $\I[\ms{i}]$, which is quasi-coherent by (SQCP).
+  The interval is affine because it is the spectrum of $\I[\ms{i}]$, which is quasi-coherent by (\AxiomSQCP).
 \end{proof}
 
 \begin{lemma}\label{lem:strong-link-exp-ideal}
@@ -1335,7 +1393,7 @@ An immediate application of Phoa principle is to compare path structure with the
 \end{proof}
 
 % \Jon{This is stronger than what was claimed before (which required quasicoherence of both $A$ and $A[i]$), but it appears to be true.}
-\begin{lemma}[SQCP]\label{lem:O-strongly-linked}
+\begin{lemma}[\AxiomSQCP]\label{lem:O-strongly-linked}
   Any algebra of observations is strongly linked.
 \end{lemma}
 
@@ -1352,7 +1410,7 @@ An immediate application of Phoa principle is to compare path structure with the
   Let $Y$ be strongly linked; by \cref{lem:strong-link-exp-ideal}, so is $Y^X$. Thus $\obsle[Y^X]$ is precisely $(Y^X)^\I\cong (Y^\I)^X\cong (\obsle[Y])^X$.
 \end{proof}
 
-\begin{proposition}[SQCP]\label{prop:specordopens}
+\begin{proposition}[\AxiomSQCP]\label{prop:specordopens}
   On any observation algebra $\opens{X}$, the observational preorder coincides with the canonical order.
 \end{proposition}
 
@@ -1370,7 +1428,7 @@ An immediate application of Phoa principle is to compare path structure with the
 % 
 \end{proof}
 
-\begin{proposition}[SQCP]\label{cor:specordonalgiscan}
+\begin{proposition}[\AxiomSQCP]\label{cor:specordonalgiscan}
   For a quasi-coherent $\I$-algebra $A$, the observational preorder on the underlying set of $A$ is induced by the canonical order on $\opens\spec{A}$ by the counit isomorphism $\iota_A\colon A\to \opens\spec{A}$. Hence the observational order and canonical order of $A$ coincide.
 \end{proposition}
 
@@ -1378,7 +1436,7 @@ An immediate application of Phoa principle is to compare path structure with the
   Because $A$ is quasi-coherent, the counit component $\iota_A$ gives us an order-isomorphism ${(A,\le_A)}\to (\opens\spec{A},\le_{\opens\spec{A}})$. By \Cref{prop:specordopens}, this is an equivalently an order-isomorphism ${(A,\le_A)}\to {(\opens\spec{A},\obsle[\opens\spec{A}])}$. Meanwhile, any bijective function tracks an isomorphism of observational preorders, so the inverse function $\iota_A^{-1}\colon \opens\spec{A}\to A$ tracks an order-isomorphism  ${(\opens\spec{A},\obsle[\opens\spec{A}])}\to {(A,\obsle[A])}$. 
 \end{proof}
 
-\begin{corollary}[SQCP]
+\begin{corollary}[\AxiomSQCP]
   The canonical partial order, observational preorder, and behavioural preorder of a quasi-coherent $\I$-algebra all coincide.
 \end{corollary}
 
@@ -1389,16 +1447,14 @@ An immediate application of Phoa principle is to compare path structure with the
 
 \subsection{Quasi-coherence for finitely presented algebras}
 
-The (SQCP) axiom does not imply that the simplices $\Delta^n$ are affine; for this, we need a stronger quasi-coherence principle that applies to all finitely \emph{presented} algebras.
+The (\AxiomSQCP) axiom does not imply that the simplices $\Delta^n$ are affine; for this, we need a stronger quasi-coherence principle that applies to all finitely \emph{presented} algebras.
 
 
-\begin{axiom}[SQCF]
-  All finitely presented $\I$-algebras are quasi-coherent, or (equivalently) all finitely generated free $\I$-algebras are \emph{stably} quasi-coherent.
-\end{axiom}
+\PrintAxiomSQCF
 
-It is immediate that $\Delta^n\cong \spec\I[\ms{i}_1,\cdots,\ms{i}_n]/\ms{i}_1\geq \cdots \ms{i}_n$ is affine under (SQCF).
+It is immediate that $\Delta^n\cong \spec\I[\ms{i}_1,\cdots,\ms{i}_n]/\ms{i}_1\geq \cdots \ms{i}_n$ is affine under (\AxiomSQCF).
 
-\begin{corollary}[SQCF]
+\begin{corollary}[\AxiomSQCF]
   Each $n$-simplex $\Delta^n$ is internally connected.
 \end{corollary}
 
@@ -1427,7 +1483,7 @@ We omit the proof here, which again follows from a general normal form for polyn
 
 \section{Chain completeness}\label{sec:infdomain}
 
-Until this point, we have seen that elementary axioms for synthetic domain theory follow from (SQCF) for bounded distributive lattices and thus $\sigma$-frames. In this section we show that the final axiom of synthetic domain theory, viz.\ chain completeness of the interval $\I$, is also a consequence of quasi-coherence for $\sigma$-frames. In fact, it implies the main infinitary axiom of synthetic domain theory in~\citet{fiore-plotkin:1996}--the initial algebra $\omega$ for $L$ is inductive.
+Until this point, we have seen that elementary axioms for synthetic domain theory follow from (SQCF) for bounded distributive lattices and thus $\sigma$-frames. In this section we show that the final axiom of synthetic domain theory, viz.\ chain completeness of the interval $\I$, is also a consequence of quasi-coherence for $\sigma$-frames. In fact, it implies the main infinitary axiom of synthetic domain theory in~\citet{fiore-plotkin:1996}---the initial algebra $\omega$ for $L$ is inductive.
 % \Jon{We can mention here that this will also imply the actual main infinitary axiom of SDT in the hands of Fiore and Plotkin—that the initial lifting algebra is inductive.} 
 The proof of these facts in \Cref{thm:complete} is the only place we have used the essential properties of $\sigma$-frames, and we will also indicate why that fails for bounded distributive lattices in \Cref{rem:whynotdis}.
 
@@ -1458,26 +1514,25 @@ The connection between the infinitary aspect of synthetic domain theory and quas
 
 In general, by a countably presented $\I$-algebra we mean one of the form $\I[\N]/\pair{s_n = t_n}_{n:\N}$ for some $\N$-indexed lists of terms $s,t \colon \N \to \I[\N]$. In particular, all finitely presented $\I$-algebras will also be countably presented. Motivated by the above characterisation of $\ov\omega$, we naturally consider the following stronger quasi-coherence principle:
 
-\begin{axiom}[SQCC]
-  All countably presented $\I$-algebras are quasi-coherent.
-\end{axiom}
+
+\PrintAxiomSQCC
 
 \begin{remark}
-  Our modular development in the previous sections can be now immediately applied to $\ov\omega$ if we assume (SQCC). For instance, the description of the observational preorder for affine spaces in \Cref{lem:specorderofaffine} now applies to $\ov\omega$, which shows this again coincides with its pointwise order as a subspace of $\I^\N$. In particular, it also has both a top and bottom element, thus \Cref{cor:connectedpreservediscrete} now implies $\ov\omega$ is also internally connected. 
+  Our modular development in the previous sections can be now immediately applied to $\ov\omega$ if we assume (\AxiomSQCC). For instance, the description of the observational preorder for affine spaces in \Cref{lem:specorderofaffine} now applies to $\ov\omega$, which shows this again coincides with its pointwise order as a subspace of $\I^\N$. In particular, it also has both a top and bottom element, thus \Cref{cor:connectedpreservediscrete} now implies $\ov\omega$ is also internally connected. 
 \end{remark}
 
-(SQCC) combined with the non-triviality axiom (NT) has many logical consequences. The crucial observation is that (NT) implies a weak form of \emph{Nullstellensatz} result, as already noted by several authors~\citep{blechschmidt2021using,blechschmidt2020general,Cherubini_Coquand_Hutzler_2024}:
+(\AxiomSQCC) combined with the non-triviality axiom (\AxiomNT) has many logical consequences. The crucial observation is that (\AxiomNT) implies a weak form of \emph{Nullstellensatz} result, as already noted by several authors~\citep{blechschmidt2021using,blechschmidt2020general,Cherubini_Coquand_Hutzler_2024}:
 
-\begin{lemma}[NT]\label{lem:nulls}
+\begin{lemma}[\AxiomNT]\label{lem:nulls}
   For an affine space $X \cong \spec A$, $X \cong \emp$ iff $A$ is trivial, viz.\ $0=1$ in $A$.
 \end{lemma}
 \begin{proof}
-  The backward direction holds since because $\I$ is non-trivial (NT), thus there is no homomorphism from a trivial algebra to $\I$. For the forward direction: by assumption $A \cong \I^{\spec A} \cong \I^\emp$, which implies $A$ is trivial. 
+  The backward direction holds since because $\I$ is non-trivial (\AxiomNT), thus there is no homomorphism from a trivial algebra to $\I$. For the forward direction: by assumption $A \cong \I^{\spec A} \cong \I^\emp$, which implies $A$ is trivial. 
 \end{proof}
 
-Together with (SQCC), this implies the following form of Markov's principle; a similar result is shown by \citet{cherubini2024foundation}:
+Together with (\AxiomSQCC), this implies the following form of Markov's principle; a similar result is shown by \citet{cherubini2024foundation}:
 
-\begin{lemma}[NT, SQCC]\label{lem:markov}
+\begin{lemma}[\AxiomNT, \AxiomSQCC]\label{lem:markov}
   For any $i : \ov\omega$, we have
   \[ \neg\fa{n}{\N}\ist{i_n} \to \ex n\N\isf{i_n}\text{.} \]
 \end{lemma}
@@ -1491,7 +1546,7 @@ Equipped with the above result, we can now proceed to study the initial algebra 
 \[ \omega \coloneq \scomp{i : \ov\omega}{\fa\phi{\pp} (\fa n{\N} (\ist{i_n} \to \phi) \to \phi) \to \phi}\text{.} \]
 For another proof, see e.g.\ that of \citet{VANOOSTEN2000233}. In the presence of \Cref{lem:markov}, this description can be greatly simplified:
 
-\begin{proposition}[NT, SQCC]\label{prop:omegacolimit}
+\begin{proposition}[\AxiomNT, \AxiomSQCC]\label{prop:omegacolimit}
   $\omega$ is equivalent to the following subset of $\ov\omega$,
   \[ \omega \cong \scomp{i : \ov\omega}{\ex n{\N} \isf{i_n}}\text{.} \]
   In particular, $\omega$ is the colimit of the following sequence:
@@ -1547,7 +1602,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 
 % \Jon{The little phrases like ``by working with $\sigma$-frames'' are making me slightly queasy. Can we express this more precisely? For example, we are not only assuming that $\I$ is a $\sigma$-frame, but we are specialising precisely which category of algebras we are computing a limit in.}
 
-\begin{theorem}[NT, SQCC]\label{thm:complete}
+\begin{theorem}[\AxiomNT, \AxiomSQCC]\label{thm:complete}
   $\I$ is right orthogonal to the inclusion $\omega\hook\ov\omega$.
 \end{theorem}
 \begin{proof}
@@ -1596,7 +1651,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
   As indicated in \Cref{rem:qcreplete,rem:specarereplete}, both spectra and quasi-coherent $\I$-algebras are replete. The above result then implies that they are also chain complete, i.e.\ orthogonal to $\omega\hook\ov\omega$.
 \end{remark}
 
-\begin{corollary}[NT, SQCC]
+\begin{corollary}[\AxiomNT, \AxiomSQCC]
   $\I^{\ov\omega} \cong \I^\omega \cong \Delta_\infty$. In particular, $\omega$ is not affine.
 \end{corollary}
 \begin{proof}
@@ -1624,9 +1679,9 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 In this section we review some of the locality axioms we have introduced in \Cref{sec:locality}. As mentioned in the introduction, the observation is that even if we do not assume them to be true globally for the interval $\I$, we can still show the maps representing the locality axiom to be \emph{left orthogonal} to $\I$.  
 Unlike chain completeness in \Cref{thm:complete}, the local conditions in \Cref{sec:locality} are all induced by limits of \emph{f.p.} $\I$-algebras. Thus in this section, it does not matter whether we work with bounded distributive lattices or $\sigma$-frames.
 
-Starting from the simplest example, let us recall the local property (NT). In general it is \emph{not} necessarily $\emp$, if we do not assume (NT). However, we can look at the localisation class that thinks this map is invertible. The following fact shows that, from the perspective of $\I$, (NT) indeed holds:
+Starting from the simplest example, let us recall the local property (\AxiomNT). In general it is \emph{not} necessarily $\emp$, if we do not assume (\AxiomNT). However, we can look at the localisation class that thinks this map is invertible. The following fact shows that, from the perspective of $\I$, (\AxiomNT) indeed holds:
 
-\begin{proposition}[SQCI]\label{specisnontrivial}
+\begin{proposition}[\AxiomSQCI]\label{specisnontrivial}
   $\I$ is right orthogonal to $\emp \hook (0 = 1)$.
 \end{proposition}
 \begin{proof}
@@ -1641,17 +1696,16 @@ Starting from the simplest example, let us recall the local property (NT). In ge
   \]
   The last isomorphism is due to $\I/0=1$ being the terminal $\I$-algebra, since its underlying set is the singleton.
 \end{proof}
-% \Jon{TODO: put a proof somewhere that $\I/0=1$ is the terminal $\I$-algebra. I think I glimpse how to prove this using SQFC, but I did not see how to do so using only SQCI.}
 
-As another example, consider the simplicial axiom (SL). We skip the discussion of (L) and (cL), because (SL) is strictly stronger, and it has a better-known geometric meaning. Recall from \Cref{ax:SL} that (SL) can be represented geometrically as an embedding $\Delta^2\cup\Delta_2 \hook \I^2$.
+As another example, consider the simplicial axiom (\AxiomSL). We skip the discussion of (\AxiomL) and (\AxiomCL), because (\AxiomSL) is strictly stronger, and it has a better-known geometric meaning. Recall from \Cref{sec:linearity-and-coskeletality} that (\AxiomSL) can be represented geometrically as an embedding $\Delta^2\cup\Delta_2 \hook \I^2$.
 
 \begin{definition}[Simplicial type]
   A type $X$ is said to be \emph{simplicial} when it is right orthogonal to the inclusion $\Delta^2 \cup \Delta_2 \hook \I^2$.
 \end{definition}
 
-Again, (SL) holds globally iff the above embedding is an equivalence, thus every type in this case will be simplicial. When it does not hold globally, we can still show:
+Again, (\AxiomSL) holds globally iff the above embedding is an equivalence, thus every type in this case will be simplicial. When it does not hold globally, we can still show:
 
-\begin{proposition}[SQCF]\label{specissimplicial}
+\begin{proposition}[\AxiomSQCF]\label{specissimplicial}
   $\I$ is simplicial.
 \end{proposition}
 \begin{proof}
@@ -1661,7 +1715,7 @@ Again, (SL) holds globally iff the above embedding is an equivalence, thus every
     \Delta_2 \ar[urr, "g"{description, near start}] \ar[r] & \I^2 \ar[ur, dashed, "h"']
     \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
   \end{tikzcd}\]
-  Now by (SQCF), since the vertices of the left square are all affine, equivalently it suffices to show we have a pullback of $\I$-algebras,
+  Now by (\AxiomSQCF), since the vertices of the left square are all affine, equivalently it suffices to show we have a pullback of $\I$-algebras,
   \[\begin{tikzcd}
     {\I[\ms{i},\ms{j}]} \ar[r] \ar[d] & {\I[\ms{i},\ms{j}]/\ms{i} \ge \ms{j}} \ar[d, "{\ms{i},\ms{j} \mapsto\ms{k}}"] \\
     {\I[\ms{i},\ms{j}]/\ms{i} \le \ms{j}} \ar[r, "{\ms{i},\ms{j}\mapsto\ms{k}}"'] & {\I[\ms{k}]}
@@ -1681,14 +1735,14 @@ Again, (SL) holds globally iff the above embedding is an equivalence, thus every
 
 
 
-Finally, we discuss the even stronger locality condition (1cS). As mentioned in \Cref{ax:1cS}, the additional property of (1cS) is characterised by the embedding $\partial\Delta_2 \hook \Delta_2$.
+Finally, we discuss the even stronger locality condition (\AxiomOneCS). As mentioned in \Cref{sec:linearity-and-coskeletality}, the additional property of (\AxiomOneCS) is characterised by the embedding $\partial\Delta_2 \hook \Delta_2$.
 
 \begin{definition}[1-coskeletal type]
   % \Jon{I think this terminology is too confusing in the context of intensional type theory, where there is an existing orthogonal notion of $n$-truncatedness. Can we find a new term? (Also need to update the earlier reference to this condition.)}
   A type $X$ is said to be \emph{1-coskeletal} when it is both simplicial and right orthogonal to the boundary inclusion $\partial\Delta_2 \hook \Delta_2$.
 \end{definition}
 
-\begin{proposition}[SQCF]\label{specis1t}
+\begin{proposition}[\AxiomSQCF]\label{specis1t}
   $\I$ is 1-coskeletal.
 \end{proposition}
 \begin{proof}
@@ -1735,7 +1789,7 @@ As a subtype of $\Delta_2$, it can be identified as $\scomp{(i,j) : \Delta_2}{\i
   The Segal completeness condition has also been studied independently by \citet{fiore2001domains} under the name of \emph{path transitivity}.
 \end{remark}
 
-\begin{proposition}[SQCF]
+\begin{proposition}[\AxiomSQCF]
   $\I$ is Segal complete.
 \end{proposition}
 \begin{proof}
@@ -1770,7 +1824,7 @@ Next we consider the Rezk completeness condition. Following \citet{buchholtz2021
   We say that a type $X$ is \emph{Rezk complete} when it is right orthogonal to $\mbb E \to 1$.
 \end{definition}
 
-\begin{proposition}[SQCP]
+\begin{proposition}[\AxiomSQCP]
   $\I$ is Rezk complete.
 \end{proposition}
 \begin{proof}
@@ -1790,7 +1844,7 @@ In fact, $\I$ is not only a synthetic category but in fact a synthetic \emph{pos
   $X$ is called \emph{$\I$-separated} when it is right orthogonal to $\I_{\rightrightarrows} \to \I$.
 \end{definition}
 
-Equivalently, $X$ is $\I$-separated iff $X^\I \to X \times X$ is an embedding. It is an immediate consequence of (SQCP) that $\I$ is $\I$-separated.
+Equivalently, $X$ is $\I$-separated iff $X^\I \to X \times X$ is an embedding. It is an immediate consequence of (\AxiomSQCP) that $\I$ is $\I$-separated.
 
 The notion of synthetic categories and synthetic posets are formulated as these orthogonality classes:
 
@@ -1798,7 +1852,7 @@ The notion of synthetic categories and synthetic posets are formulated as these 
   A type $X$ is a \emph{synthetic category}, if it is Segal and Rezk complete. We say it is a \emph{synthetic poset}, if it is also $\I$-separated.
 \end{definition}
 
-\begin{theorem}[SQCF]\label{thm:affineposet}
+\begin{theorem}[\AxiomSQCF]\label{thm:affineposet}
   Any spectrum or quasi-coherent $\I$-algebra will be a synthetic poset.
 \end{theorem}
 \begin{proof}
@@ -1807,23 +1861,23 @@ The notion of synthetic categories and synthetic posets are formulated as these 
 
 At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We first observe that its observational preorder again coincides with its expected pointwise order viewed as a subspace of $\I^\N$:
 
-\begin{lemma}[NT, SQCC]\label{speconomegaiscan}
+\begin{lemma}[\AxiomNT, \AxiomSQCC]\label{speconomegaiscan}
   The inclusion $\omega \hook \ov\omega$ is an order embedding for the observational preorder. In particular, the observational preorder on $\omega$ is induced pointwise as a subspace of $\ov\omega\hookrightarrow \I^\N$.
 \end{lemma}
 \begin{proof}
-  The fact that $\omega\hook\ov\omega$ is an order embedding for the observational preorder follows from chain completeness of $\I$ in \Cref{thm:complete}. The fact that the observational preorder on $\ov\omega$ coincides with its satisfaction order as a spectrum follows from \Cref{lem:specorderofaffine} by the fact that it is affine under (SQCC).
+  The fact that $\omega\hook\ov\omega$ is an order embedding for the observational preorder follows from chain completeness of $\I$ in \Cref{thm:complete}. The fact that the observational preorder on $\ov\omega$ coincides with its satisfaction order as a spectrum follows from \Cref{lem:specorderofaffine} by the fact that it is affine under (\AxiomSQCC).
 \end{proof}
 
 Furthermore, we can show that $\omega$ also satisfies a version of the Phoa principle, i.e.\ the function space $\omega^\I$ again classifies its pointwise order. For this we need to compute the function space $\omega^\I$.
 % \Jon{Stale reference to generalised Phoa principle.}
 
-Recall from \Cref{prop:omegacolimit} that, under (NT) and (SQCC), $\omega$ is a colimit $\omega \cong \ct_{n:\N}\Delta^n$. As indicated in \Cref{rem:omegaalwayscolim}, this does not depend on working with bounded distributive lattices or $\sigma$-frames. Type-theoretically, we have also shown that $\omega$ can be realised as the following subspace of $\ov\omega$,
+Recall from \Cref{prop:omegacolimit} that, under (\AxiomNT) and (\AxiomSQCC), $\omega$ is a colimit $\omega \cong \ct_{n:\N}\Delta^n$. As indicated in \Cref{rem:omegaalwayscolim}, this does not depend on working with bounded distributive lattices or $\sigma$-frames. Type-theoretically, we have also shown that $\omega$ can be realised as the following subspace of $\ov\omega$,
 \[ \omega \cong \scomp{i : \ov\omega}{\ex n\N \isf{i_n}}\text{.} \]
 This way, the inclusion $\Delta^n \hook \omega$ can be viewed as follows, 
 \[ \Delta^n \cong \scomp{i : \omega}{\isf{i_n}}\text{,} \]
 which implies $\Delta^n \hook \omega$ is \emph{downward closed}. This allows us to directly compute $\omega^\I$:
 
-\begin{proposition}[NT, SQCC]\label{lem:intervalcommuteomega}
+\begin{proposition}[\AxiomNT, \AxiomSQCC]\label{lem:intervalcommuteomega}
   We have a family of equivalences
   \[ \omega^\I \cong \big({\ct_{n:\N}\Delta^n}\big)^\I \cong \ct_{n:\N}(\Delta^n)^\I\text{,} \]
   and similarly by replacing $\I$ with $\I^n$ or $\Delta^n$. In particular, $\omega^\I$ classifies the pointwise order on $\omega$.
@@ -1836,7 +1890,7 @@ which implies $\Delta^n \hook \omega$ is \emph{downward closed}. This allows us 
 
 As another consequence, we can also show the following general result establishing a large family of orthogonality conditions satisfied by $\omega$:
 
-\begin{theorem}[NT, SQCC]\label{thm:omegaortho}
+\begin{theorem}[\AxiomNT, \AxiomSQCC]\label{thm:omegaortho}
   Let $f \colon X \to Y$ be a map where $X,Y$ are finite colimits of cubes or simplices. If each $\Delta^n$ is $f$-local, then so is $\omega$.
 \end{theorem}
 \begin{proof}
@@ -1854,18 +1908,35 @@ As another consequence, we can also show the following general result establishi
   Furthermore, the same holds for cubes and simplices since the types satisfying the choice principle are closed under finite products and retracts. Assuming $\I$ satisfies choice, following the proof of \Cref{thm:omegaortho}, one can show more generally that any orthogonality class specified by maps between finite colimits of simplices or cubes are always \emph{closed under sequential colimits}. However, not in every model of quasi-coherence $\I$ will satisfy the above choice principle. Hence, we do not include this result in the main text, as we tend to keep our assumptions as minimalistic as possible.
 \end{remark}
 
+\begin{figure}
+  \textbf{Quasi-coherence axioms:}
+  \PrintAxiomSQCI
+  \PrintAxiomSQCP
+  \PrintAxiomSQCF
+  \PrintAxiomSQCC
+
+  \medskip
+  \textbf{Locality axioms:}
+  \PrintAxiomNT
+  \PrintAxiomL
+  \PrintAxiomCL
+  \PrintAxiomSL
+  \PrintAxiomOneCS
+  \caption{Summary of axioms considered in this paper. Unlike the usual axiom sets for synthetic domain theory~\citep{hyland1990first}, the goal of these axioms is not to modularly specify all the properties of the interval with minimal overlap but instead to identify a sequence of increasingly strong descriptions of intervals that may play a role in synthetic domain theory.}
+\end{figure}
+
 \section{New models for synthetic domain theory}\label{sec:model}
 
 It is now instructive to discuss models for the axioms we have used in the previous sections. For this purpose, we now work externally under the assumption that the base topos $\Set$ satisfies the axiom of choice. Our axioms for synthetic domain theory can be organised into two classes:
 
 \begin{enumerate}
-  \item The quasi-coherence principle (SQCF), (SQCC);
+  \item The quasi-coherence principle (\AxiomSQCF), (\AxiomSQCC);
   \item Various locality axioms discussed in \Cref{sec:locality}.
 \end{enumerate}
 
-For any Horn theory $\T$, we know from \citet{blechschmidt2020general,blechschmidt2021using} that the generic $\T$-model $U_\T\in\Set[\T]$ satisfies quasi-coherence for finitely presented $U_\T$-algebras, viz.\ (SQCF). As mentioned in \Cref{subsec:qc}, the proof of quasi-coherence for finitely presented $U_\T$-algebras adapts readily to the countably presented case, provided we work with the larger site
+For any Horn theory $\T$, we know from \citet{blechschmidt2020general,blechschmidt2021using} that the generic $\T$-model $U_\T\in\Set[\T]$ satisfies quasi-coherence for finitely presented $U_\T$-algebras, viz.\ (\AxiomSQCF). As mentioned in \Cref{subsec:qc}, the proof of quasi-coherence for finitely presented $U_\T$-algebras adapts readily to the countably presented case, provided we work with the larger site
 \[ \Set[\T]_\omega \coloneq [\mmod\T\cp,\Set]\text{,} \]
-where $\mmod\T\cp$ is the category of countably presented $\T$-models. The generic $\T$-model in $\Set[\T]_\omega$ is again defined to be the forgetful functor $\mmod\T\cp \to \Set$, and we also denote it as $U_\T$. In other words, (SQCC) holds in the larger topos $\Set[\T]_\omega$. And in this case, we can also allow $\T$ to contain algebraic operations of countable arity. 
+where $\mmod\T\cp$ is the category of countably presented $\T$-models. The generic $\T$-model in $\Set[\T]_\omega$ is again defined to be the forgetful functor $\mmod\T\cp \to \Set$, and we also denote it as $U_\T$. In other words, (\AxiomSQCC) holds in the larger topos $\Set[\T]_\omega$. And in this case, we can also allow $\T$ to contain algebraic operations of countable arity. 
 % \Jon{Did we need countable choice in $\Set$ for this last part?}
 
 These two topoi $\Set[\T]$ and $\Set[\T]_\omega$ are intimately related. There is a fully faithful and left exact inclusion of sites
@@ -1881,9 +1952,9 @@ inducing an adjoint triple (cf.\ \citet[Thm.\ 7.20]{caramello2019denseness}),
 \end{tikzcd}\]
 equivalently, a \emph{local geometric morphism} $\Set[\T]_\omega \surj \Set[\T]$.
 
-More generally, it is already observed by \citet[Thm.\ 4.11]{blechschmidt2020general} that if we have a topology $J$ on $\mmod\T\fp\op$ where $U_\T$ is a $J$-sheaf, then (SQCF) again holds in the sheaf subtopos $\sh(\mmod\T\fp\op,J)$. We call such a topology $J$ \emph{$\T$-admissible}, or simply \emph{admissible} when no confusion could arise. 
+More generally, it is already observed by \citet[Thm.\ 4.11]{blechschmidt2020general} that if we have a topology $J$ on $\mmod\T\fp\op$ where $U_\T$ is a $J$-sheaf, then (\AxiomSQCF) again holds in the sheaf subtopos $\sh(\mmod\T\fp\op,J)$. We call such a topology $J$ \emph{$\T$-admissible}, or simply \emph{admissible} when no confusion could arise. 
 % \Jon{What about $\T$-admissible or something?} 
-For instance, since $U_\T$ is representable, any subcanonical topology will in particular be admissible. In the same way we cna define admissible topology $J$ for the larger presheaf topos $\mmod\T\cp\op$, which again is a topology making the generic model $U_\T$ a sheaf. In this case, the sheaf subtopos $\sh(\mmod\T\cp\op,J)$ also models (SQCC). 
+For instance, since $U_\T$ is representable, any subcanonical topology will in particular be admissible. In the same way we cna define admissible topology $J$ for the larger presheaf topos $\mmod\T\cp\op$, which again is a topology making the generic model $U_\T$ a sheaf. In this case, the sheaf subtopos $\sh(\mmod\T\cp\op,J)$ also models (\AxiomSQCC). 
 % \Jon{This is a little confusing, becuase we have defined what an admissible topology is only on $\mmod\T\fp\op$, and have not extended this to the case of larger sites; I understand that we can look at the representable presheaf in each case, but somehow this definition ought to be a little more precise; for example, it could be defined precisely to refer to topologies on subcategories of $\mmod\T\op$ containing the free model on one generator.} 
 As an example, this is the theoretical basis of the quasi-coherence principle for countably presented Boolean algebras in the topos of light condensed sets introduced by Clausen and Scholze, as shown by \citet{cherubini2024foundation}.
 
@@ -1948,16 +2019,16 @@ where in each case, the generic $\sigma$-frame $\I$ as a presheaf is now the rep
 
 Below we discuss the corresponding admissible topologies on $\wTop$, modelling the various locality principles we have considered in \Cref{sec:locality}. We encourage the readers to notice the connection between the topologies we discuss below, and the developments in \Cref{sec:local}.
 
-\begin{example}[NT]
-  To model (NT), we would want the empty sieve on $\pt(\Sigma/0=1) \cong \emp$ to be a covering. Since $\emp$ is a strict initial object in $\wTop$, this is a subcanonical topology. Thus, this gives us a least topology $J_{\ms{NT}}$ that models (NT), and we have
+\begin{example}[\AxiomNT]
+  To model (\AxiomNT), we would want the empty sieve on $\pt(\Sigma/0=1) \cong \emp$ to be a covering. Since $\emp$ is a strict initial object in $\wTop$, this is a subcanonical topology. Thus, this gives us a least topology $J_{\ms{NT}}$ that models (\AxiomNT), and we have
   \[ \sh(\wTop,J_{\ms{NT}}) \cong \psh(\wTop_+)\text{,} \]
   where $\wTop_+$ is the full subcategory of $\wTop$ excluding $\emp$. The induced local geometric morphism now is given by 
   \[ \Gamma \colon \psh(\wTop_+) \surj \psh(\Pos_{\mr{f.p.,+}})\text{,} \]
   where, again $\Pos_{\mr{f.p.,+}}$ is the full subcategory of $\Pos_{\mr{f.p.}}$ consisting of non-empty posets, and $\psh(\Pos_{\mr{f.,+}})$ is the classifying topos for bounded distributive lattices that are non-trivial.
 \end{example}
 
-\begin{example}[L]
-  The additional axiom for (L) besides (NT) is that 
+\begin{example}[\AxiomL]
+  The additional axiom for (\AxiomL) besides (\AxiomNT) is that 
   \[ x \vee y = 1 \vdash x = 1 \vee y = 1\text{,} \] 
   This means the dual embeddings of the following quotients need to form a covering family,
   \[ \Sigma[\ms{y}] \cong \Sigma[\ms{x},\ms{y}]/\ms{x} \twoheadleftarrow \Sigma[\ms{x},\ms{y}]/\ms{x}\vee \ms{y} \surj \Sigma[\ms{x},\ms{y}]/\ms{y} \cong \Sigma[\ms{x}]\text{.} \]
@@ -1976,7 +2047,7 @@ Below we discuss the corresponding admissible topologies on $\wTop$, modelling t
   is over the \emph{Zariski topos} $\mb{Zar}(\mbb D)$ for bounded distributive lattices.
 \end{example}
 
-\begin{example}[SL]
+\begin{example}[\AxiomSL]
   An even stronger axiom is the linearity axiom, 
   \[ \top \vdash x \le y \vee y \le x\text{,} \]
   which requires the dual embeddings of the following quotients to form a covering family,
@@ -1998,8 +2069,8 @@ Below we discuss the corresponding admissible topologies on $\wTop$, modelling t
   This makes $\sh(\wTop,J_{\ms{SL}}) \surj \psh(\Delta)$ a local topos over simplicial sets.
 \end{example}
 
-\begin{example}[1cS]\label{exm:model1T}
-  Similarly to the case of (SL), the 1-truncation axiom requires dual embeddings of the following quotient maps
+\begin{example}[\AxiomOneCS]\label{exm:model1T}
+  Similarly to the case of (\AxiomSL), the 1-truncation axiom requires dual embeddings of the following quotient maps
   \[\begin{tikzcd}
     & {\Sigma[\ms{x},\ms{y}]/\ms{x}\le\ms{y}} \\
     {\Sigma[\ms{x},\ms{y}]/\ms{x}=0} & {\Sigma[\ms{x},\ms{y}]/\ms{x}=\ms{y}} & {\Sigma[\ms{x},\ms{y}]/\ms{y}=1}
@@ -2026,7 +2097,7 @@ Below we discuss the corresponding admissible topologies on $\wTop$, modelling t
   \end{tikzcd}\]
   which implies $J_{\ms{1cS}}$ is subcanonical.
   
-  Similar to the case of (SL), $\sh(\wTop,J_{\ms{1cS}})$ is closely related to the topos of \emph{truncated simplicial sets} $\psh(\Delta_{\le 1})$. This is again induced by the fact that the classifying topos for 1-coskeletal bounded distributive lattices is given by 
+  Similar to the case of (\AxiomSL), $\sh(\wTop,J_{\ms{1cS}})$ is closely related to the topos of \emph{truncated simplicial sets} $\psh(\Delta_{\le 1})$. This is again induced by the fact that the classifying topos for 1-coskeletal bounded distributive lattices is given by 
   \[ \sh(\Pos\fp,J_{\ms{1cS}}) \cong \psh(\Delta_{\le 1})\text{.} \]
   Hence, this again gives us a local geometric morphism
   \[ \sh(\wTop,J_{\ms{1cS}}) \surj \psh(\Delta_{\le 1})\text{.} \]
