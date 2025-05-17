@@ -1951,10 +1951,8 @@ inducing an adjoint triple (cf.\ \citet[Thm.\ 7.20]{caramello2019denseness}),
 \end{tikzcd}\]
 equivalently, a \emph{local geometric morphism} $\Set[\T]_\omega \surj \Set[\T]$.
 
-More generally, it is already observed by \citet[Thm.\ 4.11]{blechschmidt2020general} that if we have a topology $J$ on $\mmod\T\fp\op$ where $U_\T$ is a $J$-sheaf, then (\AxiomSQCF) again holds in the sheaf subtopos $\sh(\mmod\T\fp\op,J)$. We call such a topology $J$ \emph{$\T$-admissible}, or simply \emph{admissible} when no confusion could arise. 
-% \Jon{What about $\T$-admissible or something?} 
-For instance, since $U_\T$ is representable, any subcanonical topology will in particular be admissible. In the same way we cna define admissible topology $J$ for the larger presheaf topos $\mmod\T\cp\op$, which again is a topology making the generic model $U_\T$ a sheaf. In this case, the sheaf subtopos $\sh(\mmod\T\cp\op,J)$ also models (\AxiomSQCC). 
-% \Jon{This is a little confusing, becuase we have defined what an admissible topology is only on $\mmod\T\fp\op$, and have not extended this to the case of larger sites; I understand that we can look at the representable presheaf in each case, but somehow this definition ought to be a little more precise; for example, it could be defined precisely to refer to topologies on subcategories of $\mmod\T\op$ containing the free model on one generator.} 
+More generally, it is already observed by \citet[Thm.\ 4.11]{blechschmidt2020general} that if we have a topology $J$ on $\mmod\T\fp\op$ where $U_\T$ is a $J$-sheaf, then (\AxiomSQCF) again holds in the sheaf subtopos $\sh(\mmod\T\fp\op,J)$. We refer to such a topology $J$ as \emph{$\T$-admissible}, or simply \emph{admissible} when no confusion could arise. 
+For instance, since $U_\T$ is representable, any subcanonical topology will in particular be admissible. In the same way we can define admissible topology $J$ for the larger presheaf topos $\mmod\T\cp\op$, which again is a topology making the generic model $U_\T$ a sheaf. In this case, the sheaf subtopos $\sh(\mmod\T\cp\op,J)$ also models (\AxiomSQCC). 
 As an example, this is the theoretical basis of the quasi-coherence principle for countably presented Boolean algebras in the topos of light condensed sets introduced by Clausen and Scholze, as shown by \citet{cherubini2024foundation}.
 
 An admissible topology $J$ on $\mmod\T\cp\op$ restricts to an admissible one on $\mmod\T\fp\op$. In this case, the adjoint triple mentioned above between the two presheaf topoi will restrict to the sheaf subtopoi,
@@ -1968,9 +1966,9 @@ An admissible topology $J$ on $\mmod\T\cp\op$ restricts to an admissible one on 
 \end{tikzcd}\]
 which again identifies $\sh(\mmod\T\cp\op,J)$ as a local topos over $\sh(\mmod\T\fp\op,J)$. These admissible topologies on $\mmod\T\fp$ or $\mmod\T\cp$ are exactly the required data to validate various local properties of the generic model $U_\T$. 
 
-More specifically for us, let $\sFrm$ be the category of $\sigma$-frames, i.e.\ whose objects are posets with finite meets and countable joins, where they distribute through each other. We will also use $\sFrm\cp$ to denote the full subcategory of countably presented $\sigma$-frames, and $\sFrm\fp$ to denote the finitely presented ones. Since finitely presented $\sigma$-frames are simply finitely presented bounded distributive lattices, we have an isomorphism $\sFrm\fp \cong \DL\fp$.
+More specifically for us, let $\sFrm$ be the category of $\sigma$-frames, i.e.\ whose objects are posets with finite meets and countable joins, where binary meets distribute over countable joins. We will also use $\sFrm\cp$ to denote the full subcategory of countably presented $\sigma$-frames, and $\sFrm\fp$ to denote the finitely presented ones. Since finitely presented $\sigma$-frames are simply finitely presented bounded distributive lattices, we have an isomorphism $\sFrm\fp \cong \DL\fp$.
 
-It is well-known the dual category of $\DL\fp \cong \sFrm\fp$ is $\Pos\fp$ of finite posets. In this case, we can also have a fairly explicit description of the larger dual category $\sFrm\cp$. The first observation is that any countably presented $\sigma$-frame $A$ is indeed a \emph{frame}, i.e.\ it has \emph{all} joins and finite meets, which distributes with each other. This is clear for all finitely presented $\sigma$-frames, since they are simply finite bounded distributive lattices. To see this for the countable case, consider the countably generated free $\sigma$-frame $\Sigma[\N]$:
+It is well-known the dual category of $\DL\fp \cong \sFrm\fp$ is the category $\Pos\fp$ of finite posets. In this case, we can also have a fairly explicit description of the larger dual category of $\sFrm\cp$. The first observation is that any countably presented $\sigma$-frame $A$ is indeed a \emph{frame}, i.e.\ it has \emph{all} joins and finite meets, which distributes with each other. This is clear for all finitely presented $\sigma$-frames, since they are simply finite bounded distributive lattices. To see this for the countable case, consider the countably generated free $\sigma$-frame $\Sigma[\N]$:
 
 % \Jon{What is $2$ here? Is this the free $\sigma$-frame on one object? Perhaps another notation like $\Omega$ would be more clear, because $2$ qua the boolean set is not a $\sigma$-frame in constructive mathematics.}
 \begin{lemma}\label{lem:cgfreesframe}
@@ -2012,9 +2010,10 @@ This way, if we write $\wTop$ as the essential image of the fully faithful funct
   \sFrm\cp\op \ar[r, "\simeq"'] & \wTop
 \end{tikzcd}
 \]
-where here the inclusion $\Pos\fp \hook \wTop$ simply take each finite poset to its Alexandroff topological space. Hence, at the presheaf level, we have a local geometric morphism
+where here the inclusion $\Pos\fp \hook \wTop$ simply takes each finite poset to its Alexandroff topological space. Hence, at the presheaf level, we have a local geometric morphism
 \[ \psh(\wTop) \surj \psh(\Pos\fp)\text{.} \]
-where in each case, the generic $\sigma$-frame $\I$ as a presheaf is now the representable functor on the Sierpinski space $\Sigma$. 
+where in each case, the generic $\sigma$-frame $\I$ as a presheaf is now the representable functor on the Sierpinski space $\Sigma$. \Jon{Let's avoid talking about ``generic'' $
+\sigma$-frame to avoid potential confusions. Can we phrase this differently?}
 
 Below we discuss the corresponding admissible topologies on $\wTop$, modelling the various locality principles we have considered in \Cref{sec:locality}. We encourage the readers to notice the connection between the topologies we discuss below, and the developments in \Cref{sec:local}.
 
@@ -2113,7 +2112,7 @@ In this paper we have explained the axioms of synthetic domain theory using the 
 
 \subsection{Relationship with Taylor's \emph{Abstract Stone Duality}}
 
-We would be remiss in failing to mention Taylor's framework of \emph{Abstract Stone Duality}~\cite{Taylor2011,TaylorP:insema,TaylorP:sobsc}, which is based on a similar duality between ``algebras'' and ``spaces''. One apparent difference in methodology is that in Taylor's case, duality is of the form $\Sigma^{(-)} \dashv \Sigma^{(-)}$ and is moreover required to be monadic. In our setting, the spectrum of an algebra consists not in \emph{all} functions from the algebra into the dualising object but rather only the ones that preserve the structure of observational algebras—the \emph{primes} in Taylor's terminology.
+We would be remiss in failing to mention Taylor's framework of \emph{Abstract Stone Duality}~\cite{Taylor2011,TaylorP:insema,TaylorP:sobsc}, which is based on a similar duality between ``algebras'' and ``spaces''. One apparent difference in methodology is that in Taylor's case, the duality is of the form $\Sigma^{(-)} \dashv \Sigma^{(-)}$ and is moreover required to be monadic. In our setting, the spectrum of an algebra consists not in \emph{all} functions from the algebra into the dualising object but rather only the ones that preserve the structure of observational algebras—the \emph{primes} in Taylor's terminology.
 
 Our own adjunction $\opens\dashv\spec$ shall not be monadic, but a natural step toward understanding the relationship between abstract Stone duality and synthetic domain theory in the language of quasi-coherence might be to restrict $\opens\dashv\spec$ to an adjunction involving certain more well-behaved subuniverses of $\Set$. We leave this investigation for futher work.
 
