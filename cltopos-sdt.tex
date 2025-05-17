@@ -253,8 +253,10 @@ Cambridge, UK%
 \begin{document}
 
 \begin{abstract}
-  This paper produces models of synthetic domain theory via classifying topoi of algebraic theories. Using the internal logic of a large family of classifying topoi of theories based on $\sigma$-frames, especially the \emph{quasi-coherence principle}, we prove the axioms of synthetic domain theory hold in such topoi. This provides a new set of techniques reasoning about the behaviour of domains in a synthetic context, which allows us to establish a family of important orthogonality conditions for some special types of domains.
-  \Jon{Let's tweak the abstract to avoid the immediate question about $\sigma$-frames not having a classifying topos ;-) Perhaps just refer to distributive lattices here? Or ``topoi related to the distributive lattices classifier''?}
+  This paper explores a new connection between synthetic domain theory and topoi related to distributive lattice classifier. By leveraging the internal logic of such topoi, especially the \emph{quasi-coherence principle}, we show that the axioms of synthetic domain theory hold in such topoi. This framework provides a new set of techniques for reasoning about domain-like structures in a synthetic setting, and reveals a broad class of sheaf models for synthetic domain theory.
+  
+  % \Jon{Let's tweak the abstract to avoid the immediate question about $\sigma$-frames not having a classifying topos ;-) Perhaps just refer to distributive lattices here? Or ``topoi related to the distributive lattices classifier''?}
+  % \LY{Here's my attempt. How does this sounds?}
 \end{abstract}
 
 \maketitle
@@ -878,7 +880,7 @@ In general we will at most work with the weakest locality axiom (NT). However, w
 
 In this section, we describe several important local orderings on algebras and spaces, summarised in \Cref{table:orders}.
 
-\begin{table}
+\begin{table}[ht]
   \begin{align*}
     a\le_A b &\eq a\wedge b = a
     \tag{canonical order}
@@ -1274,7 +1276,7 @@ In particular, $\I$ is not the boolean set $2$.
 
 \subsection{Comparing the different orders}
 
-An immediate application of Phoa's principle is to compare path structure with the observational preorder.
+An immediate application of Phoa principle is to compare path structure with the observational preorder.
 
 \begin{observation}[SQCP]
   For any type $X$, the boundary evaluation map $\pair{\ev_0,\ev_1}\colon X^\I\to X\times X$ factors through the observational preorder relation ${\obsle[X]}\hook X\times X$ as displayed below:
@@ -1306,7 +1308,7 @@ An immediate application of Phoa's principle is to compare path structure with t
 
 \begin{proof}
   Let $X=\spec{A}$ be the spectrum of a quasi-coherent algebra $A$. 
-  By \Cref{thm:phoa-spectrum}, the path space $X^\I$ classifies the satisfaction order on $\spec{A}$, which is to say that there is a (necesarily unique) path from $x$ to $y$ if and only if \[\fa{a}{A} x(a)\le_\I y(a).\] Because $A$ is quasi-coherent, we have $A\cong \opens X$ and there is a unique path from $x$ to $y$ if and only if \[\fa{U}{\opens{X}} U(x)\le_\I U(y),\] but this is the observational order of $X$.
+  By \Cref{thm:phoa-spectrum}, the path space $X^\I$ classifies the satisfaction order on $\spec{A}$, which is to say that there is a (necessarily unique) path from $x$ to $y$ if and only if \[\fa{a}{A} x(a)\le_\I y(a).\] Because $A$ is quasi-coherent, we have $A\cong \opens X$ and there is a unique path from $x$ to $y$ if and only if \[\fa{U}{\opens{X}} U(x)\le_\I U(y),\] but this is the observational order of $X$.
 \end{proof}
 
 \begin{lemma}[SQCP]\label{lem:int-strong-link}
