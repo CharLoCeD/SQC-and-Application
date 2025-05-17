@@ -195,6 +195,10 @@
 \newcommand{\upp}{_{\ms U}}
 \newcommand{\dsg}[1]{\!\pair{#1}}
 \newcommand{\co}{\mr{Co}}
+\newcommand\istsym{\ms{t}}
+\newcommand\isfsym{\ms{f}}
+\newcommand\ist[1]{\istsym(#1)}
+\newcommand\isf[1]{\isfsym(#1)}
 
 \NewDocumentCommand\obsle{o}{\sqsubseteq_{\ms{obs}}\IfValueT{#1}{^{#1}}}
 \NewDocumentCommand\satle{o}{\le_{\ms{sat}}\IfValueT{#1}{^{#1}}}
@@ -552,11 +556,11 @@ For a propositionally stable theory $\T$, we think of the generic model $\I$ as 
 \end{example}
 
 The constant $1 : \I$, which is the top element in $\I$, induces a predicate
-\[ \ms t \colon \I \to \pp\text{,} \]
-which takes $i : \I$ to the proposition $i = 1$. Using $\ms t$, we can think of the spectrum $\spec A$ of an $\I$-algebra $A$ as its set of \emph{models}, with a satisfaction relation $\models$ as follows:
+\[ \istsym\colon \I \to \pp\text{,} \]
+which takes $i : \I$ to the proposition $i = 1$. Using $\istsym$, we can think of the spectrum $\spec A$ of an $\I$-algebra $A$ as its set of \emph{models}, with a satisfaction relation $\models$ as follows:
 
 \begin{definition}[Satisfaction]
-  For any $\I$-algebra $A$ and elements $a:A$ and $x:\spec A$, we say $x$ \emph{satisfies} $a$, written $x \models a$, if $\ms t(xa)$.
+  For any $\I$-algebra $A$ and elements $a:A$ and $x:\spec A$, we say $x$ \emph{satisfies} $a$, written $x \models a$, if $\ist{xa}$.
 \end{definition}
 
 For instance, the satisfaction relation can be used to carve out affine subspaces consisting of models satisfying some element in $A$:
@@ -566,13 +570,13 @@ For instance, the satisfaction relation can be used to carve out affine subspace
   \[ D_a \coloneq \scomp{x : X}{x \models a} \cong \spec A/a\text{.} \]
 \end{example}
 
-The first observation is that $\ms t$ takes $i : \I$ to a spectrum:
+The first observation is that $\istsym$ takes $i : \I$ to a spectrum:
 
 \begin{lemma}\label{lem:openpropaffine}
-  The spectrum $\spec\I/i$ for $i:\I$ is a proposition equivalent to $\ms ti$.
+  The spectrum $\spec\I/i$ for $i:\I$ is a proposition equivalent to $\ist{i}$.
 \end{lemma}
 \begin{proof}
-  We have $\spec \I/i \cong \I\alg(\I/i,\I)$ by definition. Since $\I$ is the initial $\I$-algebra and $\I/i$ is a quotient of $\I$, any homomorphism $\I/i \to \I$ will be unique, hence $\spec\I/i$ is a proposition. It thus suffices to show $\spec\I/i$ implies $\ms ti$. Because $\T$ is propositionally stable, an $\I$-algebra morphism $f \colon \I/i \to \I$ is a commutative diagram as follows,
+  We have $\spec \I/i \cong \I\alg(\I/i,\I)$ by definition. Since $\I$ is the initial $\I$-algebra and $\I/i$ is a quotient of $\I$, any homomorphism $\I/i \to \I$ will be unique, hence $\spec\I/i$ is a proposition. It thus suffices to show $\spec\I/i$ implies $\ist{i}$. Because $\T$ is propositionally stable, an $\I$-algebra morphism $f \colon \I/i \to \I$ is a commutative diagram as follows,
   \[
   \begin{tikzcd}
     \I/i \ar[rr, dashed, "f"] & & \I \\ 
@@ -584,7 +588,7 @@ The first observation is that $\ms t$ takes $i : \I$ to a spectrum:
   The final identity holds since $f$ preserves the top element. 
 \end{proof}
 
-The goal of this section is to show that, under a suitable quasi-coherence assumption, $\ms t \colon \I \to \pp$ makes $\I$ a \emph{dominance} in the sense of \citet{rosolini1986continuity}. It turns out that it suffices to require all (finitely generated) principle quotients of $\I$ to be quasi-coherent:
+The goal of this section is to show that, under a suitable quasi-coherence assumption, $\istsym\colon \I \to \pp$ makes $\I$ a \emph{dominance} in the sense of \citet{rosolini1986continuity}. It turns out that it suffices to require all (finitely generated) principle quotients of $\I$ to be quasi-coherent:
 
 \begin{definition}[Stable quasi-coherence and stably affine]
   An $\I$-algebra $A$ is \emph{stably quasi-coherent}, if for any $n : \N$ and $a,b \colon n \to A$, the quotient $A/a=b$ is again quasi-coherent. An affine $X \cong \spec A$ is \emph{stably affine}, if $A$ is stably quasi-coherent.
@@ -598,23 +602,23 @@ As a first consequence, we show the following important lemma:
 
 \begin{lemma}[SQCI]\label{lem:intconserve}
   The interval $\I$ is \emph{conservative}: For any $i,j : \I$
-  \[ (\ms ti \eq \ms tj) \eq i = j\text{.} \]
+  \[ (\ist{i} \eq \ist{j}) \eq i = j\text{.} \]
 \end{lemma}
 \begin{proof}
-  If $i \le j$ then trivially $\ms ti \to \ms tj$. Thus it suffices to show
-  \[ (\ms ti \to \ms tj) \to i \le j\text{.} \]
-  Take $i,j$ with $\ms ti \to \ms tj$. By \Cref{lem:openpropaffine} and (SQCI), each $\ms ti$ and $\ms tj$ will be affine. Then we get a restriction map between $\I$-algebras,
-  \[ \I/j \cong \I^{\ms tj} \to \I^{\ms ti} \cong \I/i\text{.} \]
+  If $i \le j$ then trivially $\ist{i} \to \ist{j}$. Thus it suffices to show
+  \[ (\ist{i} \to \ist{j}) \to i \le j\text{.} \]
+  Take $i,j$ with $\ist{i} \to \ist{j}$. By \Cref{lem:openpropaffine} and (SQCI), each $\ist{i}$ and $\ist{j}$ will be affine. Then we get a restriction map between $\I$-algebras,
+  \[ \I/j \cong \I^{\ist{j}} \to \I^{\ist{i}} \cong \I/i\text{.} \]
   Similar to the proof of \Cref{lem:openpropaffine}, the existence of such an $\I$-algebra homomorphism implies $i \le j$. 
 \end{proof}
 
-Thus, under (SQCI), we may view the generic algebra $\I$ as a subuniverse of \emph{open} propositions via the embedding $\ms t$:
+Thus, under (SQCI), we may view the generic algebra $\I$ as a subuniverse of \emph{open} propositions via the embedding $\istsym$:
 
 \begin{definition}[Open proposition]
-  We say that a proposition $p$ is \emph{open} when $p$ is equivalent to $\ms ti$ for some $i$ in $\I$.
+  We say that a proposition $p$ is \emph{open} when $p$ is equivalent to $\ist{i}$ for some $i$ in $\I$.
 \end{definition}
 
-Under (SQCI), by \Cref{lem:intconserve} the $i$ that $p \eq \ms ti$ will be \emph{unique}, thus being open is itself a proposition. Also, open propositions are evidently closed under finite conjunctions, since $\ms t$ preserves them. 
+Under (SQCI), by \Cref{lem:intconserve} the $i$ that $p \eq \ist{i}$ will be \emph{unique}, thus being open is itself a proposition. Also, open propositions are evidently closed under finite conjunctions, since $\istsym$ preserves them. 
 
 More generally, we may define the notion of open subtypes:
 
@@ -630,8 +634,8 @@ If $X$ is affine, open subtypes are easy to classify:
 % \Jon{I understand the notational convention here coming from affineness, but I wonder if we can think of a more evocative way to write this than $xa$.}
 % \LY{I have added Definition 3.6 and Example 3.7; I hope this is better.}
 \begin{proof}
-  Let $U$ be an open subtype of $X$, so that for any $x:X$ there exists some (by conservativity, necessarily unique) element $i:\I$ that $x \in U \eq \ms ti$.
-  Hence we have a map $\qsi a \colon X \to \I$ with $x \in U \eq \ms t(\qsi ax)$. Because $X$ is affine, we may identify $\qsi a$ with an element $a:A$, where $\qsi ax = xa$. This way,
+  Let $U$ be an open subtype of $X$, so that for any $x:X$ there exists some (by conservativity, necessarily unique) element $i:\I$ that $x \in U \eq \ist{i}$.
+  Hence we have a map $\qsi a \colon X \to \I$ with $x \in U \eq \ist{\qsi ax}$. Because $X$ is affine, we may identify $\qsi a$ with an element $a:A$, where $\qsi ax = xa$. This way,
   \[ \fa xX x \in U \eq x \models a\text{,} \]
   and thus $U$ is the subtype $D_a$.
 \end{proof}
@@ -640,7 +644,7 @@ If $X$ is affine, open subtypes are easy to classify:
   The type of opens $\I$ forms a dominance.
 \end{proposition}
 \begin{proof}
-  Since $\ms t \colon \I \hook \pp$ by definition is closed under finite meets, it suffices to show that an open subtype of an open proposition is again an open proposition. Suppose $p$ is an open proposition and $q$ is an open subtype of $p$. By definition $p \eq \ms ti$ for some $i:\I$. Since $\ms ti$ is affine, \Cref{lem:openofaffinegivesalgebra} implies that $q$ is $D_j$ for some $j : \I/i$. Since $\T$ is propositionally stable, equivalently $j$ can be viewed as an element $j : \I$ with $j \le i$. This way, 
+  Since $\istsym\colon \I \hook \pp$ by definition is closed under finite meets, it suffices to show that an open subtype of an open proposition is again an open proposition. Suppose $p$ is an open proposition and $q$ is an open subtype of $p$. By definition $p \eq \ist{i}$ for some $i:\I$. Since $\ist{i}$ is affine, \Cref{lem:openofaffinegivesalgebra} implies that $q$ is $D_j$ for some $j : \I/i$. Since $\T$ is propositionally stable, equivalently $j$ can be viewed as an element $j : \I$ with $j \le i$. This way, 
   \[ q \eq D_j \eq \spec(\I/i)/j \eq \spec\I/j\text{,} \]
   which implies $q$ is also an open proposition.
 \end{proof}
@@ -652,19 +656,19 @@ If $X$ is affine, open subtypes are easy to classify:
 
 \section{Partial map classifier}\label{sec:lifting}
 Given then dominance structure $\I$, we can construct internally the partial map classifier. For any type $X$, it is given by
-\[ L X \coloneq \sum_{i:\I}X^{\ms ti}\text{.} \]
+\[ L X \coloneq \sum_{i:\I}X^{\ist{i}}\text{.} \]
 The functoriality is easy to express: For any $f \colon X \to Y$, we have
-\[ L f(i,x) \coloneq (i,\ld{w}{\ms ti}fxw)\text{.} \]
+\[ L f(i,x) \coloneq (i,\ld{w}{\ist{i}}fxw)\text{.} \]
 There is an evident unit $\eta_L \colon X \to L(X)$, where
 \[ \eta_L(x) \coloneq (1,\ld\_ 1 x)\text{.} \]
-The unit $\eta_L$ then classifies the partial maps out of $X$ with an \emph{open} domain. The dominance $\I$ also provides a multiplication $\mu \colon L(L X) \to L X$, where $\mu$ takes any $(i,u)$ with $i : \I$ and $u \colon \ms ti \to L X$ first to $(j,x)$, where $j$ is the dependent sum
-\[ j \coloneq \sum_{w:\ms ti} (uw)_0\text{,} \]
-and $x \colon \ms tj \to X$ is the partial element such that for $w : \ms ti$ and $v : (uw)_0$
+The unit $\eta_L$ then classifies the partial maps out of $X$ with an \emph{open} domain. The dominance $\I$ also provides a multiplication $\mu \colon L(L X) \to L X$, where $\mu$ takes any $(i,u)$ with $i : \I$ and $u \colon \ist{i} \to L X$ first to $(j,x)$, where $j$ is the dependent sum
+\[ j \coloneq \sum_{w:\ist{i}} (uw)_0\text{,} \]
+and $x \colon \ist{j} \to X$ is the partial element such that for $w : \ist{i}$ and $v : (uw)_0$
 \[ x(w,v) \coloneq (uw)_1(v)\text{.} \]
 
 \begin{example}
   By definition, it is easy to see that
-  \[ L 1 \cong \sum_{i:\I}\ms ti \cong \I\text{.} \]
+  \[ L 1 \cong \sum_{i:\I}\ist{i} \cong \I\text{.} \]
 \end{example}
 
 For synthetic domain theory, the object of particular importance is the partial map classifier of the interval $\I$ itself. The following computation works more generally for all stably quasi-coherent algebras:
@@ -677,9 +681,9 @@ For synthetic domain theory, the object of particular importance is the partial 
   By assumption for $i : \I$, the quotient $A/i$ is again quasi-coherent. Now notice that we do have
   \[ A/i \cong A \otimes \I/i\text{.} \]
   By \Cref{specrightadj} and quasi-coherence of $A/i$ and $A$,
-  \[ A/i \cong \I^{\spec(A \otimes \I/i)} \cong \I^{\spec A \times \spec\I/i} \cong A^{\spec \I/i} \cong A^{\ms ti}\text{.} \]
+  \[ A/i \cong \I^{\spec(A \otimes \I/i)} \cong \I^{\spec A \times \spec\I/i} \cong A^{\spec \I/i} \cong A^{\ist{i}}\text{.} \]
   This way, it follows that 
-  \[ L A \cong \sum_{i:\I}A^{\ms ti} \cong \sum_{i:\I}A/i. \qedhere \]
+  \[ L A \cong \sum_{i:\I}A^{\ist{i}} \cong \sum_{i:\I}A/i. \qedhere \]
 \end{proof}
 
 In other words, an element $(i,a) : L A$ is simply a pair $i : \I$ and $a : A$ that $a \le i$. This way, we can easily compute $L \I$:
@@ -704,8 +708,8 @@ More generally, for domain theoretic applications we would want to compute the p
   \[ L\spec A \cong \sum_{i:\I}\I\alg(A,\I/i)\text{.} \]
 \end{proposition}
 \begin{proof}
-  By (SQCI) and \Cref{lem:openpropaffine}, $\ms ti$ is affine for any $i:\I$. By the duality result in \Cref{prop:duality}, we have
-  \[ L\spec A \cong \sum_{i:\I}(\spec A)^{\ms ti}\cong \sum_{i:\I}\I\alg(A,\I/i). \qedhere \]
+  By (SQCI) and \Cref{lem:openpropaffine}, $\ist{i}$ is affine for any $i:\I$. By the duality result in \Cref{prop:duality}, we have
+  \[ L\spec A \cong \sum_{i:\I}(\spec A)^{\ist{i}}\cong \sum_{i:\I}\I\alg(A,\I/i). \qedhere \]
 \end{proof}
 
 % Thus, motivated by domain theory, we find ourselves naturally move towards the following axiomatisation:
@@ -745,21 +749,21 @@ As mentioned in \Cref{rem:opprop}, the theory of bounded distributive lattices i
 
 \subsection{The dual dominance and co-partial map classifier}
 In this case, $\I$ has a minimal element $0$. Notice that the constant $0$ also induces a predicate on $\I$,
-\[ \ms f \colon \I \to \pp\text{,} \]
+\[ \isfsym\colon \I \to \pp\text{,} \]
 which takes any $i : \I$ to $i = 0$. 
 
 \begin{corollary}[SQCI]
-  $\ms f \colon \I \to \pp$ is an embedding.
+  $\isfsym\colon \I \to \pp$ is an embedding.
 \end{corollary}
 
-We will now call propositions in the image of $\ms f$ \emph{closed}, and a subtype classified by $\ms f$ a \emph{closed subtype}. Analogously to the previous \Cref{prop:Idominance}, closed propositions also form a dominance:
+We will now call propositions in the image of $\isfsym$ \emph{closed}, and a subtype classified by $\isfsym$ a \emph{closed subtype}. Analogously to the previous \Cref{prop:Idominance}, closed propositions also form a dominance:
 
 \begin{corollary}[SQCI]\label{cor:dualisdominance}
-  $\ms f$ forms a dominance.
+  $\isfsym$ forms a dominance.
 \end{corollary}
 
 There is an accompanying ``co-partial map classifier'' $T$ for partial maps with \emph{closed} domains, as \citet{hyland1990first} pointed out. Concretely, for any type $X$ it is defined by
-\[ T X \coloneq \sum_{i:\I} X^{\ms fi}\text{.} \]
+\[ T X \coloneq \sum_{i:\I} X^{\isf{i}}\text{.} \]
 And analogously to \Cref{prop:liftingofalgebra}, under (SQCI) we can explicitly compute 
 \[ T\Delta^n \cong \Delta^{n+1}\text{,} \]
 where now the unit $\eta_T \colon \Delta^n \hook T\Delta^n \cong \Delta^{n+1}$ takes a sequence $i_1 \ge \cdots \ge i_n$ to $i_1 \ge \cdots \ge i_n \ge 0$ in $\Delta^{n+1}$. 
@@ -774,16 +778,16 @@ As a start, a minimal requirement for synthetic domain theory to model divergent
   We have $0 \neq 1$ in $\I$. Geometrically, the proposition $0 = 1$ can be identified with the spectrum $\spec\I/0=1$. Hence, (NT) states that the unique map $\emp \hook \spec\I/0=1$ is an equivalence.
 \end{axiom}
 
-This way, $\emp \eq \ms t0$ now will be affine, and it is both an open and closed proposition. As mentioned in introduction, (NT) together with a strong enough quasi-coherence principle will imply all of Hyland's axioms for synthetic domain theory. Before we discuss that in \Cref{sec:infdomain}, a minimal amount of quasi-coherence provided by (SQCI) already implies a lot of elementary properties. As a first consequence of (NT) with (SQCI), we can show that $\I$ is almost the Boolean algebra $2$ in the following sense:
+This way, $\emp \eq \ist{0}$ now will be affine, and it is both an open and closed proposition. As mentioned in introduction, (NT) together with a strong enough quasi-coherence principle will imply all of Hyland's axioms for synthetic domain theory. Before we discuss that in \Cref{sec:infdomain}, a minimal amount of quasi-coherence provided by (SQCI) already implies a lot of elementary properties. As a first consequence of (NT) with (SQCI), we can show that $\I$ is almost the Boolean algebra $2$ in the following sense:
 
 \begin{proposition}[NT, SQCI]\label{prop:filed}
   For any $i : \I$ we have:
-  \[ \neg \ms ti \eq \ms fi, \quad \neg\ms fi \eq \ms ti\text{.} \]
+  \[ \neg \ist{i} \eq \isf{i}, \quad \neg\isf{i} \eq \ist{i}\text{.} \]
   In particular, the embedding $2 \hook \I$ induced by $0,1$ is $\neg\neg$-dense:
-  \[ \fa i\I \dneg(\ms ti \vee \ms fi)\text{.} \]
+  \[ \fa i\I \dneg(\ist{i} \vee \isf{i})\text{.} \]
 \end{proposition}
 \begin{proof}
-  If $\ms fi$ then $\neg\ms ti$ by (NT). On the other hand, by the conservativity result in \Cref{lem:intconserve} and (NT), if $i \neq 1$ then $i = 0$ since $0 \neq 1$. The dual case also follows by symmetry. Now given $i :\I$, if $\neg(\ms ti \vee \ms fi)$, which implies $\neg\ms ti \vee \neg\ms fi$, equivalently $\ms fi \wedge \ms ti$, contradictory to (NT). Hence, $\neg\neg(\ms ti \wedge \ms fi)$.
+  If $\isf{i}$ then $\neg\ist{i}$ by (NT). On the other hand, by the conservativity result in \Cref{lem:intconserve} and (NT), if $i \neq 1$ then $i = 0$ since $0 \neq 1$. The dual case also follows by symmetry. Now given $i :\I$, if $\neg(\ist{i} \vee \isf{i})$, which implies $\neg\ist{i} \vee \neg\isf{i}$, equivalently $\isf{i} \wedge \ist{i}$, contradictory to (NT). Hence, $\neg\neg(\ist{i} \wedge \isf{i})$.
 \end{proof}
 
 This allows us to observe that the open and closed propositions have a bijective correspondence between them:
@@ -799,10 +803,10 @@ On the other hand, \Cref{sec:order-theoretic-structure} will show that under the
 A slightly stronger axiom which is common in the practice of domain theory is that the dominance $\I$ should furthermore be closed under all finite disjunctions. For this, we consider the following axiom:
 
 \begin{axiom}[L]\label{ax:L}
-  $\I$ is local, i.e.\ $0 \neq 1$, and $\ms t(i\vee j) \eq \ms ti \vee \ms tj$ for $i,j : \I$. Geometrically, the second condition states that the following two inclusions are jointly surjective. 
+  $\I$ is local, i.e.\ $0 \neq 1$, and $\ist(i\vee j) \eq \ist{i} \vee \ist{j}$ for $i,j : \I$. Geometrically, the second condition states that the following two inclusions are jointly surjective. 
   \[ 
   \begin{tikzcd}
-    \I \ar[r, hook, "{i \mapsto (i,1)}"] & \scomp{i,j : \I}{\ms t(i\vee j)} & \I \ar[l, hook', "{j \mapsto (1,j)}"']
+    \I \ar[r, hook, "{i \mapsto (i,1)}"] & \scomp{i,j : \I}{\ist(i\vee j)} & \I \ar[l, hook', "{j \mapsto (1,j)}"']
   \end{tikzcd}
   \]
 \end{axiom}
@@ -810,14 +814,14 @@ A slightly stronger axiom which is common in the practice of domain theory is th
 Under (L), the dominance $\I$ will be closed under finite disjunctions. Furthermore, it also implies more elementary properties about $\I$:
 
 \begin{lemma}[L, SQCI]\label{lem:intisnotBoolean}
-  $\I$ has no non-trivial complemented elements, i.e.\ if $i : \I$ is complemented, then $\ms ti \vee \ms fi$. 
+  $\I$ has no non-trivial complemented elements, i.e.\ if $i : \I$ is complemented, then $\ist{i} \vee \isf{i}$. 
 \end{lemma}
 \begin{proof}
   Suppose $i$ has a complement $j$. Then by (L) we have
-  \[ 1 \eq \ms t(i \vee j) \eq \ms ti \vee \ms tj\text{,} \]
+  \[ 1 \eq \ist{i\vee j} \eq \ist{i} \vee \ist{j}\text{,} \]
   and similarly,
-  \[ \emp \eq \ms t(i \wedge j) \eq \ms ti \wedge \ms tj\text{.} \]
-  It follows that $\ms tj \eq \neg \ms ti$, and by \Cref{prop:filed}, $\ms tj \eq \ms fi$. This way, $\ms ti \vee \ms fi$.
+  \[ \emp \eq \ist{i\wedge j} \eq \ist{i} \wedge \ist{j}\text{.} \]
+  It follows that $\ist{j} \eq \neg \ist{i}$, and by \Cref{prop:filed}, $\ist{j} \eq \isf{i}$. This way, $\ist{i} \vee \isf{i}$.
 \end{proof}
 
 \Cref{lem:intisnotBoolean} above allows us to realise 2 as a \emph{spectrum}:
@@ -840,15 +844,15 @@ As another example of a new spectrum (L) allows us to define:
     \end{tikzcd}
   \]
   By viewing $\Lambda^2_2$ as a subspace of $\I^2$, we may identify it as follows:
-  \[ \Lambda^2_2 \cong \scomp{(i,j) : \I^2}{\ms ti \vee \ms tj}\text{.} \]
-  Assuming (L), $\ms ti \vee \ms tj \eq \ms t(i\vee j)$, it follows that 
+  \[ \Lambda^2_2 \cong \scomp{(i,j) : \I^2}{\ist{i} \vee \ist{j}}\text{.} \]
+  Assuming (L), $\ist{i} \vee \ist{j} \eq \ist(i\vee j)$, it follows that 
   \[ \Lambda^2_2 \cong \spec \I[\ms{i},\ms{j}]/\ms{i} \vee \ms{j}\text{.} \]
 \end{example}
 
 Axiom (L) clearly has a dual counterpart:
 
 \begin{axiom}[cL]\label{ax:cL}
-  $\I$ is colocal, i.e.\ $0 \neq 1$ and $\ms f(i \wedge j) \eq \ms fi \vee \ms fj$ for all $i,j : \I$.
+  $\I$ is colocal, i.e.\ $0 \neq 1$ and $\isf{i\wedge j} \eq \isf{i} \vee \isf{j}$ for all $i,j : \I$.
 \end{axiom}
 
 Similarly to \Cref{exm:hornaffine}, this allows one to identify the left outer horn $\Lambda^2_0$ as a spectrum. Of course we can combine the axioms (L) and (cL). 
@@ -865,9 +869,9 @@ The strongest locality axiom states that the simplicial structure is truncated t
 
 \begin{axiom}[1CS]\label{ax:1cS}
   $\I$ is \emph{1-coskeletal}, i.e.\ (SL) holds and for $i,j : \I$, 
-  \[ i \le j \eq \ms fi \vee (i = j)\vee \ms tj\text{.} \]
+  \[ i \le j \eq \isf{i} \vee (i = j)\vee \ist{j}\text{.} \]
   Geometrically, (1cS) additionally requires the canonical inclusion $\partial\Delta_2 \hook \Delta_2$ from the boundary $\partial\Delta_2$ to the 2-simplex $\Delta_2$ is an equivalence, where $\partial\Delta_2$ type-theoretically is simply
-  \[ \partial\Delta_2 \coloneq \scomp{i,j : \I}{\ms fi \vee (i = j) \vee \ms ti}\text{.} \]
+  \[ \partial\Delta_2 \coloneq \scomp{i,j : \I}{\isf{i} \vee (i = j) \vee \ist{i}}\text{.} \]
 \end{axiom}
 
 In general we will at most work with the weakest locality axiom (NT). However, we will show in \Cref{sec:local} that $\I$, hence all quasi-coherent algebras and spectra, will be \emph{right orthogonal} to the maps that define these local principles as shown above. We will see in \Cref{sec:model} that these axioms corresponds to various coverages we can put on the presheaf classifying topos, and the orthogonality result particularly implies that $\I$ will belong to these subtopoi.
@@ -1467,21 +1471,21 @@ Together with (SQCC), this implies the following form of Markov's principle; a s
 
 \begin{lemma}[NT, SQCC]\label{lem:markov}
   For any $i : \ov\omega$, we have
-  \[ \neg\fa{n}{\N}\ms ti_n \to \ex n\N\ms fi_n\text{.} \]
+  \[ \neg\fa{n}{\N}\ist{i}_n \to \ex n\N\isf{i}_n\text{.} \]
 \end{lemma}
 \begin{proof}
-  Let $i : \ov\omega$. Notice that similar to \Cref{lem:openpropaffine}, the proposition $\fa n\N \ms ti_n$ by construction is the following affine space, 
-  \[ \spec\I/i \cong \I\alg(\I/i,\I) \cong \fa n\N \ms ti_n\text{,} \]
-  where we have abbreviated the countably presented $\I$-algebra $\I/\pair{i_n=1}_{n:\N}$ as $\I/i$. Now if we have $\neg\fa n\N \ms ti_n$, then $\spec\I/i \cong \emp$ which by \Cref{lem:nulls} implies $\I/i$ is trivial. But this algebra is trivial iff $\ex n\N \ms fi_n$.
+  Let $i : \ov\omega$. Notice that similar to \Cref{lem:openpropaffine}, the proposition $\fa n\N \ist{i}_n$ by construction is the following affine space, 
+  \[ \spec\I/i \cong \I\alg(\I/i,\I) \cong \fa n\N \ist{i}_n\text{,} \]
+  where we have abbreviated the countably presented $\I$-algebra $\I/\pair{i_n=1}_{n:\N}$ as $\I/i$. Now if we have $\neg\fa n\N \ist{i}_n$, then $\spec\I/i \cong \emp$ which by \Cref{lem:nulls} implies $\I/i$ is trivial. But this algebra is trivial iff $\ex n\N \isf{i}_n$.
 \end{proof}
 
 Equipped with the above result, we can now proceed to study the initial algebra $\omega$ for $L$. \citet{JIBLADZE1997185} has given a beautiful formula for a type-theoretic description of $\omega$ as the following subset of $\ov\omega$, 
-\[ \omega \coloneq \scomp{i : \ov\omega}{\fa\phi{\pp} (\fa n{\N} (\ms ti_n \to \phi) \to \phi) \to \phi}\text{.} \]
+\[ \omega \coloneq \scomp{i : \ov\omega}{\fa\phi{\pp} (\fa n{\N} (\ist{i}_n \to \phi) \to \phi) \to \phi}\text{.} \]
 For another proof, see e.g.\ that of \citet{VANOOSTEN2000233}. In the presence of \Cref{lem:markov}, this description can be greatly simplified:
 
 \begin{proposition}[NT, SQCC]\label{prop:omegacolimit}
   $\omega$ is equivalent to the following subset of $\ov\omega$,
-  \[ \omega \cong \scomp{i : \ov\omega}{\ex n{\N} \ms fi_n}\text{.} \]
+  \[ \omega \cong \scomp{i : \ov\omega}{\ex n{\N} \isf{i}_n}\text{.} \]
   In particular, $\omega$ is the colimit of the following sequence:
     \[\begin{tikzcd}
     \emp & {\Delta^0} & {\Delta^1} & \cdots \\
@@ -1503,8 +1507,8 @@ The transition maps $\Delta^n\to \Delta^{n+1}$ above are given by appending $0$ 
 
 \begin{proof}
   Let $i : \ov\omega$. It suffices to show that
-  \[ \prth{\fa\phi{\pp} (\fa n{\N} (\ms ti_n \to \phi) \to \phi) \to \phi} \to \ex{n}\N \ms fi_n\text{.} \]
-  Assume the premise. We can instantiate $\phi$ to $\emp$. By assumption, we have $\neg\fa n\N \neg\neg\ms ti_n$, which by \Cref{cor:opendnegclose} is equivalent to $\neg\fa n\N \ms ti_n$. Then \Cref{lem:markov} implies this is $\ex n\N \ms fi_n$. The fact that this makes $\omega$ into the above sequential colimit follows from \citet[Cor.~1.10]{VANOOSTEN2000233}.
+  \[ \prth{\fa\phi{\pp} (\fa n{\N} (\ist{i}_n \to \phi) \to \phi) \to \phi} \to \ex{n}\N \isf{i}_n\text{.} \]
+  Assume the premise. We can instantiate $\phi$ to $\emp$. By assumption, we have $\neg\fa n\N \neg\neg\ist{i}_n$, which by \Cref{cor:opendnegclose} is equivalent to $\neg\fa n\N \ist{i}_n$. Then \Cref{lem:markov} implies this is $\ex n\N \isf{i}_n$. The fact that this makes $\omega$ into the above sequential colimit follows from \citet[Cor.~1.10]{VANOOSTEN2000233}.
 \end{proof}
 
 \begin{remark}\label{rem:omegaalwayscolim}
@@ -1599,7 +1603,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
   \end{tikzcd}
   \]
   and, due to the fact that the theory of bounded distributive lattices is \emph{finitary}, this sequential colimit of \emph{algebras} is computed the same as their \emph{underlying sets}. Via \Cref{prop:simplicesasalgebra}, the result can be identified as the subtype of $\Delta_\infty$,
-  \[ \Delta_\omega \coloneq \scomp{i : \Delta_\infty}{\ex n\N \ms ti_n}\text{,} \]
+  \[ \Delta_\omega \coloneq \scomp{i : \Delta_\infty}{\ex n\N \ist{i}_n}\text{,} \]
   where $\Delta_\omega \hook \Delta_\infty$ in some sense is the order-dual to the inclusion $\omega\hook\ov\omega$. The fact that we have \emph{all} infinite increasing sequences in the case for $\sigma$-frames is clearly due to the fact that we have countable disjunctions in $\sigma$-frames, as when identifying $p$ in $\I[\N]/\pair{\ms{i}_n \ge \ms{i}_{n+1}}_{n:\N}$ with $p = p_0 \vee \bigvee_{n:\N}p_{n+1}\wedge \ms{i}_n$.
 \end{remark}
 
@@ -1713,7 +1717,7 @@ We start with the Segal completeness condition. Besides the outer horn discussed
     \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=2-2, to=1-1]
   \end{tikzcd}
 \]
-As a subtype of $\Delta_2$, it can be identified as $\scomp{(i,j) : \Delta_2}{\ms fi \vee \ms tj}$.
+As a subtype of $\Delta_2$, it can be identified as $\scomp{(i,j) : \Delta_2}{\isf{i} \vee \ist{j}}$.
 
 \begin{definition}[Segal complete types]
   $X$ is called \emph{Segal complete} when it is right orthogonal to $\Lambda^2_1 \hook \Delta_2$.
@@ -1806,9 +1810,9 @@ Furthermore, we can show that $\omega$ also satisfies a version of the Phoa prin
 % \Jon{Stale reference to generalised Phoa principle.}
 
 Recall from \Cref{prop:omegacolimit} that, under (NT) and (SQCC), $\omega$ is a colimit $\omega \cong \ct_{n:\N}\Delta^n$. As indicated in \Cref{rem:omegaalwayscolim}, this does not depend on working with bounded distributive lattices or $\sigma$-frames. Type-theoretically, we have also shown that $\omega$ can be realised as the following subspace of $\ov\omega$,
-\[ \omega \cong \scomp{i : \ov\omega}{\ex n\N \ms fi_n}\text{.} \]
+\[ \omega \cong \scomp{i : \ov\omega}{\ex n\N \isf{i}_n}\text{.} \]
 This way, the inclusion $\Delta^n \hook \omega$ can be viewed as follows, 
-\[ \Delta^n \cong \scomp{i : \omega}{\ms fi_{n}}\text{,} \]
+\[ \Delta^n \cong \scomp{i : \omega}{\isf{i}_{n}}\text{,} \]
 which implies $\Delta^n \hook \omega$ is \emph{downward closed}. This allows us to directly compute $\omega^\I$:
 
 \begin{proposition}[NT, SQCC]\label{lem:intervalcommuteomega}
