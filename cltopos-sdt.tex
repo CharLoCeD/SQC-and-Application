@@ -805,10 +805,10 @@ On the other hand, \Cref{sec:order-theoretic-structure} will show that under the
 A slightly stronger axiom which is common in the practice of domain theory is that the dominance $\I$ should furthermore be closed under all finite disjunctions. For this, we consider the following axiom:
 
 \begin{axiom}[L]\label{ax:L}
-  $\I$ is local, i.e.\ $0 \neq 1$, and $\ist(i\vee j) \eq \ist{i} \vee \ist{j}$ for $i,j : \I$. Geometrically, the second condition states that the following two inclusions are jointly surjective. 
+  $\I$ is local, i.e.\ $0 \neq 1$, and $\ist{i\vee j} \eq \ist{i} \vee \ist{j}$ for $i,j : \I$. Geometrically, the second condition states that the following two inclusions are jointly surjective. 
   \[ 
   \begin{tikzcd}
-    \I \ar[r, hook, "{i \mapsto (i,1)}"] & \scomp{i,j : \I}{\ist(i\vee j)} & \I \ar[l, hook', "{j \mapsto (1,j)}"']
+    \I \ar[r, hook, "{i \mapsto (i,1)}"] & \scomp{i,j : \I}{\ist{i\vee j}} & \I \ar[l, hook', "{j \mapsto (1,j)}"']
   \end{tikzcd}
   \]
 \end{axiom}
@@ -847,7 +847,7 @@ As another example of a new spectrum (L) allows us to define:
   \]
   By viewing $\Lambda^2_2$ as a subspace of $\I^2$, we may identify it as follows:
   \[ \Lambda^2_2 \cong \scomp{(i,j) : \I^2}{\ist{i} \vee \ist{j}}\text{.} \]
-  Assuming (L), $\ist{i} \vee \ist{j} \eq \ist(i\vee j)$, it follows that 
+  Assuming (L), $\ist{i} \vee \ist{j} \eq \ist{i\vee j}$, it follows that 
   \[ \Lambda^2_2 \cong \spec \I[\ms{i},\ms{j}]/\ms{i} \vee \ms{j}\text{.} \]
 \end{example}
 
