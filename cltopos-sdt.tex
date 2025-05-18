@@ -1482,14 +1482,46 @@ We omit the proof here, which again follows from a general normal form for polyn
 \section{Chain completeness and infinitary domain theory}\label{sec:infdomain}
 
 Until this point, we have seen that elementary axioms for synthetic domain theory follow from (SQCF) for bounded distributive lattices and thus $\sigma$-frames. In this section we show that the final axiom of synthetic domain theory, viz.\ chain completeness of the interval $\I$, is also a consequence of quasi-coherence for $\sigma$-frames. In fact, it implies the main infinitary axiom of synthetic domain theory in~\citet{fiore-plotkin:1996}---the initial algebra $\omega$ for $L$ is inductive.
-The proof of the chain completeness of the interval in \Cref{thm:complete} is the only place we where have used the essential properties of $\sigma$-frames, and we will also indicate why it fails for bounded distributive lattices in \Cref{rem:whynotdis}.
 
-\Jon{I think that we can't assume the people reading this paper will be well-versed in the tradition of SDT, because SDT is kind of dead for a number of years. Therefore, I think we need to actually start by introducing the idea of chain completeness being formulated in terms of the initial algebra and final coalgebra to $L$, to what follows. I suggest we add just a very short ``introductory'' section here explaining / motivating the classical stuff (including the possibility of $\omega$ being inductive) and concluding by foreshadowing the fact that all these things will be implied by a stronger quasi-coherence principle. Then the remainder of what is written below can proceed basically verbatim.}
+\subsection{Chain completeness and inductivity of the initial algebra}
 
+Chain completeness is again specified as an orthogonality condition. Let $\omega,\ov\omega$ denote the initial algebra and final coalgebra for the partial map classifier $L$, respectively. Intuitively, $\omega$ behaves as an infinite chain, and $\ov\omega$ as an infinite chain with a top element. The chain completeness condition is thus intuitively stating a type has joins for infinite sequences internally:
+
+\begin{definition}[Chain completeness]
+  A type $X$ is \emph{chain complete} if it is right orthogonal to the inclusion $\omega \hook \ov\omega$.
+\end{definition}
+
+The importance for chain completeness of $\I$ for domain theory is that, as observed in~\citet{hyland1990first}, it produces fixed points of endo-morphisms on a suitably defined class of objects, which could be viewed as \emph{domains}. 
+
+As $L$ by construction is a polynomial functor, it preserves connected limits. This implies the final coalgebra $\ov\omega$ can always be constructed as a sequential limit as follows, 
+\[\begin{tikzcd}
+	{\ov\omega\cong\lt_{n:\N}L^n1} \ar[r] & \cdots & {L^21} & L1 & 1
+	\arrow[from=1-2, to=1-3]
+	\arrow["{{L!}}"', from=1-3, to=1-4]
+	\arrow["{{!}}"', from=1-4, to=1-5]
+\end{tikzcd}\]
+However, the dual statement fails for the initial algebra $\omega$, i.e. it is \emph{not} always the following sequential colimit,
+\[\begin{tikzcd}
+	\emp & {L(\emp)} & {L^2(\emp)} & \cdots
+	\arrow["{{?}}"', from=1-1, to=1-2]
+	\arrow["{{L(?)}}"', from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}\]
+
+\begin{definition}
+  $\omega$ is \emph{inductive} if it is the sequential colimit above.
+\end{definition}
+The failure of inductivity of $\omega$ has been observed in various realisability models for synthetic domain theory~\cite{VANOOSTEN2000233}. As shown by~\citet{fiore-plotkin:1996}, the inductivity of $\omega$ is indeed a desirable property: If it holds, then there will be a much closer correspondence between models for \emph{synthetic domain theory} and models for \emph{analytic domain theory}. In other words, in such cases there is a much closer relationship between the practice of traditional domain theory and the synthetic model.
+
+The remaining part of this section is dedicated to showing that under a suitable quasi-coherence assumption, we can indeed show that $\I$ is chain complete (\Cref{thm:complete}) and $\omega$ is inductive (\Cref{prop:omegacolimit}). In fact, the proof of \Cref{thm:complete} is the only place we where have used the essential properties of $\sigma$-frames, and we will also indicate why it fails for bounded distributive lattices in \Cref{rem:whynotdis}.
+
+% \Jon{I think that we can't assume the people reading this paper will be well-versed in the tradition of SDT, because SDT is kind of dead for a number of years. Therefore, I think we need to actually start by introducing the idea of chain completeness being formulated in terms of the initial algebra and final coalgebra to $L$, to what follows. I suggest we add just a very short ``introductory'' section here explaining / motivating the classical stuff (including the possibility of $\omega$ being inductive) and concluding by foreshadowing the fact that all these things will be implied by a stronger quasi-coherence principle. Then the remainder of what is written below can proceed basically verbatim.}
+
+\subsection{Quasi-coherent for countably presented algebras and infinitary domain theory}
 The connection between the infinitary aspect of synthetic domain theory and quasi-coherence starts from the observation that the final coalgebra $\ov\omega$ for the functor $L$ can be described as a \emph{spectrum}:
 
 \begin{example}[$\ov\omega$ is a spectrum]\label{exm:ovomegaaffine}
-  Since $L$ by construction is a polynomial functor, it preserves all connected limits. Hence, the final coalgebra $\ov\omega$ can be easily characterised as the sequential limit, 
+  As mentioned, the final coalgebra $\ov\omega$ can be characterised as the sequential limit,
   \[\begin{tikzcd}
     \cdots & {\Delta^2} & {\Delta^1} & {\Delta^0} \\
     \cdots & {L^21} & L1 & 1
@@ -1548,8 +1580,8 @@ For another proof, see e.g.\ that of \citet{VANOOSTEN2000233}. In the presence o
 \begin{proposition}[\AxiomNT, \AxiomSQCC]\label{prop:omegacolimit}
   $\omega$ is equivalent to the following subset of $\ov\omega$,
   \[ \omega \cong \scomp{i : \ov\omega}{\ex n{\N} \isf{i_n}}\text{.} \]
-  In particular, $\omega$ is the colimit of the following sequence:
-    \[\begin{tikzcd}
+  In particular, $\omega$ is the colimit of the following sequence, thus is inductive:
+  \[\begin{tikzcd}
     \emp & {\Delta^0} & {\Delta^1} & \cdots \\
     \emp & {L(\emp)} & {L^2(\emp)} & \cdots
     \arrow[from=1-1, to=1-2]
@@ -1573,9 +1605,9 @@ The transition maps $\Delta^n\to \Delta^{n+1}$ above are given by appending $0$ 
   Assume the premise. We can instantiate $\phi$ to $\emp$. By assumption, we have $\neg\fa n\N \neg\neg\ist{i_n}$, which by \Cref{cor:opendnegclose} is equivalent to $\neg\fa n\N \ist{i_n}$. Then \Cref{lem:markov} implies this is $\ex n\N \isf{i_n}$. The fact that this makes $\omega$ into the above sequential colimit follows from \citet[Cor.~1.10]{VANOOSTEN2000233}.
 \end{proof}
 
-\begin{remark}\label{rem:omegaalwayscolim}
-  The above characterisation of $\omega$ as a sequential colimit is still true if we work with bounded distributive lattices, rather than $\sigma$-frames.
-\end{remark}
+% \begin{remark}\label{rem:omegaalwayscolim}
+  
+% \end{remark}
 
 Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affine, we can show $\I$ is chain complete. This again crucially depends on a normal form result for a countably presented $\sigma$-frame, which generalises the finitary version for bounded distributive lattices given in \Cref{prop:simplicesasalgebra}:
 
@@ -1658,7 +1690,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 \end{proof}
 
 \begin{remark}[$\sigma$-frames vs.\ bounded distributive lattices]\label{rem:whynotdis}
-  The completeness result shown in \Cref{thm:complete} is the only one in this paper that works for $\sigma$-frames and not for bounded distributive lattices more generally. The reason is exactly because the normal form in \Cref{app:normalsigma} for the countably presented \emph{bounded distributive lattice} $\I[\N]/\pair{\ms{i}_n \ge \ms{i}_{n+1}}_{n:\N}$ will \emph{not} be isomorphic to $\Delta_\infty$. More specifically, for the countably presented bounded distributive lattice $\I[\N]/\pair{\ms{i}_n \ge \ms{i}_{n+1}}_{n:\N}$, since it is a sequential colimit of the following finitely presented bounded distributive lattices
+  Note that the inductivity of $\omega$ as shown in \Cref{prop:omegacolimit} is \emph{independent} of working with distributive lattices or $\sigma$-frames. The completeness result shown in \Cref{thm:complete} is the only one in this paper that works for $\sigma$-frames and not for bounded distributive lattices more generally. The reason is exactly because the normal form in \Cref{app:normalsigma} for the countably presented \emph{bounded distributive lattice} $\I[\N]/\pair{\ms{i}_n \ge \ms{i}_{n+1}}_{n:\N}$ will \emph{not} be isomorphic to $\Delta_\infty$. More specifically, for the countably presented bounded distributive lattice $\I[\N]/\pair{\ms{i}_n \ge \ms{i}_{n+1}}_{n:\N}$, since it is a sequential colimit of the following finitely presented bounded distributive lattices
   \[ 
   \begin{tikzcd}
     \cdots \ar[r] & \I[n]/\ms{i}_{0} \ge \cdots \ge \ms{i}_{n-1} \ar[r, hook] & \I[n\!+\!1]/\ms{i}_0 \ge \cdots \ge \ms{i}_n \ar[r, hook] & \cdots
@@ -1858,7 +1890,7 @@ The notion of synthetic categories and synthetic posets are formulated as these 
   This follows from $\I$ being a synthetic poset, and spectra and quasi-coherent algebras are \emph{replete} as indicated in \Cref{rem:qcreplete,rem:specarereplete}.
 \end{proof}
 
-At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We first observe that its observational preorder again coincides with its expected pointwise order viewed as a subspace of $\I^\N$:
+At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We first observe its observational preorder again coincides with its expected pointwise order viewed as a subspace of $\I^\N$:
 
 \begin{lemma}[\AxiomNT, \AxiomSQCC]\label{speconomegaiscan}
   The inclusion $\omega \hook \ov\omega$ is an order embedding for the observational preorder. In particular, the observational preorder on $\omega$ is induced pointwise as a subspace of $\ov\omega\hookrightarrow \I^\N$.
@@ -1870,7 +1902,7 @@ At the end of this section, we also discuss the example of $\omega$, which as we
 Furthermore, we can show that $\omega$ also satisfies a version of the Phoa principle, i.e.\ the function space $\omega^\I$ again classifies its pointwise order. For this we need to compute the function space $\omega^\I$.
 % \Jon{Stale reference to generalised Phoa principle.}
 
-Recall from \Cref{prop:omegacolimit} that, under (\AxiomNT) and (\AxiomSQCC), $\omega$ is a colimit $\omega \cong \ct_{n:\N}\Delta^n$. As indicated in \Cref{rem:omegaalwayscolim}, this does not depend on working with bounded distributive lattices or $\sigma$-frames. Type-theoretically, we have also shown that $\omega$ can be realised as the following subspace of $\ov\omega$,
+Recall from \Cref{prop:omegacolimit} that, under (\AxiomNT) and (\AxiomSQCC), $\omega$ is a colimit $\omega \cong \ct_{n:\N}\Delta^n$. As indicated in \Cref{rem:whynotdis}, this does not depend on working with bounded distributive lattices or $\sigma$-frames. Type-theoretically, we have also shown that $\omega$ can be realised as the following subspace of $\ov\omega$,
 \[ \omega \cong \scomp{i : \ov\omega}{\ex n\N \isf{i_n}}\text{.} \]
 This way, the inclusion $\Delta^n \hook \omega$ can be viewed as follows, 
 \[ \Delta^n \cong \scomp{i : \omega}{\isf{i_n}}\text{,} \]
