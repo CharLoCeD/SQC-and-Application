@@ -335,25 +335,22 @@ Cambridge, UK%
 
 \subsection{Synthetic domain theory}\label{subsec:sdt}
 
-The proposal to develop a synthetic theory of domains was raised by Dana Scott in the early 1980s. The thesis is that (pre)domains should be viewed simply as some special sets in a suitable universe, and any function between them should automatically respect the computational data associated to domains. Later \citet{hyland1990first} gave an extensive list of the properties such a universe might satisfy.
+The proposal to develop a synthetic theory of domains was raised by Dana Scott in the 1980s. The thesis is that (pre)domains should be viewed simply as some special sets in a suitable universe, and any function between them should automatically respect the computational data associated to domains. Later \citet{hyland1990first} gives an extensive list of the properties such a universe should satisfy.
 
 Firstly, a universe for synthetic domains should contain an interval object $\I$, which induces an observational preorder (or \emph{specialisation} preorder from a topological perspective) on domains for which function is automatically monotone. An internal axiom that characterises the synthetic nature of this fact is the so-called \emph{Phoa principle}: The function space $\I^\I$ should classify the order on $\I$. In other words, the functions from $\I$ to itself are completely determined by the order structure on $\I$. 
 
-Additionally, $\I$ should also form a subuniverse of propositions closed under dependent sums, so as to form a dominance in the sense of \citet{rosolini1986continuity}. The dominance structure is used to parametrise partial functions through a \emph{partial map classifier} functor $L$ constructed from $\I$. 
+Additionally, $\I$ should also form a subuniverse of propositions closed under dependent sums, so as to form a dominance in the sense of \citet{rosolini1986continuity}. The dominance structure is used to parametrise partial functions through a functor $L$ constructed from $\I$. 
 
-Besides these elementary axioms, the main additional axiom of synthetic domain theory is the \emph{chain completeness} of the interval: 
-\begin{quote}
-  Let $\omega$ and $\ov\omega$ be the carriers of the internal initial algebra and final coalgebra to the partial map classifier functor $L$ respectively. There is a canonical inclusion $\omega \hook \ov\omega$, and the chain completeness axiom states that $\I$ is \emph{right orthogonal} to this inclusion in the sense that the canonically induced restriction map $\I^{\ov\omega} \to \I^{\omega}$ should be an equivalence. 
-\end{quote} 
-This can be viewed as the synthetic version of the $\omega$-completeness of the Sierpi\'nski space in traditional domain theory.
+Besides these elementary axioms, the main additional axiom of synthetic domain theory is the \emph{chain completeness} of the interval: Let $\omega$ and $\ov\omega$ be the carriers of the internal initial algebra and final coalgebra to the functor $L$, respectively. 
+There is a canonical inclusion $\omega \hook \ov\omega$, and the chain completeness axiom states that $\I$ is \emph{right orthogonal} to this inclusion in the sense that the canonically induced map $\I^{\ov\omega} \to \I^{\omega}$ should be an equivalence. This can be viewed as the synthetic version of the $\omega$-completeness of the Sierpi\'nski space in traditional domain theory.
 
 \subsection{Two viewpoints on synthetic domains}
 
-The most studied models of synthetic domain theory are those arising from realisability---in which the interval $\I$ is taken to be Rosolini's dominance of semidecidable propositions in the Effective Topos~\citep{hyland1990first,PhoaWesleyKym-Son1991DtiR}, which happens to coincide there with the \emph{initial $\sigma$-frame} by virtue of countable choice. The model of synthetic domain theory in $\mathbf{Eff}$ ultimately interprets domain theoretic concepts in terms of Turing machines, which makes them applicable to the classical theory of computation~\citep{RN552}. 
+The most studied models of synthetic domain theory are those arising from realisability---in which the interval $\I$ is taken to be Rosolini's dominance of semi-decidable propositions in the Effective Topos~\citep{hyland1990first,PhoaWesleyKym-Son1991DtiR}, which happens to coincide there with the \emph{initial $\sigma$-frame} by virtue of countable choice. The model of synthetic domain theory in $\mathbf{Eff}$ ultimately interprets domain theoretic concepts in terms of Turing machines, which makes them applicable to the classical theory of computation~\citep{RN552}. 
 
 On the other hand, realisability models do not provide a direct connection to classical theories of domains. For the latter, researchers returned to the original suggestion of Scott and devised sheaf models of synthetic domain theory in which the site is obtained from some existing category of domains or a dense generator thereof~\cite{fiore-plotkin:1996,FIORE1997151,fiore2001domains}.
 
-Much effort has been put toward identifying a common axiomatics that accounts for both realisability and sheaf models of synthetic domain theory; cf.\ the work of \citet{reus-streicher:1999,simpson:2004}. Beyond these basic axioms, the realisability and sheaf models of synthetic domain theory behave very differently, as exemplified in the failure of the initial $L$-algebra to be inductive in the former, as \citet{VANOOSTEN2000233} pointed out.
+Much effort has been put toward identifying a common axiomatic framework that accounts for both realisability and sheaf models of synthetic domain theory; cf.\ the work of \citet{reus-streicher:1999,simpson:2004}. Beyond these basic axioms, the realisability and sheaf models of synthetic domain theory behave very differently, as exemplified in the failure of the initial $L$-algebra to be inductive in the former, as \citet{VANOOSTEN2000233} pointed out.
 
 The goal of the present paper is to identify a number of axioms emerging from the theory of \emph{classifying topoi} that suffice to explain the behaviour of sheaf models of synthetic domain theory all at once, including not only the dominance property and Phoa's principle, but also the chain completeness of the interval and the inductive construction of the initial $L$-algebra. We stress that the strongest of these axioms \emph{cannot} hold in the realisability model of synthetic domain theory, but they can be used to generate \emph{new} and exotic sheaf models of synthetic domains.
 
@@ -368,7 +365,7 @@ where $\mmod\T\fp$ is the category of finitely presented $\T$-algebras. In parti
 \[ U_\T^{U_\T} \cong U_\T[\ms{x}]\text{,} \]
 where $U_\T[\ms{x}]$ denotes the free $\T$-model generated by an additional element, which is a  polynomial algebra on $U_\T$.
 
-\citet{gratzer2024directed} have shown that when $\T$ is taken to be the theory $\mbb D$ of \emph{bounded distributive lattices} and $\I$ is the generic $\mbb D$-model, the equivalence $\I^\I \cong \I[\ms{i}]$ implies Phoa's principle---because for bounded distributive lattices, the polynomial $\I$-algebra $\I[\ms{i}]$ always classifies the partial order on $\I$. This is a striking example of how the properties of a theory impact the internal logic of its classifying topos. We will see many more examples in this paper.
+\citet{gratzer2024directed} have shown that when $\T$ is taken to be the theory $\mbb D$ of \emph{bounded distributive lattices} and $\I$ is the generic $\mbb D$-model, the equivalence $\I^\I \cong \I[\ms{i}]$ implies Phoa's principle---because for bounded distributive lattices, the polynomial $\I$-algebra $\I[\ms{i}]$ classifies the partial order on $\I$. This is a striking example of how the properties of a theory impact the internal logic of its classifying topos. We will see many more examples in this paper.
 
 \subsection{Synthetic quasi-coherence}\label{subsec:qc}
 
@@ -386,12 +383,12 @@ The quasi-coherence principle in $\Set[\T]$ proposed by \citet{blechschmidt2021u
 obtained on elements by transposing the evaluation map $A\times \spec A\to U_\T$ is an equivalence.
 Types of the form $\spec A$ for such $A$ are called \emph{affine} by \citet{blechschmidt2021using}. This in fact induces an internal duality between finitely presented $U_\T$-algebras and affine types. In particular, it implies Blass's result. 
 
-The appearance of finite presentation in the above formulation of quasi-coherence is perhaps misleading. Following the development of \citet{blechschmidt2021using,blechschmidt2020general}, it is clear that the quasi-coherence principle for finitely presented algebras can be generalised to larger cardinality,
+In fact, the appearance of finite presentation in the above formulation of quasi-coherence is not essential. Following the development of \citet{blechschmidt2021using,blechschmidt2020general}, it is clear that the quasi-coherence principle for finitely presented algebras can be generalised to larger cardinality,
 if we enlarge the site of the classifying topos $\Set[\T]$. For instance, one can consider
 \[ \Set[\T]_\omega \coloneq [\mmod\T\cp,\Set]\text{,} \]
-where $\mmod\T\cp$ denotes the category of \emph{countably presented} $\T$-models. In this case, countably presented $U_\T$-algebras will be quasi-coherent in $\Set[\T]_\omega$. This is the theoretical basis in a recent approach for synthetic topology suggested by \citet{cherubini2024foundation}, who consider a variation on the quasi-coherence principle for \emph{countably} presented Boolean algebras. 
+where $\mmod\T\cp$ denotes the category of \emph{countably presented}  $\T$-models. In this case, countably presented $U_\T$-algebras will be quasi-coherent in $\Set[\T]_\omega$. For instance, this is the theoretical basis in a recent approach for synthetic topology suggested by \citet{cherubini2024foundation}, who consider a variation on the quasi-coherence principle for \emph{countably} presented Boolean algebras. 
 %
-Horn theories $\T$ whose operations have \emph{countable} arity can also be considered in this case, so long as the base topos $\Set$ satisfies countable choice. Of course, these examples will not fit directly into the discipline of classifying toposes because geometric theories cannot have infinitary operations: but a suitable doctrine may arise when considering geometric morphisms whose inverse image functors preserve countable rather than finite limits.
+Horn theories $\T$ whose operations have \emph{countable} arity can also be considered in this case, so long as the base topos $\Set$ satisfies countable choice. Of course, these will not fit directly into the discipline of classifying toposes because geometric theories cannot have infinitary operations.
 
 Blechschmidt also points out that quasi-coherence descends from the classifying (presheaf) topos $\Set[\T]$ to any subtopos containing the generic model $U_\T$; see \citet[Cor. 7.7]{blechschmidt2020general}. From a logical perspective, a subtopos $\Set[\mbb S] \hook \Set[\T]$ can be identified as the classifying topos for a \emph{geometric quotient} $\mbb S$ of the Horn theory $\T$. If $U_\T$ is a sheaf for $\Set[\mbb S]$, then $U_\T$ in the subtopos $\Set[\mbb S]$ will be the generic $\mbb S$-model.
 Hence, in such a subtopos, $U_\T$ will validates more geometric sequents as specified by the topology, which should be viewed as certain \emph{local properties}. For instance, \citet{blechschmidt2021using,Cherubini_Coquand_Hutzler_2024} work with \emph{local rings}, where the additional geometric properties are validated by the Zariski topology.
@@ -399,7 +396,9 @@ In the case of synthetic Stone duality, the Boolean algebra used by \citet{cheru
 
 \subsection{Summary of contributions}\label{sec:contributions}
 
-We study an emerging connection between synthetic domain theory and the quasi-coherence axioms for \emph{bounded distributive lattices} and \emph{$\sigma$-frames}. As a first indication of why quasi-coherence for these theories might be useful for domain theory, we have observed that by taking the interval $\I$ to be the generic bounded distributive lattice or $\sigma$-frame \Jon{let's figure out how to phrase this precisely to avoid confusion}, many important objects for domain theory can be written as \emph{spectra}. This include the cubes $\I^n$ (\Cref{exm:cubeaffine}), the simplices $\Delta^n$ (\Cref{exm:simplicesaffine}), and the final coalgebra $\ov\omega$ (\Cref{exm:ovomegaaffine}). The initial algebra $\omega$ will also be realised as a sequential colimit of spectra (\Cref{prop:omegacolimit}). Here we outline the main results of this paper, and discuss some of their potential applications.
+We study an emerging connection between synthetic domain theory and the quasi-coherence axioms for \emph{bounded distributive lattices} and \emph{$\sigma$-frames}. As a first indication of why quasi-coherence for these theories might be useful for domain theory, we have observed that by taking the interval $\I$ to be a bounded distributive lattice or $\sigma$-frame internal to some topos,
+% \Jon{let's figure out how to phrase this precisely to avoid confusion},
+many important objects for domain theory can be written as \emph{spectra}. This include the cubes $\I^n$ (\Cref{exm:cubeaffine}), the simplices $\Delta^n$ (\Cref{exm:simplicesaffine}), and the final coalgebra $\ov\omega$ (\Cref{exm:ovomegaaffine}). Here we outline the main results of this paper, and discuss some of their potential applications.
 
 \begin{enumerate}[leftmargin=*]
   \item \emph{Quasi-coherence produces synthetic domain theory.} We show the principle of quasi-coherence suffices to account for \emph{all} essential axioms for synthetic domain theory. Specifically:
@@ -418,15 +417,11 @@ We study an emerging connection between synthetic domain theory and the quasi-co
 
     \item  More interestingly, without assuming the local properties globally, one can still show that $\I$ will be \emph{right orthogonal} to the maps that classifies these local properties (\Cref{specisnontrivial,specissimplicial,specis1t}). In general, any limiting diagram of quasi-coherent algebras will induce a localisation class containing $\I$; cf.\ \Cref{rem:limofalgloc}. This exhibits a new type of techniques in reasoning about domains in this framework.
     
-    \item As a special case of locality, we also connect to the recent approach of synthetic (higher) category theory~\citep{riehl2017type,buchholtz2021synthetic,gratzer2024directed}. In particular, we show spectra will be synthetic categories (\Cref{thm:affineposet}). As another example, we also show $\omega$ is a synthetic category, in fact it satisfies \emph{all} the orthogonality conditions discussed in this paper (\Cref{thm:omegaortho}). 
+    \item As a special case of locality, we also connect to the recent approach of synthetic (higher) category theory~\citep{riehl2017type,buchholtz2021synthetic,gratzer2024directed}. In particular, we show spectra will be synthetic categories (\Cref{thm:affineposet}). As another example, we also show $\omega$ is a synthetic category, in fact it satisfies \emph{all} the orthogonality conditions discussed in this paper except chain completeness (\Cref{thm:omegaortho}).
   \end{enumerate}
 
-  \item \emph{New models for synthetic domain theory.} Consequently, we uncover a large family of new models for synthetic domain theory based on classifying topoi for $\sigma$-frames. We will discuss these models in \Cref{sec:model}, and compare them to the existing sheaf models for synthetic domain theory~\citep{FIORE1997151} in \Cref{subsec:compare}.
+  \item \emph{New models for synthetic domain theory.} Consequently, we uncover a large family of new models for synthetic domain theory based on sites induced by countably presented $\sigma$-frames. We will discuss these models in \Cref{sec:model}, and compare them to the existing sheaf models for synthetic domain theory~\citep{FIORE1997151} in \Cref{subsec:compare}.
 \end{enumerate}
-
-
-
-
 
 
 \subsection{Style and notation of the paper}
@@ -479,7 +474,7 @@ As mentioned in \Cref{subsec:qc}, an $\I$-algebra is a $\T$-model $A$ equipped w
 
 \begin{proof}
   For any $\I$-algebra $A$ and set $X$, we have a natural equivalence 
-  \[ (\spec A)^X \cong \I\alg(A,\I)^X \cong \prod_{x:X}\I\alg(A,\opens{X})\cong \I\alg(A,\opens{X})\text{.} \qedhere\]
+  \[ (\spec A)^X \cong \I\alg(A,\I)^X \cong \prod_{x:X}\I\alg(A,\I)\cong \I\alg(A,\opens{X})\text{.} \qedhere\]
 \end{proof}
 
 \begin{convention}[Unit and counit]
@@ -1487,14 +1482,47 @@ We omit the proof here, which again follows from a general normal form for polyn
 \section{Chain completeness and infinitary domain theory}\label{sec:infdomain}
 
 Until this point, we have seen that elementary axioms for synthetic domain theory follow from (SQCF) for bounded distributive lattices and thus $\sigma$-frames. In this section we show that the final axiom of synthetic domain theory, viz.\ chain completeness of the interval $\I$, is also a consequence of quasi-coherence for $\sigma$-frames. In fact, it implies the main infinitary axiom of synthetic domain theory in~\citet{fiore-plotkin:1996}---the initial algebra $\omega$ for $L$ is inductive.
-The proof of the chain completeness of the interval in \Cref{thm:complete} is the only place we where have used the essential properties of $\sigma$-frames, and we will also indicate why it fails for bounded distributive lattices in \Cref{rem:whynotdis}.
 
-\Jon{I think that we can't assume the people reading this paper will be well-versed in the tradition of SDT, because SDT is kind of dead for a number of years. Therefore, I think we need to actually start by introducing the idea of chain completeness being formulated in terms of the initial algebra and final coalgebra to $L$, to what follows. I suggest we add just a very short ``introductory'' section here explaining / motivating the classical stuff (including the possibility of $\omega$ being inductive) and concluding by foreshadowing the fact that all these things will be implied by a stronger quasi-coherence principle. Then the remainder of what is written below can proceed basically verbatim.}
+\subsection{Chain completeness and inductivity of the initial algebra}
 
+Chain completeness is again specified as an orthogonality condition. Let $\omega,\ov\omega$ denote the initial algebra and final coalgebra for the partial map classifier $L$, respectively. Intuitively, $\omega$ behaves as an infinite chain, and $\ov\omega$ as an infinite chain with a top element. The chain completeness condition is thus intuitively stating a type has joins for infinite sequences internally:
+
+\begin{definition}[Chain completeness]
+  A type $X$ is \emph{chain complete} if it is right orthogonal to the inclusion $\omega \hook \ov\omega$.
+\end{definition}
+
+The importance for chain completeness of $\I$ for domain theory is that, as observed in~\citet{hyland1990first}, it produces fixed points of endo-morphisms on a suitably defined class of objects, which could be viewed as \emph{domains}. 
+
+As $L$ by construction is a polynomial functor, it preserves connected limits. This implies the final coalgebra $\ov\omega$ can always be constructed as a sequential limit as follows, 
+\[\begin{tikzcd}
+	{\ov\omega\cong\lt_{n:\N}L^n1} \ar[r] & \cdots & {L^21} & L1 & 1
+	\arrow[from=1-2, to=1-3]
+	\arrow["{{L!}}"', from=1-3, to=1-4]
+	\arrow["{{!}}"', from=1-4, to=1-5]
+\end{tikzcd}\]
+However, the dual statement fails for the initial algebra $\omega$, i.e.\ it is \emph{not} always the following sequential colimit,
+\[\begin{tikzcd}
+	\emp & {L(\emp)} & {L^2(\emp)} & \cdots
+	\arrow["{{?}}"', from=1-1, to=1-2]
+	\arrow["{{L(?)}}"', from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}\]
+
+\begin{definition}
+  $\omega$ is \emph{inductive} if it is the sequential colimit above.
+\end{definition}
+The failure of inductivity of $\omega$ has been observed in various realisability models for synthetic domain theory~\cite{VANOOSTEN2000233}. As shown by \citet{fiore-plotkin:1996}, the inductivity of $\omega$ is indeed a desirable property: If it holds, then there will be a much closer correspondence between models for \emph{synthetic domain theory} and models for \emph{axiomatic domain theory}. Specifically, for a model of synthetic domain theory where $\omega$ is inductive, one can construct a corresponding model of axiomatic domain theory, where the domains are the \emph{well-complete types}\footnote{A type $X$ is well-complete if $LX$ is chain complete.}. The inductivity of $\omega$ makes $\ov\omega$ an \emph{inductive fixed point object} in the category of domains in the sense of \emph{loc.\ cit.}, which is part of their requirement for an axiomatic model of domain theory. 
+% \Jon{Can we narrow this down a bit? How exactly is the inductiveness playing a role here? I seem to remember some discussion we(?) had with Marcelo last term, perhaps, where we made some progress in understanding this, but now I can't remember the details...}
+
+The remaining part of this section is dedicated to showing that under a suitable quasi-coherence assumption, we can indeed show that $\I$ is chain complete (\Cref{thm:complete}) and $\omega$ is inductive (\Cref{prop:omegacolimit}). In fact, the proof of \Cref{thm:complete} is the only place we where have used the essential properties of $\sigma$-frames, and we will also indicate why it fails for bounded distributive lattices in \Cref{rem:whynotdis}.
+
+% \Jon{I think that we can't assume the people reading this paper will be well-versed in the tradition of SDT, because SDT is kind of dead for a number of years. Therefore, I think we need to actually start by introducing the idea of chain completeness being formulated in terms of the initial algebra and final coalgebra to $L$, to what follows. I suggest we add just a very short ``introductory'' section here explaining / motivating the classical stuff (including the possibility of $\omega$ being inductive) and concluding by foreshadowing the fact that all these things will be implied by a stronger quasi-coherence principle. Then the remainder of what is written below can proceed basically verbatim.}
+
+\subsection{Quasi-coherent for countably presented algebras and infinitary domain theory}
 The connection between the infinitary aspect of synthetic domain theory and quasi-coherence starts from the observation that the final coalgebra $\ov\omega$ for the functor $L$ can be described as a \emph{spectrum}:
 
 \begin{example}[$\ov\omega$ is a spectrum]\label{exm:ovomegaaffine}
-  Since $L$ by construction is a polynomial functor, it preserves all connected limits. Hence, the final coalgebra $\ov\omega$ can be easily characterised as the sequential limit, 
+  As mentioned, the final coalgebra $\ov\omega$ can be characterised as the sequential limit,
   \[\begin{tikzcd}
     \cdots & {\Delta^2} & {\Delta^1} & {\Delta^0} \\
     \cdots & {L^21} & L1 & 1
@@ -1553,8 +1581,8 @@ For another proof, see e.g.\ that of \citet{VANOOSTEN2000233}. In the presence o
 \begin{proposition}[\AxiomNT, \AxiomSQCC]\label{prop:omegacolimit}
   $\omega$ is equivalent to the following subset of $\ov\omega$,
   \[ \omega \cong \scomp{i : \ov\omega}{\ex n{\N} \isf{i_n}}\text{.} \]
-  In particular, $\omega$ is the colimit of the following sequence:
-    \[\begin{tikzcd}
+  In particular, $\omega$ is the colimit of the following sequence, thus is inductive:
+  \[\begin{tikzcd}
     \emp & {\Delta^0} & {\Delta^1} & \cdots \\
     \emp & {L(\emp)} & {L^2(\emp)} & \cdots
     \arrow[from=1-1, to=1-2]
@@ -1578,9 +1606,9 @@ The transition maps $\Delta^n\to \Delta^{n+1}$ above are given by appending $0$ 
   Assume the premise. We can instantiate $\phi$ to $\emp$. By assumption, we have $\neg\fa n\N \neg\neg\ist{i_n}$, which by \Cref{cor:opendnegclose} is equivalent to $\neg\fa n\N \ist{i_n}$. Then \Cref{lem:markov} implies this is $\ex n\N \isf{i_n}$. The fact that this makes $\omega$ into the above sequential colimit follows from \citet[Cor.~1.10]{VANOOSTEN2000233}.
 \end{proof}
 
-\begin{remark}\label{rem:omegaalwayscolim}
-  The above characterisation of $\omega$ as a sequential colimit is still true if we work with bounded distributive lattices, rather than $\sigma$-frames.
-\end{remark}
+% \begin{remark}\label{rem:omegaalwayscolim}
+  
+% \end{remark}
 
 Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affine, we can show $\I$ is chain complete. This again crucially depends on a normal form result for a countably presented $\sigma$-frame, which generalises the finitary version for bounded distributive lattices given in \Cref{prop:simplicesasalgebra}:
 
@@ -1663,7 +1691,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 \end{proof}
 
 \begin{remark}[$\sigma$-frames vs.\ bounded distributive lattices]\label{rem:whynotdis}
-  The completeness result shown in \Cref{thm:complete} is the only one in this paper that works for $\sigma$-frames and not for bounded distributive lattices more generally. The reason is exactly because the normal form in \Cref{app:normalsigma} for the countably presented \emph{bounded distributive lattice} $\I[\N]/\pair{\ms{i}_n \ge \ms{i}_{n+1}}_{n:\N}$ will \emph{not} be isomorphic to $\Delta_\infty$. More specifically, for the countably presented bounded distributive lattice $\I[\N]/\pair{\ms{i}_n \ge \ms{i}_{n+1}}_{n:\N}$, since it is a sequential colimit of the following finitely presented bounded distributive lattices
+  Note that the inductivity of $\omega$ as shown in \Cref{prop:omegacolimit} is \emph{independent} of working with distributive lattices or $\sigma$-frames. The completeness result shown in \Cref{thm:complete} is the only one in this paper that works for $\sigma$-frames and not for bounded distributive lattices more generally. The reason is exactly because the normal form in \Cref{app:normalsigma} for the countably presented \emph{bounded distributive lattice} $\I[\N]/\pair{\ms{i}_n \ge \ms{i}_{n+1}}_{n:\N}$ will \emph{not} be isomorphic to $\Delta_\infty$. More specifically, for the countably presented bounded distributive lattice $\I[\N]/\pair{\ms{i}_n \ge \ms{i}_{n+1}}_{n:\N}$, since it is a sequential colimit of the following finitely presented bounded distributive lattices
   \[ 
   \begin{tikzcd}
     \cdots \ar[r] & \I[n]/\ms{i}_{0} \ge \cdots \ge \ms{i}_{n-1} \ar[r, hook] & \I[n\!+\!1]/\ms{i}_0 \ge \cdots \ge \ms{i}_n \ar[r, hook] & \cdots
@@ -1863,7 +1891,7 @@ The notion of synthetic categories and synthetic posets are formulated as these 
   This follows from $\I$ being a synthetic poset, and spectra and quasi-coherent algebras are \emph{replete} as indicated in \Cref{rem:qcreplete,rem:specarereplete}.
 \end{proof}
 
-At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We first observe that its observational preorder again coincides with its expected pointwise order viewed as a subspace of $\I^\N$:
+At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We first observe its observational preorder again coincides with its expected pointwise order viewed as a subspace of $\I^\N$:
 
 \begin{lemma}[\AxiomNT, \AxiomSQCC]\label{speconomegaiscan}
   The inclusion $\omega \hook \ov\omega$ is an order embedding for the observational preorder. In particular, the observational preorder on $\omega$ is induced pointwise as a subspace of $\ov\omega\hookrightarrow \I^\N$.
@@ -1875,7 +1903,7 @@ At the end of this section, we also discuss the example of $\omega$, which as we
 Furthermore, we can show that $\omega$ also satisfies a version of the Phoa principle, i.e.\ the function space $\omega^\I$ again classifies its pointwise order. For this we need to compute the function space $\omega^\I$.
 % \Jon{Stale reference to generalised Phoa principle.}
 
-Recall from \Cref{prop:omegacolimit} that, under (\AxiomNT) and (\AxiomSQCC), $\omega$ is a colimit $\omega \cong \ct_{n:\N}\Delta^n$. As indicated in \Cref{rem:omegaalwayscolim}, this does not depend on working with bounded distributive lattices or $\sigma$-frames. Type-theoretically, we have also shown that $\omega$ can be realised as the following subspace of $\ov\omega$,
+Recall from \Cref{prop:omegacolimit} that, under (\AxiomNT) and (\AxiomSQCC), $\omega$ is a colimit $\omega \cong \ct_{n:\N}\Delta^n$. As indicated in \Cref{rem:whynotdis}, this does not depend on working with bounded distributive lattices or $\sigma$-frames. Type-theoretically, we have also shown that $\omega$ can be realised as the following subspace of $\ov\omega$,
 \[ \omega \cong \scomp{i : \ov\omega}{\ex n\N \isf{i_n}}\text{.} \]
 This way, the inclusion $\Delta^n \hook \omega$ can be viewed as follows, 
 \[ \Delta^n \cong \scomp{i : \omega}{\isf{i_n}}\text{,} \]
@@ -2017,8 +2045,8 @@ This way, if we write $\wTop$ as the essential image of the fully faithful funct
 \]
 where here the inclusion $\Pos\fp \hook \wTop$ simply takes each finite poset to its Alexandroff topological space. Hence, at the presheaf level, we have a local geometric morphism
 \[ \psh(\wTop) \surj \psh(\Pos\fp)\text{.} \]
-where in each case, the generic $\sigma$-frame $\I$ as a presheaf is now the representable functor on the Sierpinski space $\Sigma$. \Jon{Let's avoid talking about ``generic'' $
-\sigma$-frame to avoid potential confusions. Can we phrase this differently?}
+In this case, the representable presheaf on the Sierpinski space will again be a $\sigma$-frame $\I$ in the presheaf $\psh(\wTop)$.
+% \Jon{Let's avoid talking about ``generic'' $\sigma$-frame to avoid potential confusions. Can we phrase this differently?}
 
 Below we discuss the corresponding admissible topologies on $\wTop$, modelling the various locality principles we have considered in \Cref{sec:locality}. We encourage the readers to notice the connection between the topologies we discuss below, and the developments in \Cref{sec:local}.
 
@@ -2119,7 +2147,7 @@ In this paper we have explained the axioms of synthetic domain theory using the 
 
 We would be remiss in failing to mention Taylor's framework of \emph{Abstract Stone Duality}~\cite{Taylor2011,TaylorP:insema,TaylorP:sobsc}, which is based on a similar duality between ``algebras'' and ``spaces''. One apparent difference in methodology is that in Taylor's case, the duality is of the form $\Sigma^{(-)} \dashv \Sigma^{(-)}$ and is moreover required to be monadic. In our setting, the spectrum of an algebra consists not in \emph{all} functions from the algebra into the dualising object but rather only the ones that preserve the structure of observational algebras—the \emph{primes} in Taylor's terminology.
 
-Our own adjunction $\opens\dashv\spec$ shall not be monadic, but a natural step toward understanding the relationship between abstract Stone duality and synthetic domain theory in the language of quasi-coherence might be to restrict $\opens\dashv\spec$ to an adjunction involving certain more well-behaved subuniverses of $\Set$. We leave this investigation for futher work.
+Our own adjunction $\opens\dashv\spec$ shall not be monadic, but a natural step toward understanding the relationship between abstract Stone duality and synthetic domain theory in the language of quasi-coherence might be to restrict $\opens\dashv\spec$ to an adjunction involving certain more well-behaved subuniverses of $\Set$. We leave this investigation for future work.
 
 \subsection{Quasi-coherence for related synthetic mathematics}
 
