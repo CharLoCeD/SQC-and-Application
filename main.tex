@@ -400,7 +400,6 @@ In the case of synthetic Stone duality, the Boolean algebra used by \citet{cheru
 \subsection{Summary of contributions}\label{sec:contributions}
 
 We study an emerging connection between synthetic domain theory and the quasi-coherence axioms for \emph{bounded distributive lattices} and \emph{$\sigma$-frames}. As a first indication of why quasi-coherence for these theories might be useful for domain theory, we have observed that by taking the interval $\I$ to be a bounded distributive lattice or $\sigma$-frame internal to some topos,
-% \Jon{let's figure out how to phrase this precisely to avoid confusion},
 many important objects for domain theory can be written as \emph{spectra}. This include the cubes $\I^n$ (\Cref{exm:cubeaffine}), the simplices $\Delta^n$ (\Cref{exm:simplicesaffine}), and the final coalgebra $\ov\omega$ (\Cref{exm:ovomegaaffine}). Here we outline the main results of this paper, and discuss some of their potential applications.
 
 \begin{enumerate}[leftmargin=*]
@@ -1393,7 +1392,6 @@ An immediate application of Phoa principle is to compare path structure with the
   \citet[Prop.\ 5.4.4]{PhoaWesleyKym-Son1991DtiR} implies that being linked is an exponential ideal, because an exponential is an internal limit. A type $X$ is strongly linked if and only if it is linked \emph{and} it is $\I$-separated in the sense that $X^\I\to X\times X$ is an embedding; but $\I$-separated types also form an exponential ideal (in fact, a reflective exponential ideal).
 \end{proof}
 
-% \Jon{This is stronger than what was claimed before (which required quasicoherence of both $A$ and $A[i]$), but it appears to be true.}
 \begin{lemma}[\AxiomSQCP]\label{lem:O-strongly-linked}
   Any algebra of observations is strongly linked.
 \end{lemma}
@@ -1515,11 +1513,8 @@ However, the dual statement fails for the initial algebra $\omega$, i.e.\ it is 
   $\omega$ is \emph{inductive} if it is the sequential colimit above.
 \end{definition}
 The failure of inductivity of $\omega$ has been observed in various realisability models for synthetic domain theory~\cite{VANOOSTEN2000233}. As shown by \citet{fiore-plotkin:1996}, the inductivity of $\omega$ is indeed a desirable property: If it holds, then there will be a much closer correspondence between models for \emph{synthetic domain theory} and models for \emph{axiomatic domain theory}. Specifically, for a model of synthetic domain theory where $\omega$ is inductive, one can construct a corresponding model of axiomatic domain theory, where the domains are the \emph{well-complete types}\footnote{A type $X$ is well-complete if $LX$ is chain complete.}. The inductivity of $\omega$ makes $\ov\omega$ an \emph{inductive fixed point object} in the category of domains in the sense of \emph{loc.\ cit.}, which is part of their requirement for an axiomatic model of domain theory. 
-% \Jon{Can we narrow this down a bit? How exactly is the inductiveness playing a role here? I seem to remember some discussion we(?) had with Marcelo last term, perhaps, where we made some progress in understanding this, but now I can't remember the details...}
 
 The remaining part of this section is dedicated to showing that under a suitable quasi-coherence assumption, we can indeed show that $\I$ is chain complete (\Cref{thm:complete}) and $\omega$ is inductive (\Cref{prop:omegacolimit}). In fact, the proof of \Cref{thm:complete} is the only place we where have used the essential properties of $\sigma$-frames, and we will also indicate why it fails for bounded distributive lattices in \Cref{rem:whynotdis}.
-
-% \Jon{I think that we can't assume the people reading this paper will be well-versed in the tradition of SDT, because SDT is kind of dead for a number of years. Therefore, I think we need to actually start by introducing the idea of chain completeness being formulated in terms of the initial algebra and final coalgebra to $L$, to what follows. I suggest we add just a very short ``introductory'' section here explaining / motivating the classical stuff (including the possibility of $\omega$ being inductive) and concluding by foreshadowing the fact that all these things will be implied by a stronger quasi-coherence principle. Then the remainder of what is written below can proceed basically verbatim.}
 
 \subsection{Quasi-coherent for countably presented algebras and infinitary domain theory}
 The connection between the infinitary aspect of synthetic domain theory and quasi-coherence starts from the observation that the final coalgebra $\ov\omega$ for the functor $L$ can be described as a \emph{spectrum}:
@@ -1539,7 +1534,6 @@ The connection between the infinitary aspect of synthetic domain theory and quas
     \arrow["{L!}"', from=2-2, to=2-3]
     \arrow["{!}"', from=2-3, to=2-4]
   \end{tikzcd}\]
-  % \Jon{Unless we shall define $\Delta^n$ to be literally $L^n(\varnothing)$, we should probably express the transition maps in terms of descending sequences rather than $L$, and then comment that under the identification, blah blah blah.}
   where under the isomorphisms, the transition map $\Delta^{n+1} \to \Delta^n$ takes the sequence $i_0 \ge \cdots \ge i_n$ to the final segment $i_1 \ge \cdots \ge i_n$. As observed by \citet[Sec.\ 5.2]{hyland1990first}, it also has an equivalent type-theoretic description as the object of infinite descending sequences in $\I$,
   \[ \ov\omega \cong \scomp{i : \N \to \I}{\fa n\N i_n \ge i_{n+1}}\text{.} \]
   This way, we have a natural equivalence
@@ -1634,8 +1628,6 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
   \[ f(j) = j^0 \vee \bigvee_{n:\N}j^{n+1} \wedge a_n = f_a(j)\text{.} \]
   This completes the proof.
 \end{proof}
-
-% \Jon{The little phrases like ``by working with $\sigma$-frames'' are making me slightly queasy. Can we express this more precisely? For example, we are not only assuming that $\I$ is a $\sigma$-frame, but we are specialising precisely which category of algebras we are computing a limit in.}
 
 \begin{theorem}[\AxiomNT, \AxiomSQCC]\label{thm:complete}
   $\I$ is right orthogonal to the inclusion $\omega\hook\ov\omega$.
@@ -1773,7 +1765,6 @@ Again, (\AxiomSL) holds globally iff the above embedding is an equivalence, thus
 Finally, we discuss the even stronger locality condition (\AxiomOneCS). As mentioned in \Cref{sec:linearity-and-coskeletality}, the additional property of (\AxiomOneCS) is characterised by the embedding $\partial\Delta_2 \hook \Delta_2$.
 
 \begin{definition}[1-coskeletal type]
-  % \Jon{I think this terminology is too confusing in the context of intensional type theory, where there is an existing orthogonal notion of $n$-truncatedness. Can we find a new term? (Also need to update the earlier reference to this condition.)}
   A type $X$ is said to be \emph{1-coskeletal} when it is both simplicial and right orthogonal to the boundary inclusion $\partial\Delta_2 \hook \Delta_2$.
 \end{definition}
 
@@ -1903,8 +1894,7 @@ At the end of this section, we also discuss the example of $\omega$, which as we
   The fact that $\omega\hook\ov\omega$ is an order embedding for the observational preorder follows from chain completeness of $\I$ in \Cref{thm:complete}. The fact that the observational preorder on $\ov\omega$ coincides with its satisfaction order as a spectrum follows from \Cref{lem:specorderofaffine} by the fact that it is affine under (\AxiomSQCC).
 \end{proof}
 
-Furthermore, we can show that $\omega$ also satisfies a version of the Phoa principle, i.e.\ the function space $\omega^\I$ again classifies its pointwise order. For this we need to compute the function space $\omega^\I$.
-% \Jon{Stale reference to generalised Phoa principle.}
+Furthermore, we can show that $\omega$ also satisfies a version of the Phoa principle, i.e.\ the path space $\omega^\I$ again classifies its pointwise order. For this we need to compute the path space $\omega^\I$.
 
 Recall from \Cref{prop:omegacolimit} that, under (\AxiomNT) and (\AxiomSQCC), $\omega$ is a colimit $\omega \cong \ct_{n:\N}\Delta^n$. As indicated in \Cref{rem:whynotdis}, this does not depend on working with bounded distributive lattices or $\sigma$-frames. Type-theoretically, we have also shown that $\omega$ can be realised as the following subspace of $\ov\omega$,
 \[ \omega \cong \scomp{i : \ov\omega}{\ex n\N \isf{i_n}}\text{.} \]
@@ -1972,7 +1962,6 @@ It is now instructive to discuss models for the axioms we have used in the previ
 For any Horn theory $\T$, we know from \citet{blechschmidt2020general,blechschmidt2021using} that the generic $\T$-model $U_\T\in\Set[\T]$ satisfies quasi-coherence for finitely presented $U_\T$-algebras, viz.\ (\AxiomSQCF). As mentioned in \Cref{subsec:qc}, the proof of quasi-coherence for finitely presented $U_\T$-algebras adapts readily to the countably presented case, provided we work with the larger site
 \[ \Set[\T]_\omega \coloneq [\mmod\T\cp,\Set]\text{,} \]
 where $\mmod\T\cp$ is the category of countably presented $\T$-models. The generic $\T$-model in $\Set[\T]_\omega$ is again defined to be the forgetful functor $\mmod\T\cp \to \Set$, and we also denote it as $U_\T$. In other words, (\AxiomSQCC) holds in the larger topos $\Set[\T]_\omega$. And in this case, we can also allow $\T$ to contain algebraic operations of countable arity. 
-% \Jon{Did we need countable choice in $\Set$ for this last part?}
 
 These two topoi $\Set[\T]$ and $\Set[\T]_\omega$ are intimately related. There is a fully faithful and left exact inclusion of sites
 \[ \mmod\T\fp\op \hook \mmod\T\cp\op \]
@@ -2006,7 +1995,6 @@ More specifically for us, let $\sFrm$ be the category of $\sigma$-frames, i.e.\ 
 
 It is well-known the dual category of $\DL\fp \cong \sFrm\fp$ is the category $\Pos\fp$ of finite posets. In this case, we can also have a fairly explicit description of the larger dual category of $\sFrm\cp$. The first observation is that any countably presented $\sigma$-frame $A$ is indeed a \emph{frame}, i.e.\ it has \emph{all} joins and finite meets, which distributes with each other. This is clear for all finitely presented $\sigma$-frames, since they are simply finite bounded distributive lattices. To see this for the countable case, consider the countably generated free $\sigma$-frame $\Sigma[\N]$:
 
-% \Jon{What is $2$ here? Is this the free $\sigma$-frame on one object? Perhaps another notation like $\Omega$ would be more clear, because $2$ qua the boolean set is not a $\sigma$-frame in constructive mathematics.}
 \begin{lemma}\label{lem:cgfreesframe}
   We have an isomorphism of $\sigma$-frames
   \[ \Sigma[\N] \cong \Pos(P_f(\N),\Sigma)\text{,} \]
@@ -2016,8 +2004,6 @@ It is well-known the dual category of $\DL\fp \cong \sFrm\fp$ is the category $\
   The free $\sigma$-frame can be generated by first freely adding finite meets to the discrete poset $\N$, and then freely adding all countable joins. The first step results in the poset $P_f(\N)\op$. Now since $P_f(\N)\op$ is countable, freely adding all countable joins is equivalently freely adding \emph{all} joins, which is achieved by the presheaf construction. This way,
   \[ \Sigma[\N] \cong \Pos((P_f(\N)\op)\op,\Sigma) \cong \Pos(P_f(\N),\Sigma). \qedhere \]
 \end{proof}
-
-% \Jon{Shall we write $\Topp$ as $\mathbf{Esp}$ or something to avoid confusion with toposes?}
 
 \begin{corollary}\label{cor:dualsframe}
   There is a fully faithful embedding
@@ -2049,7 +2035,6 @@ This way, if we write $\wTop$ as the essential image of the fully faithful funct
 where here the inclusion $\Pos\fp \hook \wTop$ simply takes each finite poset to its Alexandroff topological space. Hence, at the presheaf level, we have a local geometric morphism
 \[ \psh(\wTop) \surj \psh(\Pos\fp)\text{.} \]
 In this case, the representable presheaf on the Sierpinski space will again be a $\sigma$-frame $\I$ in the presheaf $\psh(\wTop)$.
-% \Jon{Let's avoid talking about ``generic'' $\sigma$-frame to avoid potential confusions. Can we phrase this differently?}
 
 Below we discuss the corresponding admissible topologies on $\wTop$, modelling the various locality principles we have considered in \Cref{sec:locality}. We encourage the readers to notice the connection between the topologies we discuss below, and the developments in \Cref{sec:local}.
 
@@ -2161,7 +2146,6 @@ Both synthetic topology~\citep{bauer2009dedekind} and synthetic computability th
 Finally, it will be instructive to compare the sheaf models for synthetic domain theory constructed by \citet{FIORE1997151} with the models discussed in \Cref{sec:model}. Recall the topos $\mc H$ constructed in \emph{loc.\ cit.}\ is the following sheaf topos,
 \[ \mc H \coloneq \sh(\mb P,J_{\ms{can}})\text{,} \]
 where $\mb P$ be the full subcategory of the category $\wCPO$ of $\omega$-cpos consisting of retracts of the Scott's graph model $G$, and $J_{\ms{can}}$ is the canonical topology on $\mb P$. An $\omega$-cpo is simply a poset having joins of countable chains, and morphisms between them are maps preserving joins of countable chains.
-% \Jon{Not all countable joins, but just joins of $\omega$-chains.}
 
 Here we observe that the inclusion $\mb P \hook \wTop$ is \emph{fully faithful}, because
 \begin{align*}
@@ -2172,7 +2156,6 @@ Here we observe that the inclusion $\mb P \hook \wTop$ is \emph{fully faithful},
   &\cong \wTop(G,G)
 \end{align*}
 The first isomorphism holds because $G$ is the \emph{free} $\omega$-cpo on $P_f(\N)$; the second holds by formal manipulation; the third is due to the fact that $\Pos(P_f(\N),\Sigma)$ is the free $\sigma$-frame over the discrete poset $\N$; the final one is given by the duality between countably presented $\sigma$-frames and $\wTop$. 
-% \Jon{I am concerned about the first step above because of my last comment.}
 
 This leads us to conjecture that $\mc H$ will be equivalent to the sheaf topos $\sh(\wTop,J_{\mr{can}})$. However, a detailed proof of this requires us to better understand the categorical properties of $\wTop$.
 
