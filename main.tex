@@ -441,6 +441,7 @@ By \emph{proposition} and \emph{set}, we will always use them in the sense of th
 Given an $\I$-algebra $A$, we will abuse notation by identifying elements of $\I$ as elements of $A$ via the structural map $\I \to A$. For an algebra $A$ and two lists of terms $a,b \colon J \to A$, 
 we will write $A/a = b$ to indicate the \emph{quotient algebra} identifying $a_j$ with $b_j$ for all $j : J$. We also write $A[J]$ for the free algebra over $A$ generated from $J$, or we also explicitly mention the generators $A[\ms{j}_1,\cdots,\ms{j}_n]$. We write the \emph{coproduct} of $\I$-algebras as $A \otimes B$.
 
+
 \section{Quasi-coherence and affine spaces}\label{sec:basics}
 
 We will work in intensional type theory extended by a model $\I$ of some Horn theory $\T$. In this section we will first describe the quasi-coherence property, and briefly recap some of its elementary consequences. The results in this section applies to any Horn theory $\T$, thus at this stage we do not assume $\T$ to satisfy any additional properties.
@@ -2158,6 +2159,11 @@ Here we observe that the inclusion $\mb P \hook \wTop$ is \emph{fully faithful},
 The first isomorphism holds because $G$ is the \emph{free} $\omega$-cpo on $P_f(\N)$; the second holds by formal manipulation; the third is due to the fact that $\Pos(P_f(\N),\Sigma)$ is the free $\sigma$-frame over the discrete poset $\N$; the final one is given by the duality between countably presented $\sigma$-frames and $\wTop$. 
 
 This leads us to conjecture that $\mc H$ will be equivalent to the sheaf topos $\sh(\wTop,J_{\mr{can}})$. However, a detailed proof of this requires us to better understand the categorical properties of $\wTop$.
+
+
+\subsection*{Acknowledgements}
+
+We are grateful to Marcelo Fiore for alerting us to the connection between synthetic quasi-coherence and Blass's observations concerning functions on universal algebras~\cite{RN879}.
 
 \bibliographystyle{apalike} 
 \bibliography{mybib}
