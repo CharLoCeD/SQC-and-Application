@@ -1,0 +1,79 @@
+\pdfoutput=1
+\documentclass[a4paper,12pt]{amsart}
+
+\input{../source/preamble} 
+% \usepackage[inline]{showlabels}
+
+\setcounter{tocdepth}{1}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{observation}[theorem]{Observation}
+
+\theoremstyle{definition}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{notation}[theorem]{Notation}
+
+\newtheorem{example}[theorem]{Example}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Open Question}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{qquestion}[theorem]{Question}
+\newtheorem*{axiom}{Axiom}
+
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage[numbers]{natbib}
+\usepackage[english]{babel}
+\usepackage[X2,T1]{fontenc}
+\usepackage[tt=false]{libertine}
+\usepackage{libertinust1math}
+\usepackage[utf8]{inputenc} %'utf8' instead of 'latin1'
+\usepackage{enumitem} 
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage{stmaryrd}
+\usepackage{appendix}
+\usepackage{mathtools}
+\usepackage[capitalise]{cleveref}
+\usepackage{quiver}
+\usepackage{microtype}
+
+\title{Domains and classifying topoi}
+\author{Jonathan Sterling}
+\address{%
+Jonathan \textsc{Sterling}\newline
+Department of Computer Science and Technology\newline
+University of Cambridge\newline
+Cambridge, UK%
+}
+
+\author{Lingyuan Ye}
+\address{%
+Lingyuan \textsc{Ye}\newline
+Department of Computer Science and Technology\newline
+University of Cambridge\newline
+Cambridge, UK%
+}
+
+\begin{document}
+
+\begin{abstract}
+  We explore a new connection between synthetic domain theory and Grothendieck topoi related to the distributive lattice classifier. In particular, all the axioms of synthetic domain theory (including the inductive fixed point object and the chain completeness of the dominance) emanate from a countable version of the \emph{synthetic quasi-coherence} principle that has emerged as a central feature in the unification of synthetic algebraic geometry, synthetic Stone duality, and synthetic category theory. The duality between quasi-coherent algebras and affine spaces in a topos with a distributive lattice object provides a new set of techniques for reasoning synthetically about domain-like structures, and reveals a broad class of (higher) sheaf models for synthetic domain theory. 
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+\input{../source/body}
+
+
+\bibliographystyle{apalike} 
+\bibliography{../source/mybib}
+
+\end{document}

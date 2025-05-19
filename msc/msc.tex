@@ -1,0 +1,257 @@
+% mscguide.tex
+% v1.0, released 11 Nov 2019
+% Copyright 2019 Cambridge University Press
+
+\documentclass{msc}
+
+% \usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem} 
+\usepackage{tikz-cd}
+% \usepackage{hyperref}
+\usepackage{stmaryrd}
+\usepackage{appendix}
+\usepackage{mathtools}
+\usepackage[capitalise]{cleveref}
+
+\DeclareMathSymbol{\twoheadrightarrow}  {\mathrel}{AMSa}{"10}
+\DeclareMathSymbol{\twoheadleftarrow}   {\mathrel}{AMSa}{"11}
+\DeclareMathSymbol{\rightrightarrows}   {\mathrel}{AMSa}{"13}
+\input{../source/preamble}
+
+\usetikzlibrary{calc}
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+\theoremstyle{theormstyle}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{result}[theorem]{Result}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{observation}[theorem]{Observation}
+
+\theoremstyle{remarkstyle}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{example}[theorem]{Example}
+\newtheorem*{axiom}{Axiom}
+
+\begin{document}
+
+\lefttitle{LaTeX\ Supplement}
+\righttitle{Mathematical Structures in Computer}
+
+\papertitle{Article}
+
+\jnlPage{1}{00}
+\jnlDoiYr{2019}
+\doival{10.1017/xxxxx}
+
+\title{Domains and classifying topoi}
+
+\begin{authgrp}
+\author{Jonathan Sterling}
+\affiliation{Department of Computer Science and Technology\\
+        University of Cambridge, Cambridge, UK\\
+        \email{js2878@cl.cam.ac.uk}}
+\end{authgrp}
+
+\begin{authgrp}
+\author{\ Lingyuan Ye}
+\affiliation{Department of Computer Science and Technology\\
+        University of Cambridge, Cambridge, UK\\
+        \email{ye.lingyuan.ac@gmail.com}}
+\end{authgrp}
+
+% \history{(Received xx xxx xxx; revised xx xxx xxx; accepted xx xxx xxx)}
+%\received{20 March 1995; revised 30 September 1998}
+
+\begin{abstract}
+  We explore a new connection between synthetic domain theory and Grothendieck topoi related to the distributive lattice classifier. In particular, all the axioms of synthetic domain theory (including the inductive fixed point object and the chain completeness of the dominance) emanate from a countable version of the \emph{synthetic quasi-coherence} principle that has emerged as a central feature in the unification of synthetic algebraic geometry, synthetic Stone duality, and synthetic category theory. The duality between quasi-coherent algebras and affine spaces in a topos with a distributive lattice object provides a new set of techniques for reasoning synthetically about domain-like structures, and reveals a broad class of (higher) sheaf models for synthetic domain theory. 
+\end{abstract}
+
+\begin{keywords}
+  Synthetic domain theory; classifying topos.
+\end{keywords}
+
+\maketitle
+
+\input{../source/body}
+
+\begin{thebibliography}{}
+
+\bibitem[Ad{\'a}mek and Rosicky, 1994]{adamek1994locally}
+Ad{\'a}mek, J. and Rosicky, J. (1994).
+\newblock {\em Locally presentable and accessible categories}, volume 189.
+\newblock Cambridge University Press.
+
+\bibitem[Barr and Wells, 1985]{BarrMichael1985Ttat}
+Barr, M. and Wells, C. (1985).
+\newblock {\em Toposes, triples, and theories}.
+\newblock Grundlehren der mathematischen Wissenschaften; 278. Springer, New York.
+
+\bibitem[Bauer, 2006]{RN552}
+Bauer, A. (2006).
+\newblock First steps in synthetic computability theory.
+\newblock {\em Electronic Notes in Theoretical Computer Science}, 155:5--31.
+
+\bibitem[Bauer and Taylor, 2009]{bauer2009dedekind}
+Bauer, A. and Taylor, P. (2009).
+\newblock {The Dedekind reals in abstract Stone duality}.
+\newblock {\em Mathematical Structures in Computer Science}, 19(4):757--838.
+
+\bibitem[Blass, 1986]{RN879}
+Blass, A. (1986).
+\newblock Functions on universal algebras.
+\newblock {\em Journal of Pure and Applied Algebra}, 42(1):25--28.
+
+\bibitem[Blechschmidt, 2020]{blechschmidt2020general}
+Blechschmidt, I. (2020).
+\newblock A general nullstellensatz for generalized spaces.
+\newblock Unpublished note.
+
+\bibitem[Blechschmidt, 2021]{blechschmidt2021using}
+Blechschmidt, I. (2021).
+\newblock Using the internal language of toposes in algebraic geometry.
+\newblock {\em arXiv preprint arXiv:2111.03685}.
+
+\bibitem[Buchholtz and Weinberger, 2023]{buchholtz2021synthetic}
+Buchholtz, U. and Weinberger, J. (2023).
+\newblock Synthetic fibered $(\infty, 1)$-category theory.
+\newblock {\em Higher Structures}, 7:74--165.
+
+\bibitem[Caramello, 2019]{caramello2019denseness}
+Caramello, O. (2019).
+\newblock Denseness conditions, morphisms and equivalences of toposes.
+\newblock {\em arXiv preprint arXiv:1906.08737}.
+
+\bibitem[Cherubini et~al., 2024a]{cherubini2024foundation}
+Cherubini, F., Coquand, T., Geerligs, F., and Moeneclaey, H. (2024a).
+\newblock A foundation for synthetic {Stone} duality.
+\newblock {\em arXiv preprint arXiv:2412.03203}.
+
+\bibitem[Cherubini et~al., 2024b]{Cherubini_Coquand_Hutzler_2024}
+Cherubini, F., Coquand, T., and Hutzler, M. (2024b).
+\newblock A foundation for synthetic algebraic geometry.
+\newblock {\em Mathematical Structures in Computer Science}, 34(9):1008--1053.
+
+\bibitem[Fiore and Plotkin, 1996]{fiore-plotkin:1996}
+Fiore, M.~P. and Plotkin, G.~D. (1996).
+\newblock An extension of models of axiomatic domain theory to models of synthetic domain theory.
+\newblock In van Dalen, D. and Bezem, M., editors, {\em Computer Science Logic, 10th International Workshop, {CSL} '96, Annual Conference of the EACSL, Utrecht, The Netherlands, September 21-27, 1996, Selected Papers}, volume 1258 of {\em Lecture Notes in Computer Science}, pages 129--149. Springer.
+
+\bibitem[Fiore and Rosolini, 1997]{FIORE1997151}
+Fiore, M.~P. and Rosolini, G. (1997).
+\newblock Two models of synthetic domain theory.
+\newblock {\em Journal of Pure and Applied Algebra}, 116(1):151--162.
+
+\bibitem[Fiore and Rosolini, 2001]{fiore2001domains}
+Fiore, M.~P. and Rosolini, G. (2001).
+\newblock Domains in h.
+\newblock {\em Theoretical Computer Science}, 264(2):171--193.
+
+\bibitem[Gratzer et~al., 2024]{gratzer2024directed}
+Gratzer, D., Weinberger, J., and Buchholtz, U. (2024).
+\newblock Directed univalence in simplicial homotopy type theory.
+\newblock {\em arXiv preprint arXiv:2407.09146}.
+
+\bibitem[Hyland, 1990]{hyland1990first}
+Hyland, J. M.~E. (1990).
+\newblock First steps in synthetic domain theory.
+\newblock In {\em Category Theory: Proceedings of the International Conference held in Como, Italy, July 22--28, 1990}, pages 131--156. Springer.
+
+\bibitem[Jibladze, 1997]{JIBLADZE1997185}
+Jibladze, M. (1997).
+\newblock A presentation of the initial lift-algebra.
+\newblock {\em Journal of Pure and Applied Algebra}, 116(1):185--198.
+
+\bibitem[Johnstone, 2002]{johnstone2002sketches}
+Johnstone, P.~T. (2002).
+\newblock {\em Sketches of an Elephant: A Topos Theory Compendium}, volume 1, 2.
+\newblock Oxford University Press.
+
+\bibitem[Kelly and Power, 1993]{kelly1993adjunctions}
+Kelly, G.~M. and Power, A.~J. (1993).
+\newblock Adjunctions whose counits are coequalizers, and presentations of finitary enriched monads.
+\newblock {\em Journal of pure and applied algebra}, 89(1-2):163--179.
+
+\bibitem[Lausch and Nobauer, 2000]{lausch2000algebra}
+Lausch, H. and Nobauer, W. (2000).
+\newblock {\em Algebra of polynomials}.
+\newblock Elsevier.
+
+\bibitem[MacLane and Moerdijk, 1992]{maclane1992sheaves}
+MacLane, S. and Moerdijk, I. (1992).
+\newblock {\em Sheaves in geometry and logic: A first introduction to topos theory}.
+\newblock Springer Science \& Business Media.
+
+\bibitem[Makkai and Reyes, 2006]{makkai2006first}
+Makkai, M. and Reyes, G.~E. (2006).
+\newblock {\em First order categorical logic: model-theoretical methods in the theory of topoi and related categories}, volume 611.
+\newblock Springer.
+
+\bibitem[Phoa, 1991]{PhoaWesleyKym-Son1991DtiR}
+Phoa, W. K.-S. (1991).
+\newblock {\em Domain theory in Realizability Toposes.}
+\newblock Ph.D. Dissertation, University of Cambridge.
+
+\bibitem[Reus and Streicher, 1999]{reus-streicher:1999}
+Reus, B. and Streicher, T. (1999).
+\newblock General synthetic domain theory --- a logical approach.
+\newblock {\em Mathematical Structures in Computer Science}, 9(2):177--223.
+
+\bibitem[Riehl and Shulman, 2017]{riehl2017type}
+Riehl, E. and Shulman, M. (2017).
+\newblock A type theory for synthetic $\infty$-categories.
+\newblock {\em Higher Structures}, 1:147--224.
+
+\bibitem[Rosolini, 1986]{rosolini1986continuity}
+Rosolini, G. (1986).
+\newblock {\em Continuity and Effectiveness in Topoi}.
+\newblock PhD thesis, University of Oxford.
+
+\bibitem[Simpson, 2004]{simpson:2004}
+Simpson, A. (2004).
+\newblock Computational adequacy for recursive types in models of intuitionistic set theory.
+\newblock {\em Annals of Pure and Applied Logic}, 130(1):207--275.
+\newblock Papers presented at the 2002 IEEE Symposium on Logic in Computer Science (LICS).
+
+\bibitem[Taylor, 2002]{TaylorP:sobsc}
+Taylor, P. (2002).
+\newblock Sober spaces and continuations.
+\newblock {\em Theory and Applications of Categories}, 10(12):248--299.
+
+\bibitem[Taylor, 2005]{TaylorP:insema}
+Taylor, P. (2005).
+\newblock Inside every model of {Abstract Stone Duality} lies an {Arithmetic Universe}.
+\newblock {\em Electronic Notes in Theoretical Computer Science}, 122:247--296.
+
+\bibitem[Taylor, 2011]{Taylor2011}
+Taylor, P. (2011).
+\newblock Foundations for computable topology.
+\newblock In Sommaruga, G., editor, {\em Foundational Theories of Classical and Constructive Mathematics}, pages 265--310. Springer Netherlands, Dordrecht.
+
+\bibitem[{The Univalent Foundations Program}, 2013]{hottbook}
+{The Univalent Foundations Program} (2013).
+\newblock {\em Homotopy Type Theory: Univalent Foundations of Mathematics}.
+\newblock \textsf{https://homotopytypetheory.org}, Institute for Advanced Study.
+
+\bibitem[{van Oosten} and Simpson, 2000]{VANOOSTEN2000233}
+{van Oosten}, J. and Simpson, A.~K. (2000).
+\newblock Axioms and (counter) examples in synthetic domain theory.
+\newblock {\em Annals of Pure and Applied Logic}, 104(1):233--278.
+
+\end{thebibliography}
+
+\end{document}
