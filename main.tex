@@ -18,7 +18,7 @@
 \usepackage{quiver}
 \usepackage{microtype}
 
-% \usepackage[inline]{showlabels}
+\usepackage[inline]{showlabels}
 
 \setcounter{tocdepth}{1}
 
@@ -408,7 +408,7 @@ many important objects for domain theory can be written as \emph{spectra}. This 
   \begin{enumerate}
     \item\label{contribution:dominance} In the case of both bounded distributive lattices and $\sigma$-frames, the quasi-coherence for finitely presented algebras (in fact a weaker assumption; cf.\ \Cref{sec:dominance}) implies that the generic interval $\I$ and its dual form a dominance (\Cref{prop:Idominance} and \Cref{cor:dualisdominance}). It also leads to an explicit computation of the partial map classifiers of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectra (\Cref{prop:liftofaffine}).
     \item The quasi-coherence principle allows an explicit computation of the \emph{observational preorder} (\Cref{defn:specialisation}) on affine spaces (\Cref{lem:specorderofaffine}) and quasi-coherent $\I$-algebras (\Cref{cor:specordonalgiscan}).
-    \item Quasi-coherence of finitely generated free $\I$-algebras is equivalent to Phoa's principle. A generalisation on Phoa's principle that can be stated for an arbitrary $\I$-algebra is stated, and compared with quasi-coherence for polynomial algebras.
+    \item A generalisation of Phoa's principle that applies to an arbitrary $\I$-algebra $A$ is stated (\Cref{def:gen-phoa}), and compared with quasi-coherence for polynomial algebras over $A$ (\Cref{obs:sqcp-phoa-gen}). As a corollary, we see that quasi-coherence of finitely generated free $\I$-algebras is equivalent to Phoa's principle (\Cref{cor:phoa-vs-quasicoherence}).
     \item In the case of $\sigma$-frames, quasi-coherence for countably presented algebras implies chain completeness of $\I$ (\Cref{thm:complete}) assuming $\I$ is non-trivial. 
     This is the only place where it is important to work with $\sigma$-frames and not bounded distributive lattices (cf.~\Cref{rem:whynotdis}). This gives a full account of the axioms for synthetic domain theory as specified by \citet{hyland1990first}. 
   \end{enumerate}
@@ -1176,7 +1176,7 @@ In both cases above, $\I$ is viewed as an algebra of observations and not as a g
 
 As soon as we have path spaces $X^\I$, we immediately wish to begin characterising them for specific $X$. For example, the path space of a function space $A\to B$ is given pointwise in terms of the path space of $B$, which follows immediately from the laws of exponentials. To characterise paths in spaces like $\I^n$ and $\Delta^n$, however, we need additional axioms. The simplest such axiom asserts that the polynomial algebra $\I[\ms{i}]$ is quasi-coherent—which, in the case of bounded distributive lattices, is equivalent to Phoa's principle.
 
-\begin{definition}
+\begin{definition}\label{def:gen-phoa}
   We say that an $\I$-algebra $A$ satisfies the \emph{generalised Phoa principle} when either of the following equivalent conditions hold:
   \begin{enumerate}
     \item The path space $A^\I$ classifies the canonical order on $A$.
@@ -1249,7 +1249,7 @@ The standard Phoa principle is the generalised Phoa principle for $\I$ itself.
   By \Cref{obs:sqcp-phoa-gen}, the generalised Phoa principle holds for $A$ because $A$ and $A[\ms{j}]$ are quasi-coherent; by \Cref{thm:gen-phoa-poly}, the generalised Phoa principle holds for $A[\ms{j}]$ because it holds for $A$.  By \Cref{thm:gen-phoa-poly} again, the generalised Phoa principle holds for $A[\ms{j},\ms{k}] = A[\ms{j}][\ms{k}]$ because it holds for $A[\ms{j}]$.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{cor:phoa-vs-quasicoherence}
   The following are equivalent:
   \begin{enumerate}
     \item The polynomial $\I$-algebra $\I[\ms{i}]$ is quasi-coherent.
