@@ -210,8 +210,7 @@
 \DeclareFontShape{U}{dmjhira}{m}{n}{ <-> dmjhira }{}
 \DeclareRobustCommand{\yon}{\text{\usefont{U}{dmjhira}{m}{n}\symbol{"48}}}
 \DeclareRobustCommand{\noy}{\text{\reflectbox{\yon}}\!}
-% \newcommand{\opens}{\operatorname{\mc{O}}\!}
-\newcommand{\opens}{\operatorname{\mc{O}}} %% JMS: The \! is messing up some of the kerning, I think.
+\NewDocumentCommand\opens{}{\mc{O}}
 
 \NewDocumentCommand\Jon{m}{\textcolor{red}{\textbf{Jon:~}#1}}
 \NewDocumentCommand\LY{m}{\textcolor{blue}{\textbf{LY:~}#1}}
@@ -482,7 +481,7 @@ As mentioned in \Cref{subsec:qc}, an $\I$-algebra is a $\T$-model $A$ equipped w
 \end{proof}
 
 \begin{convention}[Unit and counit]
-  Following \citet{Taylor2011}, we shall write $\eta\colon 1_{\Set}\to \spec\circ\opens$ and $\iota\colon \opens\circ\spec\to 1_{\I\alg\op}$ for the unit and counit of the adjunction $\opens\dashv \spec\colon \I\alg\op\to \Set$ respectively. Due to the contravariance of the adjunction, the components of the counit are written $\iota_A\colon A\to \opens\spec{A}$ in the category of $\I$-algebras. Both $\eta_X\colon X\to \spec\opens{X}$ and $\iota_A\colon A\to \opens\spec{A}$ are the evident evaluation maps.
+  Following \citet{Taylor2011}, we shall write $\eta\colon 1_{\Set}\to {\spec}\circ \opens$ and $\iota\colon \opens\circ\spec\to 1_{\I\alg\op}$ for the unit and counit of the adjunction $\opens\dashv \spec\colon \I\alg\op\to \Set$ respectively. Due to the contravariance of the adjunction, the components of the counit are written $\iota_A\colon A\to \opens\spec{A}$ in the category of $\I$-algebras. Both $\eta_X\colon X\to \spec\opens{X}$ and $\iota_A\colon A\to \opens\spec{A}$ are the evident evaluation maps.
 \end{convention}
 
 Many sets can be naturally viewed as the spectrum of a certain $\I$-algebra. For example, we have $\spec \I \cong \I\alg(\I,\I) \cong 1$ because  $\I$ is the initial $\I$-algebra. Similarly, $\I$ itself it the spectrum of the polynomial $\I$-algebra $\I[\ms{i}]$, as we have $\spec \I[\ms{i}] \cong \I\alg(\I[\ms{i}],\I) \cong \I$. More generally:
@@ -557,18 +556,18 @@ We are now prepared to verify \Cref{prop:spectra-are-powers-of-the-interval}.
 We will now define quasi-coherent algebras and affine spaces as the \emph{fixed points} of the adjunction in \Cref{specrightadj}:
 
 \begin{definition}[Quasi-coherent algebra]
-  An $\I$-algebra $A$ is said to be \emph{quasi-coherent} when it is a fixed point of the adjunction $\opens \dashv \spec$, i.e.\ the component $\iota_A\colon A \to \opens{\spec A}$ of the counit is an equivalence of $\I$-algebras.
+  An $\I$-algebra $A$ is said to be \emph{quasi-coherent} when it is a fixed point of the adjunction $\opens \dashv \spec$, i.e.\ the component $\iota_A\colon A \to \opens \spec A$ of the counit is an equivalence of $\I$-algebras.
 \end{definition}
 
-We emphasise that the equivalence $A \cong \opens{\spec A}$ is not only an equivalence of types, but an equivalence of $\I$-algebras. This implies that the algebraic structure on $A$ can be viewed as pointwise induced by that on $\I$. 
+We emphasise that the equivalence $A \cong \opens\spec A$ is not only an equivalence of types, but an equivalence of $\I$-algebras. This implies that the algebraic structure on $A$ can be viewed as pointwise induced by that on $\I$. 
 
 \begin{remark}[Quasi-coherent algebras are replete]\label{rem:qcreplete}
-  The underlying set of any quasi-coherent algebra $A$ is also replete, as we have $A\cong \opens{\spec{A}}$ and hence the underlying set of $A$ is $\I^{\spec{A}}$.
+  The underlying set of any quasi-coherent algebra $A$ is also replete, as we have $A\cong \opens\spec{A}$ and hence the underlying set of $A$ is $\I^{\spec{A}}$.
 \end{remark}
 
 \begin{example}\label{exm:intervalqc}
   $\I$ itself by definition is quasi-coherent. We have seen that $\spec \I \cong 1$. Under this equivalence, the canonical map 
-  \[ \I \to \opens{\spec \I} \cong \I \]
+  \[ \I \to \opens\spec \I \cong \I \]
   is exactly the identity on $\I$.
 \end{example}
 
@@ -1095,7 +1094,7 @@ We can very easily classify the observational preorder on a set with decidable e
   \begin{align*}
     x\obsle[\spec{A}] y 
     &\eq 
-    \fa{U}{\opens{\spec{A}}} U(x) \le_{\I} U(y)
+    \fa{U}{\opens\spec{A}} U(x) \le_{\I} U(y)
     \\ 
     &\eq 
     \fa{a}{A} 
@@ -1316,7 +1315,7 @@ The quasi-coherence axiom for polynomials in one variable is surprisingly strong
 \end{theorem}
 \begin{proof}
   By assumption and \Cref{specrightadj}, since $A \otimes \I[\ms{i}] \cong A[\ms{i}]$, we have
-  \[ A^\I \cong (\opens{\spec A})^\I = (\I^{\spec A})^\I \cong \I^{\spec A \times \spec\I[\ms{i}]} \cong \I^{\spec A[\ms{i}]} \cong A[\ms{i}]\text{.} \]
+  \[ A^\I \cong (\opens\spec A)^\I = (\I^{\spec A})^\I \cong \I^{\spec A \times \spec\I[\ms{i}]} \cong \I^{\spec A[\ms{i}]} \cong A[\ms{i}]\text{.} \]
   We have already seen that $A[\ms{i}]$ classifies the canonical order of $A$ by the normalisation result for polynomial $\I$-algebras.
 \end{proof}
 
