@@ -87,7 +87,7 @@ many important objects for domain theory can be written as \emph{spectra}. This 
 
     \item \Cref{sec:locality} introduces various local conditions for $\I$, all of which will be compatible with quasi-coherence. This showcases the flexibility of this framework to encompass different flavours of domain theory.
 
-    \item  More interestingly, without assuming the local properties globally, one can still show that $\I$ will be \emph{right orthogonal} to the maps that classifies these local properties (\Cref{specisnontrivial,specissimplicial,specis1t}). In general, any limiting diagram of spatial algebras will induce a localisation class containing $\I$; cf.\ \Cref{rem:limofalgloc}. This exhibits a new type of techniques in reasoning about domains in this framework.
+    \item  More interestingly, without assuming the local properties globally, one can still show that $\I$ will be \emph{right orthogonal} to the maps that classifies these local properties (\Cref{specisnontrivial,specistriangulated,specis1t}). In general, any limiting diagram of spatial algebras will induce a localisation class containing $\I$; cf.\ \Cref{rem:limofalgloc}. This exhibits a new type of techniques in reasoning about domains in this framework.
     
     \item As a special case of locality, we also connect to the recent approach of synthetic (higher) category theory~\citep{riehl2017type,buchholtz2021synthetic,gratzer2024directed}. In particular, we show spectra will be synthetic categories (\Cref{thm:soberposet}). As another example, we also show $\omega$ is a synthetic category, in fact it satisfies \emph{all} the orthogonality conditions discussed in this paper except chain completeness (\Cref{thm:omegaortho}).
   \end{enumerate}
@@ -1397,14 +1397,14 @@ Starting from the simplest example, let us recall the local property (\AxiomNT).
 
 As another example, consider the simplicial axiom (\AxiomSL). We skip the discussion of (\AxiomL) and (\AxiomCL), because (\AxiomSL) is strictly stronger, and it has a better-known geometric meaning. Recall from \Cref{sec:linearity-and-coskeletality} that (\AxiomSL) can be represented geometrically as an embedding $\Delta^2\cup\Delta_2 \hook \I^2$.
 
-\begin{definition}[Simplicial type]
-  A type $X$ is said to be \emph{simplicial} when it is right orthogonal to the inclusion $\Delta^2 \cup \Delta_2 \hook \I^2$.
+\begin{definition}[Triangulated type]
+  A type $X$ is said to be \emph{triangulated} when it is right orthogonal to the inclusion $\Delta^2 \cup \Delta_2 \hook \I^2$.
 \end{definition}
 
-Again, (\AxiomSL) holds globally iff the above embedding is an equivalence, thus every type in this case will be simplicial. When it does not hold globally, we can still show:
+Again, (\AxiomSL) holds globally iff the above embedding is an equivalence, thus every type in this case will be triangulated. When it does not hold globally, we can still show:
 
-\begin{proposition}[\AxiomSQCF]\label{specissimplicial}
-  $\I$ is simplicial.
+\begin{proposition}[\AxiomSQCF]\label{specistriangulated}
+  $\I$ is triangulated.
 \end{proposition}
 \begin{proof}
   To show that $\I$ is right orthogonal to $\Delta^2 \cup \Delta_2 \hook \I^2$, it is equivalent to verify that for any $f,g$ indicated below making the solid diagram below commute, there exists a unique lift $h$ making the whole diagram commute:
@@ -1436,14 +1436,14 @@ Again, (\AxiomSL) holds globally iff the above embedding is an equivalence, thus
 Finally, we discuss the even stronger locality condition (\AxiomOneCS). As mentioned in \Cref{sec:linearity-and-coskeletality}, the additional property of (\AxiomOneCS) is characterised by the embedding $\partial\Delta_2 \hook \Delta_2$.
 
 \begin{definition}[1-coskeletal type]
-  A type $X$ is said to be \emph{1-coskeletal} when it is both simplicial and right orthogonal to the boundary inclusion $\partial\Delta_2 \hook \Delta_2$.
+  A type $X$ is said to be \emph{1-coskeletal} when it is both triangulated and right orthogonal to the boundary inclusion $\partial\Delta_2 \hook \Delta_2$.
 \end{definition}
 
 \begin{proposition}[\AxiomSQCF]\label{specis1t}
   $\I$ is 1-coskeletal.
 \end{proposition}
 \begin{proof}
-  Completely similar to the proof of \Cref{specissimplicial}, it suffices to show that we have a limit diagram of $\I$-algebras as follows,
+  Completely similar to the proof of \Cref{specistriangulated}, it suffices to show that we have a limit diagram of $\I$-algebras as follows,
   \[\begin{tikzcd}
     & {\I[\ms{i},\ms{j}]/\ms{i}\le \ms{j}} \\
     \I[\ms{i}] & \I[\ms{k}] & \I[\ms{j}] \\
@@ -1466,7 +1466,7 @@ Finally, we discuss the even stronger locality condition (\AxiomOneCS). As menti
 \end{proof}
 
 Besides the locality principles discussed in \Cref{sec:locality}, we also consider the orthogonality classes emerging from \emph{synthetic category theory}, as introduced by \citet{riehl2017type}. 
-A synthetic category will be a type that satisfies the internal orthogonality condition of being \emph{simplicial}, \emph{Segal complete}, and \emph{Rezk complete}.
+A synthetic category will be a type that satisfies the internal orthogonality condition of being \emph{Segal complete}, \emph{Rezk complete}, and \emph{simplicial} (which is a sheaf condition that strengthens the triangulation property).
 
 We start with the Segal completeness condition. Besides the outer horn discussed in \Cref{exm:hornsober}, we can also define the inner horn $\Lambda^2_1$ as a pushout,
 \[
