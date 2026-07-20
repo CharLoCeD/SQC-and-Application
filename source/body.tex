@@ -52,14 +52,16 @@ The quasi-coherence principle in $\Set[\T]$ proposed by \citet{blechschmidt2021u
   A\to \opens\spec A
 \]
 obtained on elements by transposing the evaluation map $A\times \spec A\to U_\T$ is an equivalence.
-Types of the form $\spec A$ for such $A$ are called \emph{affine} by \citet{blechschmidt2021using}. This in fact induces an internal duality between finitely presented $U_\T$-algebras and affine types. In particular, it implies Blass's result. 
+Types of the form $\spec A$ for such $A$ are called `affine' by \citet{blechschmidt2021using}. This in fact induces an internal duality between finitely presented $U_\T$-algebras and `affine' types. In particular, it implies Blass's result. 
 
 The appearance of finite presentation in the above formulation of quasi-coherence is perhaps misleading. Following the development of \citet{blechschmidt2021using,blechschmidt2020general}, it is clear that the quasi-coherence principle for finitely presented algebras can be generalised to larger cardinality,
 if we enlarge the site of the classifying topos $\Set[\T]$. For instance, one can consider
 \[ \Set[\T]_\omega \coloneq [\mmod\T\cp,\Set]\text{,} \]
-where $\mmod\T\cp$ denotes the category of \emph{countably presented} $\T$-models. In this case, countably presented $U_\T$-algebras will be quasi-coherent in $\Set[\T]_\omega$. This is the theoretical basis in a recent approach for synthetic topology suggested by \citet{cherubini2024foundation}, who consider a variation on the quasi-coherence principle for \emph{countably} presented Boolean algebras. 
+where $\mmod\T\cp$ denotes the category of \emph{countably presented} $\T$-models. In this case, the quasi-coherence principle will hold also with respect to \emph{countably presented} $U_\T$-algebras. This is the theoretical basis in a recent approach for synthetic topology suggested by \citet{cherubini2024foundation}, who consider a variation on the quasi-coherence principle for \emph{countably} presented Boolean algebras. 
 %
 Horn theories $\T$ whose operations have \emph{countable} arity can also be considered in this case, so long as the base topos $\Set$ satisfies countable choice. Of course, these examples will not fit directly into the discipline of classifying toposes because geometric theories cannot have infinitary operations: but a suitable doctrine may arise when considering geometric morphisms whose inverse image functors preserve countable rather than finite limits.
+
+Because of the importance of varying the class of algebras with respect to which the quasi-coherence principle holds, we shall take a slightly different approach to the axiomatics inspired by locale theory and synthetic topology. In particular, the homomorphism $A\to \opens\spec A$ is the \emph{counit} of a contravariant adjunction $\opens\dashv \spec\colon U_\T\alg\op\to \Set$, so the algebras with respect to which the quasi-coherence principle holds are \emph{precisely} those that are fixed points of this adjunction.  We will therefore refer to algebras and sets as \emph{spatial} and \emph{sober} respectively when they arise as fixed points of this adjunction. Therefore, sober sets play the role of `affine schemes' in our setting.
 
 Blechschmidt also points out that quasi-coherence descends from the classifying (presheaf) topos $\Set[\T]$ to any subtopos containing the generic model $U_\T$; see \citet[Cor. 7.7]{blechschmidt2020general}. From a logical perspective, a subtopos $\Set[\mbb S] \hook \Set[\T]$ can be identified as the classifying topos for a \emph{geometric quotient} $\mbb S$ of the Horn theory $\T$. If $U_\T$ is a sheaf for $\Set[\mbb S]$, then $U_\T$ in the subtopos $\Set[\mbb S]$ will be the generic $\mbb S$-model.
 Hence, in such a subtopos, $U_\T$ will validates more geometric sequents as specified by the topology, which should be viewed as certain \emph{local properties}. For instance, \citet{blechschmidt2021using,Cherubini_Coquand_Hutzler_2024} work with \emph{local rings}, where the additional geometric properties are validated by the Zariski topology.
@@ -68,15 +70,15 @@ In the case of synthetic Stone duality, the Boolean algebra used by \citet{cheru
 \subsection{Summary of contributions}\label{sec:contributions}
 
 We study an emerging connection between synthetic domain theory and the quasi-coherence axioms for \emph{bounded distributive lattices} and \emph{$\sigma$-frames}. As a first indication of why quasi-coherence for these theories might be useful for domain theory, we have observed that by taking the interval $\I$ to be a bounded distributive lattice or $\sigma$-frame internal to some topos,
-many important objects for domain theory can be written as \emph{spectra}. This include the cubes $\I^n$ (\Cref{exm:cubeaffine}), the simplices $\Delta^n$ (\Cref{exm:simplicesaffine}), and the final coalgebra $\ov\omega$ (\Cref{exm:ovomegaaffine}). Here we outline the main results of this paper, and discuss some of their potential applications.
+many important objects for domain theory can be written as \emph{spectra}. This include the cubes $\I^n$ (\Cref{exm:cubesober}), the simplices $\Delta^n$ (\Cref{exm:simplicessober}), and the final coalgebra $\ov\omega$ (\Cref{exm:ovomegasober}). Here we outline the main results of this paper, and discuss some of their potential applications.
 
 \begin{enumerate}[leftmargin=*]
   \item \emph{Quasi-coherence produces synthetic domain theory.} We show the principle of quasi-coherence suffices to account for \emph{all} essential axioms for synthetic domain theory. Specifically:
   \begin{enumerate}
-    \item\label{contribution:dominance} In the case of both bounded distributive lattices and $\sigma$-frames, the quasi-coherence for finitely presented algebras (in fact a weaker assumption; cf.\ \Cref{sec:dominance}) implies that the generic interval $\I$ and its dual form a dominance (\Cref{prop:Idominance} and \Cref{cor:dualisdominance}). It also leads to an explicit computation of the partial map classifiers of quasi-coherent $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectra (\Cref{prop:liftofaffine}).
-    \item The quasi-coherence principle allows an explicit computation of the \emph{observational preorder} (\Cref{defn:specialisation}) on affine spaces (\Cref{lem:specorderofaffine}) and quasi-coherent $\I$-algebras (\Cref{cor:specordonalgiscan}).
-    \item A generalisation of Phoa's principle that applies to an arbitrary $\I$-algebra $A$ is stated (\Cref{def:gen-phoa}), and compared with quasi-coherence for polynomial algebras over $A$ (\Cref{obs:sqcp-phoa-gen}). As a corollary, we see that quasi-coherence of finitely generated free $\I$-algebras is equivalent to Phoa's principle (\Cref{cor:phoa-vs-quasicoherence}).
-    \item In the case of $\sigma$-frames, quasi-coherence for countably presented algebras implies chain completeness of $\I$ (\Cref{thm:complete}) assuming $\I$ is non-trivial. 
+    \item\label{contribution:dominance} In the case of both bounded distributive lattices and $\sigma$-frames, the quasi-coherence with respect to finitely presented algebras (in fact a weaker assumption; cf.\ \Cref{sec:dominance}) implies that the generic interval $\I$ and its dual form a dominance (\Cref{prop:Idominance} and \Cref{cor:dualisdominance}). It also leads to an explicit computation of the partial map classifiers of spatial $\I$-algebras (\Cref{prop:liftingofalgebra}), and spectra (\Cref{prop:liftofsober}).
+    \item The quasi-coherence principle allows an explicit computation of the \emph{observational preorder} (\Cref{defn:specialisation}) on sober spaces (\Cref{lem:specorderofsober}) and spatial $\I$-algebras (\Cref{cor:specordonalgiscan}).
+    \item A generalisation of Phoa's principle that applies to an arbitrary $\I$-algebra $A$ is stated (\Cref{def:gen-phoa}), and compared with quasi-coherence with respect to polynomial algebras over $A$ (\Cref{obs:sqcp-phoa-gen}). As a corollary, we see that spatiality of finitely generated free $\I$-algebras is equivalent to Phoa's principle (\Cref{cor:phoa-vs-quasicoherence}).
+    \item In the case of $\sigma$-frames, quasi-coherence with respect to countably presented algebras implies chain completeness of $\I$ (\Cref{thm:complete}) assuming $\I$ is non-trivial. 
     This is the only place where it is important to work with $\sigma$-frames and not bounded distributive lattices (cf.~\Cref{rem:whynotdis}). This gives a full account of the axioms for synthetic domain theory as specified by \citet{hyland1990first}. 
   \end{enumerate}
 
@@ -85,9 +87,9 @@ many important objects for domain theory can be written as \emph{spectra}. This 
 
     \item \Cref{sec:locality} introduces various local conditions for $\I$, all of which will be compatible with quasi-coherence. This showcases the flexibility of this framework to encompass different flavours of domain theory.
 
-    \item  More interestingly, without assuming the local properties globally, one can still show that $\I$ will be \emph{right orthogonal} to the maps that classifies these local properties (\Cref{specisnontrivial,specissimplicial,specis1t}). In general, any limiting diagram of quasi-coherent algebras will induce a localisation class containing $\I$; cf.\ \Cref{rem:limofalgloc}. This exhibits a new type of techniques in reasoning about domains in this framework.
+    \item  More interestingly, without assuming the local properties globally, one can still show that $\I$ will be \emph{right orthogonal} to the maps that classifies these local properties (\Cref{specisnontrivial,specissimplicial,specis1t}). In general, any limiting diagram of spatial algebras will induce a localisation class containing $\I$; cf.\ \Cref{rem:limofalgloc}. This exhibits a new type of techniques in reasoning about domains in this framework.
     
-    \item As a special case of locality, we also connect to the recent approach of synthetic (higher) category theory~\citep{riehl2017type,buchholtz2021synthetic,gratzer2024directed}. In particular, we show spectra will be synthetic categories (\Cref{thm:affineposet}). As another example, we also show $\omega$ is a synthetic category, in fact it satisfies \emph{all} the orthogonality conditions discussed in this paper except chain completeness (\Cref{thm:omegaortho}).
+    \item As a special case of locality, we also connect to the recent approach of synthetic (higher) category theory~\citep{riehl2017type,buchholtz2021synthetic,gratzer2024directed}. In particular, we show spectra will be synthetic categories (\Cref{thm:soberposet}). As another example, we also show $\omega$ is a synthetic category, in fact it satisfies \emph{all} the orthogonality conditions discussed in this paper except chain completeness (\Cref{thm:omegaortho}).
   \end{enumerate}
 
   \item \emph{New models for synthetic domain theory.} Consequently, we uncover a large family of new models for synthetic domain theory based on sites induced by countably presented $\sigma$-frames. We will discuss these models in \Cref{sec:model}, and compare them to the existing sheaf models for synthetic domain theory~\citep{FIORE1997151} in \Cref{subsec:compare}.
@@ -110,7 +112,7 @@ Given an $\I$-algebra $A$, we will abuse notation by identifying elements of $\I
 we will write $A/a = b$ to indicate the \emph{quotient algebra} identifying $a_j$ with $b_j$ for all $j : J$. We also write $A[J]$ for the free algebra over $A$ generated from $J$, or we also explicitly mention the generators $A[\ms{j}_1,\cdots,\ms{j}_n]$. We write the \emph{coproduct} of $\I$-algebras as $A \otimes B$.
 
 
-\section{Quasi-coherence and affine spaces}\label{sec:basics}
+\section{Quasi-coherence and sober spaces}\label{sec:basics}
 
 We will work in intensional type theory extended by a model $\I$ of some Horn theory $\T$. In this section we will first describe the quasi-coherence property, and briefly recap some of its elementary consequences. The results in this section applies to any Horn theory $\T$, thus at this stage we do not assume $\T$ to satisfy any additional properties.
 
@@ -154,7 +156,7 @@ As mentioned in \Cref{subsec:qc}, an $\I$-algebra is a $\T$-model $A$ equipped w
 
 Many sets can be naturally viewed as the spectrum of a certain $\I$-algebra. For example, we have $\spec \I \cong \I\alg(\I,\I) \cong 1$ because  $\I$ is the initial $\I$-algebra. Similarly, $\I$ itself it the spectrum of the polynomial $\I$-algebra $\I[\ms{i}]$, as we have $\spec \I[\ms{i}] \cong \I\alg(\I[\ms{i}],\I) \cong \I$. More generally:
 
-\begin{example}[Cubes]\label{exm:cubeaffine}
+\begin{example}[Cubes]\label{exm:cubesober}
   For any set $X$, let $\I[X]$ be the free $\I$-algebra generated by $X$. Then the set $\I^X$ is a spectrum, because we have
   \[ \spec \I[X] \cong \I\alg(\I[X],\I) \cong \I^X\text{.} \]
 \end{example}
@@ -221,38 +223,38 @@ We are now prepared to verify \Cref{prop:spectra-are-powers-of-the-interval}.
   Recall the notion of \emph{replete} type given by \citet{hyland1990first}: $X$ is said to replete when it is right orthogonal to any map that $\I$ is right orthogonal to. Throughout the paper, by right orthogonality we always mean the \emph{internal} notion: $X$ is right orthogonal to a map $f$ iff the restriction map $X^f$ is an equivalence. Thus, an object is replete iff it belongs to the smallest internal localisation class containing $\I$. In particular, replete objects form an exponential ideal. This implies a spectrum $\spec A$ as an equaliser of powers of $\I$ will also be replete.
 \end{remark}
 
-We will now define quasi-coherent algebras and affine spaces as the \emph{fixed points} of the adjunction in \Cref{specrightadj}:
+We will now define spatial algebras and sober spaces as the \emph{fixed points} of the adjunction in \Cref{specrightadj}:
 
 \begin{definition}[Quasi-coherent algebra]
-  An $\I$-algebra $A$ is said to be \emph{quasi-coherent} when it is a fixed point of the adjunction $\opens \dashv \spec$, i.e.\ the component $\iota_A\colon A \to \opens \spec A$ of the counit is an equivalence of $\I$-algebras.
+  An $\I$-algebra $A$ is said to be \emph{spatial} when it is a fixed point of the adjunction $\opens \dashv \spec$, i.e.\ the component $\iota_A\colon A \to \opens \spec A$ of the counit is an equivalence of $\I$-algebras.
 \end{definition}
 
 We emphasise that the equivalence $A \cong \opens\spec A$ is not only an equivalence of types, but an equivalence of $\I$-algebras. This implies that the algebraic structure on $A$ can be viewed as pointwise induced by that on $\I$. 
 
 \begin{remark}[Quasi-coherent algebras are replete]\label{rem:qcreplete}
-  The underlying set of any quasi-coherent algebra $A$ is also replete, as we have $A\cong \opens\spec{A}$ and hence the underlying set of $A$ is $\I^{\spec{A}}$.
+  The underlying set of any spatial algebra $A$ is also replete, as we have $A\cong \opens\spec{A}$ and hence the underlying set of $A$ is $\I^{\spec{A}}$.
 \end{remark}
 
 \begin{example}\label{exm:intervalqc}
-  $\I$ itself by definition is quasi-coherent. We have seen that $\spec \I \cong 1$. Under this equivalence, the canonical map 
+  $\I$ itself by definition is spatial. We have seen that $\spec \I \cong 1$. Under this equivalence, the canonical map 
   \[ \I \to \opens\spec \I \cong \I \]
   is exactly the identity on $\I$.
 \end{example}
 
-\begin{definition}[Affine sets]
-  We say a set $X$ is \emph{affine} if it is a fixed point of the adjunction $\opens \dashv \spec$, i.e.\ the unit map $\eta_X\colon X \to \spec\opens X$ is an equivalence.
+\begin{definition}[Sober sets]
+  We say a set $X$ is \emph{sober} if it is a fixed point of the adjunction $\opens \dashv \spec$, i.e.\ the unit map $\eta_X\colon X \to \spec\opens X$ is an equivalence.
 \end{definition}
 
-In the future whenever we indicate $X$ is affine with $X \cong \spec A$, we will assume $A$ is the quasi-coherent $\I$-algebra $A \cong \opens X$.
+In the future whenever we indicate $X$ is sober with $X \cong \spec A$, we will assume $A$ is the spatial $\I$-algebra $A \cong \opens X$.
 
-\begin{remark}[Quasi-coherence and affineness as general properties]
-  Our notion of being quasi-coherent and affine already indicates an important difference between our approach and the ones taken in the related works~\citep{Cherubini_Coquand_Hutzler_2024,cherubini2024foundation}. There, the notion is directly connected to the size of presentation, i.e.\ they are spectra of finitely presented or countably presented algebras. Since we aim for a completely modular development, our notion is more general, which a priori does not favour a class of size-related algebras. 
+\begin{remark}[Spatiality and sobriety as general properties]
+  Our focus on spatiality and sobriety indicates an important difference between our approach and the ones taken in the related works~\citep{Cherubini_Coquand_Hutzler_2024,cherubini2024foundation}. There, the notion is directly connected to the size of presentation, i.e.\ they are spectra of finitely presented or countably presented algebras. Since we aim for a completely modular development, our notion is more general, which a priori does not favour a class of size-related algebras. 
 \end{remark}
 
-Being the fixed points of an adjunction, quasi-coherent $\I$-algebras and affine spaces induces certain duality results. The first half of the following result appears in Prop.~2.2.1 of \citet{Cherubini_Coquand_Hutzler_2024} (for the more restrictive definition of quasi-coherence). We include the result here for completeness since our assumption is slightly more general.
+Being the fixed points of an adjunction, spatial $\I$-algebras and sober spaces induces certain duality results. The first half of the following result appears in Prop.~2.2.1 of \citet{Cherubini_Coquand_Hutzler_2024} (for the more restrictive definition of quasi-coherence). We include the result here for completeness since our assumption is slightly more general.
 
 \begin{proposition}\label{prop:duality}
-  Let $A$ be quasi-coherent. For any $\I$-algebra $B$, the canonical map $\I\alg(B,A) \to (\spec B)^{\spec A}$ is an equivalence. Similarly, if $X$ is affine, for any set $Y$ the canonical map $X^Y \to \I\alg(\opens X,\opens Y)$ is an equivalence.
+  Let $A$ be spatial. For any $\I$-algebra $B$, the canonical map $\I\alg(B,A) \to (\spec B)^{\spec A}$ is an equivalence. Similarly, if $X$ is sober, for any set $Y$ the canonical map $X^Y \to \I\alg(\opens X,\opens Y)$ is an equivalence.
 \end{proposition}
 \begin{proof}
   This holds generally for fixed points of an adjunction.
@@ -287,7 +289,7 @@ Notice that up till this point we have not used any special property of $\T$ rat
 
 For a propositionally stable theory $\T$, we think of the generic model $\I$ as certain interval object, since it is equipped with a partial order. In this case, more types can be realised as spectra. The important examples are \emph{simplices}:
 
-\begin{example}\label{exm:simplicesaffine}
+\begin{example}\label{exm:simplicessober}
   For any $n : \N$, let $\Delta^n \hook \I^n$ be the $n$-simplex
   \[ \Delta^n \coloneq \scomp{i \colon n \to \I}{i_1 \ge \cdots \ge i_n}\text{.} \]
   This type is indeed a spectrum, since by definition we have
@@ -304,7 +306,7 @@ which takes $i : \I$ to the proposition $i = 1$. Using $\istsym$, we can think o
   For any $\I$-algebra $A$ and elements $a:A$ and $x:\spec A$, we say $x$ \emph{satisfies} $a$, written $x \models a$, if $\ist{xa}$.
 \end{definition}
 
-For instance, the satisfaction relation can be used to carve out affine subspaces consisting of models satisfying some element in $A$:
+For instance, the satisfaction relation can be used to carve out sober subspaces consisting of models satisfying some element in $A$:
 
 \begin{example}
   For any $\I$-algebra $A$ and $a:A$, the subtype $D_a\subseteq \spec A$ defined below is again a spectrum:
@@ -313,7 +315,7 @@ For instance, the satisfaction relation can be used to carve out affine subspace
 
 The first observation is that $\istsym$ takes $i : \I$ to a spectrum:
 
-\begin{lemma}\label{lem:openpropaffine}
+\begin{lemma}\label{lem:openpropsober}
   The spectrum $\spec\I/i$ for $i:\I$ is a proposition equivalent to $\ist{i}$.
 \end{lemma}
 \begin{proof}
@@ -329,10 +331,10 @@ The first observation is that $\istsym$ takes $i : \I$ to a spectrum:
   The final identity holds since $f$ preserves the top element. 
 \end{proof}
 
-The goal of this section is to show that, under a suitable quasi-coherence assumption, $\istsym\colon \I \to \pp$ makes $\I$ a \emph{dominance} in the sense of \citet{rosolini1986continuity}. It turns out that it suffices to require all (finitely generated) principle quotients of $\I$ to be quasi-coherent:
+The goal of this section is to show that, under a suitable quasi-coherence assumption, $\istsym\colon \I \to \pp$ makes $\I$ a \emph{dominance} in the sense of \citet{rosolini1986continuity}. It turns out that it suffices to require all (finitely generated) principle quotients of $\I$ to be spatial:
 
-\begin{definition}[Stable quasi-coherence and stably affine]
-  An $\I$-algebra $A$ is \emph{stably quasi-coherent}, if for any $n : \N$ and $a,b \colon n \to A$, the quotient $A/a=b$ is again quasi-coherent. An affine $X \cong \spec A$ is \emph{stably affine}, if $A$ is stably quasi-coherent.
+\begin{definition}[Stable spatiality and sobriety]
+  An $\I$-algebra $A$ is \emph{stably spatial}, if for any $n : \N$ and $a,b \colon n \to A$, the quotient $A/a=b$ is again spatial. A sober $X \cong \spec A$ is \emph{stably sober} if $A$ is stably spatial.
 \end{definition}
 
 \PrintAxiomSQCI
@@ -346,9 +348,9 @@ As a first consequence, we show the following important lemma:
 \begin{proof}
   If $i \le j$ then trivially $\ist{i} \to \ist{j}$. Thus it suffices to show
   \[ (\ist{i} \to \ist{j}) \to i \le j\text{.} \]
-  Take $i,j$ with $\ist{i} \to \ist{j}$. By \Cref{lem:openpropaffine} and (\AxiomSQCI), each $\ist{i}$ and $\ist{j}$ will be affine. Then we get a restriction map between $\I$-algebras,
+  Take $i,j$ with $\ist{i} \to \ist{j}$. By \Cref{lem:openpropsober} and (\AxiomSQCI), each $\ist{i}$ and $\ist{j}$ will be sober. Then we get a restriction map between $\I$-algebras,
   \[ \I/j \cong \I^{\ist{j}} \to \I^{\ist{i}} \cong \I/i\text{.} \]
-  Similar to the proof of \Cref{lem:openpropaffine}, the existence of such an $\I$-algebra homomorphism implies $i \le j$. 
+  Similar to the proof of \Cref{lem:openpropsober}, the existence of such an $\I$-algebra homomorphism implies $i \le j$. 
 \end{proof}
 
 Thus, under (\AxiomSQCI), we may view the generic algebra $\I$ as a subuniverse of \emph{open} propositions via the embedding $\istsym$:
@@ -365,14 +367,14 @@ More generally, we may define the notion of open subtypes:
   A subtype $U$ of $X$ is \emph{open} if for any $x:X$ the proposition $x\in U$ is open.
 \end{definition}
 
-If $X$ is affine, open subtypes are easy to classify:
+If $X$ is sober, open subtypes are easy to classify:
 
-\begin{lemma}[\AxiomSQCI]\label{lem:openofaffinegivesalgebra}
-  Let $X \cong \spec A$ be affine. Then any open subset of $X$ is of the form $D_a$ for some $a:A$.
+\begin{lemma}[\AxiomSQCI]\label{lem:openofsobergivesalgebra}
+  Let $X \cong \spec A$ be sober. Then any open subset of $X$ is of the form $D_a$ for some $a:A$.
 \end{lemma}
 \begin{proof}
   Let $U$ be an open subtype of $X$, so that for any $x:X$ there exists some (by conservativity, necessarily unique) element $i:\I$ that $x \in U \eq \ist{i}$.
-  Hence we have a map $\qsi a \colon X \to \I$ with $x \in U \eq \ist{\qsi ax}$. Because $X$ is affine, we may identify $\qsi a$ with an element $a:A$, where $\qsi ax = xa$. This way,
+  Hence we have a map $\qsi a \colon X \to \I$ with $x \in U \eq \ist{\qsi ax}$. Because $X$ is sober, we may identify $\qsi a$ with an element $a:A$, where $\qsi ax = xa$. This way,
   \[ \fa xX x \in U \eq x \models a\text{,} \]
   and thus $U$ is the subtype $D_a$.
 \end{proof}
@@ -381,13 +383,13 @@ If $X$ is affine, open subtypes are easy to classify:
   The type of opens $\I$ forms a dominance.
 \end{proposition}
 \begin{proof}
-  Since $\istsym\colon \I \hook \pp$ by definition is closed under finite meets, it suffices to show that an open subtype of an open proposition is again an open proposition. Suppose $p$ is an open proposition and $q$ is an open subtype of $p$. By definition $p \eq \ist{i}$ for some $i:\I$. Since $\ist{i}$ is affine, \Cref{lem:openofaffinegivesalgebra} implies that $q$ is $D_j$ for some $j : \I/i$. Since $\T$ is propositionally stable, equivalently $j$ can be viewed as an element $j : \I$ with $j \le i$. This way, 
+  Since $\istsym\colon \I \hook \pp$ by definition is closed under finite meets, it suffices to show that an open subtype of an open proposition is again an open proposition. Suppose $p$ is an open proposition and $q$ is an open subtype of $p$. By definition $p \eq \ist{i}$ for some $i:\I$. Since $\ist{i}$ is sober, \Cref{lem:openofsobergivesalgebra} implies that $q$ is $D_j$ for some $j : \I/i$. Since $\T$ is propositionally stable, equivalently $j$ can be viewed as an element $j : \I$ with $j \le i$. This way, 
   \[ q \eq D_j \eq \spec(\I/i)/j \eq \spec\I/j\text{,} \]
   which implies $q$ is also an open proposition.
 \end{proof}
 
 \begin{remark}[Dominance without choice]\label{rem:dominancewithoutchoice}
-  The related work of \citet{Cherubini_Coquand_Hutzler_2024} contains a similar construction of a dominance from a generic \emph{ring}. However, the proof there relies on certain classical axiom, which they call \emph{Zariski local choice}. The reason that the construction here does not require a similar assumption is precisely due to conservativity of $\I$: the dominance is $\I$ itself, rather than an image of $\I$. In this way, we can transform an open subtype of $X$ to a map $X \to \I$, which by quasi-coherence can be further identified as an element of the algebra if $X$ is affine. 
+  The related work of \citet{Cherubini_Coquand_Hutzler_2024} contains a similar construction of a dominance from a generic \emph{ring}. However, the proof there relies on certain classical axiom, which they call \emph{Zariski local choice}. The reason that the construction here does not require a similar assumption is precisely due to conservativity of $\I$: the dominance is $\I$ itself, rather than an image of $\I$. In this way, we can transform an open subtype of $X$ to a map $X \to \I$, which by quasi-coherence can be further identified as an element of the algebra if $X$ is sober. 
 \end{remark}
 
 
@@ -408,16 +410,16 @@ and $x \colon \ist{j} \to X$ is the partial element such that for $w : \ist{i}$ 
   \[ L 1 \cong \sum_{i:\I}\ist{i} \cong \I\text{.} \]
 \end{example}
 
-For synthetic domain theory, the object of particular importance is the partial map classifier of the interval $\I$ itself. The following computation works more generally for all stably quasi-coherent algebras:
+For synthetic domain theory, the object of particular importance is the partial map classifier of the interval $\I$ itself. The following computation works more generally for all stably spatial algebras:
 
 \begin{proposition}\label{prop:liftingofalgebra}
-  If $A$ is stably quasi-coherent, then we have
+  If $A$ is stably spatial, then we have
   \[ L A \cong \sum_{i:\I}A/i\text{.} \]
 \end{proposition}
 \begin{proof}
-  By assumption for $i : \I$, the quotient $A/i$ is again quasi-coherent. Now notice that we do have
+  By assumption for $i : \I$, the quotient $A/i$ is again spatial. Now notice that we do have
   \[ A/i \cong A \otimes \I/i\text{.} \]
-  By \Cref{specrightadj} and quasi-coherence of $A/i$ and $A$,
+  By \Cref{specrightadj} and spatiality of $A/i$ and $A$,
   \[ A/i \cong \I^{\spec(A \otimes \I/i)} \cong \I^{\spec A \times \spec\I/i} \cong A^{\spec \I/i} \cong A^{\ist{i}}\text{.} \]
   This way, it follows that 
   \[ L A \cong \sum_{i:\I}A^{\ist{i}} \cong \sum_{i:\I}A/i. \qedhere \]
@@ -438,26 +440,26 @@ In other words, an element $(i,a) : L A$ is simply a pair $i : \I$ and $a : A$ t
   One interesting fact to note here is that, though $L\I$ by computation is a dependent sum of algebras, it is naturally equivalent to a \emph{spectrum}. In some sense the source is the assumption that $\T$ is propositionally stable, which allows us to identify the algebraic object $\I/i$ as a subset $\scomp{j : \I}{j \le i}$. There will be more examples of such nature once we work more specifically with bounded distributive lattices; cf.\ \Cref{prop:simplicesasalgebra}.
 \end{remark}
 
-More generally, for domain theoretic applications we would want to compute the partial map classifier of $\Delta^2$, or $\Delta^n$ for any $n:\N$. For this purpose, we observe that we can more generally compute them for any spectra (not only affine spaces):
+More generally, for domain theoretic applications we would want to compute the partial map classifier of $\Delta^2$, or $\Delta^n$ for any $n:\N$. For this purpose, we observe that we can more generally compute them for any spectra (not only sober spaces):
 
-\begin{proposition}[\AxiomSQCI]\label{prop:liftofaffine}
+\begin{proposition}[\AxiomSQCI]\label{prop:liftofsober}
   For an $\I$-algebra $A$, we have
   \[ L\spec A \cong \sum_{i:\I}\I\alg(A,\I/i)\text{.} \]
 \end{proposition}
 \begin{proof}
-  By (\AxiomSQCI) and \Cref{lem:openpropaffine}, $\ist{i}$ is affine for any $i:\I$. By the duality result in \Cref{prop:duality}, we have
+  By (\AxiomSQCI) and \Cref{lem:openpropsober}, $\ist{i}$ is sober for any $i:\I$. By the duality result in \Cref{prop:duality}, we have
   \[ L\spec A \cong \sum_{i:\I}(\spec A)^{\ist{i}}\cong \sum_{i:\I}\I\alg(A,\I/i). \qedhere \]
 \end{proof}
 
 % Thus, motivated by domain theory, we find ourselves naturally move towards the following axiomatisation:
 
 % \begin{axiom}[\AxiomSQCF]
-%   All finitely generated free $\I$-algebras, i.e.\ $\I[n]$ for $n : \N$, are stably quasi-coherent.
+%   All finitely generated free $\I$-algebras, i.e.\ $\I[n]$ for $n : \N$, are stably spatial.
 % \end{axiom}
 
-% Equivalently, (\AxiomSQCF) says that any finitely presented $\I$-algebra is (stably) quasi-coherent, where an $\I$-algebra is finitely presented if it is merely of the form $\I[n]/s=t$ with $s,t \colon m \to \I[n]$ for some finite $n,m$.
+% Equivalently, (\AxiomSQCF) says that any finitely presented $\I$-algebra is (stably) spatial, where an $\I$-algebra is finitely presented if it is merely of the form $\I[n]/s=t$ with $s,t \colon m \to \I[n]$ for some finite $n,m$.
 
-% Of course, (\AxiomSQCF) implies (\AxiomSQCI) when taking $n$ to be 0. Furthermore, (\AxiomSQCF) implies that the simplices $\Delta^n$ are now (stably) affine as well. This way, we can indeed compute their lifts:
+% Of course, (\AxiomSQCF) implies (\AxiomSQCI) when taking $n$ to be 0. Furthermore, (\AxiomSQCF) implies that the simplices $\Delta^n$ are now (stably) sober as well. This way, we can indeed compute their lifts:
 
 \begin{corollary}[\AxiomSQCI]
   For any $n : \N$, we have
@@ -465,7 +467,7 @@ More generally, for domain theoretic applications we would want to compute the p
   and the unit $\eta_L \colon \Delta^n \hook L\Delta^n \cong \Delta^{n+1}$ takes $i_1 \ge \cdots \ge i_n$ in $\Delta^n$ to $1 \ge i_1 \ge \cdots \ge i_n$ in $\Delta^{n+1}$. 
 \end{corollary}
 \begin{proof}
-  By \Cref{prop:liftofaffine}, for the spectrum $\Delta^n \cong \spec\I[n]/\ms{i}_1 \ge \cdots \ge \ms{i}_n$,
+  By \Cref{prop:liftofsober}, for the spectrum $\Delta^n \cong \spec\I[n]/\ms{i}_1 \ge \cdots \ge \ms{i}_n$,
   \begin{align*}
     L\Delta^n
     &\cong \sum_{i:\I}\I\alg(\I[n]/\ms{i}_1\ge\cdots\ge \ms{i}_n,\I/i) \\
@@ -515,7 +517,7 @@ As a start, a minimal requirement for synthetic domain theory to model divergent
 
 Geometrically, the proposition $0 = 1$ can be identified with the spectrum $\spec\I/0=1$. Hence, (\AxiomNT) states that the unique map $\emp \hook \spec\I/0=1$ is an equivalence.
  %
-This way, $\emp \eq \ist{0}$ now will be affine, and it is both an open and closed proposition. As mentioned in introduction, (\AxiomNT) together with a strong enough quasi-coherence principle will imply all of Hyland's axioms for synthetic domain theory. Before we discuss that in \Cref{sec:infdomain}, a minimal amount of quasi-coherence provided by (\AxiomSQCI) already implies a lot of elementary properties. As a first consequence of (\AxiomNT) with (\AxiomSQCI), we can show that $\I$ is almost the Boolean algebra $2$ in the following sense:
+This way, $\emp \eq \ist{0}$ now will be sober, and it is both an open and closed proposition. As mentioned in introduction, (\AxiomNT) together with a strong enough quasi-coherence principle will imply all of Hyland's axioms for synthetic domain theory. Before we discuss that in \Cref{sec:infdomain}, a minimal amount of quasi-coherence provided by (\AxiomSQCI) already implies a lot of elementary properties. As a first consequence of (\AxiomNT) with (\AxiomSQCI), we can show that $\I$ is almost the Boolean algebra $2$ in the following sense:
 
 \begin{proposition}[\AxiomNT, \AxiomSQCI]\label{prop:filed}
   For any $i : \I$ we have:
@@ -563,15 +565,15 @@ Under (\AxiomL), the dominance $\I$ will be closed under finite disjunctions. Fu
 
 \Cref{lem:intisnotBoolean} above allows us to realise 2 as a \emph{spectrum}:
 
-\begin{example}\label{exm:2isaffine}
+\begin{example}\label{exm:2issober}
   Consider the algebra $B \coloneq \I[\ms{i},\ms{j}]/{\ms{i}\wedge \ms{j} =0,\ms{i}\vee \ms{j} = 1}$. By construction, $B$ classifies complemented elements in $\I$-algebras. Thus, assuming (\AxiomL) and (\AxiomSQCI), by \Cref{lem:intisnotBoolean}
   \[ \spec B \cong \scomp{i,j : \I}{i \wedge j = 0 \wedge i \vee j = 1} \cong 2\text{.} \]
-  In particular, this means that for any affine space $X \cong \spec A$, $2^X$ will be equivalent to the set of complemented elements in $A$ by \Cref{prop:duality}.
+  In particular, this means that for any sober space $X \cong \spec A$, $2^X$ will be equivalent to the set of complemented elements in $A$ by \Cref{prop:duality}.
 \end{example}
 
 As another example of a new spectrum (\AxiomL) allows us to define:
 
-\begin{example}\label{exm:hornaffine}
+\begin{example}\label{exm:hornsober}
   Consider the right outer horn $\Lambda^2_2$, which we may describe by the following pushout:
   \[
     \begin{tikzcd}
@@ -591,7 +593,7 @@ Axiom (\AxiomL) clearly has a dual counterpart:
 
 \PrintAxiomCL
 
-Similarly to \Cref{exm:hornaffine}, this allows one to identify the left outer horn $\Lambda^2_0$ as a spectrum. Of course we can combine the axioms (\AxiomL) and (\AxiomCL). 
+Similarly to \Cref{exm:hornsober}, this allows one to identify the left outer horn $\Lambda^2_0$ as a spectrum. Of course we can combine the axioms (\AxiomL) and (\AxiomCL). 
 
 \subsection{Linearity and coskeletality}\label{sec:linearity-and-coskeletality}
 
@@ -608,7 +610,7 @@ The strongest locality axiom states that the simplicial structure is truncated t
 Geometrically, (\AxiomOneCS) additionally requires the canonical inclusion $\partial\Delta_2 \hook \Delta_2$ from the boundary $\partial\Delta_2$ to the 2-simplex $\Delta_2$ is an equivalence, where $\partial\Delta_2$ type-theoretically is simply
 \[ \partial\Delta_2 \coloneq \scomp{i,j : \I}{\isf{i} \vee (i = j) \vee \ist{i}}\text{.} \]
 
-In general we will at most work with the weakest locality axiom (\AxiomNT). However, we will show in \Cref{sec:local} that $\I$, hence all quasi-coherent algebras and spectra, will be \emph{right orthogonal} to the maps that define these local principles as shown above. We will see in \Cref{sec:model} that these axioms corresponds to various coverages we can put on the presheaf classifying topos, and the orthogonality result particularly implies that $\I$ will belong to these subtopoi.
+In general we will at most work with the weakest locality axiom (\AxiomNT). However, we will show in \Cref{sec:local} that $\I$, hence all spatial algebras and spectra, will be \emph{right orthogonal} to the maps that define these local principles as shown above. We will see in \Cref{sec:model} that these axioms corresponds to various coverages we can put on the presheaf classifying topos, and the orthogonality result particularly implies that $\I$ will belong to these subtopoi.
 
 
 \section{Order-theoretic structure on algebras and spaces}\label{sec:order-theoretic-structure}
@@ -669,11 +671,11 @@ In addition to the canonical partial order, there is a local preordering of alge
 To relate the behavioural preorder to the canonical partial ordering, we first define a slight weakening of the quasi-coherence principle.
 
 \begin{definition}
-  We say that an $\I$-algebra $A$ is \emph{pre-quasi-coherent} when the counit component $\iota_A\colon A\to \opens\spec{A}$ is an embedding.
+  We say that an $\I$-algebra $A$ is \emph{pre-spatial} when the counit component $\iota_A\colon A\to \opens\spec{A}$ is an embedding.
 \end{definition}
 
 \begin{proposition}\label{lem:canon-beh-coincide}
-  The canonical partial order of any pre-quasi-coherent $\I$-algebra $A$ is its behavioural preorder.
+  The canonical partial order of any pre-spatial $\I$-algebra $A$ is its behavioural preorder.
 \end{proposition}
 
 \begin{proof}
@@ -686,7 +688,7 @@ To relate the behavioural preorder to the canonical partial ordering, we first d
     \\ 
     &\eq a\behle[A]b
   \end{align*}
-  The first equivalence requires that $A$ is pre-quasi-coherent.
+  The first equivalence requires that $A$ is pre-spatial.
 \end{proof}
 
 
@@ -741,7 +743,7 @@ We can very easily classify the observational preorder on a set with decidable e
 
 \subsection{The satisfaction order of a spectrum}
 
-\Cref{cor:connectedpreservediscrete} demonstrated the usefulness of the observational preorder. We would like to use it to show e.g.\ that $\I$ is internally connected. For this, we need to characterise the observational preorder on affine spaces. It turns out that for any affine space, this is simply its \emph{satisfaction order} in the sense defined below:
+\Cref{cor:connectedpreservediscrete} demonstrated the usefulness of the observational preorder. We would like to use it to show e.g.\ that $\I$ is internally connected. For this, we need to characterise the observational preorder on sober spaces. It turns out that for any sober space, this is simply its \emph{satisfaction order} in the sense defined below:
 
 
 \begin{definition}[Satisfaction order]
@@ -754,8 +756,8 @@ We can very easily classify the observational preorder on a set with decidable e
 \end{definition}
 
 
-\begin{observation}\label{lem:specorderofaffine}
-  When $A$ is a quasi-coherent $\I$-algebra (and thus $\spec{A}$ is affine), the observational and satisfaction orders on $\spec{A}$ coincide.
+\begin{observation}\label{lem:specorderofsober}
+  When $A$ is a spatial $\I$-algebra (and thus $\spec{A}$ is sober), the observational and satisfaction orders on $\spec{A}$ coincide.
 \end{observation}
 \begin{proof}
   For any $x,y:\spec{A}$ we have the following chain of equivalences:
@@ -842,7 +844,7 @@ In both cases above, $\I$ is viewed as an algebra of observations and not as a g
 
 \subsection{The generalised Phoa principle and quasi-coherence for polynomial algebras}
 
-As soon as we have path spaces $X^\I$, we immediately wish to begin characterising them for specific $X$. For example, the path space of a function space $A\to B$ is given pointwise in terms of the path space of $B$, which follows immediately from the laws of exponentials. To characterise paths in spaces like $\I^n$ and $\Delta^n$, however, we need additional axioms. The simplest such axiom asserts that the polynomial algebra $\I[\ms{i}]$ is quasi-coherent—which, in the case of bounded distributive lattices, is equivalent to Phoa's principle.
+As soon as we have path spaces $X^\I$, we immediately wish to begin characterising them for specific $X$. For example, the path space of a function space $A\to B$ is given pointwise in terms of the path space of $B$, which follows immediately from the laws of exponentials. To characterise paths in spaces like $\I^n$ and $\Delta^n$, however, we need additional axioms. The simplest such axiom asserts that the polynomial algebra $\I[\ms{i}]$ is spatial---which, in the case of bounded distributive lattices, is equivalent to Phoa's principle.
 
 \begin{definition}\label{def:gen-phoa}
   We say that an $\I$-algebra $A$ satisfies the \emph{generalised Phoa principle} when either of the following equivalent conditions hold:
@@ -896,37 +898,37 @@ The standard Phoa principle is the generalised Phoa principle for $\I$ itself.
 \end{proof}
 
 \begin{theorem}\label{obs:sqcp-phoa-gen}
-  Let $A$ be a quasi-coherent $\I$-algebra. Then the following are equivalent:
+  Let $A$ be a spatial $\I$-algebra. Then the following are equivalent:
   \begin{enumerate}
-    \item The polynomial $\I$-algebra $A[\ms{j}]$ is quasi-coherent.
+    \item The polynomial $\I$-algebra $A[\ms{j}]$ is spatial.
     \item The generalised Phoa principle holds for $A$.
   \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-  We note that $\spec{A[\ms{j}]} \cong \spec{A}\times \I$ unconditionally, and so the algebra of observations $\opens\spec{A[\ms{j}]}$ is actually the path space of $\opens\spec{A}$; taking quasi-coherence of $A$ into account, the counit component $A[\ms{j}]\to \opens\spec A[\ms{j}]$ is the evaluation map $A[\ms{j}] \to A^\I$, and we wish to prove that the latter is an equivalence if and only if for each $\alpha\colon \I\to A$ we have $\alpha(i)=\alpha(0)\vee i\wedge\alpha(1)$. 
+  We note that $\spec{A[\ms{j}]} \cong \spec{A}\times \I$ unconditionally, and so the algebra of observations $\opens\spec{A[\ms{j}]}$ is actually the path space of $\opens\spec{A}$; taking spatiality of $A$ into account, the counit component $A[\ms{j}]\to \opens\spec A[\ms{j}]$ is the evaluation map $A[\ms{j}] \to A^\I$, and we wish to prove that the latter is an equivalence if and only if for each $\alpha\colon \I\to A$ we have $\alpha(i)=\alpha(0)\vee i\wedge\alpha(1)$. 
   %
   This follows immediately from the normal form theorem for polynomials of bounded distributive lattices~\citep[Ch.\ 1, Thm.\ 10.11]{lausch2000algebra}: any polynomial $p:A[\ms{j}]$ is uniquely of the form $p = \ev_0(p) \vee \ms{j} \wedge \ev_1(p)$ with $\ev_0(p)\le_A \ev_1(p)$.
 \end{proof}
 
 
 \begin{corollary}\label{cor:A-and-Ax-qc-to-Axy-qc}
-  If both $A$ and $A[\ms{j}]$ are quasi-coherent, then so is $A[\ms{j},\ms{k}]$.
+  If both $A$ and $A[\ms{j}]$ are spatial, then so is $A[\ms{j},\ms{k}]$.
 \end{corollary}
 \begin{proof}
-  By \Cref{obs:sqcp-phoa-gen}, the generalised Phoa principle holds for $A$ because $A$ and $A[\ms{j}]$ are quasi-coherent; by \Cref{thm:gen-phoa-poly}, the generalised Phoa principle holds for $A[\ms{j}]$ because it holds for $A$.  By \Cref{thm:gen-phoa-poly} again, the generalised Phoa principle holds for $A[\ms{j},\ms{k}] = A[\ms{j}][\ms{k}]$ because it holds for $A[\ms{j}]$.
+  By \Cref{obs:sqcp-phoa-gen}, the generalised Phoa principle holds for $A$ because $A$ and $A[\ms{j}]$ are spatial; by \Cref{thm:gen-phoa-poly}, the generalised Phoa principle holds for $A[\ms{j}]$ because it holds for $A$.  By \Cref{thm:gen-phoa-poly} again, the generalised Phoa principle holds for $A[\ms{j},\ms{k}] = A[\ms{j}][\ms{k}]$ because it holds for $A[\ms{j}]$.
 \end{proof}
 
 \begin{corollary}\label{cor:phoa-vs-quasicoherence}
   The following are equivalent:
   \begin{enumerate}
-    \item The polynomial $\I$-algebra $\I[\ms{i}]$ is quasi-coherent.
+    \item The polynomial $\I$-algebra $\I[\ms{i}]$ is spatial.
     \item Phoa's principle holds.
   \end{enumerate}
 \end{corollary}
 
 \begin{proof}
-  By \Cref{obs:sqcp-phoa-gen}, because $\I$ is unconditionally quasi-coherent.
+  By \Cref{obs:sqcp-phoa-gen}, because $\I$ is unconditionally spatial.
 \end{proof}
 
 
@@ -956,11 +958,11 @@ The quasi-coherence axiom for polynomials in one variable is surprisingly strong
 % \end{proof}
 
 \begin{lemma}[\AxiomSQCP]\label{lem:fg-qc}
-  Every finitely generated free $\I$-algebra is quasi-coherent.
+  Every finitely generated free $\I$-algebra is spatial.
 \end{lemma}
 
 \begin{proof}
-  The free $\I$-algebra on $0$ generators is just $\I$, which is automatically quasi-coherent. The free $\I$-algebra $\I[\ms{i}]$ on one generator is quasi-coherent by assumption. In the case of $\I[\ms{i},\ms{j}_0,\ldots,\ms{j}_n]$ we recall \cref{cor:A-and-Ax-qc-to-Axy-qc} and see that $\I[\ms{i}]$ quasi-coherent implies $\I[\ms{i},\ms{j}_0]$ quasi-coherent, which implies $\I[\ms{i},\ms{j}_0,\ms{j}_1]$ quasi-coherent and so on.
+  The free $\I$-algebra on $0$ generators is just $\I$, which is automatically spatial. The free $\I$-algebra $\I[\ms{i}]$ on one generator is spatial by assumption. In the case of $\I[\ms{i},\ms{j}_0,\ldots,\ms{j}_n]$ we recall \cref{cor:A-and-Ax-qc-to-Axy-qc} and see that $\I[\ms{i}]$ spatial implies $\I[\ms{i},\ms{j}_0]$ spatial, which implies $\I[\ms{i},\ms{j}_0,\ms{j}_1]$ spatial and so on.
 \end{proof}
 
 
@@ -968,7 +970,7 @@ The quasi-coherence axiom for polynomials in one variable is surprisingly strong
   For any $\I$-algebra $A$, the path space ${(\spec A)}^\I$ classifies the satisfaction order on $\spec A$.
 \end{theorem}
 \begin{proof}
-  By assumption $\I[\ms{i}]$ is quasi-coherent, so from \Cref{prop:duality} may characterise the path space of $\spec{A}$ algebraically as follows:
+  By assumption $\I[\ms{i}]$ is spatial, so from \Cref{prop:duality} may characterise the path space of $\spec{A}$ algebraically as follows:
   \[ (\spec A)^\I \cong (\spec{A})^{\spec{\I[\ms{i}]}}\cong \I\alg(A,\I[\ms{i}])\text{.} \]
   
   By the normalisation theorem for $\I[\ms{i}]$, the pair of evaluation maps
@@ -979,7 +981,7 @@ The quasi-coherence axiom for polynomials in one variable is surprisingly strong
 
 
 \begin{theorem}[\AxiomSQCP]\label{thm:algebraphoa}
-  If both $A$ and $A[\ms{i}]$ are quasi-coherent $\I$-algebras, then the path space $A^\I$ classifies the canonical order on $A$.
+  If both $A$ and $A[\ms{i}]$ are spatial $\I$-algebras, then the path space $A^\I$ classifies the canonical order on $A$.
 \end{theorem}
 \begin{proof}
   By assumption and \Cref{specrightadj}, since $A \otimes \I[\ms{i}] \cong A[\ms{i}]$, we have
@@ -991,11 +993,11 @@ The quasi-coherence axiom for polynomials in one variable is surprisingly strong
   We emphasise that the above proofs are purely the consequences of the algebraic fact that $A[\ms{i}]$ classifies the canonical order of any $\I$-algebra $A$, plus quasi-coherence. This is a perfect example of how an algebraic property of a theory has a non-trivial effect on the internal logic of its classifying topos.
 \end{remark}
 
-\begin{corollary}[\AxiomSQCP]\label{lem:cubes-are-affine}
-  Each cube $\I^n$ is affine.
+\begin{corollary}[\AxiomSQCP]\label{lem:cubes-are-sober}
+  Each cube $\I^n$ is sober.
 \end{corollary}
 \begin{proof}
-  The $n$-cube $\I^n$ is the spectrum of the free $\I$-algebra $\I[n]$, which is quasi-coherent by \Cref{lem:fg-qc}.
+  The $n$-cube $\I^n$ is the spectrum of the free $\I$-algebra $\I[n]$, which is spatial by \Cref{lem:fg-qc}.
 \end{proof}
 
 \begin{corollary}[\AxiomNT, \AxiomSQCP]\label{cor:cubes-internally-connected}
@@ -1005,7 +1007,7 @@ The quasi-coherence axiom for polynomials in one variable is surprisingly strong
 In particular, $\I$ is not the boolean set $2$.
 
 \begin{proof}
-   By \Cref{lem:specorderofaffine,lem:cancoincide}, the observational preorder space $\I^n$ is induced by the satisfaction order on $\spec\I[n]$ because $\I^n$ is affine (\Cref{lem:cubes-are-affine}); the satisfaction order is simply the pointwise order, so it has a top element. Thus by \Cref{cor:connectedpreservediscrete}, $\I^n$ is internally connected. So are $\Delta^n$ because they are retracts of $\I^n$.
+   By \Cref{lem:specorderofsober,lem:cancoincide}, the observational preorder space $\I^n$ is induced by the satisfaction order on $\spec\I[n]$ because $\I^n$ is sober (\Cref{lem:cubes-are-sober}); the satisfaction order is simply the pointwise order, so it has a top element. Thus by \Cref{cor:connectedpreservediscrete}, $\I^n$ is internally connected. So are $\Delta^n$ because they are retracts of $\I^n$.
 \end{proof}
 
 \subsection{Comparing the different orders}
@@ -1036,13 +1038,13 @@ An immediate application of Phoa principle is to compare path structure with the
   A type $X$ for which $X^\I\to {\obsle[X]}$ is an surjection is called \emph{linked} (following \citet{PhoaWesleyKym-Son1991DtiR}); when the map is an equivalence, $X$ is called \emph{strongly linked}.
 \end{definition}
 
-\begin{lemma}[\AxiomSQCP]\label{lem:affine-strongly-linked}
-  Any affine space is strongly linked.
+\begin{lemma}[\AxiomSQCP]\label{lem:sober-strongly-linked}
+  Any sober space is strongly linked.
 \end{lemma}
 
 \begin{proof}
-  Let $X=\spec{A}$ be the spectrum of a quasi-coherent algebra $A$. 
-  By \Cref{thm:phoa-spectrum}, the path space $X^\I$ classifies the satisfaction order on $\spec{A}$, which is to say that there is a (necessarily unique) path from $x$ to $y$ if and only if \[\fa{a}{A} x(a)\le_\I y(a)\text{.}\] Because $A$ is quasi-coherent, we have $A\cong \opens X$ and there is a unique path from $x$ to $y$ if and only if \[\fa{U}{\opens{X}} U(x)\le_\I U(y)\text{,}\] but this is the observational order of $X$.
+  Let $X=\spec{A}$ be the spectrum of a spatial algebra $A$. 
+  By \Cref{thm:phoa-spectrum}, the path space $X^\I$ classifies the satisfaction order on $\spec{A}$, which is to say that there is a (necessarily unique) path from $x$ to $y$ if and only if \[\fa{a}{A} x(a)\le_\I y(a)\text{.}\] Because $A$ is spatial, we have $A\cong \opens X$ and there is a unique path from $x$ to $y$ if and only if \[\fa{U}{\opens{X}} U(x)\le_\I U(y)\text{,}\] but this is the observational order of $X$.
 \end{proof}
 
 \begin{lemma}[\AxiomSQCP]\label{lem:int-strong-link}
@@ -1050,7 +1052,7 @@ An immediate application of Phoa principle is to compare path structure with the
 \end{lemma}
 
 \begin{proof}
-  The interval is affine because it is the spectrum of $\I[\ms{i}]$, which is quasi-coherent by (\AxiomSQCP).
+  The interval is sober because it is the spectrum of $\I[\ms{i}]$, which is spatial by (\AxiomSQCP).
 \end{proof}
 
 \begin{lemma}\label{lem:strong-link-exp-ideal}
@@ -1066,7 +1068,7 @@ An immediate application of Phoa principle is to compare path structure with the
 \end{lemma}
 
 \begin{proof}
-  We assume that $A=\opens{X}$ for some not necessarily affine $X$; then $\opens{X}=\I^X$ is strongly linked by \Cref{lem:strong-link-exp-ideal,lem:int-strong-link}.
+  We assume that $A=\opens{X}$ for some not necessarily sober $X$; then $\opens{X}=\I^X$ is strongly linked by \Cref{lem:strong-link-exp-ideal,lem:int-strong-link}.
 \end{proof}
 
 
@@ -1097,15 +1099,15 @@ An immediate application of Phoa principle is to compare path structure with the
 \end{proof}
 
 \begin{proposition}[\AxiomSQCP]\label{cor:specordonalgiscan}
-  For a quasi-coherent $\I$-algebra $A$, the observational preorder on the underlying set of $A$ is induced by the canonical order on $\opens\spec{A}$ by the counit isomorphism $\iota_A\colon A\to \opens\spec{A}$. Hence the observational order and canonical order of $A$ coincide.
+  For a spatial $\I$-algebra $A$, the observational preorder on the underlying set of $A$ is induced by the canonical order on $\opens\spec{A}$ by the counit isomorphism $\iota_A\colon A\to \opens\spec{A}$. Hence the observational order and canonical order of $A$ coincide.
 \end{proposition}
 
 \begin{proof}
-  Because $A$ is quasi-coherent, the counit component $\iota_A$ gives us an order-isomorphism ${(A,\le_A)}\to (\opens\spec{A},\le_{\opens\spec{A}})$. By \Cref{prop:specordopens}, this is an equivalently an order-isomorphism ${(A,\le_A)}\to {(\opens\spec{A},\obsle[\opens\spec{A}])}$. Meanwhile, any bijective function tracks an isomorphism of observational preorders, so the inverse function $\iota_A^{-1}\colon \opens\spec{A}\to A$ tracks an order-isomorphism  ${(\opens\spec{A},\obsle[\opens\spec{A}])}\to {(A,\obsle[A])}$. 
+  Because $A$ is spatial, the counit component $\iota_A$ gives us an order-isomorphism ${(A,\le_A)}\to (\opens\spec{A},\le_{\opens\spec{A}})$. By \Cref{prop:specordopens}, this is an equivalently an order-isomorphism ${(A,\le_A)}\to {(\opens\spec{A},\obsle[\opens\spec{A}])}$. Meanwhile, any bijective function tracks an isomorphism of observational preorders, so the inverse function $\iota_A^{-1}\colon \opens\spec{A}\to A$ tracks an order-isomorphism  ${(\opens\spec{A},\obsle[\opens\spec{A}])}\to {(A,\obsle[A])}$. 
 \end{proof}
 
 \begin{corollary}[\AxiomSQCP]
-  The canonical partial order, observational preorder, and behavioural preorder of a quasi-coherent $\I$-algebra all coincide.
+  The canonical partial order, observational preorder, and behavioural preorder of a spatial $\I$-algebra all coincide.
 \end{corollary}
 
 \begin{proof}
@@ -1115,12 +1117,12 @@ An immediate application of Phoa principle is to compare path structure with the
 
 \subsection{Quasi-coherence for finitely presented algebras}
 
-The (\AxiomSQCP) axiom does not imply that the simplices $\Delta^n$ are affine; for this, we need a stronger quasi-coherence principle that applies to all finitely \emph{presented} algebras.
+The (\AxiomSQCP) axiom does not imply that the simplices $\Delta^n$ are sober; for this, we need a stronger quasi-coherence principle that applies to all finitely \emph{presented} algebras.
 
 
 \PrintAxiomSQCF
 
-It is immediate that $\Delta^n\cong \spec\I[\ms{i}_1,\cdots,\ms{i}_n]/\ms{i}_1\geq \cdots \geq \ms{i}_n$ is affine under (\AxiomSQCF).
+It is immediate that $\Delta^n\cong \spec\I[\ms{i}_1,\cdots,\ms{i}_n]/\ms{i}_1\geq \cdots \geq \ms{i}_n$ is sober under (\AxiomSQCF).
 
 \begin{corollary}[\AxiomSQCF]
   Each $n$-simplex $\Delta^n$ is internally connected.
@@ -1188,7 +1190,7 @@ The remaining part of this section is dedicated to showing that under a suitable
 \subsection{Quasi-coherent for countably presented algebras and infinitary domain theory}
 The connection between the infinitary aspect of synthetic domain theory and quasi-coherence starts from the observation that the final coalgebra $\ov\omega$ for the functor $L$ can be described as a \emph{spectrum}:
 
-\begin{example}[$\ov\omega$ is a spectrum]\label{exm:ovomegaaffine}
+\begin{example}[$\ov\omega$ is a spectrum]\label{exm:ovomegasober}
   As mentioned, the final coalgebra $\ov\omega$ can be characterised as the sequential limit,
   \[\begin{tikzcd}
     \cdots & {\Delta^2} & {\Delta^1} & {\Delta^0} \\
@@ -1216,13 +1218,13 @@ In general, by a countably presented $\I$-algebra we mean one of the form $\I[\N
 \PrintAxiomSQCC
 
 \begin{remark}
-  Our modular development in the previous sections can be now immediately applied to $\ov\omega$ if we assume (\AxiomSQCC). For instance, the description of the observational preorder for affine spaces in \Cref{lem:specorderofaffine} now applies to $\ov\omega$, which shows this again coincides with its pointwise order as a subspace of $\I^\N$. In particular, it also has both a top and bottom element, thus \Cref{cor:connectedpreservediscrete} now implies $\ov\omega$ is also internally connected. 
+  Our modular development in the previous sections can be now immediately applied to $\ov\omega$ if we assume (\AxiomSQCC). For instance, the description of the observational preorder for sober spaces in \Cref{lem:specorderofsober} now applies to $\ov\omega$, which shows this again coincides with its pointwise order as a subspace of $\I^\N$. In particular, it also has both a top and bottom element, thus \Cref{cor:connectedpreservediscrete} now implies $\ov\omega$ is also internally connected. 
 \end{remark}
 
 (\AxiomSQCC) combined with the non-triviality axiom (\AxiomNT) has many logical consequences. The crucial observation is that (\AxiomNT) implies a weak form of \emph{Nullstellensatz} result, as already noted by several authors~\citep{blechschmidt2021using,blechschmidt2020general,Cherubini_Coquand_Hutzler_2024}:
 
 \begin{lemma}[\AxiomNT]\label{lem:nulls}
-  For an affine space $X \cong \spec A$, $X \cong \emp$ iff $A$ is trivial, viz.\ $0=1$ in $A$.
+  For an sober space $X \cong \spec A$, $X \cong \emp$ iff $A$ is trivial, viz.\ $0=1$ in $A$.
 \end{lemma}
 \begin{proof}
   The backward direction holds since because $\I$ is non-trivial (\AxiomNT), thus there is no homomorphism from a trivial algebra to $\I$. For the forward direction: by assumption $A \cong \I^{\spec A} \cong \I^\emp$, which implies $A$ is trivial. 
@@ -1235,7 +1237,7 @@ Together with (\AxiomSQCC), this implies the following form of Markov's principl
   \[ \neg\fa{n}{\N}\ist{i_n} \to \ex n\N\isf{i_n}\text{.} \]
 \end{lemma}
 \begin{proof}
-  Let $i : \ov\omega$. Note that similar to \Cref{lem:openpropaffine}, the proposition $\fa n\N \ist{i_n}$ by construction is the following affine space, 
+  Let $i : \ov\omega$. Note that similar to \Cref{lem:openpropsober}, the proposition $\fa n\N \ist{i_n}$ by construction is the following sober space, 
   \[ \spec\I/i \cong \I\alg(\I/i,\I) \cong \fa n\N \ist{i_n}\text{,} \]
   where we have abbreviated the countably presented $\I$-algebra $\I/\pair{i_n=1}_{n:\N}$ as $\I/i$. Now if we have $\neg\fa n\N \ist{i_n}$, then $\spec\I/i \cong \emp$ which by \Cref{lem:nulls} implies $\I/i$ is trivial. But this algebra is trivial iff $\ex n\N \isf{i_n}$.
 \end{proof}
@@ -1276,7 +1278,7 @@ The transition maps $\Delta^n\to \Delta^{n+1}$ above are given by appending $0$ 
   
 % \end{remark}
 
-Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affine, we can show $\I$ is chain complete. This again crucially depends on a normal form result for a countably presented $\sigma$-frame, which generalises the finitary version for bounded distributive lattices given in \Cref{prop:simplicesasalgebra}:
+Using this colimit description of $\omega$ and the fact that $\ov\omega$ is sober, we can show $\I$ is chain complete. This again crucially depends on a normal form result for a countably presented $\sigma$-frame, which generalises the finitary version for bounded distributive lattices given in \Cref{prop:simplicesasalgebra}:
 
 \begin{lemma}\label{app:normalsigma}
   For the countably presented $\sigma$-frame $\I[\N]/\pair{\ms{i}_n \ge \ms{i}_{n+1}}_{n:\N}$, an element $p$ can be uniquely written as 
@@ -1302,9 +1304,9 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
   $\I$ is right orthogonal to the inclusion $\omega\hook\ov\omega$.
 \end{theorem}
 \begin{proof}
-  Since $\ov\omega$ is now affine, we have
+  Since $\ov\omega$ is now sober, we have
   \[ \I^{\ov\omega} \cong \I[\N]/\pair{\ms{i}_n \ge \ms{i}_{n+1}}_{n:\N}\text{.} \]
-  On the other hand, since $\omega$ is the colimit of $\Delta^n$ and they are affine, we have
+  On the other hand, since $\omega$ is the colimit of $\Delta^n$ and they are sober, we have
   \[ \I^\omega \cong \lt_{n:\N}\I^{\Delta^n} \cong \lt_{n:\N}\I[n]/\ms{i}_0\ge\cdots\ge \ms{i}_{n-1}\text{.} \]
   Note that the transition maps induced by $\eta_T \colon \Delta^n \to T(\Delta^n)\cong \Delta^{n+1}$ under quasi-coherence gives us the following maps on algebras:
   \[
@@ -1344,11 +1346,11 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 \end{proof}
 
 \begin{remark}
-  As indicated in \Cref{rem:qcreplete,rem:specarereplete}, both spectra and quasi-coherent $\I$-algebras are replete. The above result then implies that they are also chain complete, i.e.\ orthogonal to $\omega\hook\ov\omega$.
+  As indicated in \Cref{rem:qcreplete,rem:specarereplete}, both spectra and spatial $\I$-algebras are replete. The above result then implies that they are also chain complete, i.e.\ orthogonal to $\omega\hook\ov\omega$.
 \end{remark}
 
 \begin{corollary}[\AxiomNT, \AxiomSQCC]
-  $\I^{\ov\omega} \cong \I^\omega \cong \Delta_\infty$. In particular, $\omega$ is not affine.
+  $\I^{\ov\omega} \cong \I^\omega \cong \Delta_\infty$. In particular, $\omega$ is not sober.
 \end{corollary}
 \begin{proof}
   By the above proof, we have $\I^{\ov\omega} \cong \I[\N]/\pair{\ms{i}_n \ge \ms{i}_{n+1}}_{n:\N} \cong \Delta_\infty$.
@@ -1367,7 +1369,7 @@ Using this colimit description of $\omega$ and the fact that $\ov\omega$ is affi
 \end{remark}
 
 \begin{remark}[Limits of algebras induce locality for $\I$]\label{rem:limofalgloc}
-  By inspecting the proof of \Cref{thm:complete}, it is clear that $\I$ is chain complete \emph{precisely} because there is a specific \emph{limiting diagram} of quasi-coherent $\I$-algebras. In general, any such limit diagram will induce an orthogonality property satisfied by the all spectra, and we will see many more examples in \Cref{sec:local}. From \Cref{rem:whynotdis} it is clear whether a diagram of $\I$-algebras is a limit heavily relies on the underlying algebraic theory. This is again a perfect example of how the algebraic properties of a theory has significant consequences for the internal logic of its classifying topos.
+  By inspecting the proof of \Cref{thm:complete}, it is clear that $\I$ is chain complete \emph{precisely} because there is a specific \emph{limiting diagram} of spatial $\I$-algebras. In general, any such limit diagram will induce an orthogonality property satisfied by the all spectra, and we will see many more examples in \Cref{sec:local}. From \Cref{rem:whynotdis} it is clear whether a diagram of $\I$-algebras is a limit heavily relies on the underlying algebraic theory. This is again a perfect example of how the algebraic properties of a theory has significant consequences for the internal logic of its classifying topos.
 \end{remark}
 
 \section{Local properties for the interval}\label{sec:local}
@@ -1381,7 +1383,7 @@ Starting from the simplest example, let us recall the local property (\AxiomNT).
   $\I$ is right orthogonal to $\emp \hook (0 = 1)$.
 \end{proposition}
 \begin{proof}
-  Observe the proposition $0 = 1$ is propositionally equivalent to the (affine) spectrum $\spec(\I/0=1)$. By \Cref{prop:duality} we have:
+  Observe the proposition $0 = 1$ is propositionally equivalent to the (sober) spectrum $\spec(\I/0=1)$. By \Cref{prop:duality} we have:
   \[ 
     \I^{0=1} \cong 
     (\spec \I[\ms{i}])^{\spec{\I/0=1}}
@@ -1411,7 +1413,7 @@ Again, (\AxiomSL) holds globally iff the above embedding is an equivalence, thus
     \Delta_2 \ar[urr, "g"{description, near start}] \ar[r] & \I^2 \ar[ur, dashed, "h"']
     \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
   \end{tikzcd}\]
-  Now by (\AxiomSQCF), since the vertices of the left square are all affine, equivalently it suffices to show we have a pullback of $\I$-algebras,
+  Now by (\AxiomSQCF), since the vertices of the left square are all sober, equivalently it suffices to show we have a pullback of $\I$-algebras,
   \[\begin{tikzcd}
     {\I[\ms{i},\ms{j}]} \ar[r] \ar[d] & {\I[\ms{i},\ms{j}]/\ms{i} \ge \ms{j}} \ar[d, "{\ms{i},\ms{j} \mapsto\ms{k}}"] \\
     {\I[\ms{i},\ms{j}]/\ms{i} \le \ms{j}} \ar[r, "{\ms{i},\ms{j}\mapsto\ms{k}}"'] & {\I[\ms{k}]}
@@ -1466,7 +1468,7 @@ Finally, we discuss the even stronger locality condition (\AxiomOneCS). As menti
 Besides the locality principles discussed in \Cref{sec:locality}, we also consider the orthogonality classes emerging from \emph{synthetic category theory}, as introduced by \citet{riehl2017type}. 
 A synthetic category will be a type that satisfies the internal orthogonality condition of being \emph{simplicial}, \emph{Segal complete}, and \emph{Rezk complete}.
 
-We start with the Segal completeness condition. Besides the outer horn discussed in \Cref{exm:hornaffine}, we can also define the inner horn $\Lambda^2_1$ as a pushout,
+We start with the Segal completeness condition. Besides the outer horn discussed in \Cref{exm:hornsober}, we can also define the inner horn $\Lambda^2_1$ as a pushout,
 \[
   \begin{tikzcd}
     1 \ar[d, "0"'] \ar[r, "1"] & \I \ar[d] \\
@@ -1547,20 +1549,20 @@ The notion of synthetic categories and synthetic posets are formulated as these 
   A type $X$ is a \emph{synthetic category}, if it is Segal and Rezk complete. We say it is a \emph{synthetic poset}, if it is also $\I$-separated.
 \end{definition}
 
-\begin{theorem}[\AxiomSQCF]\label{thm:affineposet}
-  Any spectrum or quasi-coherent $\I$-algebra will be a synthetic poset.
+\begin{theorem}[\AxiomSQCF]\label{thm:soberposet}
+  Any spectrum or spatial $\I$-algebra will be a synthetic poset.
 \end{theorem}
 \begin{proof}
-  This follows from $\I$ being a synthetic poset, and spectra and quasi-coherent algebras are \emph{replete} as indicated in \Cref{rem:qcreplete,rem:specarereplete}.
+  This follows from $\I$ being a synthetic poset, and spectra and spatial algebras are \emph{replete} as indicated in \Cref{rem:qcreplete,rem:specarereplete}.
 \end{proof}
 
-At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} affine. We first observe its observational preorder again coincides with its expected pointwise order viewed as a subspace of $\I^\N$:
+At the end of this section, we also discuss the example of $\omega$, which as we have seen is \emph{not} sober. We first observe its observational preorder again coincides with its expected pointwise order viewed as a subspace of $\I^\N$:
 
 \begin{lemma}[\AxiomNT, \AxiomSQCC]\label{speconomegaiscan}
   The inclusion $\omega \hook \ov\omega$ is an order embedding for the observational preorder. In particular, the observational preorder on $\omega$ is induced pointwise as a subspace of $\ov\omega\hookrightarrow \I^\N$.
 \end{lemma}
 \begin{proof}
-  The fact that $\omega\hook\ov\omega$ is an order embedding for the observational preorder follows from chain completeness of $\I$ in \Cref{thm:complete}. The fact that the observational preorder on $\ov\omega$ coincides with its satisfaction order as a spectrum follows from \Cref{lem:specorderofaffine} by the fact that it is affine under (\AxiomSQCC).
+  The fact that $\omega\hook\ov\omega$ is an order embedding for the observational preorder follows from chain completeness of $\I$ in \Cref{thm:complete}. The fact that the observational preorder on $\ov\omega$ coincides with its satisfaction order as a spectrum follows from \Cref{lem:specorderofsober} by the fact that it is sober under (\AxiomSQCC).
 \end{proof}
 
 Furthermore, we can show that $\omega$ also satisfies a version of the Phoa principle, i.e.\ the path space $\omega^\I$ again classifies its pointwise order. For this we need to compute the path space $\omega^\I$.
@@ -1798,9 +1800,9 @@ Below we discuss the corresponding admissible topologies on $\wTop$, modelling t
 
 \subsection{Domain theory with quasi-coherence}
 
-In this paper we have explained the axioms of synthetic domain theory using the quasi-coherence principle for bounded distributive lattices and $\sigma$-frames. As we have seen from various examples (\Cref{prop:liftingofalgebra,prop:liftofaffine}, \Cref{exm:2isaffine} etc.) the quasi-coherence principle moreover helps with the actual \emph{computation} for operations on domains. Thus, the natural step next is to further develop domain theory within this framework.
+In this paper we have explained the axioms of synthetic domain theory using the quasi-coherence principle for bounded distributive lattices and $\sigma$-frames. As we have seen from various examples (\Cref{prop:liftingofalgebra,prop:liftofsober}, \Cref{exm:2issober} etc.) the quasi-coherence principle moreover helps with the actual \emph{computation} for operations on domains. Thus, the natural step next is to further develop domain theory within this framework.
 
-% In particular, it will be extremely useful to investigate the orthogonality conditions satisfied by all spectra (affine spaces), some of which have been observed in \Cref{sec:infdomain,sec:local}. In particular, in this paper we haven't found any orthogonality condition satisfied by $\I$ but not by general affine spaces. This allows us to conjecture that all (or at least some classes of) affine spaces will be \emph{replete}. This will be a non-trivial way of constructing new replete objects other than retracts of $\I^X$ for some type $X$.
+% In particular, it will be extremely useful to investigate the orthogonality conditions satisfied by all spectra (sober spaces), some of which have been observed in \Cref{sec:infdomain,sec:local}. In particular, in this paper we haven't found any orthogonality condition satisfied by $\I$ but not by general sober spaces. This allows us to conjecture that all (or at least some classes of) sober spaces will be \emph{replete}. This will be a non-trivial way of constructing new replete objects other than retracts of $\I^X$ for some type $X$.
 
 \subsection{Relationship with Taylor's \emph{Abstract Stone Duality}}
 
