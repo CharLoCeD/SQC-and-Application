@@ -6,26 +6,7 @@
 
 \setcounter{tocdepth}{1}
 
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{fact}[theorem]{Fact}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{conjecture}[theorem]{Conjecture}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{claim}[theorem]{Claim}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{observation}[theorem]{Observation}
 
-\theoremstyle{definition}
-\newtheorem{convention}[theorem]{Convention}
-\newtheorem{notation}[theorem]{Notation}
-
-\newtheorem{example}[theorem]{Example}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{question}[theorem]{Open Question}
-\newtheorem{assumption}[theorem]{Assumption}
-\newtheorem{qquestion}[theorem]{Question}
-\newtheorem*{axiom}{Axiom}
 
 \usepackage{amsmath,amssymb,amsthm,amsfonts}
 \usepackage[numbers]{natbib}
@@ -40,9 +21,44 @@
 \usepackage{stmaryrd}
 \usepackage{appendix}
 \usepackage{mathtools}
-\usepackage[capitalise]{cleveref}
+\usepackage{zref-clever}
+\zcsetup{cap=true}
 \usepackage{quiver}
 \usepackage{microtype}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem*{axiom}{Axiom}
+
+\zcLanguageSetup{english}{
+  type = observation,
+    Name-sg = Observation,
+    name-sg = observation,
+    Name-pl = Observations,
+    name-pl = observations,
+}
+
+\AddToHook{env/lemma/begin}{\zcsetup{countertype={theorem=lemma}}}
+\AddToHook{env/corollary/begin}{\zcsetup{countertype={theorem=corollary}}}
+\AddToHook{env/proposition/begin}{\zcsetup{countertype={theorem=proposition}}}
+\AddToHook{env/definition/begin}{\zcsetup{countertype={theorem=definition}}}
+\AddToHook{env/example/begin}{\zcsetup{countertype={theorem=example}}}
+\AddToHook{env/remark/begin}{\zcsetup{countertype={theorem=remark}}}
+\AddToHook{env/notation/begin}{\zcsetup{countertype={theorem=notation}}}
+\AddToHook{env/convention/begin}{\zcsetup{countertype={theorem=convention}}}
+\AddToHook{env/observation/begin}{\zcsetup{countertype={theorem=observation}}}
+\AddToHook{env/axiom/begin}{\zcsetup{countertype={theorem=axiom}}}
+
 
 \title{Domains and classifying topoi}
 \author{Jonathan Sterling}
