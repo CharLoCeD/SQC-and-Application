@@ -102,7 +102,7 @@ Our motivation for domain theory encourages us to work in a context as general a
 
 We do not assume any additional assumption globally. Whenever we introduce an assumption under the \textbf{Axiom} environment, it should be viewed as introducing the \emph{content} of that assumption, rather than assuming it directly afterwards. In particular, the development is completely modular, and any additional assumption will be explicitly mentioned in each result.
 
-In fact, we even take a step further. For the first half of this paper we will not work with bounded distributive lattices specifically. Instead, we assume to work with an arbitrary \emph{propositionally stable} theory in the sense of \zcref{defn:propositional}. In particular, the construction of the dominance and the computation of partial map classifier mentioned in \zcref{sec:contributions} (\zcref{contribution:dominance}) works in this generality. Only from \zcref{sec:locality} onward will we then work more specifically with theories based on bounded distributive lattices.
+In fact, we even take a step further. For the first half of this paper we will not work with bounded distributive lattices specifically. Instead, we assume to work with an arbitrary \emph{propositionally stable} theory in the sense of \zcref{defn:propositional}. In particular, the construction of the dominance and the computation of partial map classifier mentioned in \zcref{sec:contributions} (\ref{contribution:dominance}) works in this generality. Only from \zcref{sec:locality} onward will we then work more specifically with theories based on bounded distributive lattices.
 
 \subsection*{Notation and preliminaries}
 We work informally in the vernacular of univalent foundations~\citep{hottbook}.
@@ -384,7 +384,7 @@ If $X$ is sober, open subtypes are easy to classify:
   The type of opens $\I$ forms a dominance.
 \end{proposition}
 \begin{proof}
-  Since $\istsym\colon \I \hook \pp$ by definition is closed under finite meets, it suffices to show that an open subtype of an open proposition is again an open proposition. Suppose $p$ is an open proposition and $q$ is an open subtype of $p$. By definition $p \eq \ist{i}$ for some $i:\I$. Since $\ist{i}$ is sober, \zcref{lem:openofsobergivesalgebra} implies that $q$ is $D_j$ for some $j : \I/i$. Since $\T$ is propositionally stable, equivalently $j$ can be viewed as an element $j : \I$ with $j \le i$. This way, 
+  Since $\istsym\colon \I \hook \pp$ by definition is closed under finite meets, it suffices to show that an open subtype of an open proposition is again an open proposition. Suppose $p$ is an open proposition and $q$ is an open subtype of $p$. By definition $p \eq \ist{i}$ for some $i:\I$. Since $\ist{i}$ is sober, \zcref{lem:openofsobergivesalgebra} implies that $q$ is $D_j$ for some $j : \I/i$. Since $\T$ is propositionally stable, equivalently $j$ can be viewed as an element $j : \I$ with $j \le i$. Hence,
   \[ q \eq D_j \eq \spec(\I/i)/j \eq \spec\I/j\text{,} \]
   which implies $q$ is also an open proposition.
 \end{proof}
@@ -392,6 +392,28 @@ If $X$ is sober, open subtypes are easy to classify:
 \begin{remark}[Dominance without choice]\label{rem:dominancewithoutchoice}
   The related work of \citet{Cherubini_Coquand_Hutzler_2024} contains a similar construction of a dominance from a generic \emph{ring}. However, the proof there relies on certain classical axiom, which they call \emph{Zariski local choice}. The reason that the construction here does not require a similar assumption is precisely due to conservativity of $\I$: the dominance is $\I$ itself, rather than an image of $\I$. In this way, we can transform an open subtype of $X$ to a map $X \to \I$, which by quasi-coherence can be further identified as an element of the algebra if $X$ is sober. 
 \end{remark}
+
+In fact, in some sense all slices of $\I$ being spatial is an equivalent way of \emph{characterising} the dominance property of $\I$. We end this section by showing the following converse:
+
+\begin{theorem}
+  The following are equivalent:
+  \begin{enumerate}
+    \item (\AxiomSQCI) holds, i.e.\ $\I$ is stably spatial;
+    \item $\I$ form a dominance;
+  \end{enumerate}
+  In this case, in fact any spatial algebra is stably spatial.
+\end{theorem}
+\begin{proof}
+  We have shown (1) $\nt$ (2) in~\zcref{prop:Idominance}. To show the converse holds, suppose $\I$ is a dominance and take any $i:\I$. We construct an explicit inverse $s \colon \I^{\ist{i}} \to \I/i$ by defining $s$ as follows,
+  \[ s(j) \coloneq \sum_{p:\ist i} j(p). \]
+  By construction $s(j) \le i$, since if $(p,x) : s(j)$, then $p : \ist i$ which implies $i = 1$, hence $x \le i$. To show this is an inverse of $\eta \colon \I/i \to \I^{\ist i}$, for any $j \le i$,
+  \[ s\eta(j) \eq \sum_{p:\ist i}j \eq j. \]
+  On the other hand, for any $j:\I^{\ist i}$, to show $j = \eta s(j)$ by function extensionality it suffices to assume $i = 1$, viz.\ there is $p:\ist i$. In this case, 
+  \[ \eta s(j) = \eta j(p) = \ld{q}{\ist i} j(p). \]
+  But in this case, for any $q:\ist i$, $q = p$, thus $j(q) = j(p)$, which by function extensionality again it follows that 
+  \[ \eta s(j) = j. \]
+  This shows $s$ is indeed an inverse of $\eta$, hence $\I/i$ is spatial.
+\end{proof}
 
 
 \section{Partial map classifier}\label{sec:lifting}
