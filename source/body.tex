@@ -54,12 +54,12 @@ The quasi-coherence principle in $\Set[\T]$ proposed by \citet{blechschmidt2021u
 obtained on elements by transposing the evaluation map $A\times \spec A\to U_\T$ is an equivalence.
 Types of the form $\spec A$ for such $A$ are called `affine' by \citet{blechschmidt2021using}. This in fact induces an internal duality between finitely presented $U_\T$-algebras and `affine' types. In particular, it implies Blass's result. 
 
-The appearance of finite presentation in the above formulation of quasi-coherence is perhaps misleading. Following the development of \citet{blechschmidt2021using,blechschmidt2020general}, it is clear that the quasi-coherence principle with respect to finitely presented algebras can be generalised to larger cardinality,
+The appearance of finite presentation in the formulation of quasi-coherence above is perhaps misleading. Following the development of \citet{blechschmidt2021using,blechschmidt2020general}, it is clear that the quasi-coherence principle with respect to finitely presented algebras can be generalised to larger cardinality,
 if we enlarge the site of the classifying topos $\Set[\T]$. For instance, one can consider
 \[ \Set[\T]_\omega \coloneq [\mmod\T\cp,\Set]\text{,} \]
 where $\mmod\T\cp$ denotes the category of \emph{countably presented} $\T$-models. In this case, the quasi-coherence principle will hold also with respect to \emph{countably presented} $U_\T$-algebras. This is the theoretical basis in a recent approach for synthetic topology suggested by \citet{cherubini2024foundation}, who consider a variation on the quasi-coherence principle for \emph{countably} presented Boolean algebras. 
 %
-Horn theories $\T$ whose operations have \emph{countable} arity can also be considered in this case, so long as the base topos $\Set$ satisfies countable choice. Of course, these examples will not fit directly into the discipline of classifying toposes because geometric theories cannot have infinitary operations: but a suitable doctrine may arise when considering geometric morphisms whose inverse image functors preserve countable rather than finite limits.
+Horn theories $\T$ whose operations have \emph{countable} arity can also be considered in this case, so long as the base topos $\Set$ satisfies countable choice. These examples will not fit directly into the discipline of classifying toposes because geometric theories cannot have infinitary operations: but a suitable doctrine may arise when considering geometric morphisms whose inverse image functors preserve countable rather than finite limits.
 
 Because of the importance of varying the class of algebras with respect to which the quasi-coherence principle holds, we shall take a slightly different approach to the axiomatics inspired by locale theory and synthetic topology. In particular, the homomorphism $A\to \opens\spec A$ is the \emph{counit} of a contravariant adjunction $\opens\dashv \spec\colon U_\T\alg\op\to \Set$, so the algebras with respect to which the quasi-coherence principle holds are \emph{precisely} those that are fixed points of this adjunction.  We will therefore refer to algebras and sets as \emph{spatial} and \emph{sober} respectively when they arise as fixed points of this adjunction. Therefore, sober sets play the role of `affine schemes' in our setting.
 
@@ -75,7 +75,7 @@ many important objects for domain theory can be written as \emph{spectra}. This 
 \begin{enumerate}[leftmargin=*]
   \item \emph{Quasi-coherence produces synthetic domain theory.} We show the principle of quasi-coherence suffices to account for \emph{all} essential axioms for synthetic domain theory. Specifically:
   \begin{enumerate}
-    \item\label{contribution:dominance} In the case of both bounded distributive lattices and $\sigma$-frames, the quasi-coherence with respect to finitely presented algebras (in fact a weaker assumption; cf.\ \zcref{sec:dominance}) implies that the generic interval $\I$ and its dual form a dominance (\zcref{prop:Idominance} and \zcref{cor:dualisdominance}). It also leads to an explicit computation of the partial map classifiers of spatial $\I$-algebras (\zcref{prop:liftingofalgebra}), and spectra (\zcref{prop:liftofsober}).
+    \item\label{contribution:dominance} In the case of both bounded distributive lattices and $\sigma$-frames, the quasi-coherence with respect to finitely presented algebras (in fact a much weaker assumption; cf.\ \zcref{sec:dominance}) implies that the generic interval $\I$ and its dual form a dominance (\zcref{prop:Idominance} and \zcref{cor:dualisdominance}). In fact, we have characterised the dominance property of $\I$ as a quasi-coherence principle (\zcref{thm:chardominance}). It also leads to an explicit computation of the partial map classifiers of spatial $\I$-algebras (\zcref{prop:liftingofalgebra}), and spectra (\zcref{prop:liftofsober}).
     \item The quasi-coherence principle allows an explicit computation of the \emph{observational preorder} (\zcref{defn:specialisation}) on sober spaces (\zcref{lem:specorderofsober}) and spatial $\I$-algebras (\zcref{cor:specordonalgiscan}).
     \item A generalisation of Phoa's principle that applies to an arbitrary $\I$-algebra $A$ is stated (\zcref{def:gen-phoa}), and compared with quasi-coherence with respect to polynomial algebras over $A$ (\zcref{obs:sqcp-phoa-gen}). As a corollary, we see that spatiality of finitely generated free $\I$-algebras is equivalent to Phoa's principle (\zcref{cor:phoa-vs-quasicoherence}).
     \item In the case of $\sigma$-frames, quasi-coherence with respect to countably presented algebras implies chain completeness of $\I$ (\zcref{thm:complete}) assuming $\I$ is non-trivial. 
@@ -423,13 +423,13 @@ We end this section by showing that $\I$ being stably spatial, i.e.\ all slices 
 \end{proof}
 
 \section{Partial map classifier}\label{sec:lifting}
-Given then dominance structure $\I$, we can construct internally the partial map classifier. For any type $X$, it is given by
+Given the interval $\I$, we can construct internally the partial map classifier. For any type $X$, it is given by
 \[ L X \coloneq \sum_{i:\I}X^{\ist{i}}\text{.} \]
 The functoriality is easy to express: For any $f \colon X \to Y$, we have
 \[ L f(i,x) \coloneq (i,\ld{w}{\ist{i}}fxw)\text{.} \]
 There is an evident unit $\eta_L \colon X \to L(X)$, where
 \[ \eta_L(x) \coloneq (1,\ld\_ 1 x)\text{.} \]
-The unit $\eta_L$ then classifies the partial maps out of $X$ with an \emph{open} domain. The dominance $\I$ also provides a multiplication $\mu \colon L(L X) \to L X$, where $\mu$ takes any $(i,u)$ with $i : \I$ and $u \colon \ist{i} \to L X$ first to $(j,x)$, where $j$ is the dependent sum
+The unit $\eta_L$ then classifies the partial maps out of $X$ with an \emph{open} domain. If $\I$ forms a dominance, then there is also a multiplication $\mu \colon L(L X) \to L X$, where $\mu$ takes any $(i,u)$ with $i : \I$ and $u \colon \ist{i} \to L X$ first to $(j,x)$, where $j$ is the dependent sum
 \[ j \coloneq \sum_{w:\ist{i}} (uw)_0\text{,} \]
 and $x \colon \ist{j} \to X$ is the partial element such that for $w : \ist{i}$ and $v : (uw)_0$
 \[ x(w,v) \coloneq (uw)_1(v)\text{.} \]
