@@ -260,7 +260,6 @@ Being the fixed points of an adjunction, spatial $\I$-algebras and sober spaces 
   This holds generally for fixed points of an adjunction.
 \end{proof}
 
-
 \section{Open propositions and the dominance property}\label{sec:dominance}
 
 Notice that up till this point we have not used any special property of $\T$ rather than the fact that it is a Horn theory. However, to move closer to the intended application in domain theory, we start by assuming our theory $\T$ is \emph{propositionally stable} in the following sense: 
@@ -413,6 +412,14 @@ In fact, in some sense all slices of $\I$ being spatial is an equivalent way of 
   But in this case, for any $q:\ist i$, $q = p$, thus $j(q) = j(p)$, which by function extensionality again it follows that 
   \[ \eta s(j) = j. \]
   This shows $s$ is indeed an inverse of $\eta$, hence $\I/i$ is spatial.
+
+  Now suppose $A$ is a spatial $\I$-algebra. Since the slice $A/i$ is equivalently the quotient algebra $A/i = 1$, it follows that $A/i \cong A \otimes \I/i$. By~\zcref{specrightadj}, it follows that
+  \[ \spec(A/i) \cong \spec A \times \spec{\I/i} \cong \spec A \times \ist i. \]
+  Since we have shown that $\I/i$ is spatial, the following isomorphisms hold,
+  \[ \opens{\spec(A/i)} \cong (\I/i)^{\spec A} \cong \scomp{U:\opens{\spec A}}{\fa x{\spec A} U(x) \le i}. \]
+  Since $A$ is spatial, $A \cong \opens{\spec A}$. In fact, it also means that there are ``enough points'' in its spectrum to detect its order (cf.~\zcref{lem:canon-beh-coincide}). Hence,
+  \[ \opens{\spec(A/i)} \cong \scomp{a:A}{\fa x{\spec A} x(a) \le i} \cong \scomp{a:A}{a \le i} \cong A/i. \]
+  This shows $A/i$ is also spatial.
 \end{proof}
 
 
