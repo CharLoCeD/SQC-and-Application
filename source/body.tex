@@ -585,7 +585,7 @@ Geometrically, the second condition states that the following two inclusions are
 
 Under (\AxiomL), the dominance $\I$ will be closed under finite disjunctions. Furthermore, it also implies more elementary properties about $\I$:
 
-\begin{lemma}[L, \AxiomSQCI]\label{lem:intisnotBoolean}
+\begin{lemma}[\AxiomL, \AxiomSQCID]\label{lem:intisnotBoolean}
   $\I$ has no non-trivial complemented elements, i.e.\ if $i : \I$ is complemented, then $\ist{i} \vee \isf{i}$. 
 \end{lemma}
 \begin{proof}
@@ -593,7 +593,7 @@ Under (\AxiomL), the dominance $\I$ will be closed under finite disjunctions. Fu
   \[ 1 \eq \ist{i\vee j} \eq \ist{i} \vee \ist{j}\text{,} \]
   and similarly,
   \[ \emp \eq \ist{i\wedge j} \eq \ist{i} \wedge \ist{j}\text{.} \]
-  It follows that $\ist{j} \eq \neg \ist{i}$, and by \zcref{prop:filed}, $\ist{j} \eq \isf{i}$. This way, $\ist{i} \vee \isf{i}$.
+  It follows that $\ist{j} \eq \neg \ist{i}$, and by \zcref{prop:filed}, $\ist{j} \eq \isf{i}$. Hence, $\ist{i} \vee \isf{i}$.
 \end{proof}
 
 \zcref{lem:intisnotBoolean} above allows us to realise 2 as a \emph{spectrum}:
@@ -838,7 +838,7 @@ In the above, $\opens{X}$ is playing two roles simultaneously: it is both a spec
 
 
 \begin{lemma}\label{lem:cancoincide}
-  For any quotient $q \colon \I[Y] \surj A$ of a free algebra $\I[Y]$, the satisfaction order on $\spec A$ is induced by the satisfaction order on $\spec{\I[Y]}$ via the inclusion ${\spec{q}}\colon\spec{A}\hook \spec{\I[Y]}$.
+  For any surjective homomorphism $q \colon \I[Y] \surj A$ of a free algebra $\I[Y]$, the satisfaction order on $\spec A$ is induced by the satisfaction order on $\spec{\I[Y]}$ via the inclusion ${\spec{q}}\colon\spec{A}\hook \spec{\I[Y]}$.
 \end{lemma} 
 
 \begin{proof}
