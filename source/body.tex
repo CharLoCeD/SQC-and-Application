@@ -392,18 +392,18 @@ If $X$ is sober, open subtypes are easy to classify:
   The related work of \citet{Cherubini_Coquand_Hutzler_2024} contains a similar construction of a dominance from a generic \emph{ring}. However, the proof there relies on certain classical axiom, which they call \emph{Zariski local choice}. The reason that the construction here does not require a similar assumption is precisely due to conservativity of $\I$: the dominance is $\I$ itself, rather than an image of $\I$. In this way, we can transform an open subtype of $X$ to a map $X \to \I$, which by quasi-coherence can be further identified as an element of the algebra if $X$ is sober. 
 \end{remark}
 
-In fact, in some sense all slices of $\I$ being spatial is an equivalent way of \emph{characterising} the dominance property of $\I$. We end this section by showing the following converse:
+We end this section by showing that $\I$ being stably spatial, i.e.\ all slices of $\I$ are spatial, is a \emph{characterisation} the dominance property of $\I$. Under this assumption, we can prove the (surprising) fact that all spatial algebras will indeed be stably spatial:
 
-\begin{theorem}
+\begin{theorem}\label{thm:chardominance}
   The following are equivalent:
   \begin{enumerate}
     \item (\AxiomSQCI) holds, i.e.\ $\I$ is stably spatial;
     \item $\I$ form a dominance;
+    \item All spatial $\I$-algebras are stably spatial.
   \end{enumerate}
-  In this case, in fact any spatial algebra is stably spatial.
 \end{theorem}
 \begin{proof}
-  We have shown (1) $\nt$ (2) in~\zcref{prop:Idominance}. To show the converse holds, suppose $\I$ is a dominance and take any $i:\I$. We construct an explicit inverse $s \colon \I^{\ist{i}} \to \I/i$ by defining $s$ as follows,
+  We have shown (1) $\nt$ (2) in~\zcref{prop:Idominance}. Evidently, (3) $\nt$ (1) since by~\zcref{exm:intervalqc} $\I$ is spatial. We first show (2) $\nt$ (1). Suppose $\I$ is a dominance and take any $i:\I$. We construct an explicit inverse $s \colon \I^{\ist{i}} \to \I/i$ by defining $s$ as follows,
   \[ s(j) \coloneq \sum_{p:\ist i} j(p). \]
   By construction $s(j) \le i$, since if $(p,x) : s(j)$, then $p : \ist i$ which implies $i = 1$, hence $x \le i$. To show this is an inverse of $\eta \colon \I/i \to \I^{\ist i}$, for any $j \le i$,
   \[ s\eta(j) \eq \sum_{p:\ist i}j \eq j. \]
@@ -413,15 +413,14 @@ In fact, in some sense all slices of $\I$ being spatial is an equivalent way of 
   \[ \eta s(j) = j. \]
   This shows $s$ is indeed an inverse of $\eta$, hence $\I/i$ is spatial.
 
-  Now suppose $A$ is a spatial $\I$-algebra. Since the slice $A/i$ is equivalently the quotient algebra $A/i = 1$, it follows that $A/i \cong A \otimes \I/i$. By~\zcref{specrightadj}, it follows that
+  Now we show (1) $\nt$ (3). Suppose $A$ is a spatial $\I$-algebra. Since the slice $A/i$ is the quotient algebra $A/i = 1$, it follows that $A/i \cong A \otimes \I/i$. By~\zcref{specrightadj}, we have
   \[ \spec(A/i) \cong \spec A \times \spec{\I/i} \cong \spec A \times \ist i. \]
-  Since we have shown that $\I/i$ is spatial, the following isomorphisms hold,
+  Since $\I/i$ is spatial, the following isomorphisms hold,
   \[ \opens{\spec(A/i)} \cong (\I/i)^{\spec A} \cong \scomp{U:\opens{\spec A}}{\fa x{\spec A} U(x) \le i}. \]
-  Since $A$ is spatial, $A \cong \opens{\spec A}$. In fact, it also means that there are ``enough points'' in its spectrum to detect its order (cf.~\zcref{lem:canon-beh-coincide}). Hence,
+  Since $A$ is spatial, $A \cong \opens{\spec A}$. In fact, spatiality also implies that there are ``enough points'' in the spectrum to detect its order (cf.~\zcref{lem:canon-beh-coincide}),
   \[ \opens{\spec(A/i)} \cong \scomp{a:A}{\fa x{\spec A} x(a) \le i} \cong \scomp{a:A}{a \le i} \cong A/i. \]
   This shows $A/i$ is also spatial.
 \end{proof}
-
 
 \section{Partial map classifier}\label{sec:lifting}
 Given then dominance structure $\I$, we can construct internally the partial map classifier. For any type $X$, it is given by
