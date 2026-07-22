@@ -330,7 +330,7 @@ The first observation is that $\istsym$ takes $i : \I$ to a spectrum:
   The final identity holds since $f$ preserves the top element. 
 \end{proof}
 
-The goal of this section is to show that, under a suitable quasi-coherence assumption, $\istsym\colon \I \to \pp$ makes $\I$ a \emph{dominance} in the sense of \citet{rosolini1986continuity}. It turns out that it suffices to require all slices of $\I$ to be spatial:
+The goal of this section is to show that, under a suitable quasi-coherence assumption, $\istsym\colon \I \to \pp$ makes $\I$ a \emph{dominance} in the sense of \citet{rosolini1986continuity}. In fact, at the end of this section we will provide an exact characterisation of the dominance property of $\I$ as a quasi-coherence principle. It turns out that it suffices to require all slices of $\I$ to be spatial:
 
 \begin{definition}[Stable spatiality and sobriety]
   An $\I$-algebra $A$ is \emph{stably spatial}, if for any $i:\I$, the slice $A/i$ is spatial. A sober space $X \cong \spec A$ is \emph{stably sober} if $A$ is stably spatial.
@@ -875,7 +875,7 @@ The interval $\I$ is playing multiple roles so far:
 
 In both cases above, $\I$ is viewed as an algebra of observations and not as a geometrical figure. For the latter, we may consider mappings from $\I$ into \emph{either} an algebra or a space as defining a notion of (directed) homotopy. In particular, the function space $X^\I$ classifies \emph{paths} drawn in $X$; this geometrical role of $\I$ as a figure shape for paths is the primary one in applications to synthetic category theory~\citep{riehl2017type}, and it is also upon the geometry of the interval that the notion of \emph{chain completeness} in synthetic domain theory is founded (cf.\ \zcref{sec:infdomain}).
 
-\subsection{The generalised Phoa principle and quasi-coherence for polynomial algebras}
+\subsection{The generalised Phoa principle and spatiality of polynomial algebras}
 
 As soon as we have path spaces $X^\I$, we immediately wish to begin characterising them for specific $X$. For example, the path space of a function space $A\to B$ is given pointwise in terms of the path space of $B$, which follows immediately from the laws of exponentials. To characterise paths in spaces like $\I^n$ and $\Delta^n$, however, we need additional axioms. The simplest such axiom asserts that the polynomial algebra $\I[\ms{i}]$ is spatial---which, in the case of bounded distributive lattices, is equivalent to Phoa's principle.
 
@@ -921,7 +921,7 @@ The standard Phoa principle is the generalised Phoa principle for $\I$ itself.
     \alpha_1(i) &= \alpha_1(0) \vee i \wedge \alpha_1(1)
   \end{align*}
 
-  Hence we have $\alpha(i) = (\alpha_0(0) \vee i \wedge \alpha_0(1))\lor x \wedge (\alpha_0(0) \vee i \wedge \alpha_0(1))$. On the other hand, we can use the normal form theorem to compute $\alpha(0)$ and $\alpha(1)$ as polynomials in $\ms{j}$: 
+  Hence we have $\alpha(i) = (\alpha_0(0) \vee i \wedge \alpha_0(1))\lor x \wedge (\alpha_0(0) \vee i \wedge \alpha_0(1))$. On the other hand, we can use the normal form to compute $\alpha(0)$ and $\alpha(1)$ as polynomials in $\ms{j}$: 
   \begin{align*}
     \alpha(0) &= \alpha_0(0) \vee \ms{j}\wedge \alpha_1(0)\\
     \alpha(1) &= \alpha_0(1) \vee \ms{j}\wedge \alpha_1(1)
@@ -1048,7 +1048,9 @@ In particular, $\I$ is not the boolean set $2$.
 An immediate application of Phoa principle is to compare path structure with the observational preorder.
 
 \begin{observation}[\AxiomSQCP]
-  For any type $X$, the boundary evaluation map $\pair{\ev_0,\ev_1}\colon X^\I\to X\times X$ factors through the observational preorder relation ${\obsle[X]}\hook X\times X$ as displayed below:
+  For any type $X$, the boundary evaluation map 
+  \[ \pair{\ev_0,\ev_1}\colon X^\I\to X\times X \] 
+  factors through the observational preorder relation ${\obsle[X]}\hook X\times X$ as displayed below:
   \[ 
     \begin{tikzcd}
       X^\I 
@@ -1136,7 +1138,7 @@ An immediate application of Phoa principle is to compare path structure with the
 \end{proposition}
 
 \begin{proof}
-  Because $A$ is spatial, the counit component $\iota_A$ gives us an order-isomorphism ${(A,\le_A)}\to (\opens\spec{A},\le_{\opens\spec{A}})$. By \zcref{prop:specordopens}, this is an equivalently an order-isomorphism ${(A,\le_A)}\to {(\opens\spec{A},\obsle[\opens\spec{A}])}$. Meanwhile, any bijective function tracks an isomorphism of observational preorders, so the inverse function $\iota_A^{-1}\colon \opens\spec{A}\to A$ tracks an order-isomorphism  ${(\opens\spec{A},\obsle[\opens\spec{A}])}\to {(A,\obsle[A])}$. 
+  Because $A$ is spatial, the counit component $\iota_A$ gives us an order-isomorphism ${(A,\le_A)}\to (\opens\spec{A},\le_{\opens\spec{A}})$. By \zcref{prop:specordopens}, this is an order-isomorphism ${(A,\le_A)}\to {(\opens\spec{A},\obsle[\opens\spec{A}])}$. Meanwhile, any bijective function tracks an isomorphism of observational preorders, so the inverse function $\iota_A^{-1}\colon \opens\spec{A}\to A$ tracks an order-isomorphism  ${(\opens\spec{A},\obsle[\opens\spec{A}])}\to {(A,\obsle[A])}$. 
 \end{proof}
 
 \begin{corollary}[\AxiomSQCP]
@@ -1148,12 +1150,16 @@ An immediate application of Phoa principle is to compare path structure with the
 \end{proof}
 
 
-\subsection{Quasi-coherence for finitely presented algebras}
+\subsection{Spatiality of finitely presented algebras}
 
 The (\AxiomSQCP) axiom does not imply that the simplices $\Delta^n$ are sober; for this, we need a stronger quasi-coherence principle that applies to all finitely \emph{presented} algebras.
 
 
 \PrintAxiomSQCF
+
+\begin{remark}
+  In particular, the axiom (\AxiomSQCF) implies all our previously mentioned quasi-coherence axioms, including (\AxiomSQCP) and (\AxiomSQCID) (hence also (\AxiomSQCI)).
+\end{remark}
 
 It is immediate that $\Delta^n\cong \spec\I[\ms{i}_1,\cdots,\ms{i}_n]/\ms{i}_1\geq \cdots \geq \ms{i}_n$ is sober under (\AxiomSQCF).
 
@@ -1220,7 +1226,7 @@ The failure of inductivity of $\omega$ has been observed in various realisabilit
 
 The remaining part of this section is dedicated to showing that under a suitable quasi-coherence assumption, we can indeed show that $\I$ is chain complete (\zcref{thm:complete}) and $\omega$ is inductive (\zcref{prop:omegacolimit}). In fact, the proof of \zcref{thm:complete} is the only place we where have used the essential properties of $\sigma$-frames, and we will also indicate why it fails for bounded distributive lattices in \zcref{rem:whynotdis}.
 
-\subsection{Quasi-coherent for countably presented algebras and infinitary domain theory}
+\subsection{Spatiality of countably presented algebras and infinitary domain theory}
 The connection between the infinitary aspect of synthetic domain theory and quasi-coherence starts from the observation that the final coalgebra $\ov\omega$ for the functor $L$ can be described as a \emph{spectrum}:
 
 \begin{example}[$\ov\omega$ is a spectrum]\label{exm:ovomegasober}
@@ -1245,7 +1251,7 @@ The connection between the infinitary aspect of synthetic domain theory and quas
   Here now $\I[\N]/\pair{\ms{i}_n \ge \ms{i}_{n+1}}_{n:\N}$ is a \emph{countably presented} $\I$-algebra.
 \end{example}
 
-In general, by a countably presented $\I$-algebra we mean one of the form $\I[\N]/\pair{s_n = t_n}_{n:\N}$ for some $\N$-indexed lists of terms $s,t \colon \N \to \I[\N]$. In particular, all finitely presented $\I$-algebras will also be countably presented. Motivated by the above characterisation of $\ov\omega$, we naturally consider the following stronger quasi-coherence principle:
+In general, a countably presented $\I$-algebra is of the form $\I[\N]/\pair{s_n = t_n}_{n:\N}$ for some $\N$-indexed lists of terms $s,t \colon \N \to \I[\N]$. In particular, all finitely presented $\I$-algebras will also be countably presented. Motivated by the above characterisation of $\ov\omega$, we naturally consider the following stronger quasi-coherence principle:
 
 
 \PrintAxiomSQCC
@@ -1304,7 +1310,7 @@ The transition maps $\Delta^n\to \Delta^{n+1}$ above are given by appending $0$ 
 \begin{proof}
   Let $i : \ov\omega$. It suffices to show that
   \[ \prth{\fa\phi{\pp} (\fa n{\N} (\ist{i_n} \to \phi) \to \phi) \to \phi} \to \ex{n}\N \isf{i_n}\text{.} \]
-  Assume the premise. We can instantiate $\phi$ to $\emp$. By assumption, we have $\neg\fa n\N \neg\neg\ist{i_n}$, which by \zcref{cor:opendnegclose} is equivalent to $\neg\fa n\N \ist{i_n}$. Then \zcref{lem:markov} implies this is $\ex n\N \isf{i_n}$. The fact that this makes $\omega$ into the above sequential colimit follows from \citet[Cor.~1.10]{VANOOSTEN2000233}.
+  Assume the premise. We can instantiate $\phi$ to $\emp$. By assumption, $\neg\fa n\N \neg\neg\ist{i_n}$, which by \zcref{cor:opendnegclose} is equivalent to $\neg\fa n\N \ist{i_n}$. Then \zcref{lem:markov} implies this is $\ex n\N \isf{i_n}$. The fact that this makes $\omega$ into the above sequential colimit follows from \citet[Cor.~1.10]{VANOOSTEN2000233}.
 \end{proof}
 
 % \begin{remark}\label{rem:omegaalwayscolim}
