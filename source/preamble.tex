@@ -193,14 +193,21 @@
 \NewDocumentCommand\AxiomSQCI{}{SQCI}
 \NewDocumentCommand\PrintAxiomSQCI{}{
   \begin{axiom}[\AxiomSQCI]
-    $\I$ is stably quasi-coherent, i.e.\ the slice $\I/i$ is spatial for every $i:\I$.
+    $\I$ is stably spatial, i.e.\ the slice $\I/i$ is spatial for every $i:\I$.
+  \end{axiom}
+}
+
+\NewDocumentCommand\AxiomSQCID{}{SQCID}
+\NewDocumentCommand\PrintAxiomSQCID{}{
+  \begin{axiom}[\AxiomSQCID]
+    Both $\I$ and $\I\op$ are stably spatial.
   \end{axiom}
 }
 
 \NewDocumentCommand\AxiomSQCP{}{SQCP}
 \NewDocumentCommand\PrintAxiomSQCP{}{
   \begin{axiom}[\AxiomSQCP]
-    The polynomial $\I$-algebra $\I[\ms{i}]$ is quasi-coherent.
+    The polynomial $\I$-algebra $\I[\ms{i}]$ is spatial.
   \end{axiom}
 }
 
@@ -210,7 +217,6 @@
     We have $0 \neq 1$ in $\I$.
   \end{axiom}
 }
-
 
 \NewDocumentCommand\AxiomL{}{L}
 \NewDocumentCommand\PrintAxiomL{}{
@@ -243,13 +249,13 @@
 \NewDocumentCommand\AxiomSQCF{}{SQCF}
 \NewDocumentCommand\PrintAxiomSQCF{}{
   \begin{axiom}[\AxiomSQCF]
-    All finitely presented $\I$-algebras are quasi-coherent, or (equivalently) all finitely generated free $\I$-algebras are \emph{stably} quasi-coherent.
+    All finitely presented $\I$-algebras are spatial.
   \end{axiom}
 }
 
 \NewDocumentCommand\AxiomSQCC{}{SQCC}
 \NewDocumentCommand\PrintAxiomSQCC{}{
   \begin{axiom}[\AxiomSQCC]
-    All countably presented $\I$-algebras are quasi-coherent.
+    All countably presented $\I$-algebras are spatial.
   \end{axiom}
 }

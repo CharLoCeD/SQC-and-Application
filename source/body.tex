@@ -518,23 +518,27 @@ As mentioned in \zcref{rem:opprop}, the theory of bounded distributive lattices 
 \subsection{The dual dominance and co-partial map classifier}
 In this case, $\I$ has a minimal element $0$. Notice that the constant $0$ also induces a predicate on $\I$,
 \[ \isfsym\colon \I \to \pp\text{,} \]
-which takes any $i : \I$ to $i = 0$. 
+which takes any $i : \I$ to $i = 0$. Equivalently, we can view it as the $\ms t$ map for $\I\op$.
 
-\begin{corollary}[\AxiomSQCI]
-  $\isfsym\colon \I \to \pp$ is an embedding.
+\begin{corollary}
+  If $\I\op$ is stably spatial, then $\isfsym\colon \I \to \pp$ is an embedding.
 \end{corollary}
 
-We will now call propositions in the image of $\isfsym$ \emph{closed}, and a subtype classified by $\isfsym$ a \emph{closed subtype}. Analogously to the previous \zcref{prop:Idominance}, closed propositions also form a dominance:
+We will now call propositions in the image of $\isfsym$ \emph{closed}, and a subtype classified by $\isfsym$ a \emph{closed subtype}. Analogously to the previous \zcref{prop:Idominance}, closed propositions also form a dominance if $\I\op$ is stably spatial:
 
-\begin{corollary}[\AxiomSQCI]\label{cor:dualisdominance}
-  $\isfsym$ forms a dominance.
+\begin{corollary}\label{cor:dualisdominance}
+  If $\I\op$ is stably spatial, then $\isfsym$ forms a dominance.
 \end{corollary}
 
-There is an accompanying ``co-partial map classifier'' $T$ for partial maps with \emph{closed} domains, as \citet{hyland1990first} pointed out. Concretely, for any type $X$ it is defined by
+There is an accompanying ``co-partial map classifier'' $T$ for partial maps with \emph{closed} domains, as \citet{hyland1990first} pointed out. Concretely, for any type $X$,
 \[ T X \coloneq \sum_{i:\I} X^{\isf{i}}\text{.} \]
-And analogously to \zcref{prop:liftingofalgebra}, under (\AxiomSQCI) we can explicitly compute 
+And analogously to \zcref{prop:liftingofalgebra}, under the assumption that $\I\op$ is stably spatial, we can explicitly compute 
 \[ T\Delta^n \cong \Delta^{n+1}\text{,} \]
 where now the unit $\eta_T \colon \Delta^n \hook T\Delta^n \cong \Delta^{n+1}$ takes a sequence $i_1 \ge \cdots \ge i_n$ to $i_1 \ge \cdots \ge i_n \ge 0$ in $\Delta^{n+1}$. 
+
+To maintain this symmetry, we also introduce the following axiom:
+
+\PrintAxiomSQCID
 
 The remaining part of this section will introduce various locality axioms for the interval $\I$, and discuss some of their consequences with the quasi-coherence axiom.
 
@@ -548,7 +552,7 @@ Geometrically, the proposition $0 = 1$ can be identified with the spectrum $\spe
  %
 This way, $\emp \eq \ist{0}$ now will be sober, and it is both an open and closed proposition. As mentioned in introduction, (\AxiomNT) together with a strong enough quasi-coherence principle will imply all of Hyland's axioms for synthetic domain theory. Before we discuss that in \zcref{sec:infdomain}, a minimal amount of quasi-coherence provided by (\AxiomSQCI) already implies a lot of elementary properties. As a first consequence of (\AxiomNT) with (\AxiomSQCI), we can show that $\I$ is almost the Boolean algebra $2$ in the following sense:
 
-\begin{proposition}[\AxiomNT, \AxiomSQCI]\label{prop:filed}
+\begin{proposition}[\AxiomNT, \AxiomSQCID]\label{prop:filed}
   For any $i : \I$ we have:
   \[ \neg \ist{i} \eq \isf{i}, \quad \neg\isf{i} \eq \ist{i}\text{.} \]
   In particular, the embedding $2 \hook \I$ induced by $0,1$ is $\neg\neg$-dense:
@@ -560,7 +564,7 @@ This way, $\emp \eq \ist{0}$ now will be sober, and it is both an open and close
 
 This allows us to observe that the open and closed propositions have a bijective correspondence between them:
 
-\begin{corollary}[\AxiomNT, \AxiomSQCI]\label{cor:opendnegclose}
+\begin{corollary}[\AxiomNT, \AxiomSQCID]\label{cor:opendnegclose}
   For any proposition $p$, $p$ is open iff $\neg p$ is closed and vice versa. Furthermore, open and closed propositions are $\dneg$-stable.
 \end{corollary}
 
